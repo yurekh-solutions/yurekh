@@ -27,22 +27,21 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#001f1f]/90 backdrop-blur-md py-2" : "bg-[#001f1f]/95 py-3"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
+      ${isScrolled ? "bg-[#001f1f]/80 backdrop-blur-md py-2" : "bg-[#001f1f] py-4"}`}
     >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-3">
             <img
               src={log}
               alt="Yurekh Solutions Logo"
-              className="h-12 w-12 sm:h-10 sm:w-10 object-contain rounded-lg shadow-md"
+              className="h-10 w-10 object-contain rounded-lg shadow-md"
             />
             <div className="hidden sm:block">
-              <h1 className="text-xl sm:text-lg font-bold text-white">YUREKH</h1>
-              <p className="text-xs sm:text-xs text-gray-400 -mt-1">SOLUTIONS</p>
+              <h1 className="text-xl font-bold text-transprent">YUREKH</h1>
+              <p className="text-xs text-gray-400 -mt-1">SOLUTIONS</p>
             </div>
           </div>
 
@@ -60,7 +59,7 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Contact Button Desktop */}
+          {/* Contact CTA (Desktop) */}
           <div className="hidden lg:flex items-center space-x-4">
             <button
               onClick={() => setIsMenuOpen(false)}
@@ -77,13 +76,13 @@ const Header = () => {
             className="lg:hidden text-white"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-10 w-6" />}
           </Button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 w-full bg-[#001f1f]/95 backdrop-blur-md shadow-lg border border-white/20 rounded-xl p-6 animate-fade-in-up">
+          <div className="lg:hidden mt-4 w-full bg-white/10 backdrop-blur-xl shadow-lg border border-white/20 rounded-xl p-6 animate-fade-in-up">
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <a

@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Video from "@/components/Video";
 import Service from "@/components/Service";
 import Digital from "@/components/Digital";
+import VideoShowcase from '@/components/VideoShowcase';
 
 // Social widgets array
 const socialWidgets = [
@@ -41,8 +42,10 @@ const Index = () => {
       <Hero />
       <Video />
       <Service />
-      <Services />
+      <VideoShowcase />
       <Digital />
+            <Services />
+
       <Testimonials />
       <FAQ />
       {/* <About /> */}
