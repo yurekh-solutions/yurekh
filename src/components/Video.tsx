@@ -172,7 +172,16 @@ const Video = () => {
           <div className="stars2 animate-twinkle"></div>
           <div className="stars3 animate-twinkle"></div>
         </div>
-
+    <div className="absolute inset-0 z-10">
+        <div className="stars animate-twinkle"></div>
+        <div className="stars2 animate-twinkle"></div>
+        <div className="stars3 animate-twinkle"></div>
+      </div>
+ <div className="absolute inset-0 z-10">
+        <div className="stars animate-twinkle"></div>
+        <div className="stars2 animate-twinkle"></div>
+        <div className="stars3 animate-twinkle"></div>
+      </div>
         <div className="relative z-10 w-full max-w-7xl px-4 grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 text-left md:text-left text-center mt-5">

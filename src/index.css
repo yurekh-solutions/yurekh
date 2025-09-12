@@ -5,6 +5,10 @@
 /* ================= YurekhSolutions 3D Spline Design System ================= */
 @layer base {
   :root {
+     :root {
+    --background-bg: url("/src/assets/hero-bg.jpg"); /* path must be correct */
+  }
+
     --background: 220 100% 2%;
     --foreground: 180 100% 98%;
 
@@ -48,7 +52,7 @@
     --gradient-secondary: linear-gradient(135deg, hsl(175 100% 40%), hsl(180 100% 44%));
     --gradient-dark: linear-gradient(135deg, hsl(220 100% 2%), hsl(220 50% 6%));
     --gradient-glow: linear-gradient(135deg, hsl(180 100% 44% / 0.3), hsl(175 100% 40% / 0.3));
-    --gradient-space: radial-gradient(ellipse at center, hsl(220 50% 6% / 0.8), hsl(220 100% 2%));
+    --gradient-space: radial-gradient(ellipse at center, hsla(169, 100%, 2%, 0.8),hsl(189, 80%, 18%));
 
     /* Shadows */
     --shadow-primary: 0 10px 30px -10px hsl(180 100% 44% / 0.4);
