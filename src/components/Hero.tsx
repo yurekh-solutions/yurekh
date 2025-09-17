@@ -12,7 +12,7 @@ const Hero = () => {
       />
 
       {/* Dark Overlay */}
-      <div className="absolute inset-0 z-0 bg-black/70" />
+      <div className="absolute inset-0 z-0 bg-black/80" />
 
       {/* Star Animation Layer */}
       <div className="absolute inset-0 z-10">

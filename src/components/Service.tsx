@@ -256,10 +256,10 @@ const Service = () => {
                   className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-110"
                 />
               </div>
-              <div className="absolute inset-0 bg-black bg-opacity-70"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-60"></div>
 
               {/* Text */}
-              <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100">
+              <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100">
                 <h2
                   className={`text-2xl font-bold text-white mb-2 transition-colors duration-500 md:group-hover:text-[#96ffea] ${
                     tappedCardIndex === index ? "text-[#96ffea]" : ""

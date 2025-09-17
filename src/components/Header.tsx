@@ -27,8 +27,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
-      ${isScrolled ? "bg-[#001f1f]/80 backdrop-blur-md py-2" : "bg-[#001f1f] py-4"}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300  border-b border-gray-200/20
+      ${isScrolled ? "bg-[#001f1f]/40 backdrop-blur-md py-2" : "bg-[#001f1f] py-4"}`}
     >
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">

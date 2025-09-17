@@ -6,7 +6,6 @@
 @layer base {
   :root {
      :root {
-    --background-bg: url("/src/assets/hero-bg.jpg"); /* path must be correct */
   }
 
     --background: 220 100% 2%;
@@ -112,7 +111,46 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+        --gradient-primary: linear-gradient(135deg, hsl(180 100% 50%), hsl(180 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(175 100% 45%), hsl(180 100% 50%));
+    --gradient-dark: linear-gradient(135deg, hsl(220 100% 2%), hsl(220 50% 4%));
+    --gradient-glow: linear-gradient(135deg, hsl(180 100% 50% / 0.3), hsl(175 100% 45% / 0.3));
+    --gradient-space: radial-gradient(ellipse at center, hsl(220 100% 2%), hsl(220 50% 6%));
+    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    --gradient-ai: linear-gradient(135deg, hsl(280 100% 60%), hsl(320 100% 70%));
+    --gradient-marketing: linear-gradient(135deg, hsl(45 100% 60%), hsl(25 100% 65%));
+    --gradient-tech: linear-gradient(135deg, hsl(200 100% 60%), hsl(180 100% 70%));
+
+    /* Glass Morphism */
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-dark: rgba(0, 0, 0, 0.3);
+    --glass-blur: blur(20px);
+
+    /* Advanced Shadows */
+    --shadow-primary: 0 10px 30px -10px hsl(180 100% 50% / 0.4);
+    --shadow-glow: 0 0 40px hsl(180 100% 70% / 0.4);
+    --shadow-card: 0 20px 60px -20px hsl(220 100% 2% / 0.8);
+    --shadow-glass: 0 8px 32px 0 hsl(180 100% 50% / 0.15);
+    --shadow-float: 0 25px 80px -15px hsl(180 100% 50% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar */
+    --sidebar-background: 220 50% 4%;
+    --sidebar-foreground: 180 100% 98%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 220 100% 2%;
+    --sidebar-accent: 220 30% 8%;
+    --sidebar-accent-foreground: 180 100% 98%;
+    --sidebar-border: 220 30% 15%;
+    --sidebar-ring: 180 100% 50%;
+
   }
+  
 }
 
 @layer base {
@@ -139,6 +177,56 @@
 
 /* ================= Buttons, Cards, Text ================= */
 @layer components {
+    .premium-card {
+    @apply glass-card cursor-pointer overflow-hidden relative
+           hover:-translate-y-3 hover:shadow-[0_25px_80px_-15px_hsl(var(--primary)/0.4)];
+  }
+
+  .service-card {
+    @apply premium-card h-80 bg-gradient-to-br from-white/5 to-white/10
+           hover:from-primary/20 hover:to-accent/20;
+  }
+
+  .ai-card {
+    @apply premium-card bg-gradient-to-br from-purple-500/20 to-pink-500/20
+           hover:from-purple-500/30 hover:to-pink-500/30;
+  }
+
+  .marketing-card {
+    @apply premium-card bg-gradient-to-br from-orange-500/20 to-yellow-500/20
+           hover:from-orange-500/30 hover:to-yellow-500/30;
+  }
+
+  .tech-card {
+    @apply premium-card bg-gradient-to-br from-blue-500/20 to-cyan-500/20
+           hover:from-blue-500/30 hover:to-cyan-500/30;
+  }
+
+  /* Text Effects */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent
+           bg-[length:200%_auto] animate-gradient;
+  }
+
+  .text-glow {
+    @apply text-white drop-shadow-[0_0_10px_hsl(var(--primary-glow)/0.7)];
+  }
+
+  .title-gradient {
+    @apply text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-white to-accent 
+           bg-clip-text text-transparent leading-tight;
+  }
+
+  /* Layout Components */
+  .container-glass {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
+  }
+
+  .section-glass {
+    @apply min-h-screen py-20 bg-gradient-to-br from-background via-card to-background
+           relative overflow-hidden;
+  }
+
   .btn-hero {
     @apply px-8 py-3 rounded-full font-semibold text-white border-2 border-primary 
            bg-transparent hover:bg-primary hover:scale-105 transition-all duration-300
@@ -196,6 +284,7 @@
     @apply min-h-screen py-20 bg-gradient-to-br from-background via-card to-background
            relative overflow-hidden;
   }
+  
 
 /* ================= Utilities ================= */
 @layer utilities {
@@ -204,10 +293,39 @@
   .animate-glow { animation: glow 2s ease-in-out infinite alternate; }
   .animate-twinkle { animation: twinkle 6s ease-in-out infinite alternate; }
   .animate-spline { animation: splineFloat 8s ease-in-out infinite; }
+  .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
 
   .bg-gradient-space { background: var(--gradient-space); }
   .bg-gradient-primary { background: var(--gradient-primary); }
   .bg-gradient-glow { background: var(--gradient-glow); }
+  
+  .bg-gradient-space { background: var(--gradient-space); }
+  .bg-gradient-primary { background: var(--gradient-primary); }
+  .bg-gradient-glow { background: var(--gradient-glow); }
+  .bg-gradient-glass { background: var(--gradient-glass); }
+  .bg-gradient-ai { background: var(--gradient-ai); }
+  .bg-gradient-marketing { background: var(--gradient-marketing); }
+  .bg-gradient-tech { background: var(--gradient-tech); }
+.animate-gradient { animation: gradient 8s ease infinite; }
+  .animate-float { animation: float 6s ease-in-out infinite; }
+  .animate-glow { animation: glow 3s ease-in-out infinite alternate; }
+  .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+  .animate-twinkle { animation: twinkle 4s ease-in-out infinite; }
+  .animate-bounce-slow { animation: bounceSlow 3s ease-in-out infinite; }
+  .animate-rotate-slow { animation: rotateSlow 20s linear infinite; }
+  .animate-slide-up { animation: slideUp 0.8s ease-out forwards; }
+  .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+  .animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+
+  /* Glass Utilities */
+  .backdrop-blur-glass { backdrop-filter: var(--glass-blur); }
+  
+  /* Hover Effects */
+  .hover-lift { @apply hover:-translate-y-2 hover:shadow-[0_10px_40px_hsl(var(--primary)/0.3)] transition-all duration-300; }
+  .hover-glow { @apply hover:shadow-[0_0_30px_hsl(var(--primary-glow)/0.6)] transition-all duration-300; }
+  .hover-scale { @apply hover:scale-105 transition-transform duration-300; }
+  .hover-rotate { @apply hover:rotate-6 transition-transform duration-300; }
+
 }
 
 /* ================= Keyframes ================= */
@@ -242,6 +360,23 @@
     filter: drop-shadow(0 0 40px hsl(var(--primary-glow) / 0.8));
     transform: scale(1.02);
   }
+}
+@keyframes marquee-slow {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-slow-reverse {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(50%); }
+}
+
+.animate-marquee-slow {
+  animation: marquee-slow 40s linear infinite;
+}
+
+.animate-marquee-slow-reverse {
+  animation: marquee-slow-reverse 40s linear infinite;
 }
 
 /* ================= Starfield Animation ================= */
@@ -315,3 +450,27 @@
     @apply hover:-translate-y-1;
   }
 }
+.glass-card {
+    @apply glass rounded-2xl p-6 hover:border-primary/50 
+           hover:shadow-[0_0_40px_hsl(var(--primary-glow)/0.3)]
+           transition-all duration-500 transform hover:scale-[1.02];
+  } 
+   .title-gradient {
+    @apply text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary via-white to-accent 
+           bg-clip-text text-transparent leading-tight;
+  }
+   .btn-primary {
+    @apply px-8 py-4 rounded-full font-semibold text-white 
+           bg-gradient-to-r from-primary to-accent
+           hover:from-accent hover:to-primary
+           hover:scale-105 hover:shadow-[0_0_30px_hsl(var(--primary-glow)/0.6)]
+           transition-all duration-300 transform active:scale-95;
+  }
+
+  .btn-glass {
+    @apply glass px-6 py-3 rounded-xl font-medium text-white
+           hover:bg-white/20 hover:border-primary/50 hover:scale-105
+           hover:shadow-[0_0_25px_hsl(var(--primary)/0.4)]
+           transition-all duration-300 transform active:scale-95;
+  }
+  

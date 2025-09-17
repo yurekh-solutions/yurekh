@@ -184,43 +184,43 @@ const Digital = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card className="card-glass card-floating h-full">
-                    <CardContent className="p-8">
-                      <div className="mb-6">
-                        <div className="w-16 h-16 bg-primary/20 rounded-2xl flex items-center justify-center mb-4">
-                          <div className="w-8 h-8 bg-primary rounded-lg"></div>
-                        </div>
-                        
-                        <h4 className="text-xl font-bold mb-3 text-foreground">
-                          {service.title}
-                        </h4>
-                        
-                        <p className="text-muted-foreground leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
+                  <Card className="bg-white/3 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] rounded-2xl hover:shadow-[0_12px_40px_rgba(0,255,200,0.25)] transition-all duration-300">
+  <CardContent className="p-8">
+    <div className="mb-6">
+      <div className="w-16 h-16 bg-gradient-to-br from-teal-400 to-cyan-500 rounded-2xl flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/30">
+        <div className="w-8 h-8 bg-white rounded-lg"></div>
+      </div>
 
-                      <div className="space-y-3 mb-6">
-                        {service.features.map((feature, idx) => (
-                          <div key={idx} className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-primary rounded-full"></div>
-                            <span className="text-sm text-muted-foreground">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
+      <h4 className="text-xl font-bold mb-3 text-white">
+        {service.title}
+      </h4>
 
-                      <Button 
-                        variant="outline" 
-                        className="w-full btn-glass"
-                        onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
-                      >
-                        Learn More
-                        <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
-                      </Button>
-                    </CardContent>
-                  </Card>
+      <p className="text-gray-300 leading-relaxed">
+        {service.description}
+      </p>
+    </div>
+
+    <div className="space-y-3 mb-6">
+      {service.features.map((feature, idx) => (
+        <div key={idx} className="flex items-center gap-3">
+          <div className="w-2 h-2 bg-teal-400 rounded-full"></div>
+          <span className="text-sm text-gray-400">{feature}</span>
+        </div>
+      ))}
+    </div>
+
+    <Button 
+      className="w-full bg-gradient-to-r from-teal-800 to-cyan-300 text-white font-medium rounded-xl shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/50 hover:scale-[1.02] transition-all duration-300"
+      onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
+    >
+      Learn More
+      <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+      </svg>
+    </Button>
+  </CardContent>
+</Card>
+
                 </motion.div>
               ))}
             </div>
