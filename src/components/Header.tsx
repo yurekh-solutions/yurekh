@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import log from "../assets/log.svg"; // ✅ Correct import
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,8 +19,8 @@ const Header = () => {
 
   const navItems = [
     { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
     { name: "About", href: "#about" },
+    { name: "Services", href: "#services" },
     { name: "Portfolio", href: "#portfolio" },
     { name: "Testimonials", href: "#testimonials" },
     { name: "FAQ", href: "#faq" },
@@ -37,7 +39,7 @@ const Header = () => {
             <img
               src={log}
               alt="Yurekh Solutions Logo"
-              className="h-10 w-10 object-contain rounded-lg shadow-md"
+              className="h-10 w-10"
             />
             <div className="hidden sm:block">
               <h1 className="text-xl font-bold text-transprent">YUREKH</h1>
@@ -60,10 +62,10 @@ const Header = () => {
           </div>
 
           {/* Contact CTA (Desktop) */}
-          <div className="hidden lg:flex items-center space-x-4">
+          <div className="hidden lg:flex items-center space-x-4 ">
             <button
-              onClick={() => setIsMenuOpen(false)}
-              className="px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300"
+              onClick={() => navigate("/bookingform")}
+              className="px-5 py-2  rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all duration-300"
             >
               Get In Touch
             </button>
@@ -99,7 +101,13 @@ const Header = () => {
                   <Phone className="h-4 w-4" />
                   <span>9136242706</span>
                 </div>
-                <Button className="w-full rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-md hover:bg-white/20 transition-all duration-300">
+                <Button 
+                  className="w-full rounded-full bg-white/10 text-white border border-white/20 backdrop-blur-md hover:bg-white/20 transition-all duration-300"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    navigate("/bookingform");
+                  }}
+                >
                   Get Quote
                 </Button>
               </div>
