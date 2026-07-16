@@ -1,531 +1,303 @@
-// import { Phone, Mail, MapPin, MessageCircle, Clock, Send } from "lucide-react";
-// import { Button } from "@/components/ui/button";
-// import ServicesInquiryForm from "./forms/ServicesInquiryForm";
-// import ConsultationBookingForm from "./forms/ConsultationBookingForm";
-// import CareerForm from "./forms/CareerForm";
-// import { useState } from "react";
-
-// const Contact = () => {
-//   const [activeForm, setActiveForm] = useState("services");
-
- 
-
-//   const formOptions = [
-//     { id: "services", label: "Services Inquiry", icon: Send },
-//     { id: "consultation", label: "Book Consultation", icon: Clock },
-//     { id: "career", label: "Join Our Team", icon: MessageCircle }
-//   ];
-
-//   return (
-//     <section id="contact" className="py-20   bg-gradient-space lg:py-32 relative overflow-hidden">
-//       {/* Background Elements */}
-//       <div className="absolute inset-0 opacity-10">
-//         <div className="absolute top-20 left-20 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-//         <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
-//       </div>
-
-//       <div className="container mx-auto px-4 lg:px-8 relative z-10">
-//         {/* Header */}
-     
-
-//         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-//           {/* Contact Information */}
-          
-
-//           {/* Forms Section */}
-//           <div className="lg:col-span-2">
-//             {/* Form Selection Tabs */}
-//             <div className="flex flex-wrap gap-4 mb-8">
-//               {formOptions.map((option) => {
-//                 const IconComponent = option.icon;
-//                 return (
-//                   <Button
-//                     key={option.id}
-//                     variant={activeForm === option.id ? "default" : "outline"}
-//                     className={`glass-card px-4 py-2 ${
-//                       activeForm === option.id 
-//                         ? "bg-primary text-primary-foreground" 
-//                         : "border-primary/30 hover:border-primary hover:bg-primary/10"
-//                     }`}
-//                     onClick={() => setActiveForm(option.id)}
-//                   >
-//                     <IconComponent className="h-4 w-4 mr-2" />
-//                     {option.label}
-//                   </Button>
-//                 );
-//               })}
-//             </div>
-
-//             {/* Active Form */}
-//             <div className="animate-fade-in-up">
-//               {activeForm === "services" && <ServicesInquiryForm />}
-//               {activeForm === "consultation" && <ConsultationBookingForm />}
-//               {activeForm === "career" && <CareerForm />}
-//             </div>
-//           </div>
-//         </div>
-
-       
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default Contact;
-
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent } from '@/components/ui/card';
-import { toast } from 'sonner';
-
-// Helper function to format date as YYYY-MM-DD
-const formatDate = (date) => {
-  const d = new Date(date);
-  const year = d.getFullYear();
-  const month = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-};
-
-// Helper function to format time as HH:MM
-const formatTime = (date) => {
-  return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
-};
-
-const DemoBooking = () => {
-  const [selectedService, setSelectedService] = useState('');
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import contact from "@/assets/contact.png";
+const Contact = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    service: '',
-    preferredDate: '',
-    preferredTime: '',
-    message: ''
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    category: "",
+    message: "",
   });
-  const [availableDates, setAvailableDates] = useState([]);
-  const [availableTimes, setAvailableTimes] = useState([]);
 
-  // Services data
-  const services = [
-    { id: 'web-dev', name: 'Web Development', description: 'Custom websites & web applications' },
-    { id: 'mobile-app', name: 'Mobile App Development', description: 'iOS & Android applications' },
-    { id: 'digital-marketing', name: 'Digital Marketing', description: 'SEO, SEM, Social Media Marketing' },
-    { id: 'cloud-solutions', name: 'Cloud Solutions', description: 'AWS, Azure, Google Cloud services' },
-    { id: 'ai-ml', name: 'AI/ML Solutions', description: 'Machine learning & artificial intelligence' },
-    { id: 'cybersecurity', name: 'Cybersecurity', description: 'Security audits & protection services' },
-    { id: 'ui-ux', name: 'UI/UX Design', description: 'User interface & experience design' },
-    { id: 'consulting', name: 'IT Consulting', description: 'Technology strategy & consulting' }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/bookingform");
+  };
+
+  const categories = [
+    "Development Services",
+    "Premium Digital Branding",
+    "Product Launch & Development Services",
+    "Social Media Marketing",
+    "Elevated Branding Services",
+    "Print Media & Advertising",
+    "Tailored Digital Work",
+    "Public Relations (PR)",
+    "Business Consulting",
+    "AI & Machine Learning",
   ];
-
-  // Base time slots from 9:00 AM to 5:00 PM, every hour
-  const timeSlots = [
-    '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
-    '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM'
-  ];
-
-  // Effect to generate available dates and times on component mount
-  useEffect(() => {
-    generateAvailableDates();
-  }, []);
-
-  // Effect to update available times whenever the preferred date changes
-  useEffect(() => {
-    if (formData.preferredDate) {
-      updateAvailableTimes(formData.preferredDate);
-    }
-  }, [formData.preferredDate]);
-
-  const generateAvailableDates = () => {
-    const dates = [];
-    const today = new Date();
-    // Generate dates for the next 7 days
-    for (let i = 0; i < 7; i++) {
-      const date = new Date(today);
-      date.setDate(today.getDate() + i);
-      dates.push({
-        value: formatDate(date),
-        label: i === 0 ? 'Today' : i === 1 ? 'Tomorrow' : date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
-      });
-    }
-    setAvailableDates(dates);
-    if (dates.length > 0) {
-      // Set the default preferred date to the first available date
-      setFormData(prev => ({ ...prev, preferredDate: dates[0].value }));
-    }
-  };
-
-  const updateAvailableTimes = (selectedDate) => {
-    const todayFormatted = formatDate(new Date());
-    const isToday = selectedDate === todayFormatted;
-    const now = new Date();
-    const currentHour = now.getHours();
-
-    const newTimes = timeSlots.filter(time => {
-      if (isToday) {
-        // Convert AM/PM time to 24-hour format for comparison
-        const [timePart, modifier] = time.split(' ');
-        let [hours, minutes] = timePart.split(':');
-        let hour = parseInt(hours, 10);
-        if (modifier === 'PM' && hour !== 12) {
-          hour += 12;
-        } else if (modifier === 'AM' && hour === 12) {
-          hour = 0;
-        }
-
-        // Only show times that are at least one hour in the future
-        return hour > currentHour || (hour === currentHour && parseInt(minutes, 10) > now.getMinutes());
-      }
-      return true;
-    });
-
-    setAvailableTimes(newTimes);
-    // Reset preferred time if the previously selected time is no longer available
-    if (!newTimes.includes(formData.preferredTime)) {
-      setFormData(prev => ({ ...prev, preferredTime: newTimes[0] || '' }));
-    }
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleServiceSelect = (serviceId) => {
-    setSelectedService(serviceId);
-    const service = services.find(s => s.id === serviceId);
-    setFormData(prev => ({ ...prev, service: service?.name || '' }));
-  };
-
-  const handleBookDemo = () => {
-    if (!formData.name || !formData.email || !selectedService || !formData.preferredDate || !formData.preferredTime) {
-      toast.error('Please fill in all required fields');
-      return;
-    }
-
-    // Convert preferred time to 24-hour format
-    const convertTo24Hour = (time12h) => {
-      const [time, modifier] = time12h.split(' ');
-      let [hours, minutes] = time.split(':');
-      if (hours === '12') {
-        hours = '00';
-      }
-      if (modifier === 'PM') {
-        hours = String(parseInt(hours, 10) + 12);
-      }
-      return `${hours}:${minutes || '00'}`;
-    };
-
-    // Create Google Calendar event URL
-    const startDate = new Date(`${formData.preferredDate}T${convertTo24Hour(formData.preferredTime)}`);
-    const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // 1 hour duration
-
-    const eventDetails = {
-      title: `Demo: ${formData.service} - ${formData.name}`,
-      startTime: startDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
-      endTime: endDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z',
-      details: `Demo session with ${formData.name} from ${formData.company}\n\nService: ${formData.service}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nMessage: ${formData.message}`,
-      location: 'Google Meet (Link will be shared)'
-    };
-
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${eventDetails.startTime}/${eventDetails.endTime}&details=${encodeURIComponent(eventDetails.details)}&location=${encodeURIComponent(eventDetails.location)}`;
-
-    // Open Google Calendar in new tab
-    window.open(googleCalendarUrl, '_blank');
-
-    toast.success('Demo scheduled! Please check your email for Google Meet link.');
-    
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      company: '',
-      phone: '',
-      service: '',
-      preferredDate: availableDates[0]?.value || '',
-      preferredTime: availableTimes[0] || '',
-      message: ''
-    });
-    setSelectedService('');
-  };
 
   return (
-    <section id="demo" className="relative py-20 bg-gradient-space">
-      {/* Background Stars */}
-      <div className="absolute inset-0 z-0">
-        <div className="stars animate-twinkle"></div>
-        <div className="stars2 animate-twinkle"></div>
-        <div className="stars3 animate-twinkle"></div>
-      </div>
+    <section
+      className="relative py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
+    >
+      {/* Teal gradient glow */}
+      <div className="absolute top-1/4 left-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#1BE1D3]/5 rounded-full blur-[100px] sm:blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-[#1BE1D3]/3 rounded-full blur-[80px] sm:blur-[100px]" />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Main Content - Two Column inside rounded container */}
+        <div
+          className="rounded-[20px] sm:rounded-[28px] overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, rgba(10,26,26,0.8) 0%, rgba(5,15,15,0.95) 100%)",
+            border: "1px solid rgba(27,225,211,0.08)",
+          }}
         >
-          <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full glass border border-primary/40 mb-8">
-            <span className="text-lg font-medium text-gradient-primary">Book Free Demo</span>
-          </div>
-          
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gradient-glow">
-            See Our Solutions in Action
-          </h2>
-          
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Schedule a personalized demo to discover how our technology solutions 
-            can transform your business operations and drive growth.
-          </p>
-        </motion.div>
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 items-start">
+            {/* Left Side - Tell us about your project */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[36px] font-bold text-white leading-[1.2] mb-4 sm:mb-6 md:mb-8">
+                Tell us about your project
+              </h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Service Selection */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h3 className="text-2xl font-bold mb-6 text-gradient-primary">
-              Choose Your Service
-            </h3>
-            
-            <div className="grid gap-4">
-              {services.map((service) => (
-                <Card
-                  key={service.id}
-                  className={`cursor-pointer transition-all duration-300 ${
-                    selectedService === service.id
-                      ? 'border-primary bg-primary/10 shadow-glow'
-                      : 'border-border hover:border-primary/50 bg-card/50'
-                  }`}
-                  onClick={() => handleServiceSelect(service.id)}
-                >
-                  <CardContent className="p-4">
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-4 h-4 rounded-full border-2 ${
-                        selectedService === service.id
-                          ? 'border-primary bg-primary'
-                          : 'border-muted-foreground'
-                      }`}>
-                        {selectedService === service.id && (
-                          <div className="w-2 h-2 bg-background rounded-full m-auto mt-0.5"></div>
-                        )}
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground">{service.name}</h4>
-                        <p className="text-sm text-muted-foreground">{service.description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Booking Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="card-glass p-8"
-          >
-            <h3 className="text-2xl font-bold mb-6 text-gradient-primary">
-              Book Your Demo
-            </h3>
-
-            <div className="space-y-6">
-              {/* Personal Info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="demo-name" className="text-sm font-medium mb-2 block">
-                    Full Name *
-                  </Label>
-                  <Input
-                    id="demo-name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    placeholder="Enter your name"
-                    required
-                    className="form-input"
-                  />
+              {/* Trust indicators with checkmarks */}
+              <div className="space-y-3 sm:space-y-4 md:space-y-5 mb-6 sm:mb-8 md:mb-12">
+                <div className="flex items-center gap-4">
+                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0">
+                    <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#1BE1D3]" strokeWidth={2.5} />
+                  </div>
+                  <span className="text-white/80 text-[12px] sm:text-[13px] md:text-[15px]">We will respond to you within 12 hours</span>
                 </div>
-                
+
+                <div className="flex items-center gap-4">
+                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0">
+                    <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#1BE1D3]" strokeWidth={2.5} />
+                  </div>
+                  <span className="text-white/80 text-[12px] sm:text-[13px] md:text-[15px]">We'll sign an NDA if requested</span>
+                </div>
+
+                <div className="flex items-center gap-4">
+                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0">
+                    <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#1BE1D3]" strokeWidth={2.5} />
+                  </div>
+                  <span className="text-white/80 text-[12px] sm:text-[13px] md:text-[15px]">Access to dedicated consultant specialists</span>
+                </div>
+              </div>
+
+              {/* Contact Details */}
+              <div className="space-y-2.5 sm:space-y-3 md:space-y-4 mb-6 sm:mb-8 md:mb-10">
+                <a
+                  href="mailto:yurekhsolutions@gmail.com"
+                  className="flex items-center gap-3 text-[#1BE1D3] hover:text-white transition-colors duration-300 group"
+                >
+                  <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-[13px] sm:text-[14px] md:text-[16px] font-medium group-hover:underline">yurekhsolutions@gmail.com</span>
+                </a>
+                <a
+                  href="https://wa.me/919136242706"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-white/60 hover:text-[#1BE1D3] transition-colors duration-300"
+                >
+                  <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-[13px] sm:text-[14px] md:text-[16px]">+91 91362 42706</span>
+                </a>
+                <div className="flex items-center gap-3 text-white/60">
+                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
+                  <span className="text-[13px] sm:text-[14px] md:text-[16px]">Mumbai, India</span>
+                </div>
+              </div>
+
+              {/* CTA for busy people */}
+             <div className="glass-panel rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6">
+  <img
+    src={contact}
+    alt="Contact"
+    className="w-full max-w-[280px] sm:max-w-[350px] mb-3 sm:mb-4 mx-auto object-contain"
+  />
+</div>
+            </motion.div>
+
+            {/* Right Side - Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-white mb-1.5 sm:mb-2">
+                Get A Free Consultation
+              </h3>
+              <p className="text-white/50 text-[12px] sm:text-[13px] md:text-[14px] mb-4 sm:mb-6 md:mb-8">
+                Fill out the form below and we'll get back to you shortly.
+              </p>
+
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5 md:space-y-6">
+                {/* Name Fields */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+                  <div>
+                    <Label htmlFor="firstName" className="text-white/80 text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase mb-1.5 sm:mb-2 block">
+                      First Name <span className="text-[#1BE1D3]">*</span>
+                    </Label>
+                    <Input
+                      id="firstName"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                      placeholder=""
+                      className="bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-2.5 sm:py-3 text-[14px] sm:text-[15px] text-white placeholder:text-white/20 focus-visible:ring-0 focus-visible:border-[#1BE1D3]/60 focus-visible:ring-offset-0 transition-colors duration-300"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="lastName" className="text-white/80 text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase mb-1.5 sm:mb-2 block">
+                      Last Name <span className="text-[#1BE1D3]">*</span>
+                    </Label>
+                    <Input
+                      id="lastName"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                      placeholder=""
+                      className="bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-2.5 sm:py-3 text-[14px] sm:text-[15px] text-white placeholder:text-white/20 focus-visible:ring-0 focus-visible:border-[#1BE1D3]/60 focus-visible:ring-offset-0 transition-colors duration-300"
+                    />
+                  </div>
+                </div>
+
+                {/* Email */}
                 <div>
-                  <Label htmlFor="demo-email" className="text-sm font-medium mb-2 block">
-                    Email Address *
+                  <Label htmlFor="email" className="text-white/80 text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase mb-1.5 sm:mb-2 block">
+                    Email <span className="text-[#1BE1D3]">*</span>
                   </Label>
                   <Input
-                    id="demo-email"
+                    id="email"
                     name="email"
                     type="email"
                     value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Enter your email"
+                    onChange={handleChange}
                     required
-                    className="form-input"
+                    placeholder=""
+                    className="bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-3 text-white placeholder:text-white/20 focus-visible:ring-0 focus-visible:border-[#1BE1D3]/60 focus-visible:ring-offset-0 transition-colors duration-300"
                   />
                 </div>
-              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Phone */}
                 <div>
-                  <Label htmlFor="demo-company" className="text-sm font-medium mb-2 block">
-                    Company Name
+                  <Label htmlFor="phone" className="text-white/80 text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase mb-1.5 sm:mb-2 block">
+                    Phone Number <span className="text-[#1BE1D3]">*</span>
                   </Label>
-                  <Input
-                    id="demo-company"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    placeholder="Enter company name"
-                    className="form-input"
-                  />
+                  <div className="flex gap-2">
+                    <select
+                      className="bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-2.5 sm:py-3 text-white/70 text-[13px] sm:text-[14px] focus:outline-none focus:border-[#1BE1D3]/60 cursor-pointer appearance-none w-[120px] sm:w-[140px] flex-shrink-0 transition-colors duration-300"
+                    >
+                      <option value="+91">India (+91)</option>
+                      <option value="+1">+1</option>
+                      <option value="+44">+44</option>
+                      <option value="+971">+971</option>
+                      <option value="+61">+61</option>
+                      <option value="+49">+49</option>
+                    </select>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      placeholder="Enter phone number"
+                      className="bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-2.5 sm:py-3 text-[14px] sm:text-[15px] text-white placeholder:text-white/20 focus-visible:ring-0 focus-visible:border-[#1BE1D3]/60 focus-visible:ring-offset-0 transition-colors duration-300"
+                    />
+                  </div>
                 </div>
-                
-                <div>
-                  <Label htmlFor="demo-phone" className="text-sm font-medium mb-2 block">
-                    Phone Number
-                  </Label>
-                  <Input
-                    id="demo-phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    placeholder="Enter phone number"
-                    className="form-input"
-                  />
-                </div>
-              </div>
 
-              {/* Schedule */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Category */}
                 <div>
-                  <Label htmlFor="demo-date" className="text-sm font-medium mb-2 block">
-                    Preferred Date *
+                  <Label htmlFor="category" className="text-white/80 text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase mb-1.5 sm:mb-2 block">
+                    Select a Category
                   </Label>
                   <select
-                    id="demo-date"
-                    name="preferredDate"
-                    value={formData.preferredDate}
-                    onChange={handleInputChange}
-                    required
-                    className="form-input w-full p-2 rounded-lg bg-background/50 border border-border focus:outline-none focus:border-primary/50"
+                    id="category"
+                    name="category"
+                    value={formData.category}
+                    onChange={handleChange}
+                    className="w-full bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-2.5 sm:py-3 text-white/70 text-[13px] sm:text-[14px] focus:outline-none focus:border-[#1BE1D3]/60 cursor-pointer appearance-none transition-colors duration-300"
                   >
-                    {availableDates.map(date => (
-                      <option key={date.value} value={date.value}>{date.label}</option>
+                    <option value="">Choose a service...</option>
+                    {categories.map((cat) => (
+                      <option key={cat} value={cat}>{cat}</option>
                     ))}
                   </select>
                 </div>
-                
+
+                {/* Message */}
                 <div>
-                  <Label htmlFor="demo-time" className="text-sm font-medium mb-2 block">
-                    Preferred Time *
+                  <Label htmlFor="message" className="text-white/80 text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase mb-1.5 sm:mb-2 block">
+                    Describe Your Project Needs
                   </Label>
-                  <select
-                    id="demo-time"
-                    name="preferredTime"
-                    value={formData.preferredTime}
-                    onChange={handleInputChange}
-                    required
-                    className="form-input w-full p-2 rounded-lg bg-background/50 border border-border focus:outline-none focus:border-primary/50"
-                  >
-                    {availableTimes.map(time => (
-                      <option key={time} value={time}>{time}</option>
-                    ))}
-                  </select>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    placeholder="Tell us about your project requirements..."
+                    className="bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-2.5 sm:py-3 text-[14px] sm:text-[15px] text-white placeholder:text-white/20 focus-visible:ring-0 focus-visible:border-[#1BE1D3]/60 focus-visible:ring-offset-0 resize-none transition-colors duration-300"
+                  />
                 </div>
-              </div>
 
-              {/* Message */}
-              <div>
-                <Label htmlFor="demo-message" className="text-sm font-medium mb-2 block">
-                  Additional Requirements
-                </Label>
-                <Textarea
-                  id="demo-message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  placeholder="Any specific requirements or questions for the demo?"
-                  rows={3}
-                  className="form-textarea"
-                />
-              </div>
+                {/* Privacy */}
+                <p className="text-white/40 text-[11px] sm:text-[12px]">
+                  By submitting this form, you agree to our{" "}
+                  <a href="#" className="text-[#1BE1D3] underline hover:no-underline">
+                    Privacy Policy
+                  </a>.
+                </p>
 
-              {/* Submit Button */}
-              <Button
-                onClick={handleBookDemo}
-                disabled={!formData.name || !formData.email || !selectedService || !formData.preferredDate || !formData.preferredTime}
-                className="btn-hero w-full"
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Schedule Free Demo
-              </Button>
-            </div>
-          </motion.div>
+                {/* Submit Button */}
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-3 sm:py-4 rounded-lg sm:rounded-xl text-white text-[14px] sm:text-[16px] font-semibold cursor-pointer transition-all duration-300"
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    background: "linear-gradient(90deg, #5f636b, #1be1d3, #345d66, #1c1d20)",
+                    backgroundSize: "300% 100%",
+                    animation: "gradientBtn 5s ease-in-out infinite",
+                  }}
+                >
+                  Get In Touch
+                </motion.button>
+
+                <style>{`
+                  @keyframes gradientBtn {
+                    0% { background-position: 0% 50%; }
+                    50% { background-position: 100% 50%; }
+                    100% { background-position: 0% 50%; }
+                  }
+                  select option {
+                    background: #0a1a1a;
+                    color: white;
+                  }
+                `}</style>
+              </form>
+            </motion.div>
+          </div>
         </div>
-
-        {/* Features */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {[
-            {
-              icon: (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
-              ),
-              title: 'Live Demo Session',
-              description: 'Interactive 60-minute session with our experts'
-            },
-            {
-              icon: (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              ),
-              title: 'Customized Solutions',
-              description: 'Tailored demonstration based on your business needs'
-            },
-            {
-              icon: (
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              ),
-              title: 'Expert Consultation',
-              description: 'Get answers to all your technical questions'
-            }
-          ].map((feature, index) => (
-            <div key={index} className="text-center">
-              <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
-                {feature.icon}
-              </div>
-              <h4 className="text-xl font-semibold mb-2">{feature.title}</h4>
-              <p className="text-muted-foreground">{feature.description}</p>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );
 };
 
-export default DemoBooking;
+export default Contact;

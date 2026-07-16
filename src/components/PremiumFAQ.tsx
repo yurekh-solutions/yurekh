@@ -149,7 +149,7 @@ const PremiumFAQ = () => {
   const filteredFaqs = faqs.filter(faq => faq.category === activeCategory);
 
   return (
-    <section className="bg-gradient-space" id="faq">
+    <section className="relative py-20" id="faq" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
       {/* Stars Background */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="stars animate-twinkle opacity-20"></div>
@@ -164,27 +164,30 @@ const PremiumFAQ = () => {
         />
       </div>
 
-      <div className="container-glass relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 px-8">
+        <div className="max-w-7xl mx-auto mt-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <div className="glass-card inline-flex items-center gap-3 px-6 py-3 mb-8">
             <HelpCircle className="w-5 h-5 text-primary animate-pulse-glow" />
-            <span className="text-primary font-bold text-lg">Frequently Asked Questions</span>
+            <span className="text-[#1BE1D3] font-semibold text-[12px] uppercase tracking-[0.3em]">Frequently Asked Questions</span>
           </div>
           <h2 className="title-gradient mb-6">
             Everything You Need to Know
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-[14px] font-normal text-white/70 max-w-3xl mx-auto">
             Get instant answers to common questions about our AI-powered solutions and services
           </p>
         </motion.div>
 
+        {/* Rounded Card Container */}
+        <div className="glass-panel rounded-[28px] p-8 md:p-12 lg:p-16">
         {/* Category Filter */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -197,7 +200,7 @@ const PremiumFAQ = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`glass px-4 py-2 rounded-full text-sm font-medium transition-colors duration-300 ${
+              className={`glass px-4 py-2 rounded-full text-[14px] font-semibold transition-colors duration-300 ${
                 activeCategory === category
                   ? "bg-primary text-white border-primary-dark/50"
                   : "text-primary hover:bg-primary/20"
@@ -323,7 +326,7 @@ const PremiumFAQ = () => {
                               initial={{ opacity: 0, y: -10 }}
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.1 }}
-                              className="text-white/80 leading-relaxed"
+                              className="text-[14px] font-normal text-white/80 leading-[1.7]"
                             >
                               {faq.answer}
                             </motion.p>
@@ -337,8 +340,9 @@ const PremiumFAQ = () => {
             </motion.div>
           )}
         </AnimatePresence>
+        </div>
 
-        {/* Bottom CTA */}
+        {/* Bottom CTA - Outside Rounded Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -364,6 +368,7 @@ const PremiumFAQ = () => {
             </div>
           </div>
         </motion.div>
+        </div>
       </div>
     </section>
   );

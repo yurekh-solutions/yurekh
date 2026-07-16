@@ -38,21 +38,21 @@ const ProblemSection = () => {
         }
       `}</style>
 
-      <section className="py-20 bg-gradient-space overflow-hidden">
+      <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
         <div className="absolute inset-0">
           <div className="stars animate-twinkle opacity-20"></div>
           <div className="stars2 animate-twinkle opacity-30"></div>
         </div>
 
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-8">
           {/* Section Header */}
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cyan-400/30 mb-6">
-              <span className="text-lg md:text-xl font-semibold text-cyan-400">
+              <span className="text-[12px] font-semibold text-cyan-400 uppercase tracking-[0.3em]">
                 The Real Struggles in IT & Digital Marketing
               </span>
             </div>
-            <p className="text-base md:text-lg text-white/70 max-w-2xl mx-auto">
+            <p className="text-[14px] font-normal text-white/70 max-w-2xl mx-auto">
               Businesses in the tech and digital space face these challenges every single day.
             </p>
           </div>
@@ -78,10 +78,10 @@ const ProblemSection = () => {
                                         rounded-xl flex items-center justify-center shadow-inner">
                           <Icon className="w-5 h-5 text-cyan-400" />
                         </div>
-                        <div className="text-xl font-bold text-cyan-400">{problem.stat}</div>
+                        <div className="text-lg font-medium text-cyan-400">{problem.stat}</div>
                       </div>
 
-                      <h3 className="text-lg font-semibold mb-2 relative z-10">{problem.title}</h3>
+                      <h3 className="text-base font-medium mb-2 relative z-10">{problem.title}</h3>
                       <p className="text-sm text-muted-foreground relative z-10">{problem.description}</p>
                     </div>
                   );
@@ -105,9 +105,9 @@ const ProblemSection = () => {
                                         rounded-xl flex items-center justify-center shadow-inner">
                           <Icon className="w-5 h-5 text-cyan-400" />
                         </div>
-                        <div className="text-xl font-bold text-cyan-400">{problem.stat}</div>
+                        <div className="text-lg font-medium text-cyan-400">{problem.stat}</div>
                       </div>
-                      <h3 className="text-lg font-semibold mb-2 relative z-10">{problem.title}</h3>
+                      <h3 className="text-base font-medium mb-2 relative z-10">{problem.title}</h3>
                       <p className="text-sm text-muted-foreground relative z-10">{problem.description}</p>
                     </div>
                   );
@@ -133,9 +133,9 @@ const ProblemSection = () => {
                                         rounded-xl flex items-center justify-center shadow-inner">
                           <Icon className="w-5 h-5 text-cyan-400" />
                         </div>
-                        <div className="text-xl font-bold text-cyan-400">{problem.stat}</div>
+                        <div className="text-lg font-medium text-cyan-400">{problem.stat}</div>
                       </div>
-                      <h3 className="text-lg font-semibold mb-2 relative z-10">{problem.title}</h3>
+                      <h3 className="text-base font-medium mb-2 relative z-10">{problem.title}</h3>
                       <p className="text-sm text-muted-foreground relative z-10">{problem.description}</p>
                     </div>
                   );
@@ -159,9 +159,9 @@ const ProblemSection = () => {
                                         rounded-xl flex items-center justify-center shadow-inner">
                           <Icon className="w-5 h-5 text-cyan-400" />
                         </div>
-                        <div className="text-xl font-bold text-cyan-400">{problem.stat}</div>
+                        <div className="text-lg font-medium text-cyan-400">{problem.stat}</div>
                       </div>
-                      <h3 className="text-lg font-semibold mb-2 relative z-10">{problem.title}</h3>
+                      <h3 className="text-base font-medium mb-2 relative z-10">{problem.title}</h3>
                       <p className="text-sm text-muted-foreground relative z-10">{problem.description}</p>
                     </div>
                   );

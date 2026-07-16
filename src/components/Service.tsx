@@ -187,6 +187,81 @@ const serviceData = [
       },
     ],
   },
+  {
+    tabTitle: "Business Consulting",
+    cards: [
+      {
+        title: "Business Strategy",
+        imageSrc:
+          "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Develop comprehensive strategies to drive growth, optimize operations, and achieve your long-term business objectives.",
+      },
+      {
+        title: "Market Research",
+        imageSrc:
+          "https://images.unsplash.com/photo-1533750349088-cd871a92f312?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Gain deep insights into market trends, customer behavior, and competitive landscapes to make informed business decisions.",
+      },
+      {
+        title: "Marketing & Branding",
+        imageSrc:
+          "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Build a powerful brand presence with strategic marketing campaigns that resonate with your target audience.",
+      },
+      {
+        title: "Financial Planning",
+        imageSrc:
+          "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Navigate complex financial decisions with expert guidance on budgeting, forecasting, and resource allocation.",
+      },
+      {
+        title: "Operational Efficiency",
+        imageSrc:
+          "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Streamline processes and improve productivity with data-driven operational improvements and best practices.",
+      },
+      {
+        title: "Start-Up Advisory",
+        imageSrc:
+          "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Get expert guidance on launching and scaling your startup, from business planning to funding strategies.",
+      },
+      {
+        title: "Digital Transformation",
+        imageSrc:
+          "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Modernize your business with cutting-edge digital solutions that enhance efficiency and customer experience.",
+      },
+      {
+        title: "HR Consulting",
+        imageSrc:
+          "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Build high-performing teams with strategic HR solutions including talent acquisition, development, and retention.",
+      },
+      {
+        title: "Risk Management",
+        imageSrc:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Identify, assess, and mitigate business risks with comprehensive risk management frameworks and strategies.",
+      },
+      {
+        title: "Executive Coaching",
+        imageSrc:
+          "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1200&auto=format&fit=crop",
+        description:
+          "Empower your leadership team with personalized coaching to enhance decision-making and organizational performance.",
+      },
+    ],
+  },
 ];
 
 const Service = () => {
@@ -205,9 +280,9 @@ const Service = () => {
   };
 
   return (
-    <div className="min-h-[600px] bg-gradient-space text-white font-sans flex flex-col items-center py-12 px-4 md:px-8">
+    <div className="min-h-[600px] bg-gradient-space text-white font-sans flex flex-col items-center py-12 px-8">
       <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass bg-gradient-space border border-[#009494]-400/40 mb-6">
-        <span className="text-2xl md:text-2xl font-medium text-[#009494]">
+        <span className="text-[12px] font-semibold text-[#009494] uppercase tracking-[0.3em]">
           Our Services
         </span>
       </div>
@@ -218,7 +293,7 @@ const Service = () => {
           <motion.button
             key={tab.tabTitle}
             onClick={() => setActiveTab(tab.tabTitle)}
-            className={`py-3 px-6 rounded-3xl font-semibold transition-all duration-300 backdrop-blur-md ${
+            className={`py-2.5 px-5 rounded-3xl font-semibold transition-all duration-300 backdrop-blur-md text-[14px] ${
               activeTab === tab.tabTitle
                 ? "bg-[#009494] text-white shadow-lg"
                 : "bg-transparent text-white hover:text-[#96ffea] hover:shadow-[0_0_15px_#96ffea] border border-transparent hover:border-[#96ffea]"
@@ -261,14 +336,14 @@ const Service = () => {
               {/* Text */}
               <div className="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-end p-6 transition-opacity duration-300 opacity-100 md:opacity-0 md:group-hover:opacity-100">
                 <h2
-                  className={`text-2xl font-bold text-white mb-2 transition-colors duration-500 md:group-hover:text-[#96ffea] ${
+                  className={`text-[18px] font-semibold text-white mb-2 transition-colors duration-500 md:group-hover:text-[#96ffea] ${
                     tappedCardIndex === index ? "text-[#96ffea]" : ""
                   }`}
                 >
                   {card.title}
                 </h2>
                 <p
-                  className={`text-white transition-colors duration-500 md:group-hover:text-[#96ffea] ${
+                  className={`text-[14px] font-normal text-white transition-colors duration-500 md:group-hover:text-[#96ffea] ${
                     tappedCardIndex === index ? "text-[#96ffea]" : ""
                   }`}
                 >

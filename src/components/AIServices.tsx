@@ -93,7 +93,7 @@ const AIServices = () => {
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className={`premium-card cursor-pointer transition-all duration-500 ${
-        isActive ? "scale-105 shadow-[0_0_60px_hsl(var(--primary)/0.4)]" : ""
+        isActive ? "border-primary/30" : ""
       }`}
       onMouseEnter={() => setActiveService(index)}
       onClick={() => setActiveService(index)}
@@ -101,9 +101,9 @@ const AIServices = () => {
       <div
         className={`h-full bg-gradient-to-br ${
           isActive ? service.hoverGradient : service.gradient
-        } p-6 relative overflow-hidden`}
+        } p-6 relative overflow-hidden rounded-2xl`}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-50" />
+        <div className="absolute inset-0 bg-black/20" />
 
         {/* Icon */}
         <div className="relative z-10 mb-6">
@@ -111,8 +111,8 @@ const AIServices = () => {
             className={`w-16 h-16 rounded-2xl bg-gradient-primary flex items-center justify-center mb-4 ${
               isActive ? "animate-pulse-glow" : ""
             }`}
-            whileHover={{ rotate: 360 }}
-            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.3 }}
           >
             <service.icon className="w-8 h-8 text-white" />
           </motion.div>
@@ -151,7 +151,7 @@ const AIServices = () => {
           </div>
 
           {/* Stats */}
-          <div className="glass p-4 rounded-xl mb-6">
+          <div className="bg-white/5 p-4 rounded-xl mb-6 border border-white/5">
             <div className="flex items-center justify-between">
               <div>
                 <div className="text-2xl font-bold text-gradient">
@@ -161,7 +161,7 @@ const AIServices = () => {
                   {service.stats.metric}
                 </div>
               </div>
-              <Sparkles className="w-6 h-6 text-primary animate-pulse-glow" />
+              <Sparkles className="w-6 h-6 text-primary" />
             </div>
           </div>
 

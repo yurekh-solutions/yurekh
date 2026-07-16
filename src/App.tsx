@@ -6,10 +6,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import About from "@/components/About"; // Your existing About section
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import BookingForm from "./pages/BookingForm"; // ✅ import your booking form page
+import BookingForm from "./pages/BookingForm";
+import ServiceDetail from "./pages/ServiceDetail";
+import Industries from "./pages/Industries";
+import IndustryDetail from "./pages/IndustryDetail";
+import CaseStudy from "./pages/CaseStudy";
+import Services from "./pages/Services";
+import BlogDetail from "./pages/BlogDetail";
 
 const queryClient = new QueryClient();
 
@@ -36,11 +43,69 @@ const App = () => (
               </AppLayout>
             }
           />
+            <Route
+    path="/about"
+    element={
+                    <AppLayout>
+
+      <About />
+                    </AppLayout>
+
+    }
+  />
           <Route
             path="/bookingform"
             element={
               <AppLayout>
                 <BookingForm />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/services/:slug"
+            element={
+              <AppLayout>
+                <ServiceDetail />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/industries"
+            element={
+              <AppLayout>
+                <Industries />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/industries/:slug"
+            element={
+              <AppLayout>
+                <IndustryDetail />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/case-study"
+            element={
+              <AppLayout>
+                <CaseStudy />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/services"
+            element={
+              <AppLayout>
+                <Services />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/blogs/:slug"
+            element={
+              <AppLayout>
+                <BlogDetail />
               </AppLayout>
             }
           />

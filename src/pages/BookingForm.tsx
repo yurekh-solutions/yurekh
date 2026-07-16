@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { Calendar, Clock, User, Phone, Mail, Building, Globe, Target, MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles, Zap, TrendingUp, Bot } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Calendar, Clock, User, Phone, Mail, Building, Globe, Target, MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles, Zap, TrendingUp, Bot, ArrowUp, Shield, Award, Star } from 'lucide-react';
 
-// Custom Button Component
 const Button = ({ children, onClick, className = '', variant = 'default', disabled = false, type = 'button' }: {
   children: React.ReactNode;
   onClick?: () => void;
@@ -11,26 +10,18 @@ const Button = ({ children, onClick, className = '', variant = 'default', disabl
   type?: 'button' | 'submit';
 }) => {
   const baseClasses = 'inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed';
-  
   const variants = {
-    default: 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl',
-    outline: 'border-2 border-blue-500 text-blue-400 hover:bg-blue-500/10 backdrop-blur-sm',
-    secondary: 'bg-gray-600 hover:bg-gray-700 text-white'
+    default: 'bg-[#1BE1D3] hover:bg-[#1BE1D3]/80 text-black shadow-lg hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]',
+    outline: 'border-2 border-[#1BE1D3] text-[#1BE1D3] hover:bg-[#1BE1D3]/10',
+    secondary: 'bg-white/10 hover:bg-white/15 text-white border border-white/20'
   };
-
   return (
-    <button
-      type={type}
-      onClick={onClick}
-      disabled={disabled}
-      className={`${baseClasses} ${variants[variant]} ${className}`}
-    >
+    <button type={type} onClick={onClick} disabled={disabled} className={`${baseClasses} ${variants[variant]} ${className}`}>
       {children}
     </button>
   );
 };
 
-// Custom Input Component
 const Input = ({ value, onChange, placeholder, className = '', type = 'text', id, required = false }: {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -41,17 +32,11 @@ const Input = ({ value, onChange, placeholder, className = '', type = 'text', id
   required?: boolean;
 }) => (
   <input
-    type={type}
-    id={id}
-    value={value}
-    onChange={onChange}
-    placeholder={placeholder}
-    required={required}
-    className={`w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 ${className}`}
+    type={type} id={id} value={value} onChange={onChange} placeholder={placeholder} required={required}
+    className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-[#1BE1D3]/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#1BE1D3]/50 focus:border-[#1BE1D3]/50 transition-all duration-300 ${className}`}
   />
 );
 
-// Custom Textarea Component
 const Textarea = ({ value, onChange, placeholder, className = '', id, rows = 3 }: {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -61,16 +46,11 @@ const Textarea = ({ value, onChange, placeholder, className = '', id, rows = 3 }
   rows?: number;
 }) => (
   <textarea
-    id={id}
-    value={value}
-    onChange={onChange}
-    placeholder={placeholder}
-    rows={rows}
-    className={`w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none ${className}`}
+    id={id} value={value} onChange={onChange} placeholder={placeholder} rows={rows}
+    className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-[#1BE1D3]/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#1BE1D3]/50 focus:border-[#1BE1D3]/50 transition-all duration-300 resize-none ${className}`}
   />
 );
 
-// Custom Select Component
 const Select = ({ value, onChange, children, placeholder, className = '' }: {
   value: string;
   onChange: (value: string) => void;
@@ -79,113 +59,88 @@ const Select = ({ value, onChange, children, placeholder, className = '' }: {
   className?: string;
 }) => (
   <select
-    value={value}
-    onChange={(e) => onChange(e.target.value)}
-    className={`w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 ${className}`}
+    value={value} onChange={(e) => onChange(e.target.value)}
+    className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-[#1BE1D3]/20 text-white focus:outline-none focus:ring-2 focus:ring-[#1BE1D3]/50 focus:border-[#1BE1D3]/50 transition-all duration-300 ${className}`}
   >
-    {placeholder && <option value="" className="bg-gray-800 text-white">{placeholder}</option>}
+    {placeholder && <option value="" className="bg-[#0b0f0f] text-white">{placeholder}</option>}
     {children}
   </select>
 );
 
-// Custom Label Component
 const Label = ({ children, htmlFor, className = '' }: {
   children: React.ReactNode;
   htmlFor?: string;
   className?: string;
 }) => (
-  <label htmlFor={htmlFor} className={`block text-sm font-medium text-white mb-2 ${className}`}>
+  <label htmlFor={htmlFor} className={`block text-sm font-medium text-white/90 mb-2 ${className}`} style={{ fontFamily: "Poppins, sans-serif" }}>
     {children}
   </label>
 );
 
-// Custom Checkbox Component
 const Checkbox = ({ checked, onChange, id }: {
   checked: boolean;
   onChange: (checked: boolean) => void;
   id?: string;
 }) => (
   <input
-    type="checkbox"
-    id={id}
-    checked={checked}
-    onChange={(e) => onChange(e.target.checked)}
-    className="w-5 h-5 rounded border-white/20 bg-white/10 text-blue-600 focus:ring-blue-500 focus:ring-2"
+    type="checkbox" id={id} checked={checked} onChange={(e) => onChange(e.target.checked)}
+    className="w-5 h-5 rounded border-[#1BE1D3]/30 bg-white/5 text-[#1BE1D3] focus:ring-[#1BE1D3] focus:ring-2 accent-[#1BE1D3]"
   />
+);
+
+const SectionIcon = ({ icon: Icon }: { icon: React.ElementType }) => (
+  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30">
+    <Icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
+  </div>
 );
 
 const BookingForm = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<string>('');
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const [formData, setFormData] = useState({
-    firstName: '',
-    phone: '',
-    email: '',
-    companyName: '',
-    website: '',
-    industry: '',
-    businessSize: '',
-    goals: [] as string[],
-    currentProcess: '',
-    painPoints: '',
-    agreement: false,
+    firstName: '', phone: '', email: '', companyName: '', website: '',
+    industry: '', businessSize: '', goals: [] as string[],
+    currentProcess: '', painPoints: '', agreement: false,
   });
   const [step, setStep] = useState<'calendar' | 'form'>('calendar');
 
-  // Generate calendar days for current month
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
   const generateCalendarDays = () => {
     const now = new Date();
     const year = now.getFullYear();
     const month = now.getMonth();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
     const firstDay = new Date(year, month, 1).getDay();
-    
     const days = [];
-    
-    // Add previous month's trailing days
     for (let i = firstDay - 1; i >= 0; i--) {
       const prevMonth = month - 1;
       const prevYear = prevMonth < 0 ? year - 1 : year;
       const actualPrevMonth = prevMonth < 0 ? 11 : prevMonth;
       const prevDaysInMonth = new Date(prevYear, actualPrevMonth + 1, 0).getDate();
-      days.push({
-        day: prevDaysInMonth - i,
-        isCurrentMonth: false,
-        date: new Date(prevYear, actualPrevMonth, prevDaysInMonth - i),
-      });
+      days.push({ day: prevDaysInMonth - i, isCurrentMonth: false, date: new Date(prevYear, actualPrevMonth, prevDaysInMonth - i) });
     }
-    
-    // Add current month's days
     for (let day = 1; day <= daysInMonth; day++) {
-      days.push({
-        day,
-        isCurrentMonth: true,
-        date: new Date(year, month, day),
-      });
+      days.push({ day, isCurrentMonth: true, date: new Date(year, month, day) });
     }
-    
     return days;
   };
 
-  const timeSlots = [
-    '06:30 PM', '07:00 PM', '07:30 PM', '08:00 PM',
-    '08:30 PM', '09:00 PM', '09:30 PM', '10:00 PM'
-  ];
+  const timeSlots = ['06:30 PM', '07:00 PM', '07:30 PM', '08:00 PM', '08:30 PM', '09:00 PM', '09:30 PM', '10:00 PM'];
 
-  const industries = [
-    'Healthcare', 'E-commerce', 'Real Estate', 'Professional Services',
-    'Technology', 'Education', 'Manufacturing', 'Retail',
-    'Finance', 'Food & Beverage', 'Fitness & Wellness', 'Other'
-  ];
-
-  const businessSizes = [
-    'Solo Entrepreneur', '2-10 Employees', '11-50 Employees', 
-    '51-200 Employees', '200+ Employees'
-  ];
+  const industries = ['Healthcare', 'E-commerce', 'Real Estate', 'Professional Services', 'Technology', 'Education', 'Manufacturing', 'Retail', 'Finance', 'Food & Beverage', 'Fitness & Wellness', 'Other'];
+  const businessSizes = ['Solo Entrepreneur', '2-10 Employees', '11-50 Employees', '51-200 Employees', '200+ Employees'];
 
   const goalOptions = [
     'Get more Online reviews (so that your business looks more credible and ranks higher locally)',
-    'Automate Appointment booking (so that leads are captured even after business hours)', 
+    'Automate Appointment booking (so that leads are captured even after business hours)',
     'Reduce Missed calls (so that you never lose a potential customer)',
     'Use a 24/7 AI Assistant (so that your business works while you sleep)',
     'Reduce Admin workload (so that your team can focus on high-value tasks)',
@@ -193,44 +148,36 @@ const BookingForm = () => {
   ];
 
   const handleGoalChange = (goal: string, checked: boolean) => {
-    setFormData(prev => ({
-      ...prev,
-      goals: checked 
-        ? [...prev.goals, goal]
-        : prev.goals.filter(g => g !== goal)
-    }));
+    setFormData(prev => ({ ...prev, goals: checked ? [...prev.goals, goal] : prev.goals.filter(g => g !== goal) }));
   };
 
   const scrollToBooking = () => {
     setStep('calendar');
+    setTimeout(() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' }), 100);
   };
 
   const generateWhatsAppMessage = () => {
-    const dateStr = selectedDate.toLocaleDateString('en-US', { 
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-    
+    const dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    const goalsText = formData.goals.length > 0 ? formData.goals.map(goal => `  - ${goal}`).join('\n') : '  Not specified';
     return encodeURIComponent(
-      `🚀 AI AUTOMATION CONSULTATION BOOKING\n\n` +
-      `📅 Selected Date & Time:\n${dateStr} at ${selectedTime}\n\n` +
-      `👤 Contact Information:\n` +
-      `• Name: ${formData.firstName}\n` +
-      `• Phone: ${formData.phone}\n` +
-      `• Email: ${formData.email}\n` +
-      `• Company: ${formData.companyName || 'Not provided'}\n` +
-      `• Website: ${formData.website || 'Not provided'}\n\n` +
-      `🏢 Business Details:\n` +
-      `• Industry: ${formData.industry}\n` +
-      `• Business Size: ${formData.businessSize}\n\n` +
-      `🎯 Goals for Demo:\n${formData.goals.map(goal => `• ${goal}`).join('\n')}\n\n` +
-      `💼 Current Process:\n${formData.currentProcess}\n\n` +
-      `⚡ Pain Points:\n${formData.painPoints}\n\n` +
-      `💰 Consultation Fee: ₹4,999\n\n` +
-      `Ready to transform your business with AI automation! 🤖✨`
+      `========================================\n  CONSULTATION BOOKING\n  Yurekh Solutions\n========================================\n\nDATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nGOOGLE MEET:\n  https://meet.google.com/new\n\n----------------------------------------\nCONTACT INFORMATION\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || 'Not provided'}\n  Website: ${formData.website || 'Not provided'}\n\n----------------------------------------\nBUSINESS DETAILS\n----------------------------------------\n  Industry:      ${formData.industry || 'Not specified'}\n  Business Size: ${formData.businessSize || 'Not specified'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS\n----------------------------------------\n  ${formData.currentProcess || 'Not specified'}\n\n----------------------------------------\nPAIN POINTS\n----------------------------------------\n  ${formData.painPoints || 'Not specified'}\n\n----------------------------------------\nCONSULTATION FEE: $100\n----------------------------------------\n\nLooking forward to the consultation.\nThank you!`
     );
+  };
+
+  const generateGoogleCalendarLink = () => {
+    const startDate = new Date(selectedDate);
+    const [timeStr, period] = selectedTime.split(' ');
+    const [hours, minutes] = timeStr.split(':').map(Number);
+    let h = hours;
+    if (period === 'PM' && h !== 12) h += 12;
+    if (period === 'AM' && h === 12) h = 0;
+    startDate.setHours(h, minutes, 0, 0);
+    const endDate = new Date(startDate.getTime() + 30 * 60 * 1000);
+    const formatGCal = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    const details = encodeURIComponent(
+      `Consultation with Yurekh Solutions\n\nGoogle Meet: https://meet.google.com/new\n\nJoin via: https://meet.google.com/new\n\nBooking details sent via WhatsApp. Looking forward to our consultation!`
+    );
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Consultation+with+Yurekh+Solutions&dates=${formatGCal(startDate)}/${formatGCal(endDate)}&details=${details}&location=https://meet.google.com/new&add=guests&sf=true&output=xml`;
   };
 
   const handleSubmit = () => {
@@ -238,130 +185,94 @@ const BookingForm = () => {
       alert('Please fill in all required fields and accept the agreement.');
       return;
     }
-
-    const whatsappMessage = generateWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/9136242706?text=${whatsappMessage}`;
-    
-    console.log('Booking Data:', {
-      date: selectedDate,
-      time: selectedTime,
-      ...formData
-    });
-
+    const whatsappUrl = `https://wa.me/919136242706?text=${generateWhatsAppMessage()}`;
+    const gcalUrl = generateGoogleCalendarLink();
     window.open(whatsappUrl, '_blank');
+    setTimeout(() => window.open(gcalUrl, '_blank'), 1500);
   };
 
   return (
-    <div className="min-h-screen bg-gradient-space py-40 lg:py-40 relative overflow-hidden text-[#009494] font-sans">
-       <div className="absolute inset-0">
-          <div className="stars animate-twinkle opacity-20"></div>
-          <div className="stars2 animate-twinkle opacity-30"></div>
-        </div>
-      <div className="max-w-6xl mx-auto">
-        {/* Hero Section - Only show on calendar step */}
+    <div className="min-h-screen bg-[#0b0f0f] relative overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#1BE1D3]/5 via-transparent to-[#1BE1D3]/3" />
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 relative z-10">
+
+        {/* Hero Section */}
         {step === 'calendar' && (
-          <div className="text-center mb-12 space-y-8">
-            {/* Badge */}
-            <div className="inline-flex   glass-card items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full border border-cyan/30">
-              <Bot className="w-5 h-5 text-primary animate-pulse-glow" />
-              <span className="text-primary font-semibold">AI-Powered Business Automation</span>
+          <div className="text-center mb-14 sm:mb-20">
+            <div className="inline-flex items-center gap-2 bg-[#1BE1D3]/10 backdrop-blur-sm px-5 py-2.5 rounded-full border border-[#1BE1D3]/30 mb-6">
+              <Bot className="w-5 h-5 text-[#1BE1D3] animate-pulse" />
+              <span className="text-[#1BE1D3] font-semibold text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>AI-Powered Business Automation</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold">
-              <span className="bg-gradient-to-r from-white to-cyan-300 bg-clip-text text-transparent">
-                Transform Your Business with
-              </span>
-              <br />
-              <span className="bg-gradient-to-r from-cyan-100 via-cyan-200 to-cyan-900 bg-clip-text text-transparent">
-                AI Automation
-              </span>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, letterSpacing: "-0.02em" }}>
+              <span className="text-white block mb-1">Transform Your Business with</span>
+              <span className="text-[#1BE1D3]">AI Automation</span>
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-xl p-10   md:text-2xl text-white/70 leading-relaxed max-w-4xl mx-auto">
-              Never miss a lead again. Our AI Employee handles calls, chats, books appointments, 
-              and manages reviews 24/7 - while you focus on growing your business.
+            <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-10" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
+              Never miss a lead again. Our AI Employee handles calls, chats, books appointments, and manages reviews 24/7 — while you focus on growing your business.
             </p>
 
-            {/* Key Benefits Grid */}
-            <div className="grid  grid-cols-1 md:grid-cols-3 gap-6 mt-12 p-10">
-              <div className="bg-white/10  backdrop-blur-sm border glass-card border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Zap className="w-8 h-8 text-white" />
+            {/* Benefits Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mt-12">
+              {[
+                { icon: Zap, title: "24/7 AI Assistant", desc: "Never miss a customer inquiry, even after business hours" },
+                { icon: TrendingUp, title: "Boost Conversions", desc: "Convert more leads with intelligent automated responses" },
+                { icon: Sparkles, title: "Smart Automation", desc: "Automate repetitive tasks and focus on high-value work" },
+              ].map((item, idx) => (
+                <div key={idx} className="bg-gradient-to-br from-[#0d2828] to-[#0a1f1f] border-2 border-[#1BE1D3]/20 rounded-2xl p-6 text-center hover:border-[#1BE1D3]/50 hover:shadow-[0_0_30px_rgba(27,225,211,0.15)] transition-all duration-500">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30 mx-auto mb-4">
+                    <item.icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>{item.title}</h3>
+                  <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>{item.desc}</p>
                 </div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-3">24/7 AI Assistant</h3>
-                <p className="text-white/70">Never miss a customer inquiry, even after business hours</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm border  glass-card border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-3">Boost Conversions</h3>
-                <p className="text-white/70">Convert more leads with intelligent automated responses</p>
-              </div>
-
-              <div className="bg-white/10 backdrop-blur-sm border glass-card  border-white/20 rounded-2xl p-6 text-center hover:bg-white/15 transition-all duration-300">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Sparkles className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-3">Smart Automation</h3>
-                <p className="text-white/70">Automate repetitive tasks and focus on high-value work</p>
-              </div>
+              ))}
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col  sm:flex-row gap-4 justify-center items-center mt-8">
-              <Button 
-                onClick={scrollToBooking}
-                className="text-lg px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-purple-700"
-              >
-                Book Free Demo
-                <ArrowRight className="w-5 h-5 ml-2" />
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-10">
+              <Button onClick={scrollToBooking} className="text-lg px-8 py-4">
+                Book Free Demo <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button 
-                variant="outline" 
-                className="text-lg px-8 py-4"
-                onClick={() => window.open('https://wa.me/9136242706', '_blank')}
-              >
+              <Button variant="outline" className="text-lg px-8 py-4" onClick={() => window.open('https://wa.me/9136242706', '_blank')}>
                 Chat on WhatsApp
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2  glass-card m-10 md:grid-cols-4 gap-8 mt-16">
-              <div className="text-center ">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-800 bg-clip-text text-transparent mb-2">24/7</div>
-                <div className="text-white/70">AI Availability</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-800  bg-clip-text text-transparent mb-2">300%</div>
-                <div className="text-white/70">Lead Increase</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-800  bg-clip-text text-transparent mb-2">90%</div>
-                <div className="text-white/70">Time Saved</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-400 to-cyan-800  bg-clip-text text-transparent mb-2">₹4,999</div>
-                <div className="text-white/70">Starting Price</div>
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-14">
+              {[
+                { value: "24/7", label: "AI Availability" },
+                { value: "300%", label: "Lead Increase" },
+                { value: "90%", label: "Time Saved" },
+                { value: "$100", label: "Starting Price" },
+              ].map((stat, idx) => (
+                <div key={idx} className="text-center p-3 sm:p-4">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1BE1D3] mb-1" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, letterSpacing: "-0.01em" }}>{stat.value}</div>
+                  <div className="text-white/60 text-xs sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         )}
 
         {/* Booking Content */}
-        <div className="bg-white/10 m-10 glass-card backdrop-blur-xl border border-white/20 rounded-3xl p-6 md:p-8 lg:p-12">
+        <div id="booking-section" className="mt-16 sm:mt-20 bg-gradient-to-br from-[#0d2828]/80 to-[#0a1f1f]/80 backdrop-blur-xl border-2 border-[#1BE1D3]/20 rounded-3xl p-6 sm:p-8 lg:p-10">
           {step === 'calendar' ? (
-            <div className="space-y-8">
-              <div className="text-center space-y-4">
-                <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">Select Date & Time</h2>
-                <div className="flex items-center justify-center gap-2 text-blue-400">
-                  <Clock className="w-5 h-5" />
-                  <span className="font-semibold">30 Mins</span>
+            <div className="space-y-10">
+              <div className="text-center space-y-5">
+                <div className="flex items-center justify-center gap-3">
+                  <SectionIcon icon={Calendar} />
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>Select Date & Time</h2>
                 </div>
-                <p className="text-cyan-600 font-medium">
+                <div className="flex items-center justify-center gap-2 text-[#1BE1D3]">
+                  <Clock className="w-5 h-5" />
+                  <span className="font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>30 Mins</span>
+                </div>
+                <p className="text-[#1BE1D3]/80 font-medium" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </p>
               </div>
@@ -369,43 +280,22 @@ const BookingForm = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                 {/* Calendar */}
                 <div className="space-y-6">
-                  <div className="grid grid-cols-7 gap-1 mb-4">
+                  <div className="grid grid-cols-7 gap-1">
                     {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => (
-                      <div key={day} className="text-center py-3 text-white/70 font-medium text-sm">
-                        {day}
-                      </div>
+                      <div key={day} className="text-center py-3 text-white/60 font-medium text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{day}</div>
                     ))}
                     {generateCalendarDays().map((day, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setSelectedDate(day.date)}
-                        className={`
-                          py-3 text-center rounded-xl font-medium transition-all duration-300 hover:scale-105
-                          ${day.isCurrentMonth 
-                            ? 'text-white hover:bg-white/20' 
-                            : 'text-white/40'
-                          }
-                          ${selectedDate.toDateString() === day.date.toDateString()
-                            ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg shadow-blue-500/25'
-                            : ''
-                          }
-                        `}
-                      >
-                        {day.day}
-                      </button>
+                      <button key={index} onClick={() => setSelectedDate(day.date)}
+                        className={`py-3 text-center rounded-xl font-medium transition-all duration-300 hover:scale-105 ${day.isCurrentMonth ? 'text-white hover:bg-[#1BE1D3]/20' : 'text-white/30'} ${selectedDate.toDateString() === day.date.toDateString() ? 'bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)]' : ''}`}
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >{day.day}</button>
                     ))}
                   </div>
-
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
-                    <div className="text-blue-400 font-semibold mb-2">
-                      {selectedDate.toLocaleDateString('en-US', { 
-                        weekday: 'long',
-                        month: 'long',
-                        day: 'numeric',
-                        year: 'numeric'
-                      })}
+                  <div className="bg-white/5 border border-[#1BE1D3]/20 rounded-xl p-4">
+                    <div className="text-[#1BE1D3] font-semibold mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
                     </div>
-                    <div className="text-white/70 text-sm">GMT+05:30 Asia/Calcutta (GMT+5:30)</div>
+                    <div className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>GMT+05:30 Asia/Calcutta</div>
                   </div>
                 </div>
 
@@ -413,300 +303,185 @@ const BookingForm = () => {
                 <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-3">
                     {timeSlots.map(time => (
-                      <button
-                        key={time}
-                        onClick={() => setSelectedTime(time)}
-                        className={`
-                          p-4 rounded-xl font-medium transition-all duration-300 hover:scale-105
-                          ${selectedTime === time
-                            ? 'bg-gradient-to-r from-blue-500 to-cyan-600 text-white shadow-lg shadow-blue-500/25'
-                            : 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
-                          }
-                        `}
-                      >
-                        {time}
-                      </button>
+                      <button key={time} onClick={() => setSelectedTime(time)}
+                        className={`p-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 ${selectedTime === time ? 'bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)]' : 'bg-white/5 border border-[#1BE1D3]/20 text-white hover:bg-[#1BE1D3]/10'}`}
+                        style={{ fontFamily: "Poppins, sans-serif" }}
+                      >{time}</button>
                     ))}
                   </div>
-
                   {selectedTime && (
-                    <Button 
-                      onClick={() => setStep('form')}
-                      className="w-full py-4 text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-purple-700"
-                    >
-                      Continue to Form
-                      <ArrowRight className="w-5 h-5 ml-2" />
+                    <Button onClick={() => { setStep('form'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="w-full py-4 text-lg">
+                      Continue to Form <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   )}
                 </div>
               </div>
 
               {/* Demo Benefits */}
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8">
-                <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent mb-6">What You'll Get in This Demo:</h3>
+              <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-6">
+                  <SectionIcon icon={Star} />
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>What You'll Get in This Demo:</h3>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                   {[
                     'Live demonstration of AI Employee handling calls and chats',
-                    'See how it captures leads and books appointments automatically', 
+                    'See how it captures leads and books appointments automatically',
                     'Learn how it manages your reputation and reviews',
                     'Personalized setup walkthrough for your business',
                     'Custom pricing based on your specific needs',
                     'Q&A session to address your unique challenges'
                   ].map((benefit, index) => (
                     <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-cyan-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-white/90">{benefit}</span>
+                      <CheckCircle className="w-5 h-5 text-[#1BE1D3] mt-0.5 flex-shrink-0" />
+                      <span className="text-white/90 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{benefit}</span>
                     </div>
                   ))}
                 </div>
 
-                <div className="bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border border-cyan-400/30 rounded-xl p-6">
+                <div className="bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 rounded-xl p-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <Target className="w-6 h-6 text-cyan-400" />
-                    <h4 className="text-xl font-bold text-cyan-400">100% Money Back Guarantee</h4>
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30">
+                      <Target className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
+                    </div>
+                    <h4 className="text-lg sm:text-xl font-bold text-[#1BE1D3] tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>100% Money Back Guarantee</h4>
                   </div>
-                  <p className="text-white/90 mb-4">
-                    Try AI Employee today—no commitments, just results. See how it can transform your business in just a few days!
+                  <p className="text-white/90 mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    Try AI Employee today — no commitments, just results. See how it can transform your business in just a few days!
                   </p>
-                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-3 rounded-lg">
-                    <span className="text-cyan-400 font-semibold">Special Launch Offer: </span>
-                    <span className="text-white">Get your first 7 days free – no risk, no commitment, no pressure to continue.</span>
+                  <div className="bg-white/5 border border-[#1BE1D3]/20 px-4 py-3 rounded-lg">
+                    <span className="text-[#1BE1D3] font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>Special Launch Offer: </span>
+                    <span className="text-white" style={{ fontFamily: "Poppins, sans-serif" }}>Get your first 7 days free – no risk, no commitment, no pressure to continue.</span>
                   </div>
                 </div>
               </div>
             </div>
           ) : (
-            <div className="space-y-8">
-              <div className="flex flex-col md:flex-row md:items-center gap-4 mb-8">
-                <Button 
-                  variant="outline" 
-                  onClick={() => setStep('calendar')}
-                  className="w-fit"
-                >
-                  <ArrowLeft className="w-4 h-4 mr-2" />
-                  Back to Calendar
+            <div className="space-y-10">
+              <div className="flex flex-col md:flex-row md:items-center gap-4 mb-10">
+                <Button variant="outline" onClick={() => setStep('calendar')}>
+                  <ArrowLeft className="w-4 h-4 mr-2" /> Back to Calendar
                 </Button>
                 <div className="text-center flex-1">
-                  <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">Complete Your Booking</h2>
-                  <p className="text-blue-400 mt-2">
-                    {selectedDate.toLocaleDateString('en-US', { 
-                      weekday: 'long',
-                      month: 'long', 
-                      day: 'numeric',
-                      year: 'numeric'
-                    })} at {selectedTime}
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>Complete Your Booking</h2>
+                  <p className="text-[#1BE1D3] mt-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} at {selectedTime}
                   </p>
                 </div>
               </div>
 
-              <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
+              <form className="space-y-10" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
                 {/* Contact Information */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 space-y-6">
-                  <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent flex items-center gap-2">
-                    <User className="w-6 h-6 text-blue-400" />
-                    Contact Information
-                  </h3>
-                  
+                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <SectionIcon icon={User} />
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Contact Information</h3>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-3">
-                      <Label htmlFor="firstName">
-                        First Name <span className="text-red-400">*</span>
-                      </Label>
-                      <Input
-                        id="firstName"
-                        value={formData.firstName}
-                        onChange={(e) => setFormData(prev => ({...prev, firstName: e.target.value}))}
-                        placeholder="Enter your first name"
-                        required
-                      />
+                      <Label htmlFor="firstName">First Name <span className="text-red-400">*</span></Label>
+                      <Input id="firstName" value={formData.firstName} onChange={(e) => setFormData(prev => ({...prev, firstName: e.target.value}))} placeholder="Enter your first name" required />
                     </div>
-
                     <div className="space-y-3">
-                      <Label htmlFor="phone" className="flex items-center gap-2">
-                        <Phone className="w-4 h-4 " />
-                        Phone <span className="text-red-400">*</span>
-                      </Label>
-                      <Input
-                        id="phone"
-                        value={formData.phone}
-                        onChange={(e) => setFormData(prev => ({...prev, phone: e.target.value}))}
-                        placeholder="Enter your phone number"
-                        required
-                      />
+                      <Label htmlFor="phone" className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#1BE1D3]" /> Phone <span className="text-red-400">*</span></Label>
+                      <Input id="phone" value={formData.phone} onChange={(e) => setFormData(prev => ({...prev, phone: e.target.value}))} placeholder="Enter your phone number" required />
                     </div>
-
                     <div className="space-y-3">
-                      <Label htmlFor="email" className="flex items-center gap-2">
-                        <Mail className="w-4 h-4" />
-                        Email <span className="text-red-400">*</span>
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => setFormData(prev => ({...prev, email: e.target.value}))}
-                        placeholder="Enter your email address"
-                        required
-                      />
+                      <Label htmlFor="email" className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#1BE1D3]" /> Email <span className="text-red-400">*</span></Label>
+                      <Input id="email" type="email" value={formData.email} onChange={(e) => setFormData(prev => ({...prev, email: e.target.value}))} placeholder="Enter your email address" required />
                     </div>
-
                     <div className="space-y-3">
-                      <Label htmlFor="companyName" className="flex items-center gap-2">
-                        <Building className="w-4 h-4" />
-                        Company Name
-                      </Label>
-                      <Input
-                        id="companyName"
-                        value={formData.companyName}
-                        onChange={(e) => setFormData(prev => ({...prev, companyName: e.target.value}))}
-                        placeholder="Enter your company name"
-                      />
+                      <Label htmlFor="companyName" className="flex items-center gap-2"><Building className="w-4 h-4 text-[#1BE1D3]" /> Company Name</Label>
+                      <Input id="companyName" value={formData.companyName} onChange={(e) => setFormData(prev => ({...prev, companyName: e.target.value}))} placeholder="Enter your company name" />
                     </div>
-
                     <div className="md:col-span-2 space-y-3">
-                      <Label htmlFor="website" className="flex items-center gap-2">
-                        <Globe className="w-4 h-4" />
-                        Website (if any)
-                      </Label>
-                      <Input
-                        id="website"
-                        value={formData.website}
-                        onChange={(e) => setFormData(prev => ({...prev, website: e.target.value}))}
-                        placeholder="https://your-website.com"
-                      />
+                      <Label htmlFor="website" className="flex items-center gap-2"><Globe className="w-4 h-4 text-[#1BE1D3]" /> Website (if any)</Label>
+                      <Input id="website" value={formData.website} onChange={(e) => setFormData(prev => ({...prev, website: e.target.value}))} placeholder="https://your-website.com" />
                     </div>
                   </div>
                 </div>
 
                 {/* Business Information */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 space-y-6">
-                  <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">Business Information</h3>
-                  
+                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <SectionIcon icon={Building} />
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Business Information</h3>
+                  </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-3">
                       <Label>Industry Type</Label>
-                      <Select 
-                        value={formData.industry} 
-                        onChange={(value) => setFormData(prev => ({...prev, industry: value}))}
-                        placeholder="Select your industry"
-                      >
-                        {industries.map(industry => (
-                          <option key={industry} value={industry} className="bg-gray-800 text-white">
-                            {industry}
-                          </option>
-                        ))}
+                      <Select value={formData.industry} onChange={(value) => setFormData(prev => ({...prev, industry: value}))} placeholder="Select your industry">
+                        {industries.map(industry => (<option key={industry} value={industry} className="bg-[#0b0f0f] text-white">{industry}</option>))}
                       </Select>
                     </div>
-
                     <div className="space-y-3">
                       <Label>Business Size</Label>
-                      <Select 
-                        value={formData.businessSize} 
-                        onChange={(value) => setFormData(prev => ({...prev, businessSize: value}))}
-                        placeholder="Select business size"
-                      >
-                        {businessSizes.map(size => (
-                          <option key={size} value={size} className="bg-gray-800 text-white">
-                            {size}
-                          </option>
-                        ))}
+                      <Select value={formData.businessSize} onChange={(value) => setFormData(prev => ({...prev, businessSize: value}))} placeholder="Select business size">
+                        {businessSizes.map(size => (<option key={size} value={size} className="bg-[#0b0f0f] text-white">{size}</option>))}
                       </Select>
                     </div>
                   </div>
                 </div>
 
                 {/* Goals */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 space-y-6">
-                  <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">What would you like to achieve from this demo?</h3>
-                  <p className="text-white/70">Select all that apply</p>
-                  
+                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <SectionIcon icon={Target} />
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>What would you like to achieve?</h3>
+                  </div>
+                  <p className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>Select all that apply</p>
                   <div className="space-y-4">
                     {goalOptions.map((goal, index) => (
-                      <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors duration-200">
-                        <Checkbox
-                          id={`goal-${index}`}
-                          checked={formData.goals.includes(goal)}
-                          onChange={(checked) => handleGoalChange(goal, checked)}
-                        />
-                        <Label htmlFor={`goal-${index}`} className="text-white/90 leading-relaxed cursor-pointer text-sm md:text-base">
-                          {goal}
-                        </Label>
+                      <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#1BE1D3]/5 transition-colors duration-200">
+                        <Checkbox id={`goal-${index}`} checked={formData.goals.includes(goal)} onChange={(checked) => handleGoalChange(goal, checked)} />
+                        <Label htmlFor={`goal-${index}`} className="text-white/90 leading-relaxed cursor-pointer text-sm md:text-base">{goal}</Label>
                       </div>
                     ))}
                   </div>
                 </div>
 
                 {/* Additional Information */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 space-y-6">
-                  <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-white to-blue-300 bg-clip-text text-transparent">Additional Information</h3>
-                  
+                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <SectionIcon icon={MessageSquare} />
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Additional Information</h3>
+                  </div>
                   <div className="space-y-6">
                     <div className="space-y-3">
-                      <Label htmlFor="currentProcess">
-                        How are you currently managing appointments, reviews, and inquiries?
-                      </Label>
-                      <Textarea
-                        id="currentProcess"
-                        value={formData.currentProcess}
-                        onChange={(e) => setFormData(prev => ({...prev, currentProcess: e.target.value}))}
-                        placeholder="Tell us about your current process..."
-                        rows={4}
-                      />
+                      <Label htmlFor="currentProcess">How are you currently managing appointments, reviews, and inquiries?</Label>
+                      <Textarea id="currentProcess" value={formData.currentProcess} onChange={(e) => setFormData(prev => ({...prev, currentProcess: e.target.value}))} placeholder="Tell us about your current process..." rows={4} />
                     </div>
-
                     <div className="space-y-3">
-                      <Label htmlFor="painPoints">
-                        What specific pain points would you like us to focus on during the demo?
-                      </Label>
-                      <Textarea
-                        id="painPoints"
-                        value={formData.painPoints}
-                        onChange={(e) => setFormData(prev => ({...prev, painPoints: e.target.value}))}
-                        placeholder="Describe your main challenges..."
-                        rows={4}
-                      />
+                      <Label htmlFor="painPoints">What specific pain points would you like us to focus on during the demo?</Label>
+                      <Textarea id="painPoints" value={formData.painPoints} onChange={(e) => setFormData(prev => ({...prev, painPoints: e.target.value}))} placeholder="Describe your main challenges..." rows={4} />
                     </div>
                   </div>
                 </div>
 
                 {/* Agreement */}
-                <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 md:p-8 space-y-6">
-                  <div className="flex items-start gap-3 p-3 rounded-lg">
-                    <Checkbox
-                      id="agreement"
-                      checked={formData.agreement}
-                      onChange={(checked) => setFormData(prev => ({...prev, agreement: checked}))}
-                    />
-                    <Label htmlFor="agreement" className="text-white/90 cursor-pointer">
-                      I agree to be contacted for the Demo and further communication.
-                    </Label>
+                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
+                  <div className="flex items-center gap-3">
+                    <SectionIcon icon={Shield} />
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Agreement</h3>
                   </div>
-                  
-                  <div className="p-4 md:p-6 bg-blue-500/20 border border-cyan/80 glass-card rounded-xl">
-                    <p className="text-cyan-300 font-semibold text-center text-lg">
-                      💰 Consultation Fee: ₹4,999 - Expert guidance for your business transformation
+                  <div className="flex items-start gap-3 p-3 rounded-lg">
+                    <Checkbox id="agreement" checked={formData.agreement} onChange={(checked) => setFormData(prev => ({...prev, agreement: checked}))} />
+                    <Label htmlFor="agreement" className="text-white/90 cursor-pointer">I agree to be contacted for the Demo and further communication.</Label>
+                  </div>
+                  <div className="p-4 md:p-6 bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 rounded-xl">
+                    <p className="text-[#1BE1D3] font-semibold text-center text-lg" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      💰 Consultation Fee: $100 — Expert guidance for your business transformation
                     </p>
                   </div>
                 </div>
 
-                {/* Submit Button */}
+                {/* Submit */}
                 <div className="flex flex-col md:flex-row gap-4">
-                  <Button 
-                    type="button"
-                    onClick={() => setStep('calendar')}
-                    variant="outline"
-                    className="flex-1 py-4 text-lg"
-                  >
-                    <ArrowLeft className="w-5 h-5 mr-2" />
-                    Back to Calendar
+                  <Button type="button" onClick={() => setStep('calendar')} variant="outline" className="flex-1 py-4 text-lg">
+                    <ArrowLeft className="w-5 h-5 mr-2" /> Back to Calendar
                   </Button>
-                  <Button 
-                    type="submit"
-                    className="flex-1 py-4 text-lg bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-800 glass-card"
-                    disabled={!formData.agreement || !formData.firstName || !formData.phone || !formData.email}
-                  >
-                    Book Demo
-                    <MessageSquare className="w-5 h-5 ml-2" />
+                  <Button type="submit" className="flex-1 py-4 text-lg" disabled={!formData.agreement || !formData.firstName || !formData.phone || !formData.email}>
+                    Book Demo <MessageSquare className="w-5 h-5 ml-2" />
                   </Button>
                 </div>
               </form>
@@ -714,6 +489,17 @@ const BookingForm = () => {
           )}
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(27,225,211,0.6)]"
+          aria-label="Scroll to top"
+        >
+          <ArrowUp className="w-6 h-6" />
+        </button>
+      )}
     </div>
   );
 };
