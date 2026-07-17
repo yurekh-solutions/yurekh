@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Calendar, Clock, User, Phone, Mail, Building, Globe, Target, MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles, Zap, TrendingUp, Bot, ArrowUp, Shield, Award, Star } from 'lucide-react';
 import SEOHead from "@/components/SEOHead";
 
@@ -474,8 +475,13 @@ const BookingForm = () => {
                   </div>
                   <div className="flex items-start gap-3 p-3 rounded-lg">
                     <Checkbox id="agreement" checked={formData.agreement} onChange={(checked) => setFormData(prev => ({...prev, agreement: checked}))} />
-                    <Label htmlFor="agreement" className="text-white/90 cursor-pointer">I agree to be contacted for the Demo and further communication.</Label>
+                    <Label htmlFor="agreement" className="text-white/90 cursor-pointer">
+                      I agree to be contacted for the Demo and further communication.
+                    </Label>
                   </div>
+                  <p className="text-white/50 text-sm px-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    By submitting this form, you agree to our <Link to="/privacy" className="text-[#1BE1D3] hover:underline">Privacy Policy</Link>.
+                  </p>
                   <div className="p-4 md:p-6 bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 rounded-xl">
                     <p className="text-[#1BE1D3] font-normal text-center text-lg" style={{ fontFamily: "Poppins, sans-serif" }}>
                       💰 Consultation Fee: $100 — Expert guidance for your business transformation

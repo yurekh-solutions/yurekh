@@ -1,1 +1,1 @@
-Fix broken blog links, add OG image, graceful fallback for missing content  
+Add Privacy Policy link to booking form  
