@@ -1,1 +1,1 @@
-Add Privacy Policy link to booking form  
+Add vercel.json for SPA routing, remove lovable uploads  
