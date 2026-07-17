@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Zap, Target, Award, CheckCircle } from "lucide-react";
+import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Zap, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone } from "lucide-react";
 
 const BusinessConsulting = () => {
   return (
@@ -62,7 +62,7 @@ const BusinessConsulting = () => {
                     border: "2px solid rgba(255,255,255,0.2)",
                   }}
                 >
-                  Schedule Free Consultation
+                  Schedule  Consultation
                 </a>
               </div>
             </motion.div>
@@ -256,6 +256,123 @@ const BusinessConsulting = () => {
                   </ul>
                 </motion.div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Solutions */}
+      <section className="bg-black py-20 md:py-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="text-center mb-16"
+            >
+              <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">
+                Technology Solutions
+              </p>
+              <h2
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+              >
+                Build Your Digital Infrastructure.
+              </h2>
+              <p
+                className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
+                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+              >
+                From SaaS platforms to AI-powered chatbots, we build the technology that powers your business. Custom solutions designed for scale, security, and performance.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: <Cloud className="w-10 h-10" />,
+                  title: "SaaS Development",
+                  description: "End-to-end SaaS platform development with multi-tenancy, subscription management, analytics dashboards, and scalable cloud infrastructure.",
+                  features: ["Multi-tenant architecture", "Subscription billing", "User management", "Analytics & reporting", "API development", "Cloud deployment"],
+                },
+                {
+                  icon: <Database className="w-10 h-10" />,
+                  title: "Custom CRM Systems",
+                  description: "Tailored CRM solutions that fit your business processes. From lead management to customer success, built with your workflow in mind.",
+                  features: ["Lead tracking", "Sales pipeline", "Customer support", "Email integration", "Custom workflows", "Mobile access"],
+                },
+                {
+                  icon: <Bot className="w-10 h-10" />,
+                  title: "AI Chatbots & Automation",
+                  description: "Intelligent chatbots powered by AI for customer service, sales, and support. 24/7 automated engagement with human handoff capabilities.",
+                  features: ["Natural language processing", "Multi-channel deployment", "Knowledge base integration", "Analytics dashboard", "Human handoff", "Custom training"],
+                },
+                {
+                  icon: <Code className="w-10 h-10" />,
+                  title: "Custom Software",
+                  description: "Bespoke software solutions built from scratch to solve your unique business challenges. From concept to deployment and beyond.",
+                  features: ["Requirements analysis", "System architecture", "Agile development", "Quality assurance", "Deployment support", "Maintenance & updates"],
+                },
+                {
+                  icon: <Smartphone className="w-10 h-10" />,
+                  title: "Mobile Applications",
+                  description: "Native and cross-platform mobile apps for iOS and Android. From consumer apps to enterprise solutions with offline capabilities.",
+                  features: ["iOS & Android", "Cross-platform", "Offline mode", "Push notifications", "In-app purchases", "App store optimization"],
+                },
+                {
+                  icon: <Zap className="w-10 h-10" />,
+                  title: "AI & Machine Learning",
+                  description: "Integrate AI capabilities into your business: predictive analytics, recommendation engines, computer vision, and process automation.",
+                  features: ["Predictive analytics", "Recommendation systems", "Computer vision", "NLP solutions", "Process automation", "Model training"],
+                },
+              ].map((solution, idx) => (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className="p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/50 transition-all duration-300 hover:bg-white/5"
+                >
+                  <div className="text-[#1BE1D3] mb-5">{solution.icon}</div>
+                  <h3
+                    className="text-white text-xl font-semibold mb-3"
+                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+                  >
+                    {solution.title}
+                  </h3>
+                  <p
+                    className="text-white/60 text-sm leading-relaxed mb-5"
+                    style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                  >
+                    {solution.description}
+                  </p>
+                  <ul className="space-y-2">
+                    {solution.features.map((feature, fidx) => (
+                      <li key={fidx} className="flex items-start gap-2 text-white/50 text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
+                        <CheckCircle className="w-3 h-3 text-[#1BE1D3] flex-shrink-0 mt-0.5" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Link
+                to="/bookingform"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "15px",
+                  backgroundColor: "#1BE1D3",
+                }}
+              >
+                Discuss Your Technology Needs <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>
@@ -494,7 +611,7 @@ const BusinessConsulting = () => {
                   backgroundColor: "#1BE1D3",
                 }}
               >
-                Book Free Consultation <ArrowRight className="h-5 w-5" />
+                Book  Consultation <ArrowRight className="h-5 w-5" />
               </Link>
               <a
                 href="tel:+919136242706"

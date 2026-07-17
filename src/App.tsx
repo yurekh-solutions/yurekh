@@ -23,6 +23,7 @@ import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import BusinessConsulting from "./pages/BusinessConsulting";
+import Impact from "./pages/Impact";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -153,6 +154,14 @@ const App = () => (
             element={
               <AppLayout>
                 <BusinessConsulting />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/impact"
+            element={
+              <AppLayout>
+                <Impact />
               </AppLayout>
             }
           />
