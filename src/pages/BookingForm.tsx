@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, User, Phone, Mail, Building, Globe, Target, MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles, Zap, TrendingUp, Bot, ArrowUp, Shield, Award, Star } from 'lucide-react';
+import { Calendar, Clock, User, Phone, Mail, Building, Globe, Target, MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles, Zap, TrendingUp, Bot, Shield, Award, Star } from 'lucide-react';
 import SEOHead from "@/components/SEOHead";
 
 const Button = ({ children, onClick, className = '', variant = 'default', disabled = false, type = 'button' }: {
@@ -99,21 +99,12 @@ const SectionIcon = ({ icon: Icon }: { icon: React.ElementType }) => (
 const BookingForm = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<string>('');
-  const [showScrollTop, setShowScrollTop] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '', phone: '', email: '', companyName: '', website: '',
     industry: '', businessSize: '', goals: [] as string[],
     currentProcess: '', painPoints: '', agreement: false,
   });
   const [step, setStep] = useState<'calendar' | 'form'>('calendar');
-
-  useEffect(() => {
-    const handleScroll = () => setShowScrollTop(window.scrollY > 400);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const generateCalendarDays = () => {
     const now = new Date();
@@ -503,17 +494,6 @@ const BookingForm = () => {
           )}
         </div>
       </div>
-
-      {/* Scroll to Top Button */}
-      {showScrollTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_30px_rgba(27,225,211,0.6)]"
-          aria-label="Scroll to top"
-        >
-          <ArrowUp className="w-6 h-6" />
-        </button>
-      )}
     </div>
   );
 };

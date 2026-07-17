@@ -1,1 +1,1 @@
-Revert button to Discover More with original glass teal style  
+Remove scroll to top button from booking form  
