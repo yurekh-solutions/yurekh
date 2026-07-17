@@ -9,6 +9,7 @@ const sitemapData = [
     links: [
       { name: "About Us", href: "/about" },
       { name: "Careers", href: "/careers" },
+      { name: "Business Consulting", href: "/business-consulting" },
       { name: "Case Studies", href: "/case-study" },
       { name: "Industries", href: "/industries" },
       { name: "Services", href: "/services" },
@@ -266,6 +267,7 @@ const Footer = () => {
                 {[
                   { name: "About Us", href: "/about" },
                   { name: "Careers", href: "/careers" },
+                  { name: "Business Consulting", href: "/business-consulting" },
                   { name: "Blog", href: "/blogs" },
                   { name: "Book Demo", href: "/bookingform" },
                   { name: "Privacy Policy", href: "/privacy" },

@@ -119,6 +119,7 @@ const Header = () => {
       dropdown: [
         { name: "About Us", href: "/about" },
         { name: "Careers", href: "/careers" },
+        { name: "Business Consulting", href: "/business-consulting" },
       ],
     },
     { name: "Case Study", href: "/case-study" },
