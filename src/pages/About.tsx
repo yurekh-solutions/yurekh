@@ -50,7 +50,7 @@ const About = () => {
         breadcrumbs={[{ name: "About Us", url: "https://yurekh.com/about" }]}
       />
       {/* Hero Section */}
-      <section className="container mx-auto px-4 lg:px-8 pt-32 md:pt-40 mb-20">
+      <section className="container mx-auto px-4 lg:px-8 pt-22 md:pt-10 mb-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -283,11 +283,11 @@ const About = () => {
           </p>
           <a
             href="/bookingform"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#1BE1D3] text-black font-normal hover:bg-[#1BE1D3]/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1BE1D3] text-black font-semibold text-sm sm:text-base hover:bg-[#1BE1D3]/90 transition-colors whitespace-nowrap"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Get Started Today
-            <Sparkles className="w-5 h-5" />
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
         </motion.div>
       </section>
