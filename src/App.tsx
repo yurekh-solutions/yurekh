@@ -24,6 +24,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import BusinessConsulting from "./pages/BusinessConsulting";
 import Impact from "./pages/Impact";
+import FAQ from "./pages/FAQ";
 import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -162,6 +163,14 @@ const App = () => (
             element={
               <AppLayout>
                 <Impact />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/faq"
+            element={
+              <AppLayout>
+                <FAQ />
               </AppLayout>
             }
           />

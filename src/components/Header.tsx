@@ -120,6 +120,8 @@ const Header = () => {
         { name: "About Us", href: "/about" },
         { name: "Careers", href: "/careers" },
         { name: "Business Consulting", href: "/business-consulting" },
+        { name: "Impact", href: "/impact" },
+        { name: "FAQ", href: "/faq" },
       ],
     },
     { name: "Case Study", href: "/case-study" },
