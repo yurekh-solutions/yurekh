@@ -94,19 +94,20 @@ const Hero = () => {
           <button
             style={{
               fontFamily: "Poppins, sans-serif",
-              fontWeight: 600,
+              fontWeight: 400,
               fontSize: "clamp(14px, 2vw, 16px)",
-              padding: "0 40px",
-              height: "52px",
-              borderRadius: "8px",
-              backgroundColor: "#FFFFFF",
-              color: "#1E293B",
-              border: "none",
-              boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+              padding: "0 32px",
+              height: "48px",
+              borderRadius: "10px",
+              backgroundColor: "rgba(27,225,211,0.08)",
+              color: "#1BE1D3",
+              border: "1px solid rgba(27,225,211,0.3)",
+              backdropFilter: "blur(12px)",
+              boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
             }}
-            className="hover:bg-gray-100 hover:shadow-lg transition-all duration-300"
+            className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_40px_rgba(27,225,211,0.2)] transition-all duration-300"
           >
-          Get Started
+          Discover More
           </button>
         </Link>
         </motion.div>
