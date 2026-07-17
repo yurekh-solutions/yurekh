@@ -1773,6 +1773,22 @@ const BlogDetail = () => {
             </div>
           ))}
 
+          {/* Fallback CTA when no detailed content exists */}
+          {!content && (
+            <div className="mb-10 rounded-[20px] bg-white/5 border border-white/10 p-8 text-center">
+              <p className="text-[16px] text-white/70 leading-[1.8] mb-6">
+                This article is being prepared by our team. In the meantime, reach out to us directly for detailed insights on this topic.
+              </p>
+              <Link
+                to="/bookingform"
+                className="inline-block px-8 py-3 rounded-full font-semibold text-black transition-all duration-300 hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #1BE1D3, #0fb8a8)" }}
+              >
+                Request a Consultation
+              </Link>
+            </div>
+          )}
+
           {/* Related Posts */}
           <div className="mt-16 pt-10 border-t border-white/10">
             <h3 className="text-[22px] font-semibold text-white mb-8">Related Articles</h3>

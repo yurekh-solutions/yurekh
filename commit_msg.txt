@@ -1,1 +1,1 @@
-Add 20 buyer-intent blog articles with full content  
+Fix broken blog links, add OG image, graceful fallback for missing content  
