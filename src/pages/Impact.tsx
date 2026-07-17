@@ -12,7 +12,8 @@ const Impact = () => {
   ];
 
   const whatWeDo = [
-    {https://github.com/yurekh-solutions/yurekh push it github      title: "We Build Companies",
+    {
+      title: "We Build Companies",
       description: "From idea to incorporated entity — company registration, legal structure, tax setup, and compliance. We handle the paperwork so you can focus on your vision.",
       details: ["Private Limited, LLP, LLC formation", "GST, tax & regulatory compliance", "Bank account & licensing setup", "Corporate governance frameworks"],
     },

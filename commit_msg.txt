@@ -1,1 +1,1 @@
-Add FAQ page, LLMs.txt for AI discovery, enhanced global SEO with expanded hreflang tags, and navigation updates for global audience visibility
+Fix syntax error in Impact.tsx
