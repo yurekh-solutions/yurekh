@@ -51,18 +51,18 @@ const Hero = () => {
           className="text-white mb-8 text-center"
           style={{
             fontFamily: "Montserrat, sans-serif",
-            fontWeight: 600,
-            fontSize: "clamp(32px, 5vw, 48px)",
-            lineHeight: "1.25",
-            letterSpacing: "normal",
+            fontWeight: 700,
+            fontSize: "clamp(30px, 5vw, 48px)",
+            lineHeight: "1.2",
+            letterSpacing: "-0.02em",
             maxWidth: "800px",
           }}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          Enterprise Business Solutions{" "}
-          <span style={{ color: "#1BE1D3" }}>That Drive Growth</span>
+          Enterprise Digital Solutions{" "}
+          <span className="text-[#1BE1D3]">That Drive Growth</span>
         </motion.h1>
 
         <motion.p
@@ -70,8 +70,8 @@ const Hero = () => {
           style={{
             fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
-            fontSize: "18px",
-            lineHeight: "28px",
+            fontSize: "clamp(16px, 2.5vw, 18px)",
+            lineHeight: "1.67",
             maxWidth: "768px",
           }}
           initial={{ opacity: 0 }}
@@ -94,28 +94,27 @@ const Hero = () => {
           <button
             style={{
               fontFamily: "Poppins, sans-serif",
-              fontWeight: 400,
-              fontSize: "14px",
-              padding: "0 32px",
-              height: "48px",
-              borderRadius: "10px",
-              backgroundColor: "rgba(27,225,211,0.08)",
-              color: "#1BE1D3",
-              border: "1px solid rgba(27,225,211,0.3)",
-              backdropFilter: "blur(12px)",
-              boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+              fontWeight: 600,
+              fontSize: "clamp(14px, 2vw, 16px)",
+              padding: "0 40px",
+              height: "52px",
+              borderRadius: "8px",
+              backgroundColor: "#FFFFFF",
+              color: "#1E293B",
+              border: "none",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
             }}
-            className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_40px_rgba(27,225,211,0.2)] transition-all duration-300"
+            className="hover:bg-gray-100 hover:shadow-lg transition-all duration-300"
           >
-          Discover More
+          Get Started
           </button>
         </Link>
         </motion.div>
       </div>
 
-      {/* Widget Image - Only 20% visible, animated border */}
+      {/* Widget Image - Hidden on mobile, visible on desktop */}
       <motion.div
-        className="relative z-20 w-full flex justify-center"
+        className="relative z-20 w-full flex justify-center max-md:hidden"
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.4, delay: 0.8 }}

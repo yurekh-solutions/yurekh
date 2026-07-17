@@ -1,1 +1,1 @@
-Update typography to match mmcgbl.com - fluid clamp headings, negative letter-spacing, MMC mobile sizes  
+Match MMC mobile hero - bold heading, white button, hide widget on mobile  
