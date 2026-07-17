@@ -1,1 +1,1 @@
-Fix syntax error in Impact.tsx
+Add 20 buyer-intent blog articles with full content  
