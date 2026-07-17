@@ -191,7 +191,7 @@ const Footer = () => {
   return (
     <>
       {/* SiteMap Section */}
-      <section className="glass-panel py-16 md:py-24">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-10">
             {sitemapData.map((section) => (
@@ -219,7 +219,7 @@ const Footer = () => {
       </section>
 
       {/* Main Footer */}
-      <footer className="relative z-10 py-12 glass-panel border-t border-[#1BE1D3]/20">
+      <footer className="relative z-10 py-12 border-t border-[#1BE1D3]/20" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Company Info */}
