@@ -186,9 +186,9 @@ const AIChat = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 z-50 w-[90vw] max-w-md h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-[#1BE1D3]/30 flex flex-col" style={{ background: 'linear-gradient(135deg, #0b1f1f 0%, #0a2929 50%, #071919 100%)' }}>
+        <div className="fixed bottom-4 right-4 left-4 sm:bottom-6 sm:right-6 sm:left-auto z-50 w-auto sm:w-[90vw] max-w-md h-[70vh] sm:h-[600px] max-h-[500px] sm:max-h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[#1BE1D3]/30 flex flex-col" style={{ background: 'linear-gradient(135deg, #0b1f1f 0%, #0a2929 50%, #071919 100%)' }}>
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#1BE1D3]/20 to-[#1BE1D3]/10 border-b border-[#1BE1D3]/30 p-4 flex items-center justify-between">
+          <div className="bg-gradient-to-r from-[#1BE1D3]/20 to-[#1BE1D3]/10 border-b border-[#1BE1D3]/30 p-3 sm:p-4 flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#1BE1D3]/50 shadow-[0_0_20px_rgba(27,225,211,0.3)]">
@@ -213,7 +213,7 @@ const AIChat = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 min-h-0">
             {messages.map((message) => (
               <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`flex gap-2 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
@@ -275,7 +275,7 @@ const AIChat = () => {
           </div>
 
           {/* Quick Actions */}
-          <div className="border-t border-[#1BE1D3]/20 p-3 bg-black/20">
+          <div className="border-t border-[#1BE1D3]/20 p-2 sm:p-3 bg-black/20 flex-shrink-0">
             <div className="flex gap-2 overflow-x-auto pb-2">
               <a href="tel:+919136242706" className="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-[#1BE1D3]/20 text-white/70 hover:bg-[#1BE1D3]/10 hover:text-[#1BE1D3] transition-all text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
                 <Phone className="w-3 h-3" /> Call
@@ -293,7 +293,7 @@ const AIChat = () => {
           </div>
 
           {/* Input */}
-          <div className="border-t border-[#1BE1D3]/20 p-4 bg-black/30">
+          <div className="border-t border-[#1BE1D3]/20 p-3 sm:p-4 bg-black/30 flex-shrink-0">
             <form
               onSubmit={(e) => {
                 e.preventDefault();

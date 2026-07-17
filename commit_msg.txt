@@ -1,1 +1,1 @@
-Match MMC mobile hero - bold heading, white button, hide widget on mobile  
+Fix AI chat mobile responsive - viewport height, proper padding, no overflow  
