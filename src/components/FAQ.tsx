@@ -127,17 +127,17 @@ const FAQ = () => {
   const currentTab = faqTabs.find(tab => tab.id === activeTab);
 
   return (
-    <section id="faq" className="py-20 lg:py-32 relative  bg-gradient-space overflow-hidden">
+    <section id="faq" className="py-20 lg:py-32 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-20 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent rounded-full blur-3xl"></div>
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container  mx-auto px-4 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
+        <div className="text-center mt-10 mb-16">
+          <h2 className="text-4xl md:text-6xl font-normal mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

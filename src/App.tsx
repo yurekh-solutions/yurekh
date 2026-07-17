@@ -1,3 +1,5 @@
+import { lazy, Suspense } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -7,27 +9,37 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AIChat from "@/components/AIChat";
-
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import BookingForm from "./pages/BookingForm";
-import ServiceDetail from "./pages/ServiceDetail";
-import Industries from "./pages/Industries";
-import IndustryDetail from "./pages/IndustryDetail";
-import CaseStudy from "./pages/CaseStudy";
-import Services from "./pages/Services";
-import BlogDetail from "./pages/BlogDetail";
-import BlogListing from "./pages/BlogListing";
-import About from "./pages/About";
-import Careers from "./pages/Careers";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsAndConditions from "./pages/TermsAndConditions";
-import BusinessConsulting from "./pages/BusinessConsulting";
-import Impact from "./pages/Impact";
-import FAQ from "./pages/FAQ";
 import ScrollToTop from "./components/ScrollToTop";
 
+// Lazy load all pages for code splitting
+const Index = lazy(() => import("./pages/Index"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const BookingForm = lazy(() => import("./pages/BookingForm"));
+const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
+const Industries = lazy(() => import("./pages/Industries"));
+const IndustryDetail = lazy(() => import("./pages/IndustryDetail"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy"));
+const Services = lazy(() => import("./pages/Services"));
+const BlogDetail = lazy(() => import("./pages/BlogDetail"));
+const BlogListing = lazy(() => import("./pages/BlogListing"));
+const About = lazy(() => import("./pages/About"));
+const Careers = lazy(() => import("./pages/Careers"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
+const BusinessConsulting = lazy(() => import("./pages/BusinessConsulting"));
+const Impact = lazy(() => import("./pages/Impact"));
+const FAQ = lazy(() => import("./pages/FAQ"));
+
 const queryClient = new QueryClient();
+
+const PageLoader = () => (
+  <div className="min-h-screen flex items-center justify-center" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+    <div className="text-center">
+      <div className="w-12 h-12 border-2 border-[#1BE1D3]/30 border-t-[#1BE1D3] rounded-full animate-spin mx-auto mb-4" />
+      <p className="text-white/40 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>Loading...</p>
+    </div>
+  </div>
+);
 
 const AppLayout = ({ children }) => (
   <div className="flex flex-col min-h-screen">
@@ -39,12 +51,14 @@ const AppLayout = ({ children }) => (
 );
 
 const App = () => (
+  <HelmetProvider>
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route
             path="/"
@@ -184,9 +198,11 @@ const App = () => (
             }
           />
         </Routes>
+        </Suspense>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

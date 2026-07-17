@@ -77,7 +77,7 @@ const PremiumFAQ = () => {
             <p className="text-[#1BE1D3] font-semibold text-[11px] sm:text-[12px] tracking-[0.3em] uppercase mb-3 sm:mb-4">
               FAQ
             </p>
-            <h2 className="text-[24px] sm:text-[30px] md:text-[36px] font-semibold text-white leading-[1.2] mb-4 sm:mb-6">
+            <h2 className="text-[24px] sm:text-[30px] md:text-[36px] font-normal text-white leading-[1.2] mb-4 sm:mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
               Frequently Asked Questions
             </h2>
             <p className="text-[13px] sm:text-[14px] font-normal text-white/70 max-w-2xl mx-auto">

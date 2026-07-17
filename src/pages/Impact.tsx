@@ -1,81 +1,62 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, TrendingUp, DollarSign, Users, Award, Globe, Building2, Zap } from "lucide-react";
+import { ArrowRight, Users, Globe, Building2, Zap } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const Impact = () => {
-  const metrics = [
-    { value: "200+", label: "Brands Built & Scaled", description: "From concept to market leadership" },
-    { value: "$500M+", label: "Enterprise Value Created", description: "Cumulative value across portfolio" },
-    { value: "6+", label: "Countries Served", description: "India, UAE, US, UK, Singapore, Australia" },
-    { value: "50+", label: "Industry Specialists", description: "Senior consultants & technologists" },
+  const capabilities = [
+    { icon: <Building2 className="w-8 h-8" />, label: "Company Formation", description: "Entity setup across India, UAE, US, UK, Singapore & Australia" },
+    { icon: <Zap className="w-8 h-8" />, label: "Technology Build", description: "Web, mobile, AI, cloud — full-stack development" },
+    { icon: <Users className="w-8 h-8" />, label: "Brand Identity", description: "Logo, guidelines, visual systems, messaging" },
+    { icon: <Globe className="w-8 h-8" />, label: "Market Entry", description: "Research, compliance, go-to-market execution" },
   ];
 
-  const successStories = [
-    {
-      company: "TechStart SaaS",
-      metric: "$2.5M ARR in 18 Months",
-      description: "Built from scratch: company formation, SaaS platform development, go-to-market strategy, and customer acquisition.",
-      source: "Client Report 2024",
+  const whatWeDo = [
+    {https://github.com/yurekh-solutions/yurekh push it github      title: "We Build Companies",
+      description: "From idea to incorporated entity — company registration, legal structure, tax setup, and compliance. We handle the paperwork so you can focus on your vision.",
+      details: ["Private Limited, LLP, LLC formation", "GST, tax & regulatory compliance", "Bank account & licensing setup", "Corporate governance frameworks"],
     },
     {
-      company: "HealthCare CRM",
-      metric: "10,000+ Active Users",
-      description: "Custom CRM development with HIPAA compliance, integrated with existing hospital management systems across 3 countries.",
-      source: "Case Study",
+      title: "We Build Technology",
+      description: "Custom websites, mobile apps, SaaS platforms, AI solutions, and cloud infrastructure. Built for scale from day one.",
+      details: ["Web & mobile application development", "AI & machine learning integration", "Cloud architecture & DevOps", "E-commerce platforms & ERP systems"],
     },
     {
-      company: "E-Commerce Platform",
-      metric: "$5M GMV in First Year",
-      description: "End-to-end e-commerce solution: legal setup, platform development, payment integration, and digital marketing.",
-      source: "Client Report 2024",
+      title: "We Build Brands",
+      description: "Complete brand identity — logo, guidelines, visual language, messaging, and positioning. Your brand should look as good as your product.",
+      details: ["Logo & visual identity design", "Brand guidelines & style guides", "Marketing collateral & packaging", "Digital presence & social media"],
     },
     {
-      company: "FinTech Startup",
-      metric: "$8M Series A Funding",
-      description: "Complete business infrastructure: regulatory compliance, technology stack, brand identity, and investor pitch preparation.",
-      source: "Funding Announcement",
-    },
-    {
-      company: "AI Chatbot SaaS",
-      metric: "500+ Enterprise Clients",
-      description: "AI-powered customer service platform: product development, API integration, sales strategy, and customer success.",
-      source: "Client Report 2024",
-    },
-    {
-      company: "Real Estate Portal",
-      metric: "50,000+ Property Listings",
-      description: "Full-stack property platform: company registration, technology build, agent onboarding, and market launch.",
-      source: "Platform Metrics",
-    },
-    {
-      company: "EdTech Platform",
-      metric: "100,000+ Students",
-      description: "Online learning ecosystem: curriculum digitization, platform development, content strategy, and user acquisition.",
-      source: "Client Report 2024",
-    },
-    {
-      company: "Manufacturing ERP",
-      metric: "40% Efficiency Gain",
-      description: "Custom ERP system: process automation, inventory management, supply chain optimization, and staff training.",
-      source: "Implementation Report",
+      title: "We Build Markets",
+      description: "Market research, competitive analysis, go-to-market strategy, and customer acquisition. We don't just launch — we scale.",
+      details: ["Market research & competitive analysis", "Go-to-market strategy & execution", "Digital marketing & SEO", "Sales channel & distribution setup"],
     },
   ];
 
-  const industries = [
-    { name: "SaaS & Technology", value: "$50M+ Portfolio Value" },
-    { name: "E-Commerce & Retail", value: "$120M+ GMV Generated" },
-    { name: "Healthcare & Pharma", value: "15+ Platforms Launched" },
-    { name: "Finance & FinTech", value: "$30M+ Funding Raised" },
-    { name: "Real Estate", value: "25+ Projects Delivered" },
-    { name: "Education & EdTech", value: "200K+ Users Served" },
-    { name: "Manufacturing", value: "30+ ERP Implementations" },
-    { name: "Hospitality", value: "10+ Brands Established" },
+  const industriesServed = [
+    "Technology & SaaS",
+    "E-Commerce & Retail",
+    "Healthcare & Pharma",
+    "Finance & FinTech",
+    "Real Estate",
+    "Education & EdTech",
+    "Manufacturing",
+    "Hospitality",
+    "Media & Entertainment",
+    "Professional Services",
   ];
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="min-h-screen" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+      <SEOHead
+        title="Our Impact | What We Build | Yurekh Solutions"
+        description="We build companies, technology, brands, and markets. End-to-end business building across India, UAE, USA, UK, Singapore & Australia. Strategy, legal, tech, branding & go-to-market."
+        keywords="business building, company formation, technology development, brand building, market entry, Yurekh Solutions impact"
+        canonical="https://yurekh.com/impact"
+        breadcrumbs={[{ name: "Our Impact", url: "https://yurekh.com/impact" }]}
+      />
       {/* Hero Section */}
-      <section className="bg-black py-20 md:py-28 border-b border-white/10">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="pt-32 md:pt-40 pb-20 md:pb-28 border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <motion.div
@@ -87,28 +68,28 @@ const Impact = () => {
                 Our Impact
               </p>
               <h1
-                className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.1" }}
+                className="text-white text-4xl sm:text-5xl lg:text-7xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.15" }}
               >
-                200+ Brands. $500M+ Value Created.
+                We Build Businesses.
               </h1>
               <p
                 className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
                 style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
               >
-                From startups to enterprises, we've helped businesses across industries build, launch, and scale. Real results, measurable impact, lasting partnerships.
+                From company formation to global scale — we handle strategy, legal, technology, branding, and go-to-market. One partner, complete execution.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Key Metrics */}
-      <section className="bg-black py-16 md:py-20">
+      {/* What We Build */}
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-16 md:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {metrics.map((metric, idx) => (
+              {capabilities.map((cap, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 30 }}
@@ -117,14 +98,12 @@ const Impact = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="text-center"
                 >
-                  <p className="text-[#1BE1D3] text-4xl sm:text-5xl font-bold mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
-                    {metric.value}
-                  </p>
-                  <p className="text-white text-lg font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
-                    {metric.label}
+                  <div className="text-[#1BE1D3] mb-4 flex justify-center">{cap.icon}</div>
+                  <p className="text-white text-base font-normal mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                    {cap.label}
                   </p>
                   <p className="text-white/50 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    {metric.description}
+                    {cap.description}
                   </p>
                 </motion.div>
               ))}
@@ -133,7 +112,7 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Success Stories */}
+      {/* What We Do */}
       <section className="py-20 md:py-28" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
@@ -144,42 +123,43 @@ const Impact = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">
-                Success Stories
+              <p className="text-[#1BE1D3] font-normal text-[12px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+                What We Do
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
-                Real Results. Real Impact.
+                Four Pillars. One Partner.
               </h2>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {successStories.map((story, idx) => (
+              {whatWeDo.map((item, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/50 transition-all duration-300"
+                  className="p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-white text-xl font-semibold" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
-                      {story.company}
-                    </h3>
-                    <TrendingUp className="w-6 h-6 text-[#1BE1D3] flex-shrink-0" />
+                  <h3 className="text-white text-xl font-normal mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                    {item.title}
+                  </h3>
+                  <p className="text-white/70 text-sm leading-relaxed mb-5" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
+                    {item.description}
+                  </p>
+                  <div className="space-y-2">
+                    {item.details.map((detail, dIdx) => (
+                      <div key={dIdx} className="flex items-start gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#1BE1D3] mt-2 flex-shrink-0" />
+                        <span className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                          {detail}
+                        </span>
+                      </div>
+                    ))}
                   </div>
-                  <p className="text-[#1BE1D3] text-2xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
-                    {story.metric}
-                  </p>
-                  <p className="text-white/70 text-sm leading-relaxed mb-4" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
-                    {story.description}
-                  </p>
-                  <p className="text-white/40 text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    Source: {story.source}
-                  </p>
                 </motion.div>
               ))}
             </div>
@@ -187,8 +167,8 @@ const Impact = () => {
         </div>
       </section>
 
-      {/* Industry Impact */}
-      <section className="bg-black py-20 md:py-28">
+      {/* Industries We Serve */}
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -198,32 +178,29 @@ const Impact = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">
-                Industry Impact
+              <p className="text-[#1BE1D3] font-normal text-[12px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+                Industries
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
-                Value Created Across Sectors.
+                Sectors We Work In.
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {industries.map((industry, idx) => (
+            <div className="flex flex-wrap justify-center gap-3">
+              {industriesServed.map((industry, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  className="p-6 rounded-xl border border-white/10 hover:border-[#1BE1D3]/50 transition-all duration-300"
+                  transition={{ duration: 0.4, delay: idx * 0.03 }}
+                  className="px-5 py-3 rounded-full border border-white/10 hover:border-[#1BE1D3]/40 transition-all duration-300"
                 >
-                  <p className="text-white text-base font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
-                    {industry.name}
-                  </p>
-                  <p className="text-[#1BE1D3] text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    {industry.value}
+                  <p className="text-white/80 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    {industry}
                   </p>
                 </motion.div>
               ))}
@@ -244,8 +221,8 @@ const Impact = () => {
             >
               <Globe className="w-16 h-16 text-[#1BE1D3] mx-auto mb-6" />
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
                 Global Presence. Local Expertise.
               </h2>
@@ -269,7 +246,7 @@ const Impact = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-black py-20 md:py-28">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -278,8 +255,8 @@ const Impact = () => {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.2" }}
+              className="text-white text-3xl sm:text-4xl md:text-5xl font-normal mb-6 tracking-normal"
+              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.25" }}
             >
               Ready to Create Your Success Story?
             </h2>
@@ -287,7 +264,7 @@ const Impact = () => {
               className="text-white/70 max-w-2xl mx-auto mb-10 text-base sm:text-lg"
               style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
             >
-              Join 200+ businesses that have transformed their vision into reality with Yurekh Solutions.
+              Join businesses across industries that have built and scaled with Yurekh Solutions.
             </p>
             <Link
               to="/business-consulting"

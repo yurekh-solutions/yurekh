@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Calendar, ArrowRight, Search, ChevronDown } from "lucide-react";
 import { blogPosts } from "../components/BlogSection";
 import heroBg from "../assets/hero-bg.jpg";
+import SEOHead from "@/components/SEOHead";
 
 const categories = [
   "All",
@@ -61,8 +62,14 @@ const BlogListing = () => {
         background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)",
       }}
     >
-      {/* Hero Section */}
-      <div className="relative h-[350px] sm:h-[400px] md:h-[450px] overflow-hidden">
+      <SEOHead
+        title="Blog | Insights on Business, Technology & Digital Growth | Yurekh Solutions"
+        description="Expert insights on business building, technology, AI, digital marketing, branding, and global expansion. Stay ahead with Yurekh Solutions' latest thought leadership and industry trends."
+        keywords="business blog, technology insights, digital marketing tips, AI trends, startup advice, branding guide, SEO tips, Yurekh Solutions blog"
+        canonical="https://yurekh.com/blogs"
+        breadcrumbs={[{ name: "Blog", url: "https://yurekh.com/blogs" }]}
+      />
+      <div className="relative h-[350px] sm:h-[400px] md:h-[450px] overflow-hidden mt-20 md:mt-24">
         <img
           src={heroBg}
           alt="Blogs Hero"

@@ -7,8 +7,11 @@
     <loc>https://yurekh.com/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://yurekh.com/" />
     <xhtml:link rel="alternate" hreflang="en-in" href="https://yurekh.com/" />
+    <xhtml:link rel="alternate" hreflang="en-ae" href="https://yurekh.com/" />
     <xhtml:link rel="alternate" hreflang="en-us" href="https://yurekh.com/" />
     <xhtml:link rel="alternate" hreflang="en-gb" href="https://yurekh.com/" />
+    <xhtml:link rel="alternate" hreflang="en-sg" href="https://yurekh.com/" />
+    <xhtml:link rel="alternate" hreflang="en-au" href="https://yurekh.com/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://yurekh.com/" />
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -35,6 +38,58 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Service Detail Pages -->
+  <url>
+    <loc>https://yurekh.com/services/website-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/mobile-application-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/ui-ux-designing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/ecommerce-platform-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/digital-marketing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/seo-optimization</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/custom-software-development</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/ai-machine-learning</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/cloud-solutions</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yurekh.com/services/branding-design</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Industries Page -->
   <url>
     <loc>https://yurekh.com/industries</loc>
@@ -45,14 +100,35 @@
   <!-- Case Study Page -->
   <url>
     <loc>https://yurekh.com/case-study</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 
   <!-- Blog Listing -->
   <url>
     <loc>https://yurekh.com/blogs</loc>
     <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Business Consulting -->
+  <url>
+    <loc>https://yurekh.com/business-consulting</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Impact -->
+  <url>
+    <loc>https://yurekh.com/impact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://yurekh.com/faq</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
@@ -60,7 +136,7 @@
   <url>
     <loc>https://yurekh.com/bookingform</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <!-- Privacy Policy -->

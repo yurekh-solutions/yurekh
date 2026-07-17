@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sparkles, Target, Eye, Heart, Users, Award, TrendingUp, Globe } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const About = () => {
   const values = [
@@ -41,8 +42,15 @@ const About = () => {
 
   return (
     <div className="min-h-screen pt-32 pb-20" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+      <SEOHead
+        title="About Us | Senior-Led Business Building Studio | Yurekh Solutions"
+        description="Learn about Yurekh Solutions - a full-system business building studio with 200+ brands built, $500M+ value created, and presence across 6 countries. Senior-led team of strategists, technologists, and creatives."
+        keywords="about Yurekh Solutions, business building studio, senior consultants, global team, company story, mission, vision"
+        canonical="https://yurekh.com/about"
+        breadcrumbs={[{ name: "About Us", url: "https://yurekh.com/about" }]}
+      />
       {/* Hero Section */}
-      <section className="container mx-auto px-4 lg:px-8 mb-20">
+      <section className="container mx-auto px-4 lg:px-8 pt-32 md:pt-40 mb-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

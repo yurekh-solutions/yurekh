@@ -6,6 +6,7 @@ import {
   serviceCategories,
   getServiceImage,
 } from "@/data/services";
+import SEOHead from "@/components/SEOHead";
 import {
   CheckCircle,
   ArrowRight,
@@ -233,6 +234,94 @@ const ServiceDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#0b0f0f]">
+      <SEOHead
+        title={service.seoTitle.replace(" | Yurekh Solutions", "")}
+        description={service.seoDescription}
+        keywords={service.keywords.join(", ")}
+        canonical={`https://yurekh.com/services/${service.slug}`}
+        breadcrumbs={[
+          { name: "Services", url: "https://yurekh.com/services" },
+          { name: service.name, url: `https://yurekh.com/services/${service.slug}` },
+        ]}
+        schema={JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: service.name,
+            description: service.description,
+            provider: {
+              "@type": "Organization",
+              name: "Yurekh Solutions",
+              url: "https://yurekh.com",
+              telephone: "+91-9136242706",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "IN",
+              },
+            },
+            areaServed: [
+              { "@type": "Country", name: "India" },
+              { "@type": "Country", name: "United Arab Emirates" },
+              { "@type": "Country", name: "United States" },
+              { "@type": "Country", name: "United Kingdom" },
+              { "@type": "Country", name: "Singapore" },
+              { "@type": "Country", name: "Australia" },
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: category.title,
+              itemListElement: category.services.map((s, i) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: s.name,
+                },
+              })),
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: `What is ${service.name}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: service.description,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `How much does ${service.name} cost?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `Our ${service.name.toLowerCase()} pricing depends on project scope, complexity, and timeline. Contact us for a customized quote tailored to your business needs.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `How long does ${service.name} take?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: `Timeline for ${service.name.toLowerCase()} varies based on requirements. Typical projects range from 2-12 weeks depending on scope and complexity.`,
+                },
+              },
+              {
+                "@type": "Question",
+                name: `Which countries does Yurekh Solutions serve for ${service.name}?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We provide services across India, UAE, USA, UK, Singapore, and Australia with local market expertise in each region.",
+                },
+              },
+            ].map(q => ({
+              ...q,
+              "@type": "Question",
+            })),
+          },
+        ])}
+      />
       {/* Hero Banner */}
       <section className="relative h-[400px] sm:h-[500px] overflow-hidden">
         <img
@@ -441,7 +530,7 @@ const ServiceDetail = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
               { icon: Star, title: "Premium Quality", desc: "Every deliverable meets the highest standards of excellence." },
-              { icon: Shield, title: "Trusted by 200+", desc: "Businesses across industries trust our expertise." },
+              { icon: Shield, title: "Trusted Partner", desc: "Businesses across industries trust our expertise." },
               { icon: Zap, title: "Fast Delivery", desc: "Quick turnaround without compromising on quality." },
               { icon: Users, title: "Dedicated Team", desc: "A dedicated team assigned to your project success." },
             ].map((item, idx) => (

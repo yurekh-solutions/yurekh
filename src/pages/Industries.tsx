@@ -2,12 +2,20 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { industryCategories, getIndustryImage } from "@/data/industries";
 import { ArrowRight, Phone } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const Industries = () => {
   return (
     <div className="min-h-screen bg-[#0b0f0f]">
+      <SEOHead
+        title="Industries We Serve | Technology, Healthcare, FinTech & More | Yurekh Solutions"
+        description="Yurekh Solutions serves 10+ industries including Technology & SaaS, E-Commerce, Healthcare, FinTech, Real Estate, Education, Manufacturing, Hospitality, and Media. Expert solutions tailored to each sector."
+        keywords="industries served, technology consulting, healthcare solutions, fintech development, edtech platform, real estate tech, manufacturing ERP, hospitality branding, Yurekh Solutions industries"
+        canonical="https://yurekh.com/industries"
+        breadcrumbs={[{ name: "Industries", url: "https://yurekh.com/industries" }]}
+      />
       {/* Hero Section */}
-      <section className="relative py-20 sm:py-32 overflow-hidden">
+      <section className="relative pt-32 sm:pt-40 pb-20 sm:pb-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-[#0d2828]/50 to-[#0b0f0f]" />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const FAQ = () => {
   const faqs = [
@@ -79,9 +80,16 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="bg-black min-h-screen">
+    <div className="min-h-screen" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+      <SEOHead
+        title="Frequently Asked Questions | Yurekh Solutions"
+        description="Find answers to common questions about Yurekh Solutions. Learn about our services, pricing, engagement model, industries served, and how to get started with global business building."
+        keywords="Yurekh Solutions FAQ, business consulting FAQ, company formation FAQ, pricing FAQ, services FAQ, how to start, engagement model"
+        canonical="https://yurekh.com/faq"
+        breadcrumbs={[{ name: "FAQ", url: "https://yurekh.com/faq" }]}
+      />
       {/* Hero Section */}
-      <section className="bg-black py-20 md:py-28 border-b border-white/10">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="pt-32 md:pt-40 pb-20 md:pb-28 border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
@@ -93,8 +101,8 @@ const FAQ = () => {
                 Frequently Asked Questions
               </p>
               <h1
-                className="text-white text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.1" }}
+                className="text-white text-4xl sm:text-5xl lg:text-6xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.15" }}
               >
                 Everything You Need to Know.
               </h1>
@@ -110,7 +118,7 @@ const FAQ = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-black py-20 md:py-28">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="space-y-6">
@@ -124,8 +132,8 @@ const FAQ = () => {
                   className="p-6 md:p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
                   <h3
-                    className="text-white text-lg md:text-xl font-semibold mb-4"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+                    className="text-white text-lg md:text-xl font-normal mb-4"
+                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
                   >
                     {faq.question}
                   </h3>
@@ -152,8 +160,8 @@ const FAQ = () => {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.2" }}
+              className="text-white text-3xl sm:text-4xl md:text-5xl font-normal mb-6 tracking-normal"
+              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.25" }}
             >
               Still Have Questions?
             </h2>

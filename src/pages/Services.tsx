@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Brain, Sparkles, Bot, LineChart, Eye, Cloud, Database, Shield, Wifi, Glasses, Link2 } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const services = [
   {
@@ -63,8 +64,15 @@ const services = [
 const Services = () => {
   return (
     <div className="bg-black min-h-screen">
+      <SEOHead
+        title="Our Services | Digital Solutions & Business Building | Yurekh Solutions"
+        description="Comprehensive digital services: AI & Machine Learning, Web & App Development, Cloud Solutions, Cybersecurity, Digital Marketing, Branding, SEO, and DevOps. Premium solutions tailored for global businesses."
+        keywords="digital services, web development, mobile app development, AI development, cloud solutions, cybersecurity, digital marketing, branding, SEO, DevOps, UI UX design, Yurekh Solutions services"
+        canonical="https://yurekh.com/services"
+        breadcrumbs={[{ name: "Services", url: "https://yurekh.com/services" }]}
+      />
       {/* Hero Section */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
         <div className="px-8">
           <div className="max-w-7xl mx-auto">
             <div className="mx-auto max-w-3xl text-center">

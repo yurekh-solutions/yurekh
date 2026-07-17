@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Clock, User, Phone, Mail, Building, Globe, Target, MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles, Zap, TrendingUp, Bot, ArrowUp, Shield, Award, Star } from 'lucide-react';
+import SEOHead from "@/components/SEOHead";
 
 const Button = ({ children, onClick, className = '', variant = 'default', disabled = false, type = 'button' }: {
   children: React.ReactNode;
@@ -193,6 +194,13 @@ const BookingForm = () => {
 
   return (
     <div className="min-h-screen bg-[#0b0f0f] relative overflow-hidden">
+      <SEOHead
+        title="Book a Consultation | Schedule Your Free Strategy Session | Yurekh Solutions"
+        description="Schedule a free consultation with Yurekh Solutions. Discuss your business vision, get expert advice on strategy, technology, branding, and go-to-market. Call +91 91362 42706."
+        keywords="book consultation, schedule meeting, free consultation, business strategy session, Yurekh Solutions booking, contact Yurekh"
+        canonical="https://yurekh.com/bookingform"
+        breadcrumbs={[{ name: "Book Consultation", url: "https://yurekh.com/bookingform" }]}
+      />
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1BE1D3]/5 via-transparent to-[#1BE1D3]/3" />
 

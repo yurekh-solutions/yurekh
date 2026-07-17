@@ -1,13 +1,21 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Zap, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const BusinessConsulting = () => {
   return (
-    <div className="bg-black min-h-screen">
+    <div className="min-h-screen" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+      <SEOHead
+        title="Global Business Consulting | Start, Scale & Dominate | Yurekh Solutions"
+        description="End-to-end business building partner for founders and enterprises. Company formation, legal compliance, brand identity, technology infrastructure, and go-to-market strategy. Serving clients across India, UAE, USA, UK, Singapore & Australia."
+        keywords="business consulting, global business consulting, company formation, startup consulting, business strategy, brand transformation, market expansion, digital transformation, growth marketing, SaaS development, AI chatbots, custom software, mobile applications, technology solutions, Yurekh Solutions"
+        canonical="https://yurekh.com/business-consulting"
+        breadcrumbs={[{ name: "Business Consulting", url: "https://yurekh.com/business-consulting" }]}
+      />
       {/* Hero Section */}
       <section
-        className="relative min-h-[90svh] flex items-center justify-center py-16 md:py-20 overflow-hidden"
+        className="relative min-h-[90svh] flex items-center justify-center pt-32 md:pt-40 pb-16 md:pb-20 overflow-hidden"
         style={{
           backgroundImage: "url('/services/website-development.jpg')",
           backgroundSize: "cover",
@@ -29,8 +37,8 @@ const BusinessConsulting = () => {
                 Global Business Consulting
               </p>
               <h1
-                className="text-white text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.1" }}
+                className="text-white text-4xl sm:text-5xl lg:text-7xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.15" }}
               >
                 We Build Businesses.
               </h1>
@@ -71,13 +79,13 @@ const BusinessConsulting = () => {
       </section>
 
       {/* Global Presence */}
-      <section className="bg-black py-12 border-b border-white/10">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-12 border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
             <p className="text-white/60 text-sm tracking-widest uppercase" style={{ fontFamily: "Poppins, sans-serif" }}>
               Serving Clients Across
             </p>
-            <p className="text-[#1BE1D3] text-2xl sm:text-3xl font-semibold mt-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
+            <p className="text-[#1BE1D3] text-2xl sm:text-3xl font-normal mt-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
               IND ⋅ DXB  NYC ⋅ SGP ⋅ LDN ⋅ SYD
             </p>
           </div>
@@ -85,7 +93,7 @@ const BusinessConsulting = () => {
       </section>
 
       {/* For Founders - Start from Scratch */}
-      <section className="bg-black py-20 md:py-28">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -99,8 +107,8 @@ const BusinessConsulting = () => {
                 For Founders
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
                 Start Your Business From Scratch.
               </h2>
@@ -157,8 +165,8 @@ const BusinessConsulting = () => {
                     {service.icon}
                   </div>
                   <h3
-                    className="text-white text-xl font-semibold mb-3"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+                    className="text-white text-xl font-normal mb-3"
+                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
                   >
                     {service.title}
                   </h3>
@@ -190,8 +198,8 @@ const BusinessConsulting = () => {
                 For Existing Businesses
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
                 Scale & Expand Globally.
               </h2>
@@ -235,8 +243,8 @@ const BusinessConsulting = () => {
                   className="p-8 md:p-10 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/50 transition-all duration-300"
                 >
                   <h3
-                    className="text-white text-2xl font-semibold mb-4"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+                    className="text-white text-2xl font-normal mb-4"
+                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
                   >
                     {service.title}
                   </h3>
@@ -262,7 +270,7 @@ const BusinessConsulting = () => {
       </section>
 
       {/* Technology Solutions */}
-      <section className="bg-black py-20 md:py-28">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -276,8 +284,8 @@ const BusinessConsulting = () => {
                 Technology Solutions
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
                 Build Your Digital Infrastructure.
               </h2>
@@ -338,8 +346,8 @@ const BusinessConsulting = () => {
                 >
                   <div className="text-[#1BE1D3] mb-5">{solution.icon}</div>
                   <h3
-                    className="text-white text-xl font-semibold mb-3"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+                    className="text-white text-xl font-normal mb-3"
+                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
                   >
                     {solution.title}
                   </h3>
@@ -379,7 +387,7 @@ const BusinessConsulting = () => {
       </section>
 
       {/* Why Yurekh Solutions */}
-      <section className="bg-black py-20 md:py-28">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -393,8 +401,8 @@ const BusinessConsulting = () => {
                 Why Yurekh Solutions
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
                 One Partner. Complete Execution.
               </h2>
@@ -442,10 +450,10 @@ const BusinessConsulting = () => {
                   className="text-center p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
                   <div className="text-[#1BE1D3] mb-4 flex justify-center">{item.icon}</div>
-                  <p className="text-[#1BE1D3] text-2xl font-bold mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                  <p className="text-[#1BE1D3] text-2xl font-normal mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
                     {item.stat}
                   </p>
-                  <h3 className="text-white text-lg font-semibold mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
+                  <h3 className="text-white text-lg font-normal mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
                     {item.title}
                   </h3>
                   <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
@@ -473,8 +481,8 @@ const BusinessConsulting = () => {
                 Industries
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
                 We Build Businesses Across Sectors.
               </h2>
@@ -512,7 +520,7 @@ const BusinessConsulting = () => {
       </section>
 
       {/* Process */}
-      <section className="bg-black py-20 md:py-28">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-20 md:py-28">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -526,8 +534,8 @@ const BusinessConsulting = () => {
                 Our Process
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 tracking-tight"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
+                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
               >
                 From Vision to Reality.
               </h2>
@@ -564,10 +572,10 @@ const BusinessConsulting = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="relative"
                 >
-                  <div className="text-[#1BE1D3] text-5xl font-bold mb-4 opacity-30" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                  <div className="text-[#1BE1D3] text-5xl font-normal mb-4 opacity-30" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
                     {phase.step}
                   </div>
-                  <h3 className="text-white text-xl font-semibold mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
+                  <h3 className="text-white text-xl font-normal mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
                     {phase.title}
                   </h3>
                   <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
@@ -590,8 +598,8 @@ const BusinessConsulting = () => {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.2" }}
+              className="text-white text-3xl sm:text-4xl md:text-5xl font-normal mb-6 tracking-normal"
+              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.25" }}
             >
               Ready to Build Your Business?
             </h2>

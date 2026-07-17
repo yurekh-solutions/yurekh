@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const industries = [
   "Show All",
@@ -144,9 +145,16 @@ const CaseStudy = () => {
 
   return (
     <div className="bg-black min-h-screen">
+      <SEOHead
+        title="Case Studies | Real Results & Success Stories | Yurekh Solutions"
+        description="Explore how Yurekh Solutions has helped businesses across industries achieve remarkable results. Real case studies showcasing digital transformation, brand building, and technology implementation."
+        keywords="case studies, success stories, client results, digital transformation cases, brand building results, technology implementation, Yurekh Solutions portfolio"
+        canonical="https://yurekh.com/case-study"
+        breadcrumbs={[{ name: "Case Studies", url: "https://yurekh.com/case-study" }]}
+      />
       {/* Hero Section */}
       <section
-        className="relative min-h-[82svh] flex items-center justify-center py-16 md:py-20 overflow-hidden"
+        className="relative min-h-[82svh] flex items-center justify-center pt-32 md:pt-40 pb-16 md:pb-20 overflow-hidden"
         style={{
           backgroundImage: "url('/services/website-development.jpg')",
           backgroundSize: "cover",
