@@ -1,1 +1,1 @@
-Add vercel.json for SPA routing, remove lovable uploads  
+Update typography to match mmcgbl.com - fluid clamp headings, negative letter-spacing, MMC mobile sizes  
