@@ -63,9 +63,14 @@ const Index = () => {
       <section id="instagram">
         <InstagramSection />
       </section>
-<section id="about">
+      <section id="about">
         <About />
       </section>
+
+      <section id="faq">
+        <PremiumFAQ />
+      </section>
+
       <section id="contact">
         <Contact />
       </section>

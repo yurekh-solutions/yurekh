@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import About from "@/components/About"; // Your existing About section
+import AIChat from "@/components/AIChat";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -17,6 +17,12 @@ import IndustryDetail from "./pages/IndustryDetail";
 import CaseStudy from "./pages/CaseStudy";
 import Services from "./pages/Services";
 import BlogDetail from "./pages/BlogDetail";
+import BlogListing from "./pages/BlogListing";
+import About from "./pages/About";
+import Careers from "./pages/Careers";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -25,6 +31,7 @@ const AppLayout = ({ children }) => (
     <Header />
     <main className="flex-grow">{children}</main>
     <Footer />
+    <AIChat />
   </div>
 );
 
@@ -34,6 +41,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route
             path="/"
@@ -43,16 +51,22 @@ const App = () => (
               </AppLayout>
             }
           />
-            <Route
-    path="/about"
-    element={
-                    <AppLayout>
-
-      <About />
-                    </AppLayout>
-
-    }
-  />
+          <Route
+            path="/about"
+            element={
+              <AppLayout>
+                <About />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/careers"
+            element={
+              <AppLayout>
+                <Careers />
+              </AppLayout>
+            }
+          />
           <Route
             path="/bookingform"
             element={
@@ -102,10 +116,34 @@ const App = () => (
             }
           />
           <Route
+            path="/blogs"
+            element={
+              <AppLayout>
+                <BlogListing />
+              </AppLayout>
+            }
+          />
+          <Route
             path="/blogs/:slug"
             element={
               <AppLayout>
                 <BlogDetail />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/privacy"
+            element={
+              <AppLayout>
+                <PrivacyPolicy />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/terms"
+            element={
+              <AppLayout>
+                <TermsAndConditions />
               </AppLayout>
             }
           />

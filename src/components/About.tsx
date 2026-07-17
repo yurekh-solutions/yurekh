@@ -187,7 +187,7 @@ const Video = () => {
           {/* Left Content */}
           <div className="space-y-6 text-left md:text-left text-center mt-5">
             <h2 className="text-[30px] font-semibold">
-              Trusted by Innovators <span className="text-[#009494]">Worldwide</span>
+              Trusted by Innovators <span className="text-[#1be1d3]">Worldwide</span>
             </h2>
             <p className="text-[14px] font-normal text-gray-300 leading-[1.7]">
               At Yurekh, we are a passionate team dedicated to providing exceptional creative services. With a focus on excellence and innovation, we specialize in helping our clients achieve outstanding results for their projects.

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Brain, Sparkles, Bot, LineChart, Eye, Cloud, Database, Shield, Wifi, Glasses, Link2 } from "lucide-react";
+import { ArrowRight, Brain, Sparkles, Bot, LineChart, Eye, Cloud, Database, Shield, Wifi, Glasses, Link2, GitBranch } from "lucide-react";
 
 const services = [
   {
@@ -57,6 +57,11 @@ const services = [
     title: "Blockchain",
     description: "Blockchain works best when trust needs to be shared across parties. We apply it selectively to ensure traceability, data integrity, and secure data exchange in multi-party systems.",
     icon: Link2,
+  },
+  {
+    title: "DevOps & Automation",
+    description: "Efficient delivery requires strong automation and collaboration. We build CI/CD pipelines, infrastructure as code, and monitoring systems that help teams ship faster with confidence.",
+    icon: GitBranch,
   },
 ];
 

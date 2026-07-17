@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Phone, ChevronDown, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import log from "../assets/log.svg";
+import logo from "../assets/logo.jpeg";
 import { getAllServices } from "@/data/services";
 import { getAllIndustries } from "@/data/industries";
 
@@ -118,11 +118,7 @@ const Header = () => {
       name: "Company",
       dropdown: [
         { name: "About Us", href: "/about" },
-        { name: "Our Team", href: "/about" },
-        { name: "Careers", href: "#contact" },
-        { name: "Testimonials", href: "#testimonials" },
-        { name: "FAQ", href: "#faq" },
-        { name: "Contact Us", href: "#contact" },
+        { name: "Careers", href: "/careers" },
       ],
     },
     { name: "Case Study", href: "/case-study" },
@@ -186,14 +182,16 @@ const Header = () => {
       >
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo */}
+            {/* Logo - Yurekh Brand */}
             <a href="/" className="flex items-center space-x-3">
-              <img src={log} alt="Yurekh Solutions" className="h-10 w-10" />
+              <div className="w-12 h-12 rounded-full overflow-hidden shadow-[0_0_20px_rgba(27,225,211,0.3)]">
+                <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
+              </div>
               <div className="hidden sm:block">
-                <h1 className="text-lg font-bold text-white tracking-wide">
+                <h1 className="text-lg font-normal text-white tracking-wide" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
                   YUREKH
                 </h1>
-                <p className="text-xs text-gray-400 -mt-1 tracking-widest">
+                <p className="text-xs text-gray-400 -mt-1 tracking-widest" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}>
                   SOLUTIONS
                 </p>
               </div>
@@ -398,7 +396,7 @@ const Header = () => {
                 }}
                 className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px"
               >
-                Contact Us
+               Get Touch
               </button>
             </div>
 
@@ -533,7 +531,7 @@ const Header = () => {
                       navigate("/bookingform");
                     }}
                   >
-                    Contact Us
+                    Get Touch
                   </button>
                 </div>
               </div>

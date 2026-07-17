@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Sparkles, Instagram, Facebook, Linkedin, MessageSquare, Twitter, Zap, Phone, ArrowUp } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, MessageSquare, Twitter, Zap, Phone, ArrowUp } from 'lucide-react';
+import logo from '../assets/logo.jpeg';
 
 const sitemapData = [
   {
-    title: "About",
+    title: "Company",
     links: [
-      { name: "Who We Are", href: "/#about" },
-      { name: "Career", href: "/#contact" },
-      { name: "Services", href: "/#services" },
+      { name: "About Us", href: "/about" },
+      { name: "Careers", href: "/careers" },
+      { name: "Case Studies", href: "/case-study" },
       { name: "Industries", href: "/industries" },
-      { name: "Case Study", href: "/case-study" },
-      { name: "Contact Us", href: "/#contact" },
-      { name: "Our Locations", href: "/#contact" },
+      { name: "Services", href: "/services" },
+      { name: "Blog", href: "/blogs" },
+      { name: "Contact", href: "/#contact" },
     ],
   },
   {
@@ -149,11 +150,10 @@ const sitemapData = [
     title: "Quick Links",
     links: [
       { name: "Book a Demo", href: "/bookingform" },
-      { name: "Case Studies", href: "/case-study" },
-      { name: "Free Consultation", href: "/#contact" },
-      { name: "Privacy Policy", href: "/#contact" },
-      { name: "Terms of Service", href: "/#contact" },
-      { name: "Sitemap", href: "/" },
+      { name: "Free Consultation", href: "/bookingform" },
+      { name: "Privacy Policy", href: "/privacy" },
+      { name: "Terms & Conditions", href: "/terms" },
+      { name: "Sitemap", href: "/sitemap.xml" },
     ],
   },
 ];
@@ -174,7 +174,7 @@ const Footer = () => {
       case "LinkedIn": return <Linkedin className="w-5 h-5" />;
       case "Threads": return <MessageSquare className="w-5 h-5" />;
       case "Twitter (X)": return <Twitter className="w-5 h-5" />;
-      default: return <Sparkles className="w-5 h-5" />;
+      default: return <Zap className="w-5 h-5" />;
     }
   };
 
@@ -190,28 +190,13 @@ const Footer = () => {
 
   return (
     <>
-      {/* Floating Action Icons */}
-      <div className="fixed bottom-6 right-6 flex flex-col gap-4 z-50">
-        <a href="https://wa.me/919136242706" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full glass-teal flex items-center justify-center hover:-translate-y-1 transition-all duration-300">
-          <Zap className="w-6 h-6 text-[#1BE1D3]" />
-        </a>
-        <a href="tel:+919136242706" className="w-12 h-12 rounded-full glass-teal flex items-center justify-center hover:-translate-y-1 transition-all duration-300">
-          <Phone className="w-6 h-6 text-[#1BE1D3]" />
-        </a>
-        {showScroll && (
-          <button onClick={scrollToTop} className="w-12 h-12 rounded-full glass-teal text-[#1BE1D3] flex items-center justify-center hover:-translate-y-1 transition-all duration-300">
-            <ArrowUp className="w-6 h-6" />
-          </button>
-        )}
-      </div>
-
       {/* SiteMap Section */}
       <section className="glass-panel py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-10">
             {sitemapData.map((section) => (
               <div key={section.title}>
-                <h3 className="text-white font-semibold text-sm md:text-base mb-4 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
+                <h3 className="text-white font-normal text-sm md:text-base mb-4 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
                   {section.title}
                 </h3>
                 <ul className="space-y-2.5">
@@ -240,12 +225,12 @@ const Footer = () => {
             {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30">
-                  <Sparkles className="w-7 h-7 text-[#1BE1D3]" />
+                <div className="w-16 h-16 rounded-full overflow-hidden shadow-[0_0_20px_rgba(27,225,211,0.3)]">
+                  <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-[#1BE1D3]" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>YUREKH SOLUTIONS</h3>
-                  <p className="text-[#1BE1D3]/80 text-sm font-normal" style={{ fontFamily: "Poppins, sans-serif" }}>AI-Powered Digital Excellence</p>
+                  <h3 className="text-lg font-normal text-[#1BE1D3]" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>YUREKH SOLUTIONS</h3>
+                  <p className="text-[#1BE1D3]/80 text-sm font-normal" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}>AI-Powered Digital Excellence</p>
                 </div>
               </div>
 
@@ -263,7 +248,7 @@ const Footer = () => {
 
             {/* AI Services */}
             <div>
-              <h4 className="text-base font-semibold text-[#1BE1D3] mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>AI Services</h4>
+              <h4 className="text-base font-normal text-[#1BE1D3] mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>AI Services</h4>
               <ul className="space-y-2 text-sm">
                 {["AI Marketing Automation", "Predictive Analytics", "Content Intelligence", "Digital Strategy", "Growth Optimization", "Performance Analytics"].map((service, index) => (
                   <li key={index} className="flex items-center gap-2 text-white/70 hover:text-[#1BE1D3] transition" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -276,15 +261,15 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-base font-semibold text-[#1BE1D3] mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Quick Links</h4>
+              <h4 className="text-base font-normal text-[#1BE1D3] mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Quick Links</h4>
               <ul className="space-y-2 text-sm">
                 {[
-                  { name: "About Us", href: "/#about" },
-                  { name: "Our Work", href: "/#portfolio" },
-                  { name: "Success Stories", href: "/#testimonials" },
-                  { name: "FAQ", href: "/#faq" },
-                  { name: "Get Started", href: "/#contact" },
-                  { name: "Free Consultation", href: "/bookingform" },
+                  { name: "About Us", href: "/about" },
+                  { name: "Careers", href: "/careers" },
+                  { name: "Blog", href: "/blogs" },
+                  { name: "Book Demo", href: "/bookingform" },
+                  { name: "Privacy Policy", href: "/privacy" },
+                  { name: "Terms & Conditions", href: "/terms" },
                 ].map((link, index) => (
                   <li key={index}>
                     <Link to={link.href} className="flex items-center gap-2 text-white/70 hover:text-[#1BE1D3] transition" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -316,7 +301,7 @@ const Footer = () => {
           {/* AI Badge */}
           <div className="text-center mt-6">
             <div className="inline-flex items-center gap-2 px-5 py-2 border border-[#1BE1D3]/50 rounded-full">
-              <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+              <Zap className="w-4 h-4 text-[#1BE1D3]" />
               <span className="text-[#1BE1D3] text-xs md:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>Powered by Advanced AI Technology</span>
             </div>
           </div>

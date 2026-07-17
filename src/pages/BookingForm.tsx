@@ -9,7 +9,7 @@ const Button = ({ children, onClick, className = '', variant = 'default', disabl
   disabled?: boolean;
   type?: 'button' | 'submit';
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center px-4 py-2 rounded-lg font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center px-4 py-2 rounded-lg font-normal transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed';
   const variants = {
     default: 'bg-[#1BE1D3] hover:bg-[#1BE1D3]/80 text-black shadow-lg hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]',
     outline: 'border-2 border-[#1BE1D3] text-[#1BE1D3] hover:bg-[#1BE1D3]/10',
@@ -72,7 +72,7 @@ const Label = ({ children, htmlFor, className = '' }: {
   htmlFor?: string;
   className?: string;
 }) => (
-  <label htmlFor={htmlFor} className={`block text-sm font-medium text-white/90 mb-2 ${className}`} style={{ fontFamily: "Poppins, sans-serif" }}>
+  <label htmlFor={htmlFor} className={`block text-sm font-normal text-white/90 mb-2 ${className}`} style={{ fontFamily: "Poppins, sans-serif" }}>
     {children}
   </label>
 );
@@ -203,10 +203,10 @@ const BookingForm = () => {
           <div className="text-center mb-14 sm:mb-20">
             <div className="inline-flex items-center gap-2 bg-[#1BE1D3]/10 backdrop-blur-sm px-5 py-2.5 rounded-full border border-[#1BE1D3]/30 mb-6">
               <Bot className="w-5 h-5 text-[#1BE1D3] animate-pulse" />
-              <span className="text-[#1BE1D3] font-semibold text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>AI-Powered Business Automation</span>
+              <span className="text-[#1BE1D3] font-normal text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>AI-Powered Business Automation</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, letterSpacing: "-0.02em" }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal mb-6 leading-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, letterSpacing: "-0.02em" }}>
               <span className="text-white block mb-1">Transform Your Business with</span>
               <span className="text-[#1BE1D3]">AI Automation</span>
             </h1>
@@ -226,7 +226,7 @@ const BookingForm = () => {
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30 mx-auto mb-4">
                     <item.icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>{item.title}</h3>
+                  <h3 className="text-lg font-normal text-white mb-2 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>{item.title}</h3>
                   <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>{item.desc}</p>
                 </div>
               ))}
@@ -251,7 +251,7 @@ const BookingForm = () => {
                 { value: "$100", label: "Starting Price" },
               ].map((stat, idx) => (
                 <div key={idx} className="text-center p-3 sm:p-4">
-                  <div className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1BE1D3] mb-1" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, letterSpacing: "-0.01em" }}>{stat.value}</div>
+                  <div className="text-xl sm:text-2xl md:text-3xl font-normal text-[#1BE1D3] mb-1" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, letterSpacing: "-0.01em" }}>{stat.value}</div>
                   <div className="text-white/60 text-xs sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{stat.label}</div>
                 </div>
               ))}
@@ -266,13 +266,13 @@ const BookingForm = () => {
               <div className="text-center space-y-5">
                 <div className="flex items-center justify-center gap-3">
                   <SectionIcon icon={Calendar} />
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>Select Date & Time</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Select Date & Time</h2>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-[#1BE1D3]">
                   <Clock className="w-5 h-5" />
-                  <span className="font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>30 Mins</span>
+                  <span className="font-normal" style={{ fontFamily: "Poppins, sans-serif" }}>30 Mins</span>
                 </div>
-                <p className="text-[#1BE1D3]/80 font-medium" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <p className="text-[#1BE1D3]/80 font-normal" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                 </p>
               </div>
@@ -282,17 +282,17 @@ const BookingForm = () => {
                 <div className="space-y-6">
                   <div className="grid grid-cols-7 gap-1">
                     {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => (
-                      <div key={day} className="text-center py-3 text-white/60 font-medium text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{day}</div>
+                      <div key={day} className="text-center py-3 text-white/60 font-normal text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{day}</div>
                     ))}
                     {generateCalendarDays().map((day, index) => (
                       <button key={index} onClick={() => setSelectedDate(day.date)}
-                        className={`py-3 text-center rounded-xl font-medium transition-all duration-300 hover:scale-105 ${day.isCurrentMonth ? 'text-white hover:bg-[#1BE1D3]/20' : 'text-white/30'} ${selectedDate.toDateString() === day.date.toDateString() ? 'bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)]' : ''}`}
+                        className={`py-3 text-center rounded-xl font-normal transition-all duration-300 hover:scale-105 ${day.isCurrentMonth ? 'text-white hover:bg-[#1BE1D3]/20' : 'text-white/30'} ${selectedDate.toDateString() === day.date.toDateString() ? 'bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)]' : ''}`}
                         style={{ fontFamily: "Poppins, sans-serif" }}
                       >{day.day}</button>
                     ))}
                   </div>
                   <div className="bg-white/5 border border-[#1BE1D3]/20 rounded-xl p-4">
-                    <div className="text-[#1BE1D3] font-semibold mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <div className="text-[#1BE1D3] font-normal mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>
                       {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
                     </div>
                     <div className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>GMT+05:30 Asia/Calcutta</div>
@@ -304,7 +304,7 @@ const BookingForm = () => {
                   <div className="grid grid-cols-2 gap-3">
                     {timeSlots.map(time => (
                       <button key={time} onClick={() => setSelectedTime(time)}
-                        className={`p-4 rounded-xl font-medium transition-all duration-300 hover:scale-105 ${selectedTime === time ? 'bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)]' : 'bg-white/5 border border-[#1BE1D3]/20 text-white hover:bg-[#1BE1D3]/10'}`}
+                        className={`p-4 rounded-xl font-normal transition-all duration-300 hover:scale-105 ${selectedTime === time ? 'bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)]' : 'bg-white/5 border border-[#1BE1D3]/20 text-white hover:bg-[#1BE1D3]/10'}`}
                         style={{ fontFamily: "Poppins, sans-serif" }}
                       >{time}</button>
                     ))}
@@ -321,7 +321,7 @@ const BookingForm = () => {
               <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <SectionIcon icon={Star} />
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>What You'll Get in This Demo:</h3>
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>What You'll Get in This Demo:</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                   {[
@@ -344,13 +344,13 @@ const BookingForm = () => {
                     <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30">
                       <Target className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
                     </div>
-                    <h4 className="text-lg sm:text-xl font-bold text-[#1BE1D3] tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>100% Money Back Guarantee</h4>
+                    <h4 className="text-lg sm:text-xl font-normal text-[#1BE1D3] tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>100% Money Back Guarantee</h4>
                   </div>
                   <p className="text-white/90 mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
                     Try AI Employee today — no commitments, just results. See how it can transform your business in just a few days!
                   </p>
                   <div className="bg-white/5 border border-[#1BE1D3]/20 px-4 py-3 rounded-lg">
-                    <span className="text-[#1BE1D3] font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>Special Launch Offer: </span>
+                    <span className="text-[#1BE1D3] font-normal" style={{ fontFamily: "Poppins, sans-serif" }}>Special Launch Offer: </span>
                     <span className="text-white" style={{ fontFamily: "Poppins, sans-serif" }}>Get your first 7 days free – no risk, no commitment, no pressure to continue.</span>
                   </div>
                 </div>
@@ -363,7 +363,7 @@ const BookingForm = () => {
                   <ArrowLeft className="w-4 h-4 mr-2" /> Back to Calendar
                 </Button>
                 <div className="text-center flex-1">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>Complete Your Booking</h2>
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Complete Your Booking</h2>
                   <p className="text-[#1BE1D3] mt-2" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} at {selectedTime}
                   </p>
@@ -375,7 +375,7 @@ const BookingForm = () => {
                 <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
                   <div className="flex items-center gap-3">
                     <SectionIcon icon={User} />
-                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Contact Information</h3>
+                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Contact Information</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-3">
@@ -405,7 +405,7 @@ const BookingForm = () => {
                 <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
                   <div className="flex items-center gap-3">
                     <SectionIcon icon={Building} />
-                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Business Information</h3>
+                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Business Information</h3>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-3">
@@ -427,7 +427,7 @@ const BookingForm = () => {
                 <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
                   <div className="flex items-center gap-3">
                     <SectionIcon icon={Target} />
-                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>What would you like to achieve?</h3>
+                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>What would you like to achieve?</h3>
                   </div>
                   <p className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>Select all that apply</p>
                   <div className="space-y-4">
@@ -444,7 +444,7 @@ const BookingForm = () => {
                 <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
                   <div className="flex items-center gap-3">
                     <SectionIcon icon={MessageSquare} />
-                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Additional Information</h3>
+                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Additional Information</h3>
                   </div>
                   <div className="space-y-6">
                     <div className="space-y-3">
@@ -462,14 +462,14 @@ const BookingForm = () => {
                 <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
                   <div className="flex items-center gap-3">
                     <SectionIcon icon={Shield} />
-                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Agreement</h3>
+                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Agreement</h3>
                   </div>
                   <div className="flex items-start gap-3 p-3 rounded-lg">
                     <Checkbox id="agreement" checked={formData.agreement} onChange={(checked) => setFormData(prev => ({...prev, agreement: checked}))} />
                     <Label htmlFor="agreement" className="text-white/90 cursor-pointer">I agree to be contacted for the Demo and further communication.</Label>
                   </div>
                   <div className="p-4 md:p-6 bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 rounded-xl">
-                    <p className="text-[#1BE1D3] font-semibold text-center text-lg" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <p className="text-[#1BE1D3] font-normal text-center text-lg" style={{ fontFamily: "Poppins, sans-serif" }}>
                       💰 Consultation Fee: $100 — Expert guidance for your business transformation
                     </p>
                   </div>

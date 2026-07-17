@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import widgetCloud from "../assets/widget-cloud.jpg";
 
 const Hero = () => {
@@ -89,10 +90,11 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
+          <Link to="/about">
           <button
             style={{
               fontFamily: "Poppins, sans-serif",
-              fontWeight: 600,
+              fontWeight: 400,
               fontSize: "14px",
               padding: "0 32px",
               height: "48px",
@@ -105,8 +107,9 @@ const Hero = () => {
             }}
             className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_40px_rgba(27,225,211,0.2)] transition-all duration-300"
           >
-            Get Started
+          Discover More
           </button>
+        </Link>
         </motion.div>
       </div>
 
