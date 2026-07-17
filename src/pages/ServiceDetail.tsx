@@ -323,7 +323,7 @@ const ServiceDetail = () => {
         ])}
       />
       {/* Hero Banner */}
-      <section className="relative h-[400px] sm:h-[500px] overflow-hidden">
+      <section className="relative h-[400px] sm:h-[500px] overflow-hidden pt-20 sm:pt-24">
         <img
           src={getServiceImage(service.slug)}
           alt={service.name}

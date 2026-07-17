@@ -201,8 +201,8 @@ const BookingForm = () => {
         {/* Hero Section */}
         {step === 'calendar' && (
           <div className="text-center mb-14 sm:mb-20">
-            <div className="inline-flex items-center gap-2 bg-[#1BE1D3]/10 backdrop-blur-sm px-5 py-2.5 rounded-full border border-[#1BE1D3]/30 mb-6">
-              <Bot className="w-5 h-5 text-[#1BE1D3] animate-pulse" />
+            <div className="inline-flex items-center mt-6 gap-2 bg-[#1BE1D3]/10 backdrop-blur-sm px-5 py-2.5 rounded-full border border-[#1BE1D3]/30 mb-6">
+              <Bot className="w-5 h-5 text-[#1BE1D3] animate-pulse " />
               <span className="text-[#1BE1D3] font-normal text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>AI-Powered Business Automation</span>
             </div>
 
