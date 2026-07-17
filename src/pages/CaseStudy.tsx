@@ -139,6 +139,9 @@ const CaseStudy = () => {
         (s) => s.category === activeFilter || s.service === activeFilter
       );
 
+  // Ensure we always have results to display
+  const displayStudies = filteredStudies.length > 0 ? filteredStudies : caseStudies;
+
   return (
     <div className="bg-black min-h-screen">
       {/* Hero Section */}
@@ -239,7 +242,7 @@ const CaseStudy = () => {
       <section className="bg-black pb-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto space-y-14 md:space-y-20">
-            {filteredStudies.map((study, idx) => (
+            {displayStudies.map((study, idx) => (
               <motion.div
                 key={study.id}
                 initial={{ opacity: 0, y: 30 }}

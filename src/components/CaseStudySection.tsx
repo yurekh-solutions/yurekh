@@ -139,6 +139,9 @@ const CaseStudySection = () => {
         (s) => s.category === activeFilter || s.service === activeFilter
       );
 
+  // Ensure we always have results to display
+  const displayStudies = filteredStudies.length > 0 ? filteredStudies : caseStudies;
+
   return (
     <section className="relative py-20 overflow-hidden" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
       <div className="px-8">
@@ -194,7 +197,7 @@ const CaseStudySection = () => {
 
           {/* Case Study Cards */}
           <div className="space-y-14">
-            {filteredStudies.map((study, idx) => (
+            {displayStudies.map((study, idx) => (
               <motion.div
                 key={study.id}
                 initial={{ opacity: 0, y: 30 }}
