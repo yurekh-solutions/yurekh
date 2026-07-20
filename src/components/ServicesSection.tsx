@@ -1,67 +1,36 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import { ArrowRight, Brain, Sparkles, Bot, LineChart, Eye, Cloud, Database, Shield, Wifi, Glasses, Link2, GitBranch } from "lucide-react";
+import { ArrowRight, Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe } from "lucide-react";
 
 const services = [
   {
-    title: "Artificial Intelligence",
-    description: "AI delivers real value when it aligns with how a business operates. We help organizations use AI to make better decisions, reduce manual work, and support large-scale operations.",
-    icon: Brain,
+    title: "Business Strategy & Consulting",
+    description: "From startups to enterprises, we partner with founders and leadership teams to define strategy, plan growth, and build scalable business models that work in real markets.",
+    icon: Briefcase,
   },
   {
-    title: "Generative AI",
-    description: "Generative AI works best when it's part of daily workflows. We integrate it into internal systems, customer experiences, and business tools, while maintaining the security and controls enterprises need.",
-    icon: Sparkles,
+    title: "Technology & Product Development",
+    description: "Custom software, mobile apps, cloud infrastructure, and AI — we build and deploy the technology your business needs to operate efficiently and compete globally.",
+    icon: Cpu,
   },
   {
-    title: "Agentic AI",
-    description: "We support organizations adopting autonomous AI by implementing AI agents that can perform tasks across processes, with proper oversight, transparency, and accountability.",
-    icon: Bot,
+    title: "Brand, Marketing & Growth",
+    description: "We handle end-to-end branding, digital marketing, SEO, and performance campaigns that position your business in front of the right audience and drive measurable results.",
+    icon: Megaphone,
   },
   {
-    title: "Machine Learning",
-    description: "In enterprise settings, machine learning needs to be reliable, not experimental. We help teams deploy models that remain accurate, monitored, and compliant in real-world use.",
-    icon: LineChart,
+    title: "Operations & Process Optimization",
+    description: "We streamline your operations — from supply chain and logistics to internal workflows — so your team runs leaner, faster, and more profitably.",
+    icon: TrendingUp,
   },
   {
-    title: "Computer Vision",
-    description: "For use cases where speed and accuracy matter, we build computer vision systems that analyze visual data clearly and reliably.",
-    icon: Eye,
+    title: "Go-to-Market & Market Entry",
+    description: "Launching a new product or entering a new market? We handle positioning, pricing, distribution, and launch execution — so you go to market with clarity and confidence.",
+    icon: Rocket,
   },
   {
-    title: "Cloud",
-    description: "Cloud modernization goes beyond moving systems online. We help teams build secure, resilient cloud infrastructure while optimizing performance and costs.",
-    icon: Cloud,
-  },
-  {
-    title: "Data Science and Analytics",
-    description: "Data creates value when it's reliable and easy to use. We build data foundations that support analytics and insights across teams without unnecessary complexity.",
-    icon: Database,
-  },
-  {
-    title: "Cybersecurity",
-    description: "Security is built into the system from the start. We design solutions that address governance, compliance, and risk as part of the core architecture.",
-    icon: Shield,
-  },
-  {
-    title: "IoT",
-    description: "Connected devices matter when their data can be used effectively. We help organizations connect physical systems to digital platforms, improving visibility and operational control.",
-    icon: Wifi,
-  },
-  {
-    title: "AR/VR",
-    description: "Immersive technologies are most effective when they address real needs. We use AR and VR to support training, simulations, and remote collaboration in enterprise environments.",
-    icon: Glasses,
-  },
-  {
-    title: "Blockchain",
-    description: "Blockchain works best when trust needs to be shared across parties. We apply it selectively to ensure traceability, data integrity, and secure data exchange in multi-party systems.",
-    icon: Link2,
-  },
-  {
-    title: "DevOps & Automation",
-    description: "Efficient delivery requires strong automation and collaboration. We build CI/CD pipelines, infrastructure as code, and monitoring systems that help teams ship faster with confidence.",
-    icon: GitBranch,
+    title: "Global Expansion & Partnerships",
+    description: "We help businesses scale internationally — handling market research, compliance, partner identification, and localization to grow across borders.",
+    icon: Globe,
   },
 ];
 
@@ -73,11 +42,14 @@ const ServicesSection = () => {
           {/* Section Header */}
           <div className="mx-auto max-w-3xl text-center">
             <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase">
-              Services
+              What We Do
             </p>
             <h2 className="text-[30px] font-semibold text-white mt-4 leading-[1.2]">
-              Deep Technical Expertise, Supporting Modern Systems
+              One Partner. Complete Execution.
             </h2>
+            <p className="text-white/70 text-[15px] mt-4 leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
+              From small startups to large enterprises — we consult, build, and grow your business. Strategy, technology, branding, operations — everything under one roof.
+            </p>
           </div>
 
           {/* Service Cards Grid */}
