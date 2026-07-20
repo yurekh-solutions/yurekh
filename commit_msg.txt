@@ -1,1 +1,1 @@
-Fix logo rounded corners and header background theme  
+Remove rounded corners from logo header and footer  

@@ -189,7 +189,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo - Yurekh Brand */}
             <a href="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-lg overflow-hidden shadow-[0_0_20px_rgba(27,225,211,0.3)] border border-[#1BE1D3]/20">
+              <div className="w-12 h-12 overflow-hidden">
                 <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
               </div>
               <div className="hidden sm:block">

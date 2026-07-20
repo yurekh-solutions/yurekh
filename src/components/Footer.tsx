@@ -250,7 +250,7 @@ const Footer = () => {
             {/* Company Info */}
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
-                <div className="w-16 h-16 rounded-lg overflow-hidden shadow-[0_0_20px_rgba(27,225,211,0.3)] border border-[#1BE1D3]/20">
+                <div className="w-16 h-16 overflow-hidden">
                   <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
                 </div>
                 <div>
