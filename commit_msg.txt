@@ -1,1 +1,1 @@
-Match nav background to hero gradient theme  
+Update hero paragraph to business consulting focus  

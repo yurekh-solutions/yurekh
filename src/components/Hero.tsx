@@ -78,10 +78,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          We build scalable, secure, and high-performance digital solutions for
-          enterprises. From software and app development to AI, cybersecurity,
-          and cloud services, we help businesses innovate and scale with
-          confidence.
+         We partner with founders and leadership teams to build, launch, and scale businesses globally. From strategy and go-to-market planning to technology, branding, and operations — we deliver integrated solutions that drive real, measurable growth across industries.
         </motion.p>
 
         {/* CTA Button */}
