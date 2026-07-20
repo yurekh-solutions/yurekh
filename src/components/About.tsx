@@ -187,13 +187,13 @@ const Video = () => {
           {/* Left Content */}
           <div className="space-y-6 text-left md:text-left text-center mt-5">
             <h2 className="text-[30px] font-semibold" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
-              Trusted by Innovators <span className="text-[#1be1d3]">Worldwide</span>
+              What Is Yurekh Solutions? <span className="text-[#1be1d3]">Your Complete Business Partner.</span>
             </h2>
             <p className="text-[14px] font-normal text-gray-300 leading-[1.7]">
-              At Yurekh, we are a passionate team dedicated to providing exceptional creative services. With a focus on excellence and innovation, we specialize in helping our clients achieve outstanding results for their projects.
+              Yurekh Solutions is a global business consulting and technology company that partners with founders, startups, SMEs, and enterprises to build, launch, and scale their businesses. We handle everything — from business strategy and company formation to technology development, branding, marketing, operations, and global expansion.
             </p>
             <p className="text-[14px] font-normal text-gray-300 leading-[1.7]">
-              We modernized 125 applications with Agile methods, enhancing security, monitoring, and streamlining operations for data-driven decision-making. Our Intelligent Virtual Assistant helped the CDC handle 500,000 calls per hour in 180 languages, reducing costs by 70% and achieving 99% customer satisfaction.
+              Whether you're launching your first startup or scaling an existing enterprise, we act as your founding team, growth partner, and execution arm — all under one roof. No fragmented vendors, no miscommunication. One partner. Complete execution.
             </p>
 
             <div className="flex flex-col md:flex-row items-center gap-3 mt-4 justify-center md:justify-start">

@@ -34,14 +34,12 @@ const CTABanner = () => {
           {/* Left Content */}
           <div className="space-y-6">
             <h2 className="text-[30px] font-semibold text-white leading-[1.2]">
-              Your Gateway to Digital{" "}
-              <span className="text-[#1BE1D3]">Transformation</span>
+              Ready to Build or Scale{" "}
+              <span className="text-[#1BE1D3]">Your Business?</span>
             </h2>
 
             <p className="text-[14px] font-normal text-gray-400 leading-[1.7] max-w-lg mt-5">
-              Start your journey toward smarter, faster, and more secure business operations.
-              Our solutions in software, AI, cloud, and cybersecurity help you grow, innovate,
-              and succeed globally.
+              From startup launch to enterprise growth — Yurekh Solutions handles strategy, technology, branding, marketing, operations, and global expansion. Book a consultation and let's discuss how we can grow your business.
             </p>
 
             <Button

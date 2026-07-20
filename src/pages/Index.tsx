@@ -24,9 +24,9 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEOHead
-        title="Yurekh Solutions | Global Business Building Studio | We Build Businesses"
-        description="Full-system business building studio helping founders and enterprises build, launch, and scale globally. Strategy, legal, technology, branding & go-to-market. Offices in India, UAE, USA, UK, Singapore & Australia."
-        keywords="Yurekh Solutions, business building, global consulting, startup consulting, SaaS development, AI software, brand building, digital transformation, company formation, go-to-market strategy, web development, mobile app development, e-commerce, CRM systems, cloud solutions, SEO agency, digital marketing"
+        title="Yurekh Solutions | Business Consulting, Technology & Growth Partner for Startups to Enterprises"
+        description="Yurekh Solutions is a global business consulting and technology partner. We help startups, SMEs, and enterprises build, launch, and scale — from strategy and company formation to technology development, branding, marketing, operations, and global expansion. One partner. Complete execution."
+        keywords="Yurekh Solutions, business consulting, startup consulting, enterprise consulting, business strategy, company formation, technology development, custom software, mobile app development, brand building, digital marketing, go-to-market strategy, business growth partner, operations consulting, global expansion, SaaS development, AI solutions, cloud infrastructure, SEO agency, web development, e-commerce solutions, CRM systems, business partner"
         canonical="https://yurekh.com/"
       />
       <section id="header">
@@ -47,9 +47,9 @@ const Index = () => {
         <CaseStudiesSection />
       </section>
 
-<section id="services">
-  <ServicesSection/>
-  </section>
+      <section id="services">
+        <ServicesSection />
+      </section>
 
       <section id="process">
         <ProcessSection />
