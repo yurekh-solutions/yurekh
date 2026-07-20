@@ -1,1 +1,1 @@
-Fix About page CTA button mobile styling  
+Fix popup close buttons mobile responsive and remove free language  

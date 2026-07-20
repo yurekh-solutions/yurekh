@@ -63,9 +63,10 @@ const LeadMagnetPopup = () => {
             {/* Close button */}
             <button
               onClick={handleClose}
-              className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-10"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-20 touch-manipulation"
+              aria-label="Close popup"
             >
-              <X className="w-4 h-4 text-white" />
+              <X className="w-5 h-5 text-white" />
             </button>
 
             {/* Glow effects */}
@@ -85,7 +86,7 @@ const LeadMagnetPopup = () => {
                     className="text-white text-2xl md:text-3xl font-normal mb-3"
                     style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
                   >
-                    Free Global Market Entry Guide
+                    Global Market Entry Guide
                   </h3>
                   <p
                     className="text-white/60 text-sm md:text-base mb-6"
@@ -132,7 +133,7 @@ const LeadMagnetPopup = () => {
                         fontWeight: 400,
                       }}
                     >
-                      Get Free Guide
+                      Get Guide
                     </button>
                   </form>
 
@@ -155,7 +156,7 @@ const LeadMagnetPopup = () => {
                     className="text-white/60 text-sm"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    Your free guide is on its way.
+                    Your guide is on its way.
                   </p>
                 </div>
               )}
