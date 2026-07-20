@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { Menu, X, Phone, ChevronDown, MessageCircle } from "lucide-react";
+import { Menu, X, Phone, ChevronDown, MessageCircle, Instagram, Facebook, Linkedin, Twitter } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/logo.jpeg";
 import { getAllServices } from "@/data/services";
@@ -54,6 +54,13 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+ const socialWidgets = [
+    { name: "Instagram", url: "https://www.instagram.com/yurekhsolutions" },
+    { name: "Facebook", url: "https://www.facebook.com/share/1JzwtyDtAx/" },
+    { name: "LinkedIn", url: "https://www.linkedin.com/company/yurekh-solutions-private-limited/" },
+    { name: "Threads", url: "https://www.threads.com/@yurekhsolutions" },
+    { name: "Twitter (X)", url: "https://x.com/yurekhsolutions" },
+  ];
 
   const navItems: NavItem[] = [
     {
@@ -149,7 +156,13 @@ const Header = () => {
           borderBottom: "1px solid rgba(27,225,211,0.12)",
         }}
       >
-        <div className="container mx-auto px-4 lg:px-8 flex items-center justify-end py-2">
+        <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between py-2">
+          {/* Social Icons - Left Side */}
+          <div className="flex items-center  gap-3">
+            Recognized Among TOP 1 % Companies Globally
+          </div>
+
+          {/* WhatsApp - Right Side */}
           <a
             href="https://wa.me/9136242706"
             target="_blank"

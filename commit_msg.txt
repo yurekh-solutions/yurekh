@@ -1,1 +1,1 @@
-Unify website typography and font alignment across all pages  
+Add social icons to header top bar  
