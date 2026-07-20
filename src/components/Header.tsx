@@ -149,21 +149,12 @@ const Header = () => {
           borderBottom: "1px solid rgba(27,225,211,0.12)",
         }}
       >
-        <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between py-2">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2 text-white/90">
-              <Phone className="h-3.5 w-3.5 text-[#1BE1D3]" />
-              <span className="text-sm font-medium">Call Us</span>
-            </div>
-            <div className="flex items-center gap-2 text-white">
-              <span className="text-sm font-semibold">+91 9136242706</span>
-            </div>
-          </div>
+        <div className="container mx-auto px-4 lg:px-8 flex items-center justify-end py-2">
           <a
             href="https://wa.me/9136242706"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:flex items-center gap-2 text-white/90 hover:text-[#1BE1D3] transition-colors"
+            className="flex items-center gap-2 text-white/90 hover:text-[#1BE1D3] transition-colors"
           >
             <MessageCircle className="h-3.5 w-3.5 text-[#1BE1D3]" />
             <span className="text-sm font-medium">WhatsApp Chat</span>

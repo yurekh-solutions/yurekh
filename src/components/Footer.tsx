@@ -221,6 +221,28 @@ const Footer = () => {
         </div>
       </section>
 
+      {/* Call to Action Section */}
+      <section className="py-12 md:py-16" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center p-8 md:p-12 rounded-3xl border border-[#1BE1D3]/30 bg-gradient-to-br from-[#1BE1D3]/10 to-transparent">
+            <h2 className="text-2xl md:text-3xl font-normal text-white mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+              Ready to Talk?
+            </h2>
+            <p className="text-white/60 text-sm md:text-base mb-6" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
+              Speak directly with our team. No wait, no hassle — just real conversations.
+            </p>
+            <a
+              href="tel:+919136242706"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#1BE1D3] text-black font-semibold text-base hover:bg-[#1BE1D3]/90 transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+              style={{ fontFamily: "Poppins, sans-serif" }}
+            >
+              <Phone className="w-5 h-5" />
+              Call +91 91362 42706
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Main Footer */}
       <footer className="relative z-10 py-12 border-t border-[#1BE1D3]/20" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
