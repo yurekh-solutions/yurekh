@@ -1,1 +1,1 @@
-Center header badge text  
+Fix logo rounded corners and header background theme  

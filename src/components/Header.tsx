@@ -147,12 +147,10 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
-      {/* Top Bar - Glass feel with Yurekh teal gradient */}
+      {/* Top Bar - Dark teal gradient matching website theme */}
       <div
         style={{
-          background: "rgba(27,225,211,0.06)",
-          backdropFilter: "blur(20px) saturate(180%)",
-          WebkitBackdropFilter: "blur(20px) saturate(180%)",
+          background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)",
           borderBottom: "1px solid rgba(27,225,211,0.12)",
         }}
       >
@@ -191,7 +189,7 @@ const Header = () => {
           <div className="flex items-center justify-between">
             {/* Logo - Yurekh Brand */}
             <a href="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 rounded-full overflow-hidden shadow-[0_0_20px_rgba(27,225,211,0.3)]">
+              <div className="w-12 h-12 rounded-lg overflow-hidden shadow-[0_0_20px_rgba(27,225,211,0.3)] border border-[#1BE1D3]/20">
                 <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
               </div>
               <div className="hidden sm:block">
