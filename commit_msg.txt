@@ -1,1 +1,1 @@
-Remove rounded corners from logo header and footer  
+Match nav background to hero gradient theme  

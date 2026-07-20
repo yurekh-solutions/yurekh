@@ -179,9 +179,7 @@ const Header = () => {
           isScrolled ? "py-3" : "py-4"
         }`}
         style={{
-          background: isScrolled ? "rgba(0,0,0,0.7)" : "rgba(0,0,0,0.5)",
-          backdropFilter: "blur(24px) saturate(180%)",
-          WebkitBackdropFilter: "blur(24px) saturate(180%)",
+          background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)",
           borderBottom: "1px solid rgba(255,255,255,0.06)",
         }}
       >
