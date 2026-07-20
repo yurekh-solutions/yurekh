@@ -6,23 +6,23 @@ const ProcessSection = () => {
     {
       number: "01",
       icon: <Lightbulb className="w-8 h-8" />,
-      title: "Strategy",
-      description: "We begin by understanding your vision, goals, and market landscape. Deep research, competitive analysis, and a customized roadmap — all within the first 2 weeks.",
-      deliverables: ["Market Research", "Competitive Analysis", "Business Model Design", "Go-to-Market Strategy"],
+      title: "Discovery & Strategic Planning",
+      description: "We start by deeply understanding your business vision, target market, and competitive landscape. Our team conducts thorough market research, competitor analysis, and financial modeling to craft a data-driven roadmap tailored to your goals.",
+      deliverables: ["Market Research & Analysis", "Competitor Benchmarking", "Business Model Design", "Strategic Roadmap"],
     },
     {
       number: "02",
       icon: <Rocket className="w-8 h-8" />,
-      title: "Execution",
-      description: "Once strategy is defined, we build everything — company formation, legal compliance, brand identity, technology stack, and digital presence. One team, complete execution.",
-      deliverables: ["Company Registration", "Brand Identity", "Technology Build", "Digital Launch"],
+      title: "Build & Launch Execution",
+      description: "From company formation and legal compliance to brand identity and technology development — we build everything your business needs to launch. One integrated team handles every detail, so you avoid fragmented vendors and delays.",
+      deliverables: ["Company Registration & Legal", "Brand Identity & Design", "Technology & Product Build", "Digital Launch & Marketing"],
     },
     {
       number: "03",
       icon: <TrendingUp className="w-8 h-8" />,
-      title: "Growth",
-      description: "Post-launch, we focus on scaling — customer acquisition, market expansion, performance optimization, and long-term value creation. Your growth is our mission.",
-      deliverables: ["Customer Acquisition", "Market Expansion", "Performance Optimization", "Scale Planning"],
+      title: "Scale & Global Growth",
+      description: "Post-launch, we focus on scaling your business — customer acquisition, market expansion, performance optimization, and international growth. We stay as your long-term partner to ensure sustainable, measurable results.",
+      deliverables: ["Customer Acquisition & Retention", "Market Expansion Strategy", "Performance Optimization", "International Growth"],
     },
   ];
 

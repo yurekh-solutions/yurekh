@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe } from "lucide-react";
+import { Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe, Building2, Palette, Users, Scale, BarChart3, Headphones } from "lucide-react";
 
 const services = [
   {
@@ -31,6 +31,36 @@ const services = [
     title: "Global Expansion & Partnerships",
     description: "We help businesses scale internationally — handling market research, compliance, partner identification, and localization to grow across borders.",
     icon: Globe,
+  },
+  {
+    title: "Company Formation & Legal Setup",
+    description: "From entity registration and licensing to compliance frameworks and legal structuring — we set up your business the right way in any jurisdiction.",
+    icon: Building2,
+  },
+  {
+    title: "Design & Creative Services",
+    description: "Logo design, UI/UX, packaging, print collateral, and visual identity systems — we create design that communicates your brand's value at every touchpoint.",
+    icon: Palette,
+  },
+  {
+    title: "Team Building & Talent Advisory",
+    description: "We help you build the right team — from hiring strategy and role design to leadership advisory — so you have the people to execute your vision.",
+    icon: Users,
+  },
+  {
+    title: "Financial Planning & Fundraising",
+    description: "Financial modeling, investor readiness, pitch decks, and fundraising strategy — we help you secure the capital and manage the finances to scale.",
+    icon: BarChart3,
+  },
+  {
+    title: "Compliance & Risk Management",
+    description: "Regulatory compliance, data protection, risk assessment, and governance frameworks — we ensure your business operates safely and meets all legal requirements.",
+    icon: Scale,
+  },
+  {
+    title: "Customer Support & Account Management",
+    description: "We set up and manage customer support systems, CRM workflows, and account management processes so your clients get the experience they expect.",
+    icon: Headphones,
   },
 ];
 

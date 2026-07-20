@@ -5,33 +5,33 @@ const WhyChooseUs = () => {
   const reasons = [
     {
       icon: <Zap className="w-7 h-7" />,
-      title: "Speed of Execution",
-      description: "Most consultants deliver reports. We deliver results. Average 90-day time-to-market for new ventures.",
+      title: "End-to-End Business Partner",
+      description: "We're not just consultants — we're your founding team, growth engine, and execution arm. From day one idea to global scale, we handle everything so you can focus on your vision.",
     },
     {
       icon: <Globe className="w-7 h-7" />,
-      title: "Global Reach, Local Expertise",
-      description: "Offices in 6 countries. We understand local regulations, culture, and market dynamics everywhere we operate.",
+      title: "Startups to Enterprise — All Scales",
+      description: "Whether you're launching your first startup or scaling an existing enterprise, our frameworks adapt to your stage. We work with founders, SMEs, and large corporations across industries.",
     },
     {
       icon: <Target className="w-7 h-7" />,
-      title: "End-to-End Ownership",
-      description: "One partner for strategy, legal, technology, branding, and go-to-market. No fragmented vendor management.",
+      title: "Complete Execution Under One Roof",
+      description: "Strategy, legal, technology, branding, marketing, operations — one partner handles it all. No fragmented vendors, no miscommunication, no delays.",
     },
     {
       icon: <Shield className="w-7 h-7" />,
-      title: "Confidential & Secure",
-      description: "NDA-protected engagements. Your business data, strategy, and IP are never shared or compromised.",
+      title: "Confidential & Trust-First Approach",
+      description: "Your business data, strategy, and IP are protected with strict NDAs. We operate with complete confidentiality because trust is the foundation of every engagement.",
     },
     {
       icon: <Clock className="w-7 h-7" />,
-      title: "24/7 Global Support",
-      description: "Round-the-clock support across all time zones. Your business never sleeps, and neither do we.",
+      title: "Speed Without Compromise",
+      description: "Most consulting firms deliver reports. We deliver results. Our integrated team moves fast — from strategy to launch in weeks, not months — without cutting corners.",
     },
     {
       icon: <CheckCircle className="w-7 h-7" />,
-      title: "Proven Framework",
-      description: "200+ brands built with our repeatable system. Strategy → Execution → Growth. Every time.",
+      title: "Growth-Obsessed Methodology",
+      description: "We don't just build businesses — we grow them. Every decision, every execution, every optimization is measured by one thing: your sustainable, long-term growth.",
     },
   ];
 
