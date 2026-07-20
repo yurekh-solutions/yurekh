@@ -1,1 +1,1 @@
-Add social icons to header top bar  
+Center header badge text  

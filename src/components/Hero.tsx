@@ -61,7 +61,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          Enterprise Digital Solutions{" "}
+          Enterprise Business Solutions{" "}
           <span className="text-[#1BE1D3]">That Drive Growth</span>
         </motion.h1>
 

@@ -158,8 +158,8 @@ const Header = () => {
       >
         <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between py-2">
           {/* Social Icons - Left Side */}
-          <div className="flex items-center  gap-3">
-            Recognized Among TOP 1 % Companies Globally
+          <div className="flex items-center justify-center gap-2 flex-1">
+            <span className="text-white/90 text-sm font-medium">Recognized Among TOP 1% Companies Globally</span>
           </div>
 
           {/* WhatsApp - Right Side */}
