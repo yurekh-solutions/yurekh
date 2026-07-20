@@ -84,7 +84,7 @@ const Services = () => {
                 <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">
                   Services
                 </p>
-                <h1 className="text-white text-[30px] md:text-[48px] font-semibold leading-[1.2] mb-6">
+                <h1 className="text-white text-[32px] md:text-[48px] font-semibold leading-[1.2] mb-6" style={{ fontFamily: "Montserrat, sans-serif" }}>
                   Deep Technical Expertise, Supporting Modern Systems
                 </h1>
                 <p className="text-[14px] font-normal text-white/70 max-w-2xl mx-auto leading-[1.7]">
@@ -121,7 +121,7 @@ const Services = () => {
                         <service.icon className="h-5 w-5 text-[#1BE1D3]" strokeWidth={1.6} />
                       </span>
                       {/* Title */}
-                      <h3 className="text-[18px] font-semibold">
+                      <h3 className="text-[20px] font-semibold" style={{ fontFamily: "Montserrat, sans-serif" }}>
                         <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-2 transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]">
                           {service.title}
                         </span>
@@ -150,7 +150,7 @@ const Services = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
+              <h2 className="text-white text-[32px] font-semibold mb-4 leading-[1.2]" style={{ fontFamily: "Montserrat, sans-serif" }}>
                 Ready to Transform Your Business?
               </h2>
               <p className="text-[14px] font-normal text-white/70 max-w-2xl mx-auto mb-8 leading-[1.7]">

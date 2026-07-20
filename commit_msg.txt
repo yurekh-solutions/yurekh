@@ -1,1 +1,1 @@
-Remove phone from header add call CTA to footer  
+Unify website typography and font alignment across all pages  

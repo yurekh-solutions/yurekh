@@ -51,8 +51,8 @@ const Hero = () => {
           className="text-white mb-8 text-center"
           style={{
             fontFamily: "Montserrat, sans-serif",
-            fontWeight: 700,
-            fontSize: "clamp(30px, 5vw, 48px)",
+            fontWeight: 600,
+            fontSize: "clamp(32px, 5vw, 48px)",
             lineHeight: "1.2",
             letterSpacing: "-0.02em",
             maxWidth: "800px",

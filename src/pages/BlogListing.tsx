@@ -85,7 +85,7 @@ const BlogListing = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-[32px] sm:text-[40px] md:text-[48px] font-bold text-white leading-[1.15] mb-3 sm:mb-5">
+              <h1 className="text-[32px] sm:text-[40px] md:text-[48px] font-semibold text-white leading-[1.2] mb-3 sm:mb-5" style={{ fontFamily: "Montserrat, sans-serif" }}>
                 Blogs
               </h1>
               <p className="text-[13px] sm:text-[14px] md:text-[15px] text-white/70 max-w-2xl leading-[1.7] mb-5 sm:mb-7">
@@ -165,7 +165,7 @@ const BlogListing = () => {
           </div>
 
           {/* Recent Blogs Heading */}
-          <h2 className="text-[20px] sm:text-[24px] md:text-[28px] font-semibold text-white mb-5 sm:mb-7">
+          <h2 className="text-[24px] sm:text-[28px] md:text-[32px] font-semibold text-white mb-5 sm:mb-7" style={{ fontFamily: "Montserrat, sans-serif" }}>
             Recent Blogs
           </h2>
 
@@ -197,7 +197,7 @@ const BlogListing = () => {
                         <Calendar className="h-3.5 w-3.5 text-[#1BE1D3]" />
                         <span>{post.date}</span>
                       </div>
-                      <h3 className="text-[15px] sm:text-[16px] md:text-[17px] font-medium text-white leading-[1.45] group-hover:text-[#1BE1D3] transition-colors duration-300 line-clamp-2">
+                      <h3 className="text-[16px] sm:text-[18px] md:text-[20px] font-semibold text-white leading-[1.3] group-hover:text-[#1BE1D3] transition-colors duration-300 line-clamp-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
                         {post.title}
                       </h3>
                       <p className="text-[12px] sm:text-[13px] font-normal text-gray-400 leading-[1.7] line-clamp-3">

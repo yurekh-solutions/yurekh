@@ -66,7 +66,7 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[36px] font-bold text-white leading-[1.2] mb-4 sm:mb-6 md:mb-8">
+              <h2 className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[36px] font-semibold text-white leading-[1.2] mb-4 sm:mb-6 md:mb-8" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
                 Tell us about your project
               </h2>
 
@@ -135,7 +135,7 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] font-bold text-white mb-1.5 sm:mb-2">
+              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] font-semibold text-white mb-1.5 sm:mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
                 Get A Free Consultation
               </h3>
               <p className="text-white/50 text-[12px] sm:text-[13px] md:text-[14px] mb-4 sm:mb-6 md:mb-8">

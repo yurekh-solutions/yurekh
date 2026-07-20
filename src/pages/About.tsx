@@ -61,7 +61,7 @@ const About = () => {
             <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
             <span className="text-[#1BE1D3] text-sm font-medium">About Yurekh Solutions</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-normal text-white mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+          <h1 className="text-4xl md:text-6xl font-semibold text-white mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
             Transforming Businesses with{" "}
             <span className="text-[#1BE1D3]">AI-Powered Technology</span>
           </h1>
@@ -85,7 +85,7 @@ const About = () => {
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               className="text-center p-8 rounded-2xl border border-[#1BE1D3]/20 bg-gradient-to-br from-[#1BE1D3]/5 to-transparent"
             >
-              <div className="text-4xl md:text-5xl font-normal text-[#1BE1D3] mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+              <div className="text-4xl md:text-5xl font-semibold text-[#1BE1D3] mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
                 {stat.number}
               </div>
               <div className="text-gray-400 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -109,7 +109,7 @@ const About = () => {
               <div className="w-12 h-12 rounded-xl bg-[#1BE1D3]/10 flex items-center justify-center">
                 <Target className="w-6 h-6 text-[#1BE1D3]" />
               </div>
-              <h2 className="text-2xl font-normal text-white" style={{ fontFamily: "Montserrat, sans-serif" }}>Our Mission</h2>
+              <h2 className="text-2xl font-semibold text-white" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Our Mission</h2>
             </div>
             <p className="text-gray-300 leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
               To empower businesses of all sizes with intelligent technology solutions that drive growth, 
@@ -128,7 +128,7 @@ const About = () => {
               <div className="w-12 h-12 rounded-xl bg-[#1BE1D3]/10 flex items-center justify-center">
                 <Eye className="w-6 h-6 text-[#1BE1D3]" />
               </div>
-              <h2 className="text-2xl font-normal text-white" style={{ fontFamily: "Montserrat, sans-serif" }}>Our Vision</h2>
+              <h2 className="text-2xl font-semibold text-white" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>Our Vision</h2>
             </div>
             <p className="text-gray-300 leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
               To be the global leader in AI-powered business solutions, recognized for our commitment to 
@@ -147,7 +147,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
             Our Core Values
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -165,7 +165,7 @@ const About = () => {
               className="p-6 rounded-2xl border border-[#1BE1D3]/20 bg-gradient-to-br from-[#1BE1D3]/5 to-transparent hover:border-[#1BE1D3]/40 transition-all duration-300"
             >
               <div className="text-[#1BE1D3] mb-4">{value.icon}</div>
-              <h3 className="text-lg font-normal text-white mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <h3 className="text-lg font-semibold text-white mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
                 {value.title}
               </h3>
               <p className="text-gray-400 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -184,7 +184,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
             What We Do
           </h2>
           <p className="text-gray-400 max-w-3xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -210,7 +210,7 @@ const About = () => {
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#1BE1D3]/10 text-[#1BE1D3] mb-4">
                 {item.icon}
               </div>
-              <h3 className="text-lg font-normal text-white mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <h3 className="text-lg font-semibold text-white mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
                 {item.title}
               </h3>
               <p className="text-gray-400 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -229,7 +229,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
             Our Teams
           </h2>
           <p className="text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -255,7 +255,7 @@ const About = () => {
                 />
               </div>
               <div className="p-6 text-center">
-                <h3 className="text-lg font-normal text-white mb-1" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                <h3 className="text-lg font-semibold text-white mb-1" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
                   {member.name}
                 </h3>
                 <p className="text-[#1BE1D3] text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -275,7 +275,7 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center p-12 rounded-3xl border border-[#1BE1D3]/30 bg-gradient-to-br from-[#1BE1D3]/10 to-transparent"
         >
-          <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
             Ready to Transform Your Business?
           </h2>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>

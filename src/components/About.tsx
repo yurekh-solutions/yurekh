@@ -186,7 +186,7 @@ const Video = () => {
         <div className="relative z-10 w-full max-w-7xl px-8 grid md:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="space-y-6 text-left md:text-left text-center mt-5">
-            <h2 className="text-[30px] font-semibold">
+            <h2 className="text-[30px] font-semibold" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
               Trusted by Innovators <span className="text-[#1be1d3]">Worldwide</span>
             </h2>
             <p className="text-[14px] font-normal text-gray-300 leading-[1.7]">
