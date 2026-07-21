@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/ainos/:path*", "destination": "https://ainos-jsd7mrxq3-yurekhs-projects.vercel.app/ainos/:path*" },
+    { "source": "/ainos/:path*", "destination": "https://ainos-yurekhs-projects.vercel.app/ainos/:path*" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
