@@ -1,1 +1,1 @@
-Add BusinessSolutions section: Who We Serve and What We Deliver  
+Remove Ready to Talk CTA section from footer  
