@@ -1,7 +1,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe, ArrowRight } from "lucide-react";
 import widgetCloud from "../assets/widget-cloud.jpg";
+
+const pillars = [
+  { icon: Briefcase, label: "Business Strategy" },
+  { icon: Cpu, label: "Technology" },
+  { icon: Megaphone, label: "Branding & Marketing" },
+  { icon: TrendingUp, label: "Operations" },
+  { icon: Rocket, label: "Go-to-Market" },
+  { icon: Globe, label: "Global Expansion" },
+];
 
 const Hero = () => {
   return (
@@ -81,33 +91,87 @@ const Hero = () => {
          We partner with founders and leadership teams to build, launch, and scale businesses globally. From strategy and go-to-market planning to technology, branding, and operations — we deliver integrated solutions that drive real, measurable growth across industries.
         </motion.p>
 
-        {/* CTA Button */}
+        {/* CTA Buttons */}
         <motion.div
+          className="flex flex-col sm:flex-row items-center gap-4 mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
+          <Link to="/bookingform">
+            <button
+              style={{
+                fontFamily: "Poppins, sans-serif",
+                fontWeight: 600,
+                fontSize: "clamp(14px, 2vw, 15px)",
+                padding: "0 28px",
+                height: "46px",
+                borderRadius: "10px",
+                backgroundColor: "#1BE1D3",
+                color: "#000",
+                border: "none",
+                boxShadow: "0 0 30px rgba(27,225,211,0.15)",
+              }}
+              className="hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)] transition-all duration-300 flex items-center gap-2"
+            >
+              Book a Consultation <ArrowRight className="w-4 h-4" />
+            </button>
+          </Link>
           <Link to="/about">
-          <button
-            style={{
-              fontFamily: "Poppins, sans-serif",
-              fontWeight: 400,
-              fontSize: "clamp(14px, 2vw, 16px)",
-              padding: "0 32px",
-              height: "48px",
-              borderRadius: "10px",
-              backgroundColor: "rgba(27,225,211,0.08)",
-              color: "#1BE1D3",
-              border: "1px solid rgba(27,225,211,0.3)",
-              backdropFilter: "blur(12px)",
-              boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
-            }}
-            className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_40px_rgba(27,225,211,0.2)] transition-all duration-300"
-          >
-          Discover More
-          </button>
-        </Link>
+            <button
+              style={{
+                fontFamily: "Poppins, sans-serif",
+                fontWeight: 400,
+                fontSize: "clamp(14px, 2vw, 15px)",
+                padding: "0 28px",
+                height: "46px",
+                borderRadius: "10px",
+                backgroundColor: "rgba(27,225,211,0.08)",
+                color: "#1BE1D3",
+                border: "1px solid rgba(27,225,211,0.3)",
+                backdropFilter: "blur(12px)",
+                boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+              }}
+              className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] transition-all duration-300"
+            >
+              Discover More
+            </button>
+          </Link>
         </motion.div>
+
+        {/* Business Service Pillars */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-6"
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.3 }}
+        >
+          {pillars.map((pillar, idx) => (
+            <div
+              key={idx}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/10 bg-white/[0.03] hover:border-[#1BE1D3]/30 hover:bg-[#1BE1D3]/5 transition-all duration-300"
+            >
+              <pillar.icon className="w-3.5 h-3.5 text-[#1BE1D3]" strokeWidth={1.8} />
+              <span
+                className="text-white/70 text-xs"
+                style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
+              >
+                {pillar.label}
+              </span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Trust Line */}
+        <motion.p
+          className="text-white/40 text-xs text-center"
+          style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400, letterSpacing: "0.05em" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.6 }}
+        >
+          For Startups, SMEs & Enterprises — One Partner. Complete Execution.
+        </motion.p>
       </div>
 
       {/* Widget Image - Hidden on mobile, visible on desktop */}
