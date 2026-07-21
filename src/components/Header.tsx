@@ -35,6 +35,7 @@ interface IndustryItem {
 interface NavItem {
   name: string;
   href?: string;
+  external?: boolean;
   dropdown?: DropdownItem[];
   megaMenu?: ServiceCategory[];
   industryMenu?: IndustryItem[];
@@ -132,6 +133,7 @@ const Header = () => {
       ],
     },
     { name: "Case Study", href: "/case-study" },
+    { name: "AINOS", href: "/ainos", external: true },
   ];
 
   const handleDropdownEnter = (name: string) => {
@@ -154,10 +156,18 @@ const Header = () => {
           borderBottom: "1px solid rgba(27,225,211,0.12)",
         }}
       >
-        <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between py-2">
-          {/* Social Icons - Left Side */}
-          <div className="flex items-center justify-center gap-2 flex-1">
-            <span className="text-white/90 text-sm font-medium">Recognized Among TOP 1% Companies Globally</span>
+        <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between py-2 gap-2">
+          {/* Left - Hidden on mobile, visible on md+ */}
+          <div className="hidden md:flex items-center justify-center gap-2 flex-none">
+            <span className="text-white/90 text-xs font-medium">AI-Driven Business</span>
+          </div>
+
+          {/* Center - Full text on desktop, short on mobile */}
+          <div className="flex items-center justify-center gap-2 flex-1 min-w-0">
+            <span className="text-white/90 text-xs md:text-sm font-medium text-center truncate">
+              <span className="hidden md:inline">Recognized Among TOP 1% Companies Globally</span>
+              <span className="md:hidden">Recognized TOP 1% Companies</span>
+            </span>
           </div>
 
           {/* WhatsApp - Right Side */}
@@ -165,10 +175,10 @@ const Header = () => {
             href="https://wa.me/9136242706"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-white/90 hover:text-[#1BE1D3] transition-colors"
+            className="flex items-center gap-1.5 md:gap-2 text-white/90 hover:text-[#1BE1D3] transition-colors flex-shrink-0"
           >
-            <MessageCircle className="h-3.5 w-3.5 text-[#1BE1D3]" />
-            <span className="text-sm font-medium">WhatsApp Chat</span>
+            <MessageCircle className="h-3 w-3 md:h-3.5 md:w-3.5 text-[#1BE1D3]" />
+            <span className="text-xs md:text-sm font-medium">WhatsApp</span>
           </a>
         </div>
       </div>
@@ -212,7 +222,9 @@ const Header = () => {
                   onMouseLeave={handleDropdownLeave}
                 >
                   <a
-                    href={item.href || "#"}
+                    href={item.external ? item.href : (item.href || "#")}
+                    target={item.external ? "_self" : undefined}
+                    rel={item.external ? undefined : undefined}
                     className="flex items-center gap-1.5 text-white/90 hover:text-[#1BE1D3] transition-colors duration-300 py-2"
                     style={{
                       fontFamily: "Poppins, sans-serif",
@@ -220,7 +232,13 @@ const Header = () => {
                       fontSize: "14px",
                     }}
                     onClick={(e) => {
-                      if (item.dropdown || item.megaMenu || item.industryMenu) e.preventDefault();
+                      if (item.external) {
+                        // Let the browser handle the navigation naturally
+                        window.location.href = item.href!;
+                        e.preventDefault();
+                      } else if (item.dropdown || item.megaMenu || item.industryMenu) {
+                        e.preventDefault();
+                      }
                     }}
                   >
                     {item.name}

@@ -17,6 +17,7 @@ const sitemapData = [
       { name: "Services", href: "/services" },
       { name: "Blog", href: "/blogs" },
       { name: "Contact", href: "/#contact" },
+      { name: "AINOS Business Suite", href: "/ainos", external: true },
     ],
   },
   {
@@ -205,13 +206,23 @@ const Footer = () => {
                 <ul className="space-y-2.5">
                   {section.links.map((link) => (
                     <li key={link.name}>
-                      <Link
-                        to={link.href}
-                        className="text-white/60 text-sm hover:text-[#1BE1D3] transition-colors duration-300"
-                        style={{ fontFamily: "Poppins, sans-serif" }}
-                      >
-                        {link.name}
-                      </Link>
+                      {link.external ? (
+                        <a
+                          href={link.href}
+                          className="text-white/60 text-sm hover:text-[#1BE1D3] transition-colors duration-300"
+                          style={{ fontFamily: "Poppins, sans-serif" }}
+                        >
+                          {link.name}
+                        </a>
+                      ) : (
+                        <Link
+                          to={link.href}
+                          className="text-white/60 text-sm hover:text-[#1BE1D3] transition-colors duration-300"
+                          style={{ fontFamily: "Poppins, sans-serif" }}
+                        >
+                          {link.name}
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>

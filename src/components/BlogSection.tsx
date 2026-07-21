@@ -1780,26 +1780,14 @@ const BlogSection = () => {
             className="text-center mb-12 sm:mb-16"
           >
             <p
-              className="text-[14px] sm:text-[16px] md:text-[18px] font-semibold mb-3 sm:mb-4"
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                backgroundImage: "linear-gradient(90deg, #5f636b, #1be1d3, #345d66, #1c1d20)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
+              className="text-[14px] text-[#19c9bc] font-semibold text-[11px] sm:text-[12px] tracking-[0.3em] uppercase mb-3 md:mb-4 sm:text-[16px] md:text-[18px] font-semibold mb-3 sm:mb-4"
+             
             >
               LATEST BLOG
             </p>
             <h2
-              className="text-[24px] sm:text-[28px] md:text-[36px] font-extrabold leading-[1.2] mb-4 sm:mb-6"
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                backgroundImage: "linear-gradient(90deg, #5f636b, #1be1d3, #345d66, #1c1d20)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
+              className="text-[24px] text-white sm:text-[28px] md:text-[36px] font-semibold leading-[1.2] mb-4 sm:mb-6"
+              
             >
               Read The Latest Articles from Our Blog Post
             </h2>

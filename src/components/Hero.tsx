@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe, ArrowRight } from "lucide-react";
-import widgetCloud from "../assets/widget-cloud.jpg";
+import widgetCloud from "../assets/yurekh-dashboard.jpg";
 
 const pillars = [
   { icon: Briefcase, label: "Business Strategy" },
