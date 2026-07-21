@@ -17,6 +17,7 @@ import InstagramSection from "@/components/InstagramSection";
 import SEOHead from "@/components/SEOHead";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ProcessSection from "@/components/ProcessSection";
+import BusinessSolutions from "@/components/BusinessSolutions";
 import LeadMagnetPopup from "@/components/LeadMagnetPopup";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 
@@ -49,6 +50,10 @@ const Index = () => {
 
       <section id="services">
         <ServicesSection />
+      </section>
+
+      <section id="business-solutions">
+        <BusinessSolutions />
       </section>
 
       <section id="process">
