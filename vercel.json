@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/ainos/:path*", "destination": "https://ainos-ywu0.onrender.com/ainos/:path*" },
+    { "source": "/ainos", "destination": "https://ainos-ywu0.onrender.com/ainos" },
+    { "source": "/ainos/(.*)", "destination": "https://ainos-ywu0.onrender.com/ainos/$1" },
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
