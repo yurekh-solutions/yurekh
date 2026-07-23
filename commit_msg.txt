@@ -1,1 +1,1 @@
-Remove Ready to Talk CTA section from footer  
+Fix Vercel rewrite pattern for nested AINOS routes

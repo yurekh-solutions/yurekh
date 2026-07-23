@@ -24,13 +24,13 @@ const Industries = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-4 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-4 block">
                 INDUSTRIES
               </span>
-              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-light mb-6">
                 Industry Solutions
               </h1>
-              <p className="text-white/70 text-lg sm:text-xl max-w-3xl mx-auto mb-8" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.8" }}>
+              <p className="text-white/70 text-lg sm:text-xl max-w-3xl mx-auto mb-8">
                 We provide tailored digital solutions across sectors, helping businesses streamline operations, enhance customer experiences, and drive growth with cutting-edge technology.
               </p>
               <button
@@ -40,9 +40,6 @@ const Industries = () => {
                 }}
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
                 style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "16px",
                   backgroundColor: "rgba(27,225,211,0.1)",
                   border: "2px solid rgba(27,225,211,0.5)",
                 }}
@@ -64,10 +61,10 @@ const Industries = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+            <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
               Industries We Serve
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px" }}>
+            <p className="text-white/60 max-w-2xl mx-auto">
               Delivering value to multiple industries, we innovate industry-specific technologies to scale and optimize operations and bottom line.
             </p>
           </motion.div>
@@ -98,13 +95,13 @@ const Industries = () => {
 
                     {/* Content */}
                     <div className="p-8">
-                      <h3 className="text-[#1BE1D3] text-2xl font-bold mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                      <h3 className="text-[#1BE1D3] text-2xl font-light mb-3">
                         {industry.name}
                       </h3>
-                      <p className="text-white/70 text-sm leading-relaxed mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      <p className="text-white/70 text-sm leading-relaxed mb-4">
                         {industry.tagline}
                       </p>
-                      <div className="flex items-center gap-2 text-[#1BE1D3] text-sm font-medium" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+                      <div className="flex items-center gap-2 text-[#1BE1D3] text-sm font-medium">
                         Learn More <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
@@ -125,10 +122,10 @@ const Industries = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+            <h2 className="text-white text-3xl sm:text-4xl font-light mb-6">
               Ready to Transform Your Industry?
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto mb-8" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px" }}>
+            <p className="text-white/70 max-w-2xl mx-auto mb-8">
               Let's discuss how our industry-specific solutions can drive growth and efficiency for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -136,9 +133,6 @@ const Industries = () => {
                 href="/bookingform"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
                 style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "16px",
                   backgroundColor: "rgba(27,225,211,0.1)",
                   border: "2px solid rgba(27,225,211,0.5)",
                 }}
@@ -149,9 +143,6 @@ const Industries = () => {
                 href="tel:+919136242706"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
                 style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "16px",
                   backgroundColor: "rgba(255,255,255,0.05)",
                   border: "2px solid rgba(255,255,255,0.2)",
                 }}

@@ -81,13 +81,13 @@ const Services = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">
+                <p className="text-[#1BE1D3] font-medium text-[12px] tracking-[0.3em] uppercase mb-4">
                   Services
                 </p>
-                <h1 className="text-white text-[32px] md:text-[48px] font-semibold leading-[1.2] mb-6" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                <h1 className="text-white text-[32px] md:text-[48px] font-light leading-[1.2] mb-6">
                   Deep Technical Expertise, Supporting Modern Systems
                 </h1>
-                <p className="text-[14px] font-normal text-white/70 max-w-2xl mx-auto leading-[1.7]">
+                <p className="text-[14px] font-light text-white/70 max-w-2xl mx-auto leading-[1.7]">
                   Explore our comprehensive range of technology services designed to transform your business. From AI and machine learning to cloud infrastructure and cybersecurity, we deliver solutions that drive real results.
                 </p>
               </motion.div>
@@ -121,14 +121,14 @@ const Services = () => {
                         <service.icon className="h-5 w-5 text-[#1BE1D3]" strokeWidth={1.6} />
                       </span>
                       {/* Title */}
-                      <h3 className="text-[20px] font-semibold" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                      <h3 className="text-[20px] font-light">
                         <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-2 transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]">
                           {service.title}
                         </span>
                       </h3>
                     </div>
                     {/* Description */}
-                    <p className="text-[14px] font-normal leading-6 text-white/70">
+                    <p className="text-[14px] font-light leading-6 text-white/70">
                       {service.description}
                     </p>
                   </div>
@@ -150,20 +150,19 @@ const Services = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h2 className="text-white text-[32px] font-semibold mb-4 leading-[1.2]" style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <h2 className="text-white text-[32px] font-light mb-4 leading-[1.2]">
                 Ready to Transform Your Business?
               </h2>
-              <p className="text-[14px] font-normal text-white/70 max-w-2xl mx-auto mb-8 leading-[1.7]">
+              <p className="text-[14px] font-light text-white/70 max-w-2xl mx-auto mb-8 leading-[1.7]">
                 Let's discuss how our services can help you achieve your goals.
               </p>
               <Link
                 to="/bookingform"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[14px] font-semibold text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
-                style={{
-                  fontFamily: "Poppins, sans-serif",
-                  backgroundColor: "rgba(27,225,211,0.1)",
-                  border: "2px solid rgba(27,225,211,0.5)",
-                }}
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[14px] font-medium text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
+                                style={{
+                                  backgroundColor: "rgba(27,225,211,0.1)",
+                                  border: "2px solid rgba(27,225,211,0.5)",
+                                }}
               >
                 Start Your Project <ArrowRight className="h-4 w-4" />
               </Link>

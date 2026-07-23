@@ -38,13 +38,11 @@ const BusinessConsulting = () => {
               </p>
               <h1
                 className="text-white text-4xl sm:text-5xl lg:text-7xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.15" }}
               >
                 We Build Businesses.
               </h1>
               <p
                 className="text-white/80 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto mb-8 leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
               >
                 From concept to global launch. Yurekh Solutions is your end-to-end business building partner—strategy, legal, technology, digital presence, and go-to-market as one integrated system. We help founders and enterprises start, scale, and dominate markets worldwide.
               </p>
@@ -53,7 +51,6 @@ const BusinessConsulting = () => {
                   to="/bookingform"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
                   style={{
-                    fontFamily: "Poppins, sans-serif",
                     fontSize: "15px",
                     backgroundColor: "#1BE1D3",
                   }}
@@ -61,10 +58,9 @@ const BusinessConsulting = () => {
                   Start Your Business Journey <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
-                  href="tel:+919136242706"
+                  href="tel:+917044701968"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
                   style={{
-                    fontFamily: "Poppins, sans-serif",
                     fontSize: "15px",
                     backgroundColor: "rgba(255,255,255,0.05)",
                     border: "2px solid rgba(255,255,255,0.2)",
@@ -82,10 +78,10 @@ const BusinessConsulting = () => {
       <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-12 border-b border-white/10">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto text-center">
-            <p className="text-white/60 text-sm tracking-widest uppercase" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <p className="text-white/60 text-sm tracking-widest uppercase">
               Serving Clients Across
             </p>
-            <p className="text-[#1BE1D3] text-2xl sm:text-3xl font-normal mt-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+            <p className="text-[#1BE1D3] text-2xl sm:text-3xl font-normal mt-3">
               IND ⋅ DXB  NYC ⋅ SGP ⋅ LDN ⋅ SYD
             </p>
           </div>
@@ -172,7 +168,6 @@ const BusinessConsulting = () => {
                   </h3>
                   <p
                     className="text-white/60 text-sm leading-relaxed"
-                    style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
                   >
                     {service.description}
                   </p>
@@ -622,7 +617,7 @@ const BusinessConsulting = () => {
                 Book  Consultation <ArrowRight className="h-5 w-5" />
               </Link>
               <a
-                href="tel:+919136242706"
+                href="tel:+917044701968"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
                 style={{
                   fontFamily: "Poppins, sans-serif",
@@ -631,7 +626,7 @@ const BusinessConsulting = () => {
                   border: "2px solid rgba(255,255,255,0.2)",
                 }}
               >
-                Call +91 91362 42706
+                Call +91 70447 01968
               </a>
             </div>
           </motion.div>

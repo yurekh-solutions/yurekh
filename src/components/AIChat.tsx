@@ -47,6 +47,7 @@ const AIChat = () => {
             sender: 'bot',
             timestamp: new Date(),
             options: [
+              'AINOS Business Suite',
               'Learn about services',
               'Get a quote',
               'Book consultation',
@@ -61,10 +62,17 @@ const AIChat = () => {
   const getBotResponse = (userMessage: string): { text: string; options?: string[] } => {
     const message = userMessage.toLowerCase();
 
+    if (message.includes('ainos') || message.includes('business suite') || message.includes('erp') || message.includes('crm')) {
+      return {
+        text: "**AINOS Business Suite** is our all-in-one platform to run your entire business from a single dashboard:\n\n📇 **CRM** - Contacts, Deals, Customers & Follow-ups\n👥 **HR & Payroll** - Employees, Attendance, Leave & Payroll Runs\n🧾 **Invoicing & Finance** - Invoices, Quotes & Purchase Orders\n📦 **Inventory** - Products, Stock Items & Warehouses\n🎫 **Helpdesk** - Support Tickets & Service Portals\n📣 **Marketing** - Email Campaigns & Blog\n⚖️ **Compliance** - Compliance Task Tracking\n⚙️ **Automation** - Smart Workflow Automation\n🤖 **AI Assistant** - Built-in AI to speed up daily work\n\nIt's a modern, secure suite built to scale with your business. Want to open it?",
+        options: ['Open AINOS', 'Book consultation', 'Learn about services']
+      };
+    }
+
     if (message.includes('service') || message.includes('what do you offer')) {
       return {
-        text: "We offer comprehensive AI-powered solutions:\n\n🚀 **AI Development** - Custom AI/ML solutions\n💻 **Software Development** - Web & Mobile apps\n📱 **Digital Marketing** - SEO, Social Media, PPC\n☁️ **Cloud Solutions** - AWS, Azure, GCP\n🎨 **UI/UX Design** - User-centered design\n📊 **Data Analytics** - Business intelligence\n\nWhich service interests you?",
-        options: ['AI Development', 'Software Development', 'Digital Marketing', 'Cloud Solutions', 'Book consultation']
+        text: "We offer comprehensive AI-powered solutions:\n\n🧩 **AINOS Business Suite** - All-in-one CRM, HR, Invoicing & Inventory platform\n🚀 **AI Development** - Custom AI/ML solutions\n💻 **Software Development** - Web & Mobile apps\n📱 **Digital Marketing** - SEO, Social Media, PPC\n☁️ **Cloud Solutions** - AWS, Azure, GCP\n🎨 **UI/UX Design** - User-centered design\n📊 **Data Analytics** - Business intelligence\n\nWhich service interests you?",
+        options: ['AINOS Business Suite', 'AI Development', 'Software Development', 'Digital Marketing', 'Book consultation']
       };
     }
 
@@ -147,6 +155,8 @@ const AIChat = () => {
   const handleOptionClick = (option: string) => {
     if (option === 'Go to booking page') {
       window.location.href = '/bookingform';
+    } else if (option === 'Open AINOS' || option === 'AINOS Business Suite') {
+      window.open('/ainos', '_blank');
     } else if (option === 'Call now') {
       window.location.href = 'tel:+919136242706';
     } else if (option === 'WhatsApp chat') {
@@ -213,7 +223,7 @@ const AIChat = () => {
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 min-h-0">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4 min-h-0 scrollbar-hide">
             {messages.map((message) => (
               <div key={message.id} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`flex gap-2 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
@@ -276,7 +286,10 @@ const AIChat = () => {
 
           {/* Quick Actions */}
           <div className="border-t border-[#1BE1D3]/20 p-2 sm:p-3 bg-black/20 flex-shrink-0">
-            <div className="flex gap-2 overflow-x-auto pb-2">
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+              <a href="/ainos" target="_blank" rel="noopener noreferrer" className="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 text-[#1BE1D3] hover:bg-[#1BE1D3]/20 transition-all text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <Bot className="w-3 h-3" /> AINOS Suite
+              </a>
               <a href="tel:+919136242706" className="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-[#1BE1D3]/20 text-white/70 hover:bg-[#1BE1D3]/10 hover:text-[#1BE1D3] transition-all text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
                 <Phone className="w-3 h-3" /> Call
               </a>

@@ -166,7 +166,7 @@ export const blogPosts = [
     title: "How Much Does Company Formation in India Cost in 2026?",
     description: "Complete breakdown of company registration costs in India — private limited, LLP, OPC. Includes legal fees, compliance, GST registration, and bank setup.",
     date: "July 2026",
-    image: blog1,
+    image: instagram1,
     category: "Business Consulting",
   },
   {
@@ -174,7 +174,7 @@ export const blogPosts = [
     title: "Cost to Register a Company in UAE/Dubai in 2026 (Full Guide)",
     description: "Detailed cost breakdown for company formation in UAE — mainland, free zone, and offshore. License fees, visa costs, and compliance requirements.",
     date: "July 2026",
-    image: blog2,
+    image: instagram2,
     category: "Business Consulting",
   },
   {
@@ -182,7 +182,7 @@ export const blogPosts = [
     title: "How Much Does Brand Identity Design Cost in 2026?",
     description: "Complete pricing guide for brand identity — logo design, brand guidelines, visual systems, packaging, and marketing collateral for startups and enterprises.",
     date: "July 2026",
-    image: blog3,
+    image: instagram3,
     category: "Branding",
   },
   {
@@ -190,7 +190,7 @@ export const blogPosts = [
     title: "How Much Does SaaS Development Cost in 2026?",
     description: "Full breakdown of SaaS product development costs — MVP, multi-tenant architecture, billing integration, and scaling infrastructure.",
     date: "July 2026",
-    image: blog4,
+    image: instagram4,
     category: "Technology",
   },
   {
@@ -198,7 +198,7 @@ export const blogPosts = [
     title: "Custom Software Development Cost in 2026: Complete Guide",
     description: "How much does custom software cost in 2026? Pricing for web apps, enterprise systems, API integrations, and cloud-native solutions.",
     date: "July 2026",
-    image: blog5,
+    image: instagram5,
     category: "Technology",
   },
   {
@@ -206,7 +206,7 @@ export const blogPosts = [
     title: "How Much Do SEO Services Cost for Small Business in 2026?",
     description: "SEO pricing guide for small businesses — local SEO, technical SEO, content marketing, and link building costs explained.",
     date: "June 2026",
-    image: blog6,
+    image: instagram6,
     category: "Digital Marketing",
   },
   {
@@ -214,7 +214,7 @@ export const blogPosts = [
     title: "Digital Marketing Cost for Startups in 2026: Budget Guide",
     description: "How much should startups spend on digital marketing? Complete budget breakdown for SEO, PPC, social media, and content marketing.",
     date: "June 2026",
-    image: blog7,
+    image: instagram7,
     category: "Digital Marketing",
   },
   {
@@ -222,7 +222,7 @@ export const blogPosts = [
     title: "E-commerce Website Development Cost in 2026",
     description: "How much does it cost to build an e-commerce website? Pricing for Shopify, WooCommerce, and custom platforms with payment integration.",
     date: "June 2026",
-    image: blog8,
+    image: instagram8,
     category: "Technology",
   },
   {
@@ -230,7 +230,7 @@ export const blogPosts = [
     title: "How Much Does CRM System Development Cost in 2026?",
     description: "Complete cost guide for custom CRM development — from basic contact management to enterprise platforms with AI and automation.",
     date: "June 2026",
-    image: blog1,
+    image: instagram9,
     category: "Technology",
   },
   {
@@ -238,7 +238,7 @@ export const blogPosts = [
     title: "Market Entry Strategy Cost: Entering India in 2026",
     description: "How much does it cost to enter the Indian market? Research, legal setup, compliance, localization, and go-to-market execution costs.",
     date: "June 2026",
-    image: blog2,
+    image: instagram10,
     category: "Business Consulting",
   },
   {
@@ -246,7 +246,7 @@ export const blogPosts = [
     title: "React Native vs Flutter: Development Cost Comparison in 2026",
     description: "Which is cheaper — React Native or Flutter? Complete cost comparison for cross-platform mobile app development in 2026.",
     date: "June 2026",
-    image: blog3,
+    image: instagram11,
     category: "App Development",
   },
   {
@@ -254,7 +254,7 @@ export const blogPosts = [
     title: "How Much Does Website Redesign Cost in 2026?",
     description: "Website redesign pricing guide — from simple refreshes to complete overhauls. Costs for small business, enterprise, and e-commerce sites.",
     date: "May 2026",
-    image: blog4,
+    image: instagram12,
     category: "Technology",
   },
   {
@@ -262,7 +262,7 @@ export const blogPosts = [
     title: "How Much Does AI Chatbot Development Cost in 2026?",
     description: "AI chatbot pricing guide — rule-based bots, GPT-powered assistants, and enterprise conversational AI platforms with full cost breakdown.",
     date: "May 2026",
-    image: blog5,
+    image: instagram13,
     category: "Artificial Intelligence",
   },
   {
@@ -270,7 +270,7 @@ export const blogPosts = [
     title: "Landing Page Development Cost in 2026: Complete Pricing Guide",
     description: "How much does a high-converting landing page cost? Pricing for design, development, copywriting, and A/B testing.",
     date: "May 2026",
-    image: blog6,
+    image: instagram14,
     category: "Technology",
   },
   {
@@ -278,7 +278,7 @@ export const blogPosts = [
     title: "Cost to Register a Company in Singapore in 2026",
     description: "Singapore company formation costs — Pte Ltd registration, resident director, corporate secretary, and annual compliance fees.",
     date: "May 2026",
-    image: blog7,
+    image: instagram15,
     category: "Business Consulting",
   },
   {
@@ -286,7 +286,7 @@ export const blogPosts = [
     title: "Cloud Infrastructure Cost for Startups in 2026",
     description: "How much should startups budget for cloud infrastructure? AWS, Azure, and GCP pricing comparison with cost optimization strategies.",
     date: "May 2026",
-    image: blog8,
+    image: instagram16,
     category: "Technology",
   },
   {
@@ -294,7 +294,7 @@ export const blogPosts = [
     title: "How Much Does ERP System Development Cost in 2026?",
     description: "Custom ERP development costs — from module-specific solutions to full enterprise resource planning systems with integration.",
     date: "April 2026",
-    image: blog1,
+    image: instagram17,
     category: "Technology",
   },
   {
@@ -302,7 +302,7 @@ export const blogPosts = [
     title: "How Much Does Mobile App Development Cost in 2026?",
     description: "Complete mobile app development cost guide — iOS, Android, and cross-platform apps with detailed pricing by complexity.",
     date: "April 2026",
-    image: blog2,
+    image: instagram18,
     category: "App Development",
   },
   {
@@ -310,7 +310,7 @@ export const blogPosts = [
     title: "Go-to-Market Strategy Cost for Startups in 2026",
     description: "How much does a go-to-market strategy cost? Market research, positioning, channel strategy, and launch execution pricing.",
     date: "April 2026",
-    image: blog3,
+    image: instagram19,
     category: "Business Consulting",
   },
   {
@@ -318,7 +318,7 @@ export const blogPosts = [
     title: "HIPAA-Compliant App Development Cost in 2026",
     description: "Building a healthcare app? Complete guide to HIPAA compliance costs, security requirements, and development pricing.",
     date: "April 2026",
-    image: blog4,
+    image: instagram20,
     category: "Technology",
   },
   {
@@ -326,7 +326,7 @@ export const blogPosts = [
     title: "How Much Does AI App Development Cost in 2026?",
     description: "Discover the complete breakdown of AI app development costs, from simple chatbots to complex machine learning solutions. Plan your budget effectively.",
     date: "July 2026",
-    image: blog1,
+    image: instagram21,
     category: "Artificial Intelligence",
   },
   {
@@ -334,7 +334,7 @@ export const blogPosts = [
     title: "How Much Does It Cost to Develop a Fitness App in 2026?",
     description: "More people are turning to fitness apps to stay healthy. Learn the complete cost breakdown for building a successful fitness application.",
     date: "July 2026",
-    image: blog2,
+    image: instagram22,
     category: "App Development",
   },
   {
@@ -342,7 +342,7 @@ export const blogPosts = [
     title: "Cost to Build a Real Estate App Like Property Finder in 2026",
     description: "Planning to build a real estate app? Get detailed insights on development costs, features, and timeline for apps like Property Finder.",
     date: "June 2026",
-    image: blog3,
+    image: instagram23,
     category: "App Development",
   },
   {
@@ -350,7 +350,7 @@ export const blogPosts = [
     title: "Cost to Develop a Flight Booking App in 2026 (Complete Guide)",
     description: "Explore the complete cost breakdown for developing a flight booking app, from basic features to advanced AI-powered recommendations.",
     date: "June 2026",
-    image: blog4,
+    image: instagram24,
     category: "App Development",
   },
   {
@@ -358,7 +358,7 @@ export const blogPosts = [
     title: "How Much Does E-commerce App Development Cost in 2026?",
     description: "Get a comprehensive breakdown of e-commerce app development costs, including features, platforms, and hidden expenses to watch out for.",
     date: "June 2026",
-    image: blog5,
+    image: instagram25,
     category: "App Development",
   },
   {
@@ -366,7 +366,7 @@ export const blogPosts = [
     title: "Cost to Build a Food Delivery App Like UberEats in 2026",
     description: "Learn the complete cost breakdown for building a food delivery app, from MVP to full-featured solutions with real-time tracking.",
     date: "May 2026",
-    image: blog6,
+    image: instagram26,
     category: "App Development",
   },
   {
@@ -374,7 +374,7 @@ export const blogPosts = [
     title: "Healthcare App Development Cost: Complete 2026 Guide",
     description: "Discover how much it costs to build a healthcare app, including telemedicine, patient management, and HIPAA compliance requirements.",
     date: "May 2026",
-    image: blog7,
+    image: instagram27,
     category: "App Development",
   },
   {
@@ -382,7 +382,7 @@ export const blogPosts = [
     title: "How Much Does Education App Development Cost in 2026?",
     description: "Planning an e-learning app? Get detailed cost insights for building education apps with video streaming, quizzes, and progress tracking.",
     date: "May 2026",
-    image: blog8,
+    image: instagram28,
     category: "App Development",
   },
   {
@@ -390,7 +390,7 @@ export const blogPosts = [
     title: "Cost to Build a Social Media App in 2026 (Complete Breakdown)",
     description: "Learn the development costs for social media apps, from basic features to advanced algorithms and real-time messaging systems.",
     date: "April 2026",
-    image: blog1,
+    image: instagram29,
     category: "App Development",
   },
   {
@@ -398,7 +398,7 @@ export const blogPosts = [
     title: "FinTech App Development Cost: Complete 2026 Guide",
     description: "Get comprehensive insights on FinTech app development costs, including payment integration, security features, and regulatory compliance.",
     date: "April 2026",
-    image: blog2,
+    image: instagram30,
     category: "App Development",
   },
   {
@@ -406,7 +406,7 @@ export const blogPosts = [
     title: "On-Demand App Development Cost in 2026 (All Categories)",
     description: "Explore development costs for on-demand apps across industries - from ride-sharing to home services and delivery platforms.",
     date: "April 2026",
-    image: blog3,
+    image: instagram31,
     category: "App Development",
   },
   {
@@ -414,7 +414,7 @@ export const blogPosts = [
     title: "React Native vs Flutter: Which is Better in 2026?",
     description: "Compare React Native and Flutter for mobile app development. Learn which framework suits your project needs and budget better.",
     date: "March 2026",
-    image: blog4,
+    image: instagram32,
     category: "Software Development",
   },
   {
@@ -422,7 +422,7 @@ export const blogPosts = [
     title: "Web Application Development Cost in 2026 (Complete Guide)",
     description: "Get a detailed breakdown of web app development costs, from simple websites to complex enterprise applications with custom features.",
     date: "March 2026",
-    image: blog5,
+    image: instagram33,
     category: "Software Development",
   },
   {
@@ -430,7 +430,7 @@ export const blogPosts = [
     title: "SaaS Application Development Cost: 2026 Complete Guide",
     description: "Learn how much it costs to build a SaaS application, including architecture, multi-tenancy, and scaling considerations.",
     date: "March 2026",
-    image: blog6,
+    image: instagram34,
     category: "Software Development",
   },
   {
@@ -438,7 +438,7 @@ export const blogPosts = [
     title: "Blockchain App Development Cost in 2026",
     description: "Discover the costs involved in blockchain app development, from smart contracts to decentralized applications and crypto wallets.",
     date: "February 2026",
-    image: blog7,
+    image: instagram35,
     category: "Software Development",
   },
   {
@@ -446,7 +446,7 @@ export const blogPosts = [
     title: "IoT App Development Cost: Complete 2026 Guide",
     description: "Get insights on IoT app development costs, including hardware integration, real-time data processing, and cloud infrastructure.",
     date: "February 2026",
-    image: blog8,
+    image: instagram36,
     category: "Software Development",
   },
   {
@@ -454,7 +454,7 @@ export const blogPosts = [
     title: "AR/VR App Development Cost in 2026",
     description: "Learn the development costs for augmented and virtual reality apps, from simple AR filters to immersive VR experiences.",
     date: "February 2026",
-    image: blog1,
+    image: instagram37,
     category: "Software Development",
   },
   {
@@ -462,7 +462,7 @@ export const blogPosts = [
     title: "Mobile Game Development Cost in 2026 (All Genres)",
     description: "Explore mobile game development costs across different genres - from casual games to complex 3D multiplayer experiences.",
     date: "January 2026",
-    image: blog2,
+    image: instagram38,
     category: "App Development",
   },
   {
@@ -470,7 +470,7 @@ export const blogPosts = [
     title: "Cost to Build a Taxi Booking App Like Uber in 2026",
     description: "Get detailed cost breakdown for building a taxi booking app, including driver app, passenger app, and admin panel development.",
     date: "January 2026",
-    image: blog3,
+    image: instagram39,
     category: "App Development",
   },
   {
@@ -478,7 +478,7 @@ export const blogPosts = [
     title: "Grocery Delivery App Development Cost in 2026",
     description: "Learn the complete cost structure for building a grocery delivery app with inventory management and real-time order tracking.",
     date: "January 2026",
-    image: blog4,
+    image: instagram40,
     category: "App Development",
   },
   {
@@ -487,8 +487,8 @@ export const blogPosts = [
     description: "Smart Business Solutions, Powered by AI 💡",
     date: "January 28, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_1/", // Replace with real Instagram URL
+    image: instagram1,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_1/",
   },
   {
     slug: "instagram-post-9-smart-business-solutions-powered-by-ai-",
@@ -496,8 +496,8 @@ export const blogPosts = [
     description: "Business belongs to all. When creativity is open, the future opens too.",
     date: "February 20, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_9/", // Replace with real Instagram URL
+    image: instagram41,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_9/",
   },
   {
     slug: "instagram-post-10-your-next-top-performing-employee-might-not-be-hum",
@@ -505,8 +505,8 @@ export const blogPosts = [
     description: "Launch your application powered by AI ⚡",
     date: "February 19, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_10/", // Replace with real Instagram URL
+    image: instagram42,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_10/",
   },
   {
     slug: "instagram-post-11-your-team-is-working-what-if-your-business-could-w",
@@ -514,8 +514,8 @@ export const blogPosts = [
     description: "Automate. Scale. Grow.",
     date: "March 18, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_11/", // Replace with real Instagram URL
+    image: instagram43,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_11/",
   },
   {
     slug: "instagram-post-12-ai-agents-can-transform-your-business-operations",
@@ -523,8 +523,8 @@ export const blogPosts = [
     description: "The food you order. The cab you book. The payment you make.",
     date: "March 17, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_12/", // Replace with real Instagram URL
+    image: instagram44,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_12/",
   },
   {
     slug: "instagram-post-13-every-successful-business-today-runs-on-software",
@@ -532,8 +532,8 @@ export const blogPosts = [
     description: "Behind every growing company is a powerful software ecosystem.",
     date: "March 16, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_13/", // Replace with real Instagram URL
+    image: instagram45,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_13/",
   },
   {
     slug: "instagram-post-14-launch-your-application-powered-by-ai-",
@@ -541,8 +541,8 @@ export const blogPosts = [
     description: "Is your business running on software built for growth?",
     date: "March 15, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_14/", // Replace with real Instagram URL
+    image: instagram46,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_14/",
   },
   {
     slug: "instagram-post-15-stop-wasting-time-on-manual-workflows",
@@ -550,8 +550,8 @@ export const blogPosts = [
     description: "At Yurekh Solutions, we build AI-powered solutions.",
     date: "March 14, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_15/", // Replace with real Instagram URL
+    image: instagram47,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_15/",
   },
   {
     slug: "instagram-post-16-business-belongs-to-all-when-creativity-is-open-th",
@@ -559,8 +559,8 @@ export const blogPosts = [
     description: "The future isn't coming. It's already here.",
     date: "April 13, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_16/", // Replace with real Instagram URL
+    image: instagram48,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_16/",
   },
   {
     slug: "instagram-post-17-smart-business-solutions-powered-by-ai-",
@@ -568,8 +568,8 @@ export const blogPosts = [
     description: "AI Agents can qualify leads automatically.",
     date: "April 12, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_17/", // Replace with real Instagram URL
+    image: instagram49,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_17/",
   },
   {
     slug: "instagram-post-18-your-next-top-performing-employee-might-not-be-hum",
@@ -577,8 +577,8 @@ export const blogPosts = [
     description: "Reply to customer inquiries instantly with AI.",
     date: "April 11, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_18/", // Replace with real Instagram URL
+    image: instagram50,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_18/",
   },
   {
     slug: "instagram-post-19-your-team-is-working-what-if-your-business-could-w",
@@ -586,8 +586,8 @@ export const blogPosts = [
     description: "Schedule meetings and follow-ups automatically.",
     date: "April 10, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_19/", // Replace with real Instagram URL
+    image: instagram51,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_19/",
   },
   {
     slug: "instagram-post-20-ai-agents-can-transform-your-business-operations",
@@ -595,8 +595,8 @@ export const blogPosts = [
     description: "Process documents and reports with AI precision.",
     date: "April 9, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_20/", // Replace with real Instagram URL
+    image: instagram52,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_20/",
   },
   {
     slug: "instagram-post-21-every-successful-business-today-runs-on-software",
@@ -604,8 +604,8 @@ export const blogPosts = [
     description: "Monitor operations in real-time 24/7.",
     date: "May 8, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_21/", // Replace with real Instagram URL
+    image: instagram53,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_21/",
   },
   {
     slug: "instagram-post-22-launch-your-application-powered-by-ai-",
@@ -613,8 +613,8 @@ export const blogPosts = [
     description: "Automate repetitive workflows and save hours.",
     date: "May 7, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_22/", // Replace with real Instagram URL
+    image: instagram54,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_22/",
   },
   {
     slug: "instagram-post-23-stop-wasting-time-on-manual-workflows",
@@ -622,8 +622,8 @@ export const blogPosts = [
     description: "Integrate AI with your CRM, ERP & business tools.",
     date: "May 6, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_23/", // Replace with real Instagram URL
+    image: instagram55,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_23/",
   },
   {
     slug: "instagram-post-24-business-belongs-to-all-when-creativity-is-open-th",
@@ -631,8 +631,8 @@ export const blogPosts = [
     description: "While competitors hire more, smart businesses deploy AI.",
     date: "May 5, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_24/", // Replace with real Instagram URL
+    image: instagram56,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_24/",
   },
   {
     slug: "instagram-post-25-smart-business-solutions-powered-by-ai-",
@@ -640,8 +640,8 @@ export const blogPosts = [
     description: "Custom Software that scales with your ambition.",
     date: "May 4, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_25/", // Replace with real Instagram URL
+    image: instagram57,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_25/",
   },
   {
     slug: "instagram-post-26-your-next-top-performing-employee-might-not-be-hum",
@@ -649,8 +649,8 @@ export const blogPosts = [
     description: "Mobile Applications that users love.",
     date: "June 3, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_26/", // Replace with real Instagram URL
+    image: instagram58,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_26/",
   },
   {
     slug: "instagram-post-27-your-team-is-working-what-if-your-business-could-w",
@@ -658,8 +658,8 @@ export const blogPosts = [
     description: "AI-Powered Platforms for modern businesses.",
     date: "June 2, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_27/", // Replace with real Instagram URL
+    image: instagram59,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_27/",
   },
   {
     slug: "instagram-post-28-ai-agents-can-transform-your-business-operations",
@@ -667,8 +667,8 @@ export const blogPosts = [
     description: "ERP & CRM Systems that drive efficiency.",
     date: "June 1, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_28/", // Replace with real Instagram URL
+    image: instagram60,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_28/",
   },
   {
     slug: "instagram-post-29-every-successful-business-today-runs-on-software",
@@ -676,8 +676,8 @@ export const blogPosts = [
     description: "Enterprise Solutions for complex challenges.",
     date: "June 28, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_29/", // Replace with real Instagram URL
+    image: instagram61,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_29/",
   },
   {
     slug: "instagram-post-30-launch-your-application-powered-by-ai-",
@@ -685,8 +685,8 @@ export const blogPosts = [
     description: "Your vision deserves more than just code.",
     date: "June 27, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_30/", // Replace with real Instagram URL
+    image: instagram62,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_30/",
   },
   {
     slug: "instagram-post-31-stop-wasting-time-on-manual-workflows",
@@ -694,8 +694,8 @@ export const blogPosts = [
     description: "Smart Business Solutions, Powered by AI 💡",
     date: "July 26, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_31/", // Replace with real Instagram URL
+    image: instagram63,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_31/",
   },
   {
     slug: "instagram-post-32-business-belongs-to-all-when-creativity-is-open-th",
@@ -703,8 +703,8 @@ export const blogPosts = [
     description: "Your next top-performing employee might not be human.",
     date: "July 25, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_32/", // Replace with real Instagram URL
+    image: instagram64,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_32/",
   },
   {
     slug: "instagram-post-33-smart-business-solutions-powered-by-ai-",
@@ -712,8 +712,8 @@ export const blogPosts = [
     description: "AI doesn't sleep. AI doesn't miss follow-ups. AI scales with your business.",
     date: "July 24, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_33/", // Replace with real Instagram URL
+    image: instagram65,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_33/",
   },
   {
     slug: "instagram-post-34-your-next-top-performing-employee-might-not-be-hum",
@@ -721,8 +721,8 @@ export const blogPosts = [
     description: "Your team is working. What if your business could work too? 24/7.",
     date: "July 23, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_34/", // Replace with real Instagram URL
+    image: instagram66,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_34/",
   },
   {
     slug: "instagram-post-35-your-team-is-working-what-if-your-business-could-w",
@@ -730,8 +730,8 @@ export const blogPosts = [
     description: "Every successful business today runs on software.",
     date: "July 22, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_35/", // Replace with real Instagram URL
+    image: instagram67,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_35/",
   },
   {
     slug: "instagram-post-36-ai-agents-can-transform-your-business-operations",
@@ -739,8 +739,8 @@ export const blogPosts = [
     description: "Stop wasting time on manual workflows.",
     date: "August 21, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_36/", // Replace with real Instagram URL
+    image: instagram68,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_36/",
   },
   {
     slug: "instagram-post-37-every-successful-business-today-runs-on-software",
@@ -748,8 +748,8 @@ export const blogPosts = [
     description: "Scale faster with AI built for real business outcomes.",
     date: "August 20, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_37/", // Replace with real Instagram URL
+    image: instagram69,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_37/",
   },
   {
     slug: "instagram-post-38-launch-your-application-powered-by-ai-",
@@ -757,8 +757,8 @@ export const blogPosts = [
     description: "From idea → execution → results. All in one platform.",
     date: "August 19, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_38/", // Replace with real Instagram URL
+    image: instagram70,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_38/",
   },
   {
     slug: "instagram-post-39-stop-wasting-time-on-manual-workflows",
@@ -766,8 +766,8 @@ export const blogPosts = [
     description: "Business belongs to all. When creativity is open, the future opens too.",
     date: "August 18, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_39/", // Replace with real Instagram URL
+    image: instagram71,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_39/",
   },
   {
     slug: "instagram-post-40-business-belongs-to-all-when-creativity-is-open-th",
@@ -775,8 +775,8 @@ export const blogPosts = [
     description: "Launch your application powered by AI ⚡",
     date: "August 17, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_40/", // Replace with real Instagram URL
+    image: instagram72,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_40/",
   },
   {
     slug: "instagram-post-41-smart-business-solutions-powered-by-ai-",
@@ -784,8 +784,8 @@ export const blogPosts = [
     description: "Automate. Scale. Grow.",
     date: "September 16, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_41/", // Replace with real Instagram URL
+    image: instagram73,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_41/",
   },
   {
     slug: "instagram-post-42-your-next-top-performing-employee-might-not-be-hum",
@@ -793,8 +793,8 @@ export const blogPosts = [
     description: "The food you order. The cab you book. The payment you make.",
     date: "September 15, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_42/", // Replace with real Instagram URL
+    image: instagram74,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_42/",
   },
   {
     slug: "instagram-post-43-your-team-is-working-what-if-your-business-could-w",
@@ -802,8 +802,8 @@ export const blogPosts = [
     description: "Behind every growing company is a powerful software ecosystem.",
     date: "September 14, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_43/", // Replace with real Instagram URL
+    image: instagram75,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_43/",
   },
   {
     slug: "instagram-post-44-ai-agents-can-transform-your-business-operations",
@@ -811,8 +811,8 @@ export const blogPosts = [
     description: "Is your business running on software built for growth?",
     date: "September 13, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_44/", // Replace with real Instagram URL
+    image: instagram76,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_44/",
   },
   {
     slug: "instagram-post-45-every-successful-business-today-runs-on-software",
@@ -820,8 +820,8 @@ export const blogPosts = [
     description: "At Yurekh Solutions, we build AI-powered solutions.",
     date: "September 12, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_45/", // Replace with real Instagram URL
+    image: instagram77,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_45/",
   },
   {
     slug: "instagram-post-46-launch-your-application-powered-by-ai-",
@@ -829,8 +829,8 @@ export const blogPosts = [
     description: "The future isn't coming. It's already here.",
     date: "October 11, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_46/", // Replace with real Instagram URL
+    image: instagram78,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_46/",
   },
   {
     slug: "instagram-post-47-stop-wasting-time-on-manual-workflows",
@@ -838,8 +838,8 @@ export const blogPosts = [
     description: "AI Agents can qualify leads automatically.",
     date: "October 10, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_47/", // Replace with real Instagram URL
+    image: instagram79,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_47/",
   },
   {
     slug: "instagram-post-48-business-belongs-to-all-when-creativity-is-open-th",
@@ -847,8 +847,8 @@ export const blogPosts = [
     description: "Reply to customer inquiries instantly with AI.",
     date: "October 9, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_48/", // Replace with real Instagram URL
+    image: instagram80,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_48/",
   },
   {
     slug: "instagram-post-49-smart-business-solutions-powered-by-ai-",
@@ -856,8 +856,8 @@ export const blogPosts = [
     description: "Schedule meetings and follow-ups automatically.",
     date: "October 8, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_49/", // Replace with real Instagram URL
+    image: instagram81,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_49/",
   },
   {
     slug: "instagram-post-50-your-next-top-performing-employee-might-not-be-hum",
@@ -865,8 +865,8 @@ export const blogPosts = [
     description: "Process documents and reports with AI precision.",
     date: "October 7, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_50/", // Replace with real Instagram URL
+    image: instagram82,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_50/",
   },
   {
     slug: "instagram-post-51-your-team-is-working-what-if-your-business-could-w",
@@ -874,8 +874,8 @@ export const blogPosts = [
     description: "Monitor operations in real-time 24/7.",
     date: "November 6, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_51/", // Replace with real Instagram URL
+    image: instagram83,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_51/",
   },
   {
     slug: "instagram-post-52-ai-agents-can-transform-your-business-operations",
@@ -883,8 +883,8 @@ export const blogPosts = [
     description: "Automate repetitive workflows and save hours.",
     date: "November 5, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_52/", // Replace with real Instagram URL
+    image: instagram84,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_52/",
   },
   {
     slug: "instagram-post-53-every-successful-business-today-runs-on-software",
@@ -892,8 +892,8 @@ export const blogPosts = [
     description: "Integrate AI with your CRM, ERP & business tools.",
     date: "November 4, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_53/", // Replace with real Instagram URL
+    image: instagram85,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_53/",
   },
   {
     slug: "instagram-post-54-launch-your-application-powered-by-ai-",
@@ -901,8 +901,8 @@ export const blogPosts = [
     description: "While competitors hire more, smart businesses deploy AI.",
     date: "November 3, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_54/", // Replace with real Instagram URL
+    image: instagram86,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_54/",
   },
   {
     slug: "instagram-post-55-stop-wasting-time-on-manual-workflows",
@@ -910,8 +910,8 @@ export const blogPosts = [
     description: "Custom Software that scales with your ambition.",
     date: "November 2, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_55/", // Replace with real Instagram URL
+    image: instagram87,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_55/",
   },
   {
     slug: "instagram-post-56-business-belongs-to-all-when-creativity-is-open-th",
@@ -919,8 +919,8 @@ export const blogPosts = [
     description: "Mobile Applications that users love.",
     date: "December 1, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_56/", // Replace with real Instagram URL
+    image: instagram88,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_56/",
   },
   {
     slug: "instagram-post-57-smart-business-solutions-powered-by-ai-",
@@ -928,8 +928,8 @@ export const blogPosts = [
     description: "AI-Powered Platforms for modern businesses.",
     date: "December 28, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_57/", // Replace with real Instagram URL
+    image: instagram89,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_57/",
   },
   {
     slug: "instagram-post-58-your-next-top-performing-employee-might-not-be-hum",
@@ -937,8 +937,8 @@ export const blogPosts = [
     description: "ERP & CRM Systems that drive efficiency.",
     date: "December 27, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_58/", // Replace with real Instagram URL
+    image: instagram90,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_58/",
   },
   {
     slug: "instagram-post-59-your-team-is-working-what-if-your-business-could-w",
@@ -946,8 +946,8 @@ export const blogPosts = [
     description: "Enterprise Solutions for complex challenges.",
     date: "December 26, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_59/", // Replace with real Instagram URL
+    image: instagram91,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_59/",
   },
   {
     slug: "instagram-post-60-ai-agents-can-transform-your-business-operations",
@@ -955,8 +955,8 @@ export const blogPosts = [
     description: "Your vision deserves more than just code.",
     date: "December 25, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_60/", // Replace with real Instagram URL
+    image: instagram92,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_60/",
   },
   {
     slug: "instagram-post-61-every-successful-business-today-runs-on-software",
@@ -964,8 +964,8 @@ export const blogPosts = [
     description: "Smart Business Solutions, Powered by AI 💡",
     date: "January 24, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_61/", // Replace with real Instagram URL
+    image: instagram93,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_61/",
   },
   {
     slug: "instagram-post-62-launch-your-application-powered-by-ai-",
@@ -973,8 +973,8 @@ export const blogPosts = [
     description: "Your next top-performing employee might not be human.",
     date: "January 23, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_62/", // Replace with real Instagram URL
+    image: instagram94,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_62/",
   },
   {
     slug: "instagram-post-63-stop-wasting-time-on-manual-workflows",
@@ -982,8 +982,8 @@ export const blogPosts = [
     description: "AI doesn't sleep. AI doesn't miss follow-ups. AI scales with your business.",
     date: "January 22, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_63/", // Replace with real Instagram URL
+    image: instagram95,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_63/",
   },
   {
     slug: "instagram-post-64-business-belongs-to-all-when-creativity-is-open-th",
@@ -991,8 +991,8 @@ export const blogPosts = [
     description: "Your team is working. What if your business could work too? 24/7.",
     date: "January 21, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_64/", // Replace with real Instagram URL
+    image: instagram96,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_64/",
   },
   {
     slug: "instagram-post-65-smart-business-solutions-powered-by-ai-",
@@ -1000,8 +1000,8 @@ export const blogPosts = [
     description: "Every successful business today runs on software.",
     date: "January 20, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_65/", // Replace with real Instagram URL
+    image: instagram97,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_65/",
   },
   {
     slug: "instagram-post-66-your-next-top-performing-employee-might-not-be-hum",
@@ -1009,8 +1009,8 @@ export const blogPosts = [
     description: "Stop wasting time on manual workflows.",
     date: "February 19, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_66/", // Replace with real Instagram URL
+    image: instagram98,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_66/",
   },
   {
     slug: "instagram-post-67-your-team-is-working-what-if-your-business-could-w",
@@ -1018,8 +1018,8 @@ export const blogPosts = [
     description: "Scale faster with AI built for real business outcomes.",
     date: "February 18, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_67/", // Replace with real Instagram URL
+    image: instagram99,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_67/",
   },
   {
     slug: "instagram-post-68-ai-agents-can-transform-your-business-operations",
@@ -1027,8 +1027,8 @@ export const blogPosts = [
     description: "From idea → execution → results. All in one platform.",
     date: "February 17, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_68/", // Replace with real Instagram URL
+    image: instagram100,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_68/",
   },
   {
     slug: "instagram-post-69-every-successful-business-today-runs-on-software",
@@ -1036,8 +1036,8 @@ export const blogPosts = [
     description: "Business belongs to all. When creativity is open, the future opens too.",
     date: "February 16, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_69/", // Replace with real Instagram URL
+    image: instagram101,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_69/",
   },
   {
     slug: "instagram-post-70-launch-your-application-powered-by-ai-",
@@ -1045,8 +1045,8 @@ export const blogPosts = [
     description: "Launch your application powered by AI ⚡",
     date: "February 15, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_70/", // Replace with real Instagram URL
+    image: instagram102,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_70/",
   },
   {
     slug: "instagram-post-71-stop-wasting-time-on-manual-workflows",
@@ -1054,8 +1054,8 @@ export const blogPosts = [
     description: "Automate. Scale. Grow.",
     date: "March 14, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_71/", // Replace with real Instagram URL
+    image: instagram103,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_71/",
   },
   {
     slug: "instagram-post-72-business-belongs-to-all-when-creativity-is-open-th",
@@ -1063,8 +1063,8 @@ export const blogPosts = [
     description: "The food you order. The cab you book. The payment you make.",
     date: "March 13, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_72/", // Replace with real Instagram URL
+    image: instagram104,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_72/",
   },
   {
     slug: "instagram-post-73-smart-business-solutions-powered-by-ai-",
@@ -1072,8 +1072,8 @@ export const blogPosts = [
     description: "Behind every growing company is a powerful software ecosystem.",
     date: "March 12, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_73/", // Replace with real Instagram URL
+    image: instagram105,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_73/",
   },
   {
     slug: "instagram-post-74-your-next-top-performing-employee-might-not-be-hum",
@@ -1081,8 +1081,8 @@ export const blogPosts = [
     description: "Is your business running on software built for growth?",
     date: "March 11, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_74/", // Replace with real Instagram URL
+    image: instagram106,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_74/",
   },
   {
     slug: "instagram-post-75-your-team-is-working-what-if-your-business-could-w",
@@ -1090,8 +1090,8 @@ export const blogPosts = [
     description: "At Yurekh Solutions, we build AI-powered solutions.",
     date: "March 10, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_75/", // Replace with real Instagram URL
+    image: instagram107,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_75/",
   },
   {
     slug: "instagram-post-76-ai-agents-can-transform-your-business-operations",
@@ -1099,8 +1099,8 @@ export const blogPosts = [
     description: "The future isn't coming. It's already here.",
     date: "April 9, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_76/", // Replace with real Instagram URL
+    image: instagram108,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_76/",
   },
   {
     slug: "instagram-post-77-every-successful-business-today-runs-on-software",
@@ -1108,8 +1108,8 @@ export const blogPosts = [
     description: "AI Agents can qualify leads automatically.",
     date: "April 8, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_77/", // Replace with real Instagram URL
+    image: instagram109,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_77/",
   },
   {
     slug: "instagram-post-78-launch-your-application-powered-by-ai-",
@@ -1117,8 +1117,8 @@ export const blogPosts = [
     description: "Reply to customer inquiries instantly with AI.",
     date: "April 7, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_78/", // Replace with real Instagram URL
+    image: instagram110,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_78/",
   },
   {
     slug: "instagram-post-79-stop-wasting-time-on-manual-workflows",
@@ -1126,8 +1126,8 @@ export const blogPosts = [
     description: "Schedule meetings and follow-ups automatically.",
     date: "April 6, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_79/", // Replace with real Instagram URL
+    image: instagram111,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_79/",
   },
   {
     slug: "instagram-post-80-business-belongs-to-all-when-creativity-is-open-th",
@@ -1135,8 +1135,8 @@ export const blogPosts = [
     description: "Process documents and reports with AI precision.",
     date: "April 5, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_80/", // Replace with real Instagram URL
+    image: instagram112,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_80/",
   },
   {
     slug: "instagram-post-81-smart-business-solutions-powered-by-ai-",
@@ -1144,8 +1144,8 @@ export const blogPosts = [
     description: "Monitor operations in real-time 24/7.",
     date: "May 4, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_81/", // Replace with real Instagram URL
+    image: instagram113,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_81/",
   },
   {
     slug: "instagram-post-82-your-next-top-performing-employee-might-not-be-hum",
@@ -1153,8 +1153,8 @@ export const blogPosts = [
     description: "Automate repetitive workflows and save hours.",
     date: "May 3, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_82/", // Replace with real Instagram URL
+    image: instagram114,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_82/",
   },
   {
     slug: "instagram-post-83-your-team-is-working-what-if-your-business-could-w",
@@ -1162,8 +1162,8 @@ export const blogPosts = [
     description: "Integrate AI with your CRM, ERP & business tools.",
     date: "May 2, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_83/", // Replace with real Instagram URL
+    image: instagram115,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_83/",
   },
   {
     slug: "instagram-post-84-ai-agents-can-transform-your-business-operations",
@@ -1171,8 +1171,8 @@ export const blogPosts = [
     description: "While competitors hire more, smart businesses deploy AI.",
     date: "May 1, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_84/", // Replace with real Instagram URL
+    image: instagram116,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_84/",
   },
   {
     slug: "instagram-post-85-every-successful-business-today-runs-on-software",
@@ -1180,8 +1180,8 @@ export const blogPosts = [
     description: "Custom Software that scales with your ambition.",
     date: "May 28, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_85/", // Replace with real Instagram URL
+    image: instagram117,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_85/",
   },
   {
     slug: "instagram-post-86-launch-your-application-powered-by-ai-",
@@ -1189,8 +1189,8 @@ export const blogPosts = [
     description: "Mobile Applications that users love.",
     date: "June 27, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_86/", // Replace with real Instagram URL
+    image: instagram118,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_86/",
   },
   {
     slug: "instagram-post-87-stop-wasting-time-on-manual-workflows",
@@ -1198,8 +1198,8 @@ export const blogPosts = [
     description: "AI-Powered Platforms for modern businesses.",
     date: "June 26, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_87/", // Replace with real Instagram URL
+    image: instagram119,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_87/",
   },
   {
     slug: "instagram-post-88-business-belongs-to-all-when-creativity-is-open-th",
@@ -1207,8 +1207,8 @@ export const blogPosts = [
     description: "ERP & CRM Systems that drive efficiency.",
     date: "June 25, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_88/", // Replace with real Instagram URL
+    image: instagram120,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_88/",
   },
   {
     slug: "instagram-post-89-smart-business-solutions-powered-by-ai-",
@@ -1216,8 +1216,8 @@ export const blogPosts = [
     description: "Enterprise Solutions for complex challenges.",
     date: "June 24, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_89/", // Replace with real Instagram URL
+    image: instagram121,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_89/",
   },
   {
     slug: "instagram-post-90-your-next-top-performing-employee-might-not-be-hum",
@@ -1225,8 +1225,8 @@ export const blogPosts = [
     description: "Your vision deserves more than just code.",
     date: "June 23, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_90/", // Replace with real Instagram URL
+    image: instagram122,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_90/",
   },
   {
     slug: "instagram-post-91-your-team-is-working-what-if-your-business-could-w",
@@ -1234,8 +1234,8 @@ export const blogPosts = [
     description: "Smart Business Solutions, Powered by AI 💡",
     date: "July 22, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_91/", // Replace with real Instagram URL
+    image: instagram123,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_91/",
   },
   {
     slug: "instagram-post-92-ai-agents-can-transform-your-business-operations",
@@ -1243,8 +1243,8 @@ export const blogPosts = [
     description: "Your next top-performing employee might not be human.",
     date: "July 21, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_92/", // Replace with real Instagram URL
+    image: instagram124,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_92/",
   },
   {
     slug: "instagram-post-93-every-successful-business-today-runs-on-software",
@@ -1252,8 +1252,8 @@ export const blogPosts = [
     description: "AI doesn't sleep. AI doesn't miss follow-ups. AI scales with your business.",
     date: "July 20, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_93/", // Replace with real Instagram URL
+    image: instagram125,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_93/",
   },
   {
     slug: "instagram-post-94-launch-your-application-powered-by-ai-",
@@ -1261,8 +1261,8 @@ export const blogPosts = [
     description: "Your team is working. What if your business could work too? 24/7.",
     date: "July 19, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_94/", // Replace with real Instagram URL
+    image: instagram126,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_94/",
   },
   {
     slug: "instagram-post-95-stop-wasting-time-on-manual-workflows",
@@ -1270,8 +1270,8 @@ export const blogPosts = [
     description: "Every successful business today runs on software.",
     date: "July 18, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_95/", // Replace with real Instagram URL
+    image: instagram127,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_95/",
   },
   {
     slug: "instagram-post-96-business-belongs-to-all-when-creativity-is-open-th",
@@ -1279,8 +1279,8 @@ export const blogPosts = [
     description: "Stop wasting time on manual workflows.",
     date: "August 17, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_96/", // Replace with real Instagram URL
+    image: instagram128,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_96/",
   },
   {
     slug: "instagram-post-97-smart-business-solutions-powered-by-ai-",
@@ -1288,8 +1288,8 @@ export const blogPosts = [
     description: "Scale faster with AI built for real business outcomes.",
     date: "August 16, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_97/", // Replace with real Instagram URL
+    image: instagram129,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_97/",
   },
   {
     slug: "instagram-post-98-your-next-top-performing-employee-might-not-be-hum",
@@ -1297,8 +1297,8 @@ export const blogPosts = [
     description: "From idea → execution → results. All in one platform.",
     date: "August 15, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_98/", // Replace with real Instagram URL
+    image: instagram130,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_98/",
   },
   {
     slug: "instagram-post-99-your-team-is-working-what-if-your-business-could-w",
@@ -1306,8 +1306,8 @@ export const blogPosts = [
     description: "Business belongs to all. When creativity is open, the future opens too.",
     date: "August 14, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_99/", // Replace with real Instagram URL
+    image: instagram131,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_99/",
   },
   {
     slug: "instagram-post-100-ai-agents-can-transform-your-business-operations",
@@ -1315,8 +1315,8 @@ export const blogPosts = [
     description: "Launch your application powered by AI ⚡",
     date: "August 13, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_100/", // Replace with real Instagram URL
+    image: instagram132,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_100/",
   },
   {
     slug: "instagram-post-101-every-successful-business-today-runs-on-software",
@@ -1324,8 +1324,8 @@ export const blogPosts = [
     description: "Automate. Scale. Grow.",
     date: "September 12, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_101/", // Replace with real Instagram URL
+    image: instagram133,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_101/",
   },
   {
     slug: "instagram-post-102-launch-your-application-powered-by-ai-",
@@ -1333,8 +1333,8 @@ export const blogPosts = [
     description: "The food you order. The cab you book. The payment you make.",
     date: "September 11, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_102/", // Replace with real Instagram URL
+    image: instagram134,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_102/",
   },
   {
     slug: "instagram-post-103-stop-wasting-time-on-manual-workflows",
@@ -1342,8 +1342,8 @@ export const blogPosts = [
     description: "Behind every growing company is a powerful software ecosystem.",
     date: "September 10, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_103/", // Replace with real Instagram URL
+    image: instagram135,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_103/",
   },
   {
     slug: "instagram-post-104-business-belongs-to-all-when-creativity-is-open-th",
@@ -1351,8 +1351,8 @@ export const blogPosts = [
     description: "Is your business running on software built for growth?",
     date: "September 9, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_104/", // Replace with real Instagram URL
+    image: instagram136,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_104/",
   },
   {
     slug: "instagram-post-105-smart-business-solutions-powered-by-ai-",
@@ -1360,8 +1360,8 @@ export const blogPosts = [
     description: "At Yurekh Solutions, we build AI-powered solutions.",
     date: "September 8, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_105/", // Replace with real Instagram URL
+    image: instagram137,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_105/",
   },
   {
     slug: "instagram-post-106-your-next-top-performing-employee-might-not-be-hum",
@@ -1369,8 +1369,8 @@ export const blogPosts = [
     description: "The future isn't coming. It's already here.",
     date: "October 7, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_106/", // Replace with real Instagram URL
+    image: instagram138,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_106/",
   },
   {
     slug: "instagram-post-107-your-team-is-working-what-if-your-business-could-w",
@@ -1378,8 +1378,8 @@ export const blogPosts = [
     description: "AI Agents can qualify leads automatically.",
     date: "October 6, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_107/", // Replace with real Instagram URL
+    image: instagram139,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_107/",
   },
   {
     slug: "instagram-post-108-ai-agents-can-transform-your-business-operations",
@@ -1387,8 +1387,8 @@ export const blogPosts = [
     description: "Reply to customer inquiries instantly with AI.",
     date: "October 5, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_108/", // Replace with real Instagram URL
+    image: instagram140,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_108/",
   },
   {
     slug: "instagram-post-109-every-successful-business-today-runs-on-software",
@@ -1396,8 +1396,8 @@ export const blogPosts = [
     description: "Schedule meetings and follow-ups automatically.",
     date: "October 4, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_109/", // Replace with real Instagram URL
+    image: instagram141,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_109/",
   },
   {
     slug: "instagram-post-110-launch-your-application-powered-by-ai-",
@@ -1405,8 +1405,8 @@ export const blogPosts = [
     description: "Process documents and reports with AI precision.",
     date: "October 3, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_110/", // Replace with real Instagram URL
+    image: instagram142,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_110/",
   },
   {
     slug: "instagram-post-111-stop-wasting-time-on-manual-workflows",
@@ -1414,8 +1414,8 @@ export const blogPosts = [
     description: "Monitor operations in real-time 24/7.",
     date: "November 2, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_111/", // Replace with real Instagram URL
+    image: instagram143,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_111/",
   },
   {
     slug: "instagram-post-112-business-belongs-to-all-when-creativity-is-open-th",
@@ -1423,8 +1423,8 @@ export const blogPosts = [
     description: "Automate repetitive workflows and save hours.",
     date: "November 1, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_112/", // Replace with real Instagram URL
+    image: instagram144,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_112/",
   },
   {
     slug: "instagram-post-113-smart-business-solutions-powered-by-ai-",
@@ -1432,8 +1432,8 @@ export const blogPosts = [
     description: "Integrate AI with your CRM, ERP & business tools.",
     date: "November 28, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_113/", // Replace with real Instagram URL
+    image: instagram145,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_113/",
   },
   {
     slug: "instagram-post-114-your-next-top-performing-employee-might-not-be-hum",
@@ -1441,8 +1441,8 @@ export const blogPosts = [
     description: "While competitors hire more, smart businesses deploy AI.",
     date: "November 27, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_114/", // Replace with real Instagram URL
+    image: instagram146,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_114/",
   },
   {
     slug: "instagram-post-115-your-team-is-working-what-if-your-business-could-w",
@@ -1450,8 +1450,8 @@ export const blogPosts = [
     description: "Custom Software that scales with your ambition.",
     date: "November 26, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_115/", // Replace with real Instagram URL
+    image: instagram147,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_115/",
   },
   {
     slug: "instagram-post-116-ai-agents-can-transform-your-business-operations",
@@ -1459,8 +1459,8 @@ export const blogPosts = [
     description: "Mobile Applications that users love.",
     date: "December 25, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_116/", // Replace with real Instagram URL
+    image: instagram9,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_116/",
   },
   {
     slug: "instagram-post-117-every-successful-business-today-runs-on-software",
@@ -1468,8 +1468,8 @@ export const blogPosts = [
     description: "AI-Powered Platforms for modern businesses.",
     date: "December 24, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_117/", // Replace with real Instagram URL
+    image: instagram10,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_117/",
   },
   {
     slug: "instagram-post-118-launch-your-application-powered-by-ai-",
@@ -1477,8 +1477,8 @@ export const blogPosts = [
     description: "ERP & CRM Systems that drive efficiency.",
     date: "December 23, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_118/", // Replace with real Instagram URL
+    image: instagram11,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_118/",
   },
   {
     slug: "instagram-post-119-stop-wasting-time-on-manual-workflows",
@@ -1486,8 +1486,8 @@ export const blogPosts = [
     description: "Enterprise Solutions for complex challenges.",
     date: "December 22, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_119/", // Replace with real Instagram URL
+    image: instagram12,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_119/",
   },
   {
     slug: "instagram-post-120-business-belongs-to-all-when-creativity-is-open-th",
@@ -1495,8 +1495,8 @@ export const blogPosts = [
     description: "Your vision deserves more than just code.",
     date: "December 21, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_120/", // Replace with real Instagram URL
+    image: instagram13,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_120/",
   },
   {
     slug: "instagram-post-121-smart-business-solutions-powered-by-ai-",
@@ -1504,8 +1504,8 @@ export const blogPosts = [
     description: "Smart Business Solutions, Powered by AI 💡",
     date: "January 20, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_121/", // Replace with real Instagram URL
+    image: instagram14,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_121/",
   },
   {
     slug: "instagram-post-122-your-next-top-performing-employee-might-not-be-hum",
@@ -1513,8 +1513,8 @@ export const blogPosts = [
     description: "Your next top-performing employee might not be human.",
     date: "January 19, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_122/", // Replace with real Instagram URL
+    image: instagram15,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_122/",
   },
   {
     slug: "instagram-post-123-your-team-is-working-what-if-your-business-could-w",
@@ -1522,8 +1522,8 @@ export const blogPosts = [
     description: "AI doesn't sleep. AI doesn't miss follow-ups. AI scales with your business.",
     date: "January 18, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_123/", // Replace with real Instagram URL
+    image: instagram16,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_123/",
   },
   {
     slug: "instagram-post-124-ai-agents-can-transform-your-business-operations",
@@ -1531,8 +1531,8 @@ export const blogPosts = [
     description: "Your team is working. What if your business could work too? 24/7.",
     date: "January 17, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_124/", // Replace with real Instagram URL
+    image: instagram17,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_124/",
   },
   {
     slug: "instagram-post-125-every-successful-business-today-runs-on-software",
@@ -1540,8 +1540,8 @@ export const blogPosts = [
     description: "Every successful business today runs on software.",
     date: "January 16, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_125/", // Replace with real Instagram URL
+    image: instagram18,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_125/",
   },
   {
     slug: "instagram-post-126-launch-your-application-powered-by-ai-",
@@ -1549,8 +1549,8 @@ export const blogPosts = [
     description: "Stop wasting time on manual workflows.",
     date: "February 15, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_126/", // Replace with real Instagram URL
+    image: instagram19,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_126/",
   },
   {
     slug: "instagram-post-127-stop-wasting-time-on-manual-workflows",
@@ -1558,8 +1558,8 @@ export const blogPosts = [
     description: "Scale faster with AI built for real business outcomes.",
     date: "February 14, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_127/", // Replace with real Instagram URL
+    image: instagram20,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_127/",
   },
   {
     slug: "instagram-post-128-business-belongs-to-all-when-creativity-is-open-th",
@@ -1567,8 +1567,8 @@ export const blogPosts = [
     description: "From idea → execution → results. All in one platform.",
     date: "February 13, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_128/", // Replace with real Instagram URL
+    image: instagram21,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_128/",
   },
   {
     slug: "instagram-post-129-smart-business-solutions-powered-by-ai-",
@@ -1576,8 +1576,8 @@ export const blogPosts = [
     description: "Business belongs to all. When creativity is open, the future opens too.",
     date: "February 12, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_129/", // Replace with real Instagram URL
+    image: instagram22,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_129/",
   },
   {
     slug: "instagram-post-130-your-next-top-performing-employee-might-not-be-hum",
@@ -1585,8 +1585,8 @@ export const blogPosts = [
     description: "Launch your application powered by AI ⚡",
     date: "February 11, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_130/", // Replace with real Instagram URL
+    image: instagram23,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_130/",
   },
   {
     slug: "instagram-post-131-your-team-is-working-what-if-your-business-could-w",
@@ -1594,8 +1594,8 @@ export const blogPosts = [
     description: "Automate. Scale. Grow.",
     date: "March 10, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_131/", // Replace with real Instagram URL
+    image: instagram24,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_131/",
   },
   {
     slug: "instagram-post-132-ai-agents-can-transform-your-business-operations",
@@ -1603,8 +1603,8 @@ export const blogPosts = [
     description: "The food you order. The cab you book. The payment you make.",
     date: "March 9, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_132/", // Replace with real Instagram URL
+    image: instagram25,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_132/",
   },
   {
     slug: "instagram-post-133-every-successful-business-today-runs-on-software",
@@ -1612,8 +1612,8 @@ export const blogPosts = [
     description: "Behind every growing company is a powerful software ecosystem.",
     date: "March 8, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_133/", // Replace with real Instagram URL
+    image: instagram26,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_133/",
   },
   {
     slug: "instagram-post-134-launch-your-application-powered-by-ai-",
@@ -1621,8 +1621,8 @@ export const blogPosts = [
     description: "Is your business running on software built for growth?",
     date: "March 7, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_134/", // Replace with real Instagram URL
+    image: instagram27,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_134/",
   },
   {
     slug: "instagram-post-135-stop-wasting-time-on-manual-workflows",
@@ -1630,8 +1630,8 @@ export const blogPosts = [
     description: "At Yurekh Solutions, we build AI-powered solutions.",
     date: "March 6, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_135/", // Replace with real Instagram URL
+    image: instagram28,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_135/",
   },
   {
     slug: "instagram-post-136-business-belongs-to-all-when-creativity-is-open-th",
@@ -1639,8 +1639,8 @@ export const blogPosts = [
     description: "The future isn't coming. It's already here.",
     date: "April 5, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_136/", // Replace with real Instagram URL
+    image: instagram29,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_136/",
   },
   {
     slug: "instagram-post-137-smart-business-solutions-powered-by-ai-",
@@ -1648,8 +1648,8 @@ export const blogPosts = [
     description: "AI Agents can qualify leads automatically.",
     date: "April 4, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_137/", // Replace with real Instagram URL
+    image: instagram30,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_137/",
   },
   {
     slug: "instagram-post-138-your-next-top-performing-employee-might-not-be-hum",
@@ -1657,8 +1657,8 @@ export const blogPosts = [
     description: "Reply to customer inquiries instantly with AI.",
     date: "April 3, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_138/", // Replace with real Instagram URL
+    image: instagram31,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_138/",
   },
   {
     slug: "instagram-post-139-your-team-is-working-what-if-your-business-could-w",
@@ -1666,8 +1666,8 @@ export const blogPosts = [
     description: "Schedule meetings and follow-ups automatically.",
     date: "April 2, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_139/", // Replace with real Instagram URL
+    image: instagram32,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_139/",
   },
   {
     slug: "instagram-post-140-ai-agents-can-transform-your-business-operations",
@@ -1675,8 +1675,8 @@ export const blogPosts = [
     description: "Process documents and reports with AI precision.",
     date: "April 1, 2026",
     category: "Instagram",
-    image: instagram4, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_140/", // Replace with real Instagram URL
+    image: instagram33,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_140/",
   },
   {
     slug: "instagram-post-141-every-successful-business-today-runs-on-software",
@@ -1684,8 +1684,8 @@ export const blogPosts = [
     description: "Monitor operations in real-time 24/7.",
     date: "May 28, 2026",
     category: "Instagram",
-    image: instagram5, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_141/", // Replace with real Instagram URL
+    image: instagram34,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_141/",
   },
   {
     slug: "instagram-post-142-launch-your-application-powered-by-ai-",
@@ -1693,8 +1693,8 @@ export const blogPosts = [
     description: "Automate repetitive workflows and save hours.",
     date: "May 27, 2026",
     category: "Instagram",
-    image: instagram6, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_142/", // Replace with real Instagram URL
+    image: instagram35,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_142/",
   },
   {
     slug: "instagram-post-143-stop-wasting-time-on-manual-workflows",
@@ -1702,8 +1702,8 @@ export const blogPosts = [
     description: "Integrate AI with your CRM, ERP & business tools.",
     date: "May 26, 2026",
     category: "Instagram",
-    image: instagram7, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_143/", // Replace with real Instagram URL
+    image: instagram36,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_143/",
   },
   {
     slug: "instagram-post-144-business-belongs-to-all-when-creativity-is-open-th",
@@ -1711,8 +1711,8 @@ export const blogPosts = [
     description: "While competitors hire more, smart businesses deploy AI.",
     date: "May 25, 2026",
     category: "Instagram",
-    image: instagram8, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_144/", // Replace with real Instagram URL
+    image: instagram37,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_144/",
   },
   {
     slug: "instagram-post-145-smart-business-solutions-powered-by-ai-",
@@ -1720,8 +1720,8 @@ export const blogPosts = [
     description: "Custom Software that scales with your ambition.",
     date: "May 24, 2026",
     category: "Instagram",
-    image: instagram1, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_145/", // Replace with real Instagram URL
+    image: instagram38,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_145/",
   },
   {
     slug: "instagram-post-146-your-next-top-performing-employee-might-not-be-hum",
@@ -1729,8 +1729,8 @@ export const blogPosts = [
     description: "Mobile Applications that users love.",
     date: "June 23, 2026",
     category: "Instagram",
-    image: instagram2, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_146/", // Replace with real Instagram URL
+    image: instagram39,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_146/",
   },
   {
     slug: "instagram-post-147-your-team-is-working-what-if-your-business-could-w",
@@ -1738,8 +1738,8 @@ export const blogPosts = [
     description: "AI-Powered Platforms for modern businesses.",
     date: "June 22, 2026",
     category: "Instagram",
-    image: instagram3, // Replace with actual Instagram image
-    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_147/", // Replace with real Instagram URL
+    image: instagram40,
+    instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_147/",
   }
 ];
 

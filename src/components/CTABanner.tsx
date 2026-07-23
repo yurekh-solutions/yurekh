@@ -50,35 +50,58 @@ const CTABanner = () => {
             </Button>
           </div>
 
-          {/* Right - 3D Bar Chart Visual */}
-          <div className="relative flex items-end justify-center lg:justify-end h-64 md:h-80">
-            {/* 3D Bar Chart */}
-            <div className="flex items-end gap-4 md:gap-6">
-              {/* Bar 1 - Tallest */}
-              <div className="relative group">
-                <div className="w-16 md:w-20 h-48 md:h-64 bg-gradient-to-t from-[#1BE1D3]/80 to-[#1BE1D3] rounded-t-lg shadow-lg shadow-[#1BE1D3]/20 transition-transform duration-300 group-hover:scale-105" />
-                <div className="absolute -top-1 left-0 right-0 h-3 bg-[#1BE1D3]/60 rounded-t-lg transform -skew-x-12 origin-bottom-left" />
+          {/* Right - Premium Stats Card */}
+          <div
+            className="relative rounded-3xl border border-[#1BE1D3]/10 bg-gradient-to-br from-[#0b1f1f] via-[#0a1a1a] to-black p-8 overflow-hidden"
+          >
+            {/* Background glow */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-[#1BE1D3]/8 rounded-full blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#1BE1D3]/5 rounded-full blur-2xl" />
+
+            <div className="relative z-10">
+              {/* Header */}
+              <p className="text-[11px] uppercase tracking-[0.25em] text-[#1BE1D3]/60 mb-6 font-medium">Why businesses choose us</p>
+
+              {/* Stats */}
+              <div className="space-y-6">
+                <div className="flex items-baseline gap-3">
+                  <p
+                    className="text-4xl font-bold text-white"
+                  >
+                    150+
+                  </p>
+                  <p className="text-[13px] text-gray-400">projects shipped across 12+ countries</p>
+                </div>
+
+                <div className="w-full h-px bg-white/5" />
+
+                <div className="flex items-baseline gap-3">
+                  <p
+                    className="text-4xl font-bold text-white"
+                  >
+                    3.2x
+                  </p>
+                  <p className="text-[13px] text-gray-400">average ROI our clients see</p>
+                </div>
+
+                <div className="w-full h-px bg-white/5" />
+
+                <div className="flex items-baseline gap-3">
+                  <p
+                    className="text-4xl font-bold text-white"
+                  >
+                    96%
+                  </p>
+                  <p className="text-[13px] text-gray-400">client retention year over year</p>
+                </div>
               </div>
 
-              {/* Bar 2 - Medium */}
-              <div className="relative group">
-                <div className="w-16 md:w-20 h-36 md:h-48 bg-gradient-to-t from-[#1BE1D3]/60 to-[#1BE1D3]/80 rounded-t-lg shadow-lg shadow-[#1BE1D3]/15 transition-transform duration-300 group-hover:scale-105" />
-                <div className="absolute -top-1 left-0 right-0 h-3 bg-[#1BE1D3]/40 rounded-t-lg transform -skew-x-12 origin-bottom-left" />
-              </div>
-
-              {/* Bar 3 - Smallest */}
-              <div className="relative group">
-                <div className="w-16 md:w-20 h-24 md:h-32 bg-gradient-to-t from-[#1BE1D3]/40 to-[#1BE1D3]/60 rounded-t-lg shadow-lg shadow-[#1BE1D3]/10 transition-transform duration-300 group-hover:scale-105" />
-                <div className="absolute -top-1 left-0 right-0 h-3 bg-[#1BE1D3]/30 rounded-t-lg transform -skew-x-12 origin-bottom-left" />
+              {/* Bottom tag */}
+              <div className="mt-8 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <p className="text-[11px] text-gray-500">Currently serving clients in 12+ markets</p>
               </div>
             </div>
-
-            {/* Wireframe accent lines */}
-            <svg className="absolute bottom-0 right-0 w-48 h-48 opacity-20" viewBox="0 0 200 200">
-              <path d="M0,200 Q50,150 100,180 T200,100" fill="none" stroke="#1BE1D3" strokeWidth="1" />
-              <path d="M0,200 Q80,120 150,160 T200,80" fill="none" stroke="#1BE1D3" strokeWidth="0.5" />
-              <path d="M0,200 Q100,100 180,140 T200,60" fill="none" stroke="#1BE1D3" strokeWidth="0.5" />
-            </svg>
           </div>
         </div>
       </motion.div>

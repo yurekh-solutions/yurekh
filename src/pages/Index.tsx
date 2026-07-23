@@ -70,15 +70,11 @@ const Index = () => {
         <IndustriesSection />
       </section>
     
-      <section id="blog">
-        <BlogSection />
-      </section>
+     
  <section id="case-studies">
         <CaseStudiesSection />
       </section>
-      <section id="instagram">
-        <InstagramSection />
-      </section>
+    
       <section id="about">
         <About />
       </section>
@@ -90,7 +86,9 @@ const Index = () => {
       <section id="contact">
         <Contact />
       </section>
-
+ <section id="blog">
+        <BlogSection />
+      </section>
       {/* Lead Capture Popups */}
       <LeadMagnetPopup />
       <ExitIntentPopup />

@@ -73,13 +73,13 @@ const IndustryDetail = () => {
     return (
       <div className="min-h-screen bg-[#0b0f0f] flex items-center justify-center px-4">
         <div className="text-center">
-          <h1 className="text-4xl text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+          <h1 className="text-4xl text-white mb-4">
             Industry Not Found
           </h1>
-          <p className="text-white/60 mb-8" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <p className="text-white/60 mb-8">
             The industry you're looking for doesn't exist.
           </p>
-          <Link to="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[#1BE1D3] border border-[#1BE1D3]/30 hover:bg-[#1BE1D3]/10 transition-all" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>
+          <Link to="/" className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-[#1BE1D3] border border-[#1BE1D3]/30 hover:bg-[#1BE1D3]/10 transition-all">
             Back to Home
           </Link>
         </div>
@@ -106,8 +106,7 @@ const IndustryDetail = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-4"
-            style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}
+            className="text-white text-4xl sm:text-5xl md:text-6xl font-light mb-4"
           >
             {industry.name}
           </motion.h1>
@@ -116,7 +115,6 @@ const IndustryDetail = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white/80 text-lg sm:text-xl max-w-3xl mb-6"
-            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             {industry.tagline}
           </motion.p>
@@ -125,7 +123,6 @@ const IndustryDetail = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
             className="flex items-center gap-3 text-white/80 text-sm"
-            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             <Link to="/" className="hover:text-[#1BE1D3] transition-colors">Home</Link>
             <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
@@ -146,17 +143,17 @@ const IndustryDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
                 OVERVIEW
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-6">
                 About {industry.name} Industry
               </h2>
               <div className="flex items-center gap-2 mb-8">
                 <div className="w-16 h-1 bg-[#1BE1D3] rounded-full" />
                 <div className="w-3 h-1 bg-[#1BE1D3] rounded-full" />
               </div>
-              <p className="text-white/70 leading-relaxed text-lg" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.8" }}>
+              <p className="text-white/70 leading-relaxed text-lg">
                 {industry.description}
               </p>
             </motion.div>
@@ -180,10 +177,10 @@ const IndustryDetail = () => {
                   <AlertTriangle className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
                 CHALLENGES
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
                 Key Challenges
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -209,10 +206,10 @@ const IndustryDetail = () => {
                         <ChallengeIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2.5} />
                       </div>
                     </div>
-                    <h3 className="text-white text-lg sm:text-xl font-bold text-center mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                    <h3 className="text-white text-lg sm:text-xl font-light text-center mb-3">
                       {challenge.title}
                     </h3>
-                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base">
                       {challenge.description}
                     </p>
                   </motion.div>
@@ -239,10 +236,10 @@ const IndustryDetail = () => {
                   <Lightbulb className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
                 SOLUTIONS
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
                 Our Solution Approach
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -268,10 +265,10 @@ const IndustryDetail = () => {
                         <SolutionIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2.5} />
                       </div>
                     </div>
-                    <h3 className="text-white text-lg sm:text-xl font-bold text-center mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                    <h3 className="text-white text-lg sm:text-xl font-light text-center mb-3">
                       {solution.title}
                     </h3>
-                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base">
                       {solution.description}
                     </p>
                   </motion.div>
@@ -298,10 +295,10 @@ const IndustryDetail = () => {
                   <Settings className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
                 CAPABILITIES
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
                 Platform Capabilities
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -328,10 +325,10 @@ const IndustryDetail = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-white text-base font-bold mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                      <h3 className="text-white text-base font-light mb-2">
                         {capability.title}
                       </h3>
-                      <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      <p className="text-white/70 text-sm leading-relaxed">
                         {capability.description}
                       </p>
                     </div>
@@ -359,10 +356,10 @@ const IndustryDetail = () => {
                   <TrendingUp className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
                 OUTCOMES
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
                 Business Outcomes
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -388,10 +385,10 @@ const IndustryDetail = () => {
                         <OutcomeIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2.5} />
                       </div>
                     </div>
-                    <h3 className="text-white text-lg sm:text-xl font-bold text-center mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                    <h3 className="text-white text-lg sm:text-xl font-light text-center mb-3">
                       {outcome.title}
                     </h3>
-                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base">
                       {outcome.description}
                     </p>
                   </motion.div>
@@ -418,10 +415,10 @@ const IndustryDetail = () => {
                   <Activity className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
                 INSIGHTS
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
                 Industry Insights & Trends
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -468,10 +465,10 @@ const IndustryDetail = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-white text-lg font-bold mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                      <h3 className="text-white text-lg font-light mb-2">
                         {insight.title}
                       </h3>
-                      <p className="text-white/70 text-sm sm:text-base leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      <p className="text-white/70 text-sm sm:text-base leading-relaxed">
                         {insight.description}
                       </p>
                     </div>
@@ -499,10 +496,10 @@ const IndustryDetail = () => {
                   <Award className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
                 WHY CHOOSE US
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
                 Why Choose Yurekh for {industry.name}
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -527,10 +524,10 @@ const IndustryDetail = () => {
                   className="text-center p-6 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
                   <item.icon className="h-10 w-10 text-[#1BE1D3] mx-auto mb-4" />
-                  <h3 className="text-white text-lg mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                  <h3 className="text-white text-lg mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <p className="text-white/60 text-sm">
                     {item.desc}
                   </p>
                 </motion.div>
@@ -556,10 +553,10 @@ const IndustryDetail = () => {
                   <CheckSquare className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
                 FAQ
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
                 Frequently Asked Questions
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -595,10 +592,10 @@ const IndustryDetail = () => {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="bg-[#0d2828]/50 border border-white/10 rounded-xl p-6 hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
-                  <h3 className="text-[#1BE1D3] text-lg font-bold mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                  <h3 className="text-[#1BE1D3] text-lg font-light mb-3">
                     {faq.q}
                   </h3>
-                  <p className="text-white/70 leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px" }}>
+                  <p className="text-white/70 leading-relaxed">
                     {faq.a}
                   </p>
                 </motion.div>
@@ -612,7 +609,7 @@ const IndustryDetail = () => {
       <section className="py-12 bg-[#0d2828]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-white/40 text-sm uppercase tracking-wider mb-6" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+            <h3 className="text-white/40 text-sm uppercase tracking-wider mb-6">
               Related Keywords
             </h3>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -620,7 +617,6 @@ const IndustryDetail = () => {
                 <span
                   key={idx}
                   className="px-4 py-2 rounded-full text-sm border border-white/10 text-white/50 hover:border-[#1BE1D3]/30 hover:text-[#1BE1D3] transition-all duration-300"
-                  style={{ fontFamily: "Poppins, sans-serif" }}
                 >
                   {keyword}
                 </span>
@@ -639,10 +635,10 @@ const IndustryDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+            <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
               {industry.ctaTitle}
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto mb-8" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px" }}>
+            <p className="text-white/70 max-w-2xl mx-auto mb-8">
               {industry.ctaDescription}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -650,9 +646,6 @@ const IndustryDetail = () => {
                 onClick={() => navigate("/bookingform")}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
                 style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "16px",
                   backgroundColor: "rgba(27,225,211,0.1)",
                   border: "2px solid rgba(27,225,211,0.5)",
                 }}
@@ -663,9 +656,6 @@ const IndustryDetail = () => {
                 href="tel:+919136242706"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
                 style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "16px",
                   backgroundColor: "rgba(255,255,255,0.05)",
                   border: "2px solid rgba(255,255,255,0.2)",
                 }}

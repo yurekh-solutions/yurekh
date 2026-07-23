@@ -217,7 +217,7 @@ const ServiceDetail = () => {
     return (
       <div className="min-h-screen bg-[#0b0f0f] flex items-center justify-center px-4">
         <div className="text-center">
-          <h1 className="text-4xl text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+          <h1 className="text-4xl text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
             Redirecting...
           </h1>
           <p className="text-white/60" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -336,8 +336,8 @@ const ServiceDetail = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-tight"
-            style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700, lineHeight: "1.15" }}
+            className="text-white text-4xl sm:text-5xl md:text-6xl font-light mb-4"
+            style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300, lineHeight: "1.15" }}
           >
             {service.name}
           </motion.h1>
@@ -364,10 +364,10 @@ const ServiceDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+            <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>
               OUR SERVICES
             </span>
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold mb-6 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-light mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
               {category.title} We Provide
             </h2>
             <div className="flex items-center justify-center gap-2">
@@ -399,7 +399,7 @@ const ServiceDetail = () => {
                     <IconComponent className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
                   </div>
                 </div>
-                <h3 className="text-[#1BE1D3] text-2xl font-bold text-center mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                <h3 className="text-[#1BE1D3] text-2xl font-light text-center mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
                   {service.name}
                 </h3>
                 <p className="text-white/70 text-center leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px" }}>
@@ -432,7 +432,7 @@ const ServiceDetail = () => {
                           <RelatedIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
                         </div>
                       </div>
-                      <h3 className="text-[#1BE1D3] text-2xl font-bold text-center mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                      <h3 className="text-[#1BE1D3] text-2xl font-light text-center mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
                         {rs.name}
                       </h3>
                       <p className="text-white/70 text-center leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px" }}>
@@ -457,7 +457,7 @@ const ServiceDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-white text-3xl sm:text-4xl font-bold mb-8 text-center tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+              <h2 className="text-white text-3xl sm:text-4xl font-light mb-8 text-center" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
                 About {service.name}
               </h2>
               <div className="space-y-6 text-white/70 leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px", lineHeight: "1.8" }}>
@@ -484,7 +484,7 @@ const ServiceDetail = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+            <h2 className="text-white text-3xl sm:text-4xl font-light mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
               What We Offer
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px" }}>
@@ -522,7 +522,7 @@ const ServiceDetail = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-bold mb-4 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+            <h2 className="text-white text-3xl sm:text-4xl font-light mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
               Why Choose <span className="text-[#1BE1D3]">Yurekh</span>
             </h2>
           </motion.div>
@@ -545,7 +545,7 @@ const ServiceDetail = () => {
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30 mx-auto mb-4">
                 <item.icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
               </div>
-                <h3 className="text-white text-lg mb-2 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+                <h3 className="text-white text-lg mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
                   {item.title}
                 </h3>
                 <p className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -561,7 +561,7 @@ const ServiceDetail = () => {
       <section className="py-12 bg-[#0d2828]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h3 className="text-white/40 text-sm uppercase tracking-wider mb-6" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 600 }}>
+            <h3 className="text-white/40 text-sm uppercase tracking-wider mb-6" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>
               Related Keywords
             </h3>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -588,7 +588,7 @@ const ServiceDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-bold mb-6 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 700 }}>
+            <h2 className="text-white text-3xl sm:text-4xl font-light mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
               Ready to Get Started?
             </h2>
             <p className="text-white/70 max-w-2xl mx-auto mb-8" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", lineHeight: "1.7" }}>
@@ -600,7 +600,7 @@ const ServiceDetail = () => {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
+                  fontWeight: 500,
                   fontSize: "16px",
                   backgroundColor: "rgba(27,225,211,0.1)",
                   border: "2px solid rgba(27,225,211,0.5)",
@@ -613,7 +613,7 @@ const ServiceDetail = () => {
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
+                  fontWeight: 500,
                   fontSize: "16px",
                   backgroundColor: "rgba(255,255,255,0.05)",
                   border: "2px solid rgba(255,255,255,0.2)",

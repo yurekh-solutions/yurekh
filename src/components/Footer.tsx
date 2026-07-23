@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin, MessageSquare, Twitter, Zap, Phone, ArrowUp } from 'lucide-react';
-import logo from '../assets/logo.jpeg';
+import logo from '../assets/loo.png';
 
 const sitemapData = [
   {

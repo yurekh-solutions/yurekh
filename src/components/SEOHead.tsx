@@ -21,7 +21,7 @@ const SEOHead = ({
   description,
   keywords,
   canonical,
-  ogImage = "https://yurekh.com/src/assets/logoyurekh.png",
+  ogImage = "https://yurekh.com/og-image.png",
   schema,
   breadcrumbs,
   noindex = false,

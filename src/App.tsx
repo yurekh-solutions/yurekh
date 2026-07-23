@@ -29,6 +29,7 @@ const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
 const BusinessConsulting = lazy(() => import("./pages/BusinessConsulting"));
 const Impact = lazy(() => import("./pages/Impact"));
 const FAQ = lazy(() => import("./pages/FAQ"));
+const BusinessLaunchIndia = lazy(() => import("./pages/BusinessLaunchIndia"));
 
 const queryClient = new QueryClient();
 
@@ -185,6 +186,14 @@ const App = () => (
             element={
               <AppLayout>
                 <FAQ />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/launch-in-india"
+            element={
+              <AppLayout>
+                <BusinessLaunchIndia />
               </AppLayout>
             }
           />

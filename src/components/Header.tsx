@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Phone, ChevronDown, MessageCircle, Instagram, Facebook, Linkedin, Twitter } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import logo from "../assets/logo.jpeg";
+import logo from "../assets/loo.png";
 import { getAllServices } from "@/data/services";
 import { getAllIndustries } from "@/data/industries";
 
@@ -128,6 +128,7 @@ const Header = () => {
         { name: "About Us", href: "/about" },
         { name: "Careers", href: "/careers" },
         { name: "Business Consulting", href: "/business-consulting" },
+        { name: "Build Business in India", href: "/launch-in-india" },
         { name: "Impact", href: "/impact" },
         { name: "FAQ", href: "/faq" },
       ],
@@ -196,8 +197,8 @@ const Header = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo - Yurekh Brand */}
-            <a href="/" className="flex items-center space-x-3">
-              <div className="w-12 h-12 overflow-hidden">
+            <a href="/" className="flex items-center space-x-2 sm:space-x-3">
+              <div className="w-9 h-9 sm:w-12 sm:h-12 overflow-hidden flex-shrink-0">
                 <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
               </div>
               <div className="hidden sm:block">
