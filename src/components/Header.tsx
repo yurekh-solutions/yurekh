@@ -131,6 +131,9 @@ const Header = () => {
         { name: "Build Business in India", href: "/launch-in-india" },
         { name: "Impact", href: "/impact" },
         { name: "FAQ", href: "/faq" },
+        { name: "Contact Us", href: "/bookingform" },
+        { name: "Privacy Policy", href: "/privacy" },
+        { name: "Terms & Conditions", href: "/terms" },
       ],
     },
     { name: "Case Study", href: "/case-study" },
@@ -467,6 +470,12 @@ const Header = () => {
                           );
                         } else if (item.href) {
                           setIsMenuOpen(false);
+                          setActiveDropdown(null);
+                          if (item.external) {
+                            window.location.href = item.href;
+                          } else {
+                            navigate(item.href);
+                          }
                         }
                       }}
                     >
@@ -491,9 +500,14 @@ const Header = () => {
                               {category.services.map((service, sIdx) => (
                                 <a
                                   key={sIdx}
-                                  href="#services"
+                                  href={serviceNameToSlug[service] ? `/services/${serviceNameToSlug[service]}` : "/services"}
                                   className="block py-1 text-xs text-gray-400 hover:text-[#1BE1D3] transition-colors"
-                                  onClick={() => setIsMenuOpen(false)}
+                                  onClick={(e) => {
+                                    e.preventDefault();
+                                    setIsMenuOpen(false);
+                                    setActiveDropdown(null);
+                                    navigate(serviceNameToSlug[service] ? `/services/${serviceNameToSlug[service]}` : "/services");
+                                  }}
                                 >
                                   {service}
                                 </a>
@@ -513,7 +527,12 @@ const Header = () => {
                               key={idx}
                               href={slug ? `/industries/${slug}` : "/industries"}
                               className="block py-2"
-                              onClick={() => setIsMenuOpen(false)}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                setIsMenuOpen(false);
+                                setActiveDropdown(null);
+                                navigate(slug ? `/industries/${slug}` : "/industries");
+                              }}
                             >
                               <span
                                 className="text-gray-200 hover:text-[#1BE1D3] transition-colors block"
@@ -540,7 +559,12 @@ const Header = () => {
                             key={idx}
                             href={subItem.href}
                             className="block py-2 text-sm text-gray-400 hover:text-[#1BE1D3] transition-colors"
-                            onClick={() => setIsMenuOpen(false)}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              setIsMenuOpen(false);
+                              setActiveDropdown(null);
+                              navigate(subItem.href);
+                            }}
                           >
                             {subItem.name}
                           </a>

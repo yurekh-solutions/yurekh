@@ -1,5 +1,4 @@
-Speed up page navigation with SPA routing, chunk prefetch, and instant scroll
+Restore Privacy Policy and Terms nav links with mobile SPA navigation fixes
 
-- Header desktop nav: logo, top-level items, Company dropdown, and Industries mega menu now use SPA navigate() instead of full page reloads
-- App.tsx: prefetch all lazy page chunks during browser idle time so route changes render instantly
-- ScrollToTop: instant scroll instead of slow smooth scroll on route change
+- Company dropdown: Contact Us, Privacy Policy (/privacy), Terms & Conditions (/terms)
+- Mobile menu: top-level items navigate correctly; services and industries use SPA navigate()
