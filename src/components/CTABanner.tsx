@@ -6,7 +6,7 @@ const CTABanner = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="py-16 lg:py-24 px-8" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+    <section className="py-16 lg:py-24 px-4 sm:px-6 lg:px-8" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -30,7 +30,7 @@ const CTABanner = () => {
         <div className="absolute top-0 right-0 w-96 h-96 bg-[#1BE1D3]/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#1BE1D3]/3 rounded-full blur-3xl" />
 
-        <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center p-8 md:p-12 lg:p-16">
+        <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center p-5 sm:p-8 md:p-12 lg:p-16">
           {/* Left Content */}
           <div className="space-y-6">
             <h2 className="text-[30px] font-semibold text-white leading-[1.2]">
@@ -52,7 +52,7 @@ const CTABanner = () => {
 
           {/* Right - Premium Stats Card */}
           <div
-            className="relative rounded-3xl border border-[#1BE1D3]/10 bg-gradient-to-br from-[#0b1f1f] via-[#0a1a1a] to-black p-8 overflow-hidden"
+            className="relative w-full rounded-2xl sm:rounded-3xl border border-[#1BE1D3]/10 bg-gradient-to-br from-[#0b1f1f] via-[#0a1a1a] to-black p-5 sm:p-8 overflow-hidden"
           >
             {/* Background glow */}
             <div className="absolute top-0 right-0 w-40 h-40 bg-[#1BE1D3]/8 rounded-full blur-3xl" />
@@ -60,46 +60,46 @@ const CTABanner = () => {
 
             <div className="relative z-10">
               {/* Header */}
-              <p className="text-[11px] uppercase tracking-[0.25em] text-[#1BE1D3]/60 mb-6 font-medium">Why businesses choose us</p>
+              <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#1BE1D3]/60 mb-4 sm:mb-6 font-medium">Why businesses choose us</p>
 
               {/* Stats */}
-              <div className="space-y-6">
-                <div className="flex items-baseline gap-3">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <p
-                    className="text-4xl font-bold text-white"
+                    className="text-3xl sm:text-4xl font-bold text-white shrink-0"
                   >
                     150+
                   </p>
-                  <p className="text-[13px] text-gray-400">projects shipped across 12+ countries</p>
+                  <p className="text-[12px] sm:text-[13px] text-gray-400 leading-snug flex-1 min-w-[140px]">projects shipped across 12+ countries</p>
                 </div>
 
                 <div className="w-full h-px bg-white/5" />
 
-                <div className="flex items-baseline gap-3">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <p
-                    className="text-4xl font-bold text-white"
+                    className="text-3xl sm:text-4xl font-bold text-white shrink-0"
                   >
                     3.2x
                   </p>
-                  <p className="text-[13px] text-gray-400">average ROI our clients see</p>
+                  <p className="text-[12px] sm:text-[13px] text-gray-400 leading-snug flex-1 min-w-[140px]">average ROI our clients see</p>
                 </div>
 
                 <div className="w-full h-px bg-white/5" />
 
-                <div className="flex items-baseline gap-3">
+                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
                   <p
-                    className="text-4xl font-bold text-white"
+                    className="text-3xl sm:text-4xl font-bold text-white shrink-0"
                   >
                     96%
                   </p>
-                  <p className="text-[13px] text-gray-400">client retention year over year</p>
+                  <p className="text-[12px] sm:text-[13px] text-gray-400 leading-snug flex-1 min-w-[140px]">client retention year over year</p>
                 </div>
               </div>
 
               {/* Bottom tag */}
-              <div className="mt-8 flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <p className="text-[11px] text-gray-500">Currently serving clients in 12+ markets</p>
+              <div className="mt-6 sm:mt-8 flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                <p className="text-[10px] sm:text-[11px] text-gray-500 leading-snug">Currently serving clients in 12+ markets</p>
               </div>
             </div>
           </div>

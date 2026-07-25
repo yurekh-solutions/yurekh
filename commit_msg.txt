@@ -1,1 +1,6 @@
-Fix Vercel rewrite pattern for nested AINOS routes
+Improve mobile responsiveness for CTABanner stats card and site-wide page updates
+
+- CTABanner: responsive padding, stat row wrapping, scaled typography for mobile
+- Header, InstagramSection, ServicesSection refinements
+- Page updates: Index, Services, BlogDetail, BusinessLaunchIndia, Careers, IndustryDetail, NotFound, PrivacyPolicy, TermsAndConditions
+- Add instagram assets and refresh sitemap

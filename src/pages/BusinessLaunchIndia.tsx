@@ -416,9 +416,7 @@ const BusinessLaunchIndia = () => {
                     <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-[#1BE1D3]" strokeWidth={1.6} />
                   </span>
                   <h3 className="text-[16px] sm:text-[18px] font-semibold" style={{ fontFamily: "Montserrat, sans-serif" }}>
-                    <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-2 transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]">
-                      {item.title}
-                    </span>
+                    {item.title}
                   </h3>
                 </div>
                 <p className="text-[13px] sm:text-[14px] font-normal leading-6 text-white/70" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -483,9 +481,7 @@ const BusinessLaunchIndia = () => {
                     <service.icon className="h-4 w-4 sm:h-5 sm:w-5 text-[#1BE1D3]" strokeWidth={1.6} />
                   </span>
                   <h3 className="text-[16px] sm:text-[18px] font-semibold" style={{ fontFamily: "Montserrat, sans-serif" }}>
-                    <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-2 transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]">
-                      {service.title}
-                    </span>
+                    {service.title}
                   </h3>
                 </div>
                 <p className="text-[13px] sm:text-[14px] font-normal leading-6 text-white/70" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -835,9 +831,7 @@ const BusinessLaunchIndia = () => {
                     <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-[#1BE1D3]" strokeWidth={1.6} />
                   </span>
                   <h3 className="text-[16px] sm:text-[18px] font-semibold" style={{ fontFamily: "Montserrat, sans-serif" }}>
-                    <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-2 transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]">
-                      {item.title}
-                    </span>
+                    {item.title}
                   </h3>
                 </div>
                 <p className="text-[13px] sm:text-[14px] font-normal leading-6 text-white/70" style={{ fontFamily: "Poppins, sans-serif" }}>

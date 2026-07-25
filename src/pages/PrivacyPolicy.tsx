@@ -2,10 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Shield, Mail, Globe } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
 
 const PrivacyPolicy = () => {
   return (
     <div className="min-h-screen bg-[#0b0f0f] relative overflow-hidden">
+      <SEOHead
+        title="Privacy Policy"
+        description="Read the Yurekh Solutions privacy policy. Learn how we collect, use, and protect your personal information across our website and services."
+        canonical="https://yurekh.com/privacy"
+        breadcrumbs={[{ name: 'Privacy Policy', url: 'https://yurekh.com/privacy' }]}
+      />
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1BE1D3]/5 via-transparent to-[#1BE1D3]/3" />
 

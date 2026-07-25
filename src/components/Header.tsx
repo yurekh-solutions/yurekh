@@ -197,17 +197,17 @@ const Header = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo - Yurekh Brand */}
-            <a href="/" className="flex items-center space-x-2 sm:space-x-3">
+            <a href="/" className="flex items-center space-x-1.5 sm:space-x-3">
               <div className="w-9 h-9 sm:w-12 sm:h-12 overflow-hidden flex-shrink-0">
                 <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
               </div>
-              <div className="hidden sm:block">
-                <h1 className="text-lg font-normal text-white tracking-wide" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+              <div className="block leading-tight">
+                <span className="block text-[8px] sm:text-lg font-normal text-white tracking-wide leading-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
                   YUREKH
-                </h1>
-                <p className="text-xs text-gray-400 -mt-1 tracking-widest" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}>
+                </span>
+                <span className="block text-[8px] sm:text-xs text-gray-400 mt-0 sm:-mt-1 tracking-widest leading-tight" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}>
                   SOLUTIONS
-                </p>
+                </span>
               </div>
             </a>
 

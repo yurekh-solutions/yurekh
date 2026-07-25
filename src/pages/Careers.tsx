@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Sparkles, MapPin, Clock, DollarSign, ArrowRight, CheckCircle } from "lucide-react";
+import SEOHead from "@/components/SEOHead";
 
 const Careers = () => {
   const benefits = [
@@ -72,6 +73,13 @@ const Careers = () => {
 
   return (
     <div className="min-h-screen pt-32 pb-20" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+      <SEOHead
+        title="Careers | Join Our Global Team"
+        description="Build your career with Yurekh Solutions. Explore open roles in technology, design, marketing, and business consulting. Remote-friendly culture, competitive benefits, and global growth opportunities."
+        keywords="Yurekh Solutions careers, jobs, hiring, technology jobs, remote work, developer jobs, marketing jobs, business consulting careers"
+        canonical="https://yurekh.com/careers"
+        breadcrumbs={[{ name: "Careers", url: "https://yurekh.com/careers" }]}
+      />
       {/* Hero Section */}
       <section className="container mx-auto px-4 lg:px-8 mb-20">
         <motion.div

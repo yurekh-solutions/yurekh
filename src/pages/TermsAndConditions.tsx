@@ -2,10 +2,17 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FileText, Mail, Globe } from 'lucide-react';
+import SEOHead from '@/components/SEOHead';
 
 const TermsAndConditions = () => {
   return (
     <div className="min-h-screen bg-[#0b0f0f] relative overflow-hidden">
+      <SEOHead
+        title="Terms & Conditions"
+        description="Review the terms and conditions for using Yurekh Solutions services and website, including engagement terms, intellectual property, and liability."
+        canonical="https://yurekh.com/terms"
+        breadcrumbs={[{ name: 'Terms & Conditions', url: 'https://yurekh.com/terms' }]}
+      />
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1BE1D3]/5 via-transparent to-[#1BE1D3]/3" />
 

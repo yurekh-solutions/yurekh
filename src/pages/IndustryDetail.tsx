@@ -6,6 +6,7 @@ import {
   industryCategories,
   getIndustryImage,
 } from "@/data/industries";
+import SEOHead from "@/components/SEOHead";
 import {
   CheckCircle,
   ArrowRight,
@@ -48,24 +49,6 @@ const IndustryDetail = () => {
 
   useEffect(() => {
     if (!result) return;
-    document.title = result.industry.seoTitle;
-
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement("meta");
-      meta.setAttribute("name", "description");
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute("content", result.industry.seoDescription);
-
-    let keywordsMeta = document.querySelector('meta[name="keywords"]');
-    if (!keywordsMeta) {
-      keywordsMeta = document.createElement("meta");
-      keywordsMeta.setAttribute("name", "keywords");
-      document.head.appendChild(keywordsMeta);
-    }
-    keywordsMeta.setAttribute("content", result.industry.keywords.join(", "));
-
     window.scrollTo(0, 0);
   }, [result]);
 
@@ -92,6 +75,16 @@ const IndustryDetail = () => {
 
   return (
     <div className="min-h-screen bg-[#0b0f0f]">
+      <SEOHead
+        title={industry.seoTitle}
+        description={industry.seoDescription}
+        keywords={industry.keywords.join(", ")}
+        canonical={`https://yurekh.com/industries/${industry.slug}`}
+        breadcrumbs={[
+          { name: "Industries", url: "https://yurekh.com/industries" },
+          { name: industry.name, url: `https://yurekh.com/industries/${industry.slug}` },
+        ]}
+      />
       {/* Hero Banner */}
       <section className="relative h-[400px] sm:h-[500px] overflow-hidden">
         <img

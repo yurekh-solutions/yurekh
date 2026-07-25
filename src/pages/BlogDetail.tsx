@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
 import { blogPosts } from "../components/BlogSection";
 import blogHero from "../assets/blog/blog-hero.jpg";
+import SEOHead from "@/components/SEOHead";
 
 const blogContent: Record<string, { sections: { heading: string; content: string }[] }> = {
   "ai-app-development-cost-2026": {
@@ -1705,8 +1706,35 @@ const BlogDetail = () => {
 
   const heroImage = post.image || blogHero;
 
+  const canonical = `https://yurekh.com/blogs/${post.slug}`;
+  const articleSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    image: "https://yurekh.com/og-image.png",
+    datePublished: post.date,
+    author: { "@type": "Organization", name: "Yurekh Solutions", url: "https://yurekh.com" },
+    publisher: {
+      "@type": "Organization",
+      name: "Yurekh Solutions",
+      logo: { "@type": "ImageObject", url: "https://yurekh.com/logoyurekh.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+  });
+
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+      <SEOHead
+        title={post.title}
+        description={post.description}
+        canonical={canonical}
+        schema={articleSchema}
+        breadcrumbs={[
+          { name: "Blog", url: "https://yurekh.com/blogs" },
+          { name: post.title, url: canonical },
+        ]}
+      />
       {/* Back Button */}
       <div className="px-8 pt-28">
         <div className="max-w-4xl mx-auto">

@@ -89,6 +89,10 @@ const Index = () => {
  <section id="blog">
         <BlogSection />
       </section>
+
+      <section id="instagram">
+        <InstagramSection />
+      </section>
       {/* Lead Capture Popups */}
       <LeadMagnetPopup />
       <ExitIntentPopup />

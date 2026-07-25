@@ -1,32 +1,31 @@
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 
-import post1 from "@/assets/blog/instagram-1.png";
-import post2 from "@/assets/blog/instagram-2.png";
-import post3 from "@/assets/blog/instagram-5.png";
-import post4 from "@/assets/blog/instagram-6.png";
-import post5 from "@/assets/blog/instagram-7.png";
-import post6 from "@/assets/blog/instagram-8.png";
+import post1 from "@/assets/instagram/post-1.png";
+import post2 from "@/assets/instagram/post-2.png";
+import post3 from "@/assets/instagram/post-3.png";
+import post4 from "@/assets/instagram/post-4.png";
+import post5 from "@/assets/instagram/post-5.png";
+import post6 from "@/assets/instagram/post-6.png";
 
 const INSTAGRAM_URL = "https://www.instagram.com/yurekhsolutions/";
 
 /**
- * CLEAN @yurekhsolutions GALLERY
+ * REAL @yurekhsolutions GRID
  * ---------------------------------------------------------------
- * A polished, on-brand grid of real posts that links straight to
- * the live Instagram profile. No likes/comment/share bars, no
- * "Add a comment" strips, no meme reels — just clean brand posts.
- * Each card opens the matching post/profile on Instagram.
+ * Mirrors the live Instagram profile grid — each card shows the
+ * actual post image (captured from instagram.com) and links
+ * directly to that exact post. No likes/comment bars, no embeds.
  */
 type Post = { image: string; link: string };
 
 const POSTS: Post[] = [
-  { image: post1, link: "https://www.instagram.com/p/DZwQiJzojN0/" },
-  { image: post2, link: "https://www.instagram.com/p/DW7-Yvwgu6L/" },
-  { image: post3, link: "https://www.instagram.com/p/DVBVR0GDaKX/" },
-  { image: post4, link: "https://www.instagram.com/p/DNyMwRn3iK8/" },
-  { image: post5, link: INSTAGRAM_URL },
-  { image: post6, link: INSTAGRAM_URL },
+  { image: post1, link: "https://www.instagram.com/p/DZwTJzCotrD/" },
+  { image: post2, link: "https://www.instagram.com/p/DZwS5w5ojkb/" },
+  { image: post3, link: "https://www.instagram.com/p/DZwSjBYIrAu/" },
+  { image: post4, link: "https://www.instagram.com/p/DZwRtO7IMLW/" },
+  { image: post5, link: "https://www.instagram.com/p/DZwQiJzojN0/" },
+  { image: post6, link: "https://www.instagram.com/p/DZwQFhrI1Gj/" },
 ];
 
 const InstagramSection = () => {

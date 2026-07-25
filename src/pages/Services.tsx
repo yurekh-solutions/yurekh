@@ -122,9 +122,7 @@ const Services = () => {
                       </span>
                       {/* Title */}
                       <h3 className="text-[20px] font-light">
-                        <span className="bg-gradient-to-r from-white to-white bg-[length:0%_2px] bg-left-bottom bg-no-repeat pb-2 transition-[background-size] duration-300 group-hover:bg-[length:100%_2px]">
-                          {service.title}
-                        </span>
+                        {service.title}
                       </h3>
                     </div>
                     {/* Description */}
