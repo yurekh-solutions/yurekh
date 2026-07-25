@@ -1,4 +1,5 @@
-Restore Privacy Policy and Terms nav links with mobile SPA navigation fixes
+Proxy /api/* to AINOS backend so dashboard API calls work
 
-- Company dropdown: Contact Us, Privacy Policy (/privacy), Terms & Conditions (/terms)
-- Mobile menu: top-level items navigate correctly; services and industries use SPA navigate()
+AINOS pages fetch /api/... without the /ainos basePath; when browsing via
+this domain those requests hit the SPA and returned HTML (405 on POST).
+Route /api/* to ainos-ywu0.onrender.com/ainos/api/* on Vercel.
