@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -12,24 +12,62 @@ import AIChat from "@/components/AIChat";
 import ScrollToTop from "./components/ScrollToTop";
 
 // Lazy load all pages for code splitting
-const Index = lazy(() => import("./pages/Index"));
-const NotFound = lazy(() => import("./pages/NotFound"));
-const BookingForm = lazy(() => import("./pages/BookingForm"));
-const ServiceDetail = lazy(() => import("./pages/ServiceDetail"));
-const Industries = lazy(() => import("./pages/Industries"));
-const IndustryDetail = lazy(() => import("./pages/IndustryDetail"));
-const CaseStudy = lazy(() => import("./pages/CaseStudy"));
-const Services = lazy(() => import("./pages/Services"));
-const BlogDetail = lazy(() => import("./pages/BlogDetail"));
-const BlogListing = lazy(() => import("./pages/BlogListing"));
-const About = lazy(() => import("./pages/About"));
-const Careers = lazy(() => import("./pages/Careers"));
-const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
-const TermsAndConditions = lazy(() => import("./pages/TermsAndConditions"));
-const BusinessConsulting = lazy(() => import("./pages/BusinessConsulting"));
-const Impact = lazy(() => import("./pages/Impact"));
-const FAQ = lazy(() => import("./pages/FAQ"));
-const BusinessLaunchIndia = lazy(() => import("./pages/BusinessLaunchIndia"));
+const pageImporters = {
+  Index: () => import("./pages/Index"),
+  NotFound: () => import("./pages/NotFound"),
+  BookingForm: () => import("./pages/BookingForm"),
+  ServiceDetail: () => import("./pages/ServiceDetail"),
+  Industries: () => import("./pages/Industries"),
+  IndustryDetail: () => import("./pages/IndustryDetail"),
+  CaseStudy: () => import("./pages/CaseStudy"),
+  Services: () => import("./pages/Services"),
+  BlogDetail: () => import("./pages/BlogDetail"),
+  BlogListing: () => import("./pages/BlogListing"),
+  About: () => import("./pages/About"),
+  Careers: () => import("./pages/Careers"),
+  PrivacyPolicy: () => import("./pages/PrivacyPolicy"),
+  TermsAndConditions: () => import("./pages/TermsAndConditions"),
+  BusinessConsulting: () => import("./pages/BusinessConsulting"),
+  Impact: () => import("./pages/Impact"),
+  FAQ: () => import("./pages/FAQ"),
+  BusinessLaunchIndia: () => import("./pages/BusinessLaunchIndia"),
+};
+
+const Index = lazy(pageImporters.Index);
+const NotFound = lazy(pageImporters.NotFound);
+const BookingForm = lazy(pageImporters.BookingForm);
+const ServiceDetail = lazy(pageImporters.ServiceDetail);
+const Industries = lazy(pageImporters.Industries);
+const IndustryDetail = lazy(pageImporters.IndustryDetail);
+const CaseStudy = lazy(pageImporters.CaseStudy);
+const Services = lazy(pageImporters.Services);
+const BlogDetail = lazy(pageImporters.BlogDetail);
+const BlogListing = lazy(pageImporters.BlogListing);
+const About = lazy(pageImporters.About);
+const Careers = lazy(pageImporters.Careers);
+const PrivacyPolicy = lazy(pageImporters.PrivacyPolicy);
+const TermsAndConditions = lazy(pageImporters.TermsAndConditions);
+const BusinessConsulting = lazy(pageImporters.BusinessConsulting);
+const Impact = lazy(pageImporters.Impact);
+const FAQ = lazy(pageImporters.FAQ);
+const BusinessLaunchIndia = lazy(pageImporters.BusinessLaunchIndia);
+
+// Prefetch all page chunks during browser idle time so navigation is instant
+const PrefetchPages = () => {
+  useEffect(() => {
+    const prefetch = () => {
+      Object.values(pageImporters).forEach((importer) => {
+        importer().catch(() => {});
+      });
+    };
+    if ("requestIdleCallback" in window) {
+      (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(prefetch, { timeout: 3000 });
+    } else {
+      setTimeout(prefetch, 2000);
+    }
+  }, []);
+  return null;
+};
 
 const queryClient = new QueryClient();
 
@@ -59,6 +97,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <ScrollToTop />
+        <PrefetchPages />
         <Suspense fallback={<PageLoader />}>
         <Routes>
           <Route

@@ -131,9 +131,6 @@ const Header = () => {
         { name: "Build Business in India", href: "/launch-in-india" },
         { name: "Impact", href: "/impact" },
         { name: "FAQ", href: "/faq" },
-        { name: "Contact Us", href: "/bookingform" },
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms & Conditions", href: "/terms" },
       ],
     },
     { name: "Case Study", href: "/case-study" },
@@ -200,7 +197,7 @@ const Header = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo - Yurekh Brand */}
-            <a href="/" className="flex items-center space-x-1.5 sm:space-x-3">
+            <a href="/" className="flex items-center space-x-1.5 sm:space-x-3" onClick={(e) => { e.preventDefault(); navigate("/"); }}>
               <div className="w-9 h-9 sm:w-12 sm:h-12 overflow-hidden flex-shrink-0">
                 <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
               </div>
@@ -242,6 +239,13 @@ const Header = () => {
                         e.preventDefault();
                       } else if (item.dropdown || item.megaMenu || item.industryMenu) {
                         e.preventDefault();
+                        if (item.href) {
+                          navigate(item.href);
+                          setActiveDropdown(null);
+                        }
+                      } else if (item.href) {
+                        e.preventDefault();
+                        navigate(item.href);
                       }
                     }}
                   >
@@ -338,6 +342,11 @@ const Header = () => {
                                 key={idx}
                                 href={slug ? `/industries/${slug}` : "/industries"}
                                 className="group block p-3 sm:p-4 rounded-xl border border-white/10 hover:border-[#1BE1D3]/40 hover:bg-white/5 transition-all duration-300"
+                                onClick={(e) => {
+                                  e.preventDefault();
+                                  navigate(slug ? `/industries/${slug}` : "/industries");
+                                  setActiveDropdown(null);
+                                }}
                               >
                                 <h4
                                   className="text-white group-hover:text-[#1BE1D3] transition-colors duration-200 mb-1"
@@ -389,6 +398,11 @@ const Header = () => {
                             fontFamily: "Poppins, sans-serif",
                             fontWeight: 400,
                             fontSize: "14px",
+                          }}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            navigate(subItem.href);
+                            setActiveDropdown(null);
                           }}
                         >
                           {subItem.name}
@@ -453,12 +467,6 @@ const Header = () => {
                           );
                         } else if (item.href) {
                           setIsMenuOpen(false);
-                          setActiveDropdown(null);
-                          if (item.external) {
-                            window.location.href = item.href;
-                          } else {
-                            navigate(item.href);
-                          }
                         }
                       }}
                     >
@@ -483,14 +491,9 @@ const Header = () => {
                               {category.services.map((service, sIdx) => (
                                 <a
                                   key={sIdx}
-                                  href={serviceNameToSlug[service] ? `/services/${serviceNameToSlug[service]}` : "/services"}
+                                  href="#services"
                                   className="block py-1 text-xs text-gray-400 hover:text-[#1BE1D3] transition-colors"
-                                  onClick={(e) => {
-                                    e.preventDefault();
-                                    setIsMenuOpen(false);
-                                    setActiveDropdown(null);
-                                    navigate(serviceNameToSlug[service] ? `/services/${serviceNameToSlug[service]}` : "/services");
-                                  }}
+                                  onClick={() => setIsMenuOpen(false)}
                                 >
                                   {service}
                                 </a>
@@ -510,12 +513,7 @@ const Header = () => {
                               key={idx}
                               href={slug ? `/industries/${slug}` : "/industries"}
                               className="block py-2"
-                              onClick={(e) => {
-                                e.preventDefault();
-                                setIsMenuOpen(false);
-                                setActiveDropdown(null);
-                                navigate(slug ? `/industries/${slug}` : "/industries");
-                              }}
+                              onClick={() => setIsMenuOpen(false)}
                             >
                               <span
                                 className="text-gray-200 hover:text-[#1BE1D3] transition-colors block"
@@ -542,12 +540,7 @@ const Header = () => {
                             key={idx}
                             href={subItem.href}
                             className="block py-2 text-sm text-gray-400 hover:text-[#1BE1D3] transition-colors"
-                            onClick={(e) => {
-                              e.preventDefault();
-                              setIsMenuOpen(false);
-                              setActiveDropdown(null);
-                              navigate(subItem.href);
-                            }}
+                            onClick={() => setIsMenuOpen(false)}
                           >
                             {subItem.name}
                           </a>

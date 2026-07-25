@@ -1,6 +1,5 @@
-Add Privacy Policy and Terms links to nav dropdown and fix mobile navigation
+Speed up page navigation with SPA routing, chunk prefetch, and instant scroll
 
-- Company dropdown: add Contact Us, Privacy Policy (/privacy), Terms & Conditions (/terms)
-- Mobile menu: top-level items (Case Study, AINOS) now navigate correctly on tap
-- Mobile services dropdown: link to real /services/:slug routes instead of dead #services anchor
-- Mobile industries and Company dropdowns: SPA navigation via navigate() with menu close
+- Header desktop nav: logo, top-level items, Company dropdown, and Industries mega menu now use SPA navigate() instead of full page reloads
+- App.tsx: prefetch all lazy page chunks during browser idle time so route changes render instantly
+- ScrollToTop: instant scroll instead of slow smooth scroll on route change
