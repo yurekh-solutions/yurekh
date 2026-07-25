@@ -1,6 +1,6 @@
-Improve mobile responsiveness for CTABanner stats card and site-wide page updates
+Add Privacy Policy and Terms links to nav dropdown and fix mobile navigation
 
-- CTABanner: responsive padding, stat row wrapping, scaled typography for mobile
-- Header, InstagramSection, ServicesSection refinements
-- Page updates: Index, Services, BlogDetail, BusinessLaunchIndia, Careers, IndustryDetail, NotFound, PrivacyPolicy, TermsAndConditions
-- Add instagram assets and refresh sitemap
+- Company dropdown: add Contact Us, Privacy Policy (/privacy), Terms & Conditions (/terms)
+- Mobile menu: top-level items (Case Study, AINOS) now navigate correctly on tap
+- Mobile services dropdown: link to real /services/:slug routes instead of dead #services anchor
+- Mobile industries and Company dropdowns: SPA navigation via navigate() with menu close
