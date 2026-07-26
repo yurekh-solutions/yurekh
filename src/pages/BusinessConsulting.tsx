@@ -58,7 +58,7 @@ const BusinessConsulting = () => {
                   Start Your Business Journey <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
-                  href="tel:+917044701968"
+                  href="tel:+919136242706"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
                   style={{
                     fontSize: "15px",
@@ -617,7 +617,7 @@ const BusinessConsulting = () => {
                 Book  Consultation <ArrowRight className="h-5 w-5" />
               </Link>
               <a
-                href="tel:+917044701968"
+                href="tel:+919136242706"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
                 style={{
                   fontFamily: "Poppins, sans-serif",
@@ -626,7 +626,7 @@ const BusinessConsulting = () => {
                   border: "2px solid rgba(255,255,255,0.2)",
                 }}
               >
-                Call +91 70447 01968
+                Call +91 91362 42706
               </a>
             </div>
           </motion.div>

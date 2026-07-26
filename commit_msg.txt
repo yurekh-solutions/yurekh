@@ -1,5 +1,7 @@
-Proxy /api/* to AINOS backend so dashboard API calls work
+Chat button shows strategy call popup instead of auto-opening chat
 
-AINOS pages fetch /api/... without the /ainos basePath; when browsing via
-this domain those requests hit the SPA and returned HTML (405 on POST).
-Route /api/* to ainos-ywu0.onrender.com/ainos/api/* on Vercel.
+- AIChat: removed auto-open after 5 seconds
+- Chat button click now opens "Wait — Let's Talk First" strategy call popup
+- Popup is mobile-responsive with backdrop overlay
+- Popup includes: Book Strategy Call, Call +91 91362 42706, WhatsApp Us
+- ExitIntentPopup still triggers on mouse leave (desktop only)

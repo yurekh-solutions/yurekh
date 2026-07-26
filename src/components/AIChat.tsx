@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send, Phone, Mail, Globe, Zap, Bot, User, Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
+import { MessageCircle, X, Send, Phone, Mail, Globe, Zap, Bot, User, Sparkles, ArrowRight, MessageSquare, Calendar } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo.jpeg';
 
 interface Message {
@@ -12,22 +13,20 @@ interface Message {
 
 const AIChat = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-open chat after 5 seconds
-  useEffect(() => {
-    if (!hasAutoOpened) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        setHasAutoOpened(true);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [hasAutoOpened]);
+  // Chat button click: show the strategy call popup
+  const handleChatClick = () => {
+    setShowPopup(true);
+  };
+
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -182,17 +181,127 @@ const AIChat = () => {
   return (
     <>
       {/* Chat Button */}
-      {!isOpen && (
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-[#1BE1D3] to-[#0fb5a8] shadow-[0_0_30px_rgba(27,225,211,0.5)] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(27,225,211,0.7)] group animate-bounce"
-          aria-label="Open chat"
-          style={{ animationDuration: '2s' }}
-        >
-          <MessageSquare className="w-8 h-8 text-black group-hover:scale-110 transition-transform" strokeWidth={2.5} />
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-pulse border-2 border-[#0b1f1f]" />
-        </button>
-      )}
+      <button
+        onClick={handleChatClick}
+        className="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gradient-to-br from-[#1BE1D3] to-[#0fb5a8] shadow-[0_0_30px_rgba(27,225,211,0.5)] flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-[0_0_40px_rgba(27,225,211,0.7)] group animate-bounce"
+        aria-label="Open chat"
+        style={{ animationDuration: '2s' }}
+      >
+        <MessageSquare className="w-8 h-8 text-black group-hover:scale-110 transition-transform" strokeWidth={2.5} />
+        <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full animate-pulse border-2 border-[#0b1f1f]" />
+      </button>
+
+      {/* Strategy Call Popup */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          >
+            {/* Backdrop */}
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={handleClosePopup} />
+
+            {/* Modal */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full max-w-md rounded-3xl border border-[#1BE1D3]/20 overflow-hidden"
+              style={{ background: "linear-gradient(135deg, #0a1a1a 0%, #0b1f1f 50%, #000000 100%)" }}
+            >
+              {/* Close button */}
+              <button
+                onClick={handleClosePopup}
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-20 touch-manipulation"
+                aria-label="Close popup"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              {/* Glow effects */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#1BE1D3]/5 rounded-full blur-3xl" />
+
+              <div className="relative z-10 p-6 sm:p-8 md:p-10 text-center">
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mx-auto mb-6">
+                  <Calendar className="w-8 h-8 text-[#1BE1D3]" />
+                </div>
+
+                {/* Content */}
+                <h3
+                  className="text-white text-xl sm:text-2xl md:text-3xl font-normal mb-3"
+                  style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                >
+                  Wait — Let's Talk First.
+                </h3>
+                <p
+                  className="text-white/60 text-sm md:text-base mb-6"
+                  style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                >
+                  Book a 30-minute strategy call. No commitment, no pressure — just actionable insights for your business.
+                </p>
+
+                {/* Options */}
+                <div className="space-y-3">
+                  <a
+                    href="/bookingform"
+                    onClick={handleClosePopup}
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-black font-normal transition-all duration-300 hover:shadow-[0_0_20px_rgba(27,225,211,0.3)]"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "14px",
+                      backgroundColor: "#1BE1D3",
+                      fontWeight: 400,
+                    }}
+                  >
+                    <Calendar className="w-4 h-4" />
+                    Book Strategy Call
+                  </a>
+
+                  <a
+                    href="tel:+919136242706"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-normal transition-all duration-300 hover:bg-white/10"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "14px",
+                      backgroundColor: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.15)",
+                      fontWeight: 400,
+                    }}
+                  >
+                    <Phone className="w-4 h-4" />
+                    Call +91 91362 42706
+                  </a>
+
+                  <a
+                    href="https://wa.me/919136242706"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-normal transition-all duration-300 hover:bg-white/10"
+                    style={{
+                      fontFamily: "Poppins, sans-serif",
+                      fontSize: "14px",
+                      backgroundColor: "rgba(255,255,255,0.05)",
+                      border: "1px solid rgba(255,255,255,0.15)",
+                      fontWeight: 400,
+                    }}
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    WhatsApp Us
+                  </a>
+                </div>
+
+                <p className="text-white/30 text-xs mt-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  Consultation. No obligations.
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Chat Window */}
       {isOpen && (
