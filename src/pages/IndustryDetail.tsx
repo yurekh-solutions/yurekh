@@ -634,26 +634,43 @@ const IndustryDetail = () => {
             <p className="text-white/70 max-w-2xl mx-auto mb-8">
               {industry.ctaDescription}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
               <button
                 onClick={() => navigate("/bookingform")}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-all duration-300 hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)]"
                 style={{
-                  backgroundColor: "rgba(27,225,211,0.1)",
-                  border: "2px solid rgba(27,225,211,0.5)",
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "clamp(13px, 2vw, 15px)",
+                  padding: "0 24px",
+                  height: "44px",
+                  borderRadius: "10px",
+                  backgroundColor: "#1BE1D3",
+                  color: "#000",
+                  border: "none",
+                  boxShadow: "0 0 30px rgba(27,225,211,0.15)",
                 }}
               >
-                Consult Our Experts <ArrowRight className="h-5 w-5" />
+                Consult Our Experts <ArrowRight className="h-4 w-4" />
               </button>
               <a
                 href="tel:+919136242706"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)]"
                 style={{
-                  backgroundColor: "rgba(255,255,255,0.05)",
-                  border: "2px solid rgba(255,255,255,0.2)",
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 400,
+                  fontSize: "clamp(13px, 2vw, 15px)",
+                  padding: "0 24px",
+                  height: "44px",
+                  borderRadius: "10px",
+                  backgroundColor: "rgba(27,225,211,0.08)",
+                  color: "#1BE1D3",
+                  border: "1px solid rgba(27,225,211,0.3)",
+                  backdropFilter: "blur(12px)",
+                  boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                <Phone className="h-5 w-5" /> Call Us
+                <Phone className="h-4 w-4" /> Call Us
               </a>
             </div>
           </motion.div>

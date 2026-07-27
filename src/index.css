@@ -139,10 +139,10 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Headings - Montserrat, lighter weights */
+  /* Headings - Montserrat, consistent weights */
   h1, h2, h3, h4, h5, h6 {
     font-family: "Montserrat", sans-serif;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.25;
     letter-spacing: -0.01em;
   }
@@ -178,7 +178,6 @@
     font-size: 16px;
     line-height: 1.7;
     letter-spacing: normal;
-    font-weight: 400;
   }
 }
 
@@ -588,6 +587,12 @@
 }
 
 /* ================= Keyframes ================= */
+@keyframes gradientBtn {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 @keyframes gradient {
   0%, 100% {
     background-position: 0% 50%;

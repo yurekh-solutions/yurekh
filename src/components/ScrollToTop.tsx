@@ -5,7 +5,8 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    // Instant jump so every page opens from the top immediately
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;

@@ -162,7 +162,7 @@ const Video = () => {
           }
         }
       `}</style>
-      <section className="relative min-h-screen py-20 flex flex-col items-center justify-center text-center text-white overflow-hidden" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+      <section className="relative min-h-screen py-16 md:py-20 flex flex-col items-center justify-center text-center text-white overflow-hidden" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
         {/* Background Stars */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-40 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
@@ -183,10 +183,10 @@ const Video = () => {
         <div className="stars2 animate-twinkle"></div>
         <div className="stars3 animate-twinkle"></div>
       </div>
-        <div className="relative z-10 w-full max-w-7xl px-8 grid md:grid-cols-2 gap-12 items-center">
+        <div className="relative z-10 w-full max-w-7xl px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           {/* Left Content */}
-          <div className="space-y-6 text-left md:text-left text-center mt-5">
-            <h2 className="text-[30px] font-semibold" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
+          <div className="space-y-5 md:space-y-6 text-center md:text-left mt-5">
+            <h2 className="text-[24px] sm:text-[28px] lg:text-[30px] font-semibold leading-[1.25]" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
               What Is Yurekh Solutions? <span className="text-[#1be1d3]">Your Complete Business Partner.</span>
             </h2>
             <p className="text-[14px] font-normal text-gray-300 leading-[1.7]">
@@ -196,8 +196,8 @@ const Video = () => {
               Whether you're launching your first startup or scaling an existing enterprise, we act as your founding team, growth partner, and execution arm — all under one roof. No fragmented vendors, no miscommunication. One partner. Complete execution.
             </p>
 
-            <div className="flex flex-col md:flex-row items-center gap-3 mt-4 justify-center md:justify-start">
-              <div className="flex text-yellow-400 text-xl">⭐⭐⭐⭐⭐</div>
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 mt-4 justify-center md:justify-start">
+              <div className="flex text-yellow-400 text-lg md:text-xl">⭐⭐⭐⭐⭐</div>
               <p className="text-gray-400 text-sm md:text-base">Rated 4.8 out of 5 based on over 50+ reviews</p>
             </div>
           </div>
@@ -211,7 +211,7 @@ const Video = () => {
                 {cardsData.concat(cardsData).map((card, idx) => (
                   <motion.div
                     key={idx}
-                    className="flex-shrink-0 w-80 bg-white/10 backdrop-blur-lg text-white rounded-2xl p-6 shadow-xl transition duration-300"
+                    className="flex-shrink-0 w-[260px] sm:w-80 whitespace-normal bg-white/10 backdrop-blur-lg text-white rounded-2xl p-5 sm:p-6 shadow-xl transition duration-300"
                     variants={cardVariants}
                   >
                     <p className="text-sm text-yellow-400 mb-2">{card.rating}</p>

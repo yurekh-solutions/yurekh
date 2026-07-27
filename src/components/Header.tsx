@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Phone, ChevronDown, MessageCircle, Instagram, Facebook, Linkedin, Twitter } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/loo.png";
 import { getAllServices } from "@/data/services";
 import { getAllIndustries } from "@/data/industries";
@@ -46,7 +46,19 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
   const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Central SPA navigation: closes menus and always lands at the top of the page
+  const goTo = (path: string) => {
+    setIsMenuOpen(false);
+    setActiveDropdown(null);
+    if (location.pathname === path) {
+      window.scrollTo(0, 0);
+    } else {
+      navigate(path);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -131,9 +143,7 @@ const Header = () => {
         { name: "Build Business in India", href: "/launch-in-india" },
         { name: "Impact", href: "/impact" },
         { name: "FAQ", href: "/faq" },
-        { name: "Contact Us", href: "/bookingform" },
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms & Conditions", href: "/terms" },
+        { name: "Contact Us", href: "/contact" },
       ],
     },
     { name: "Case Study", href: "/case-study" },
@@ -166,12 +176,34 @@ const Header = () => {
             <span className="text-white/90 text-xs font-medium">AI-Driven Business</span>
           </div>
 
-          {/* Center - Full text on desktop, short on mobile */}
-          <div className="flex items-center justify-center gap-2 flex-1 min-w-0">
-            <span className="text-white/90 text-xs md:text-sm font-medium text-center truncate">
-              <span className="hidden md:inline">Recognized Among TOP 1% Companies Globally</span>
-              <span className="md:hidden">Recognized TOP 1% Companies</span>
+          {/* Center - Static text on desktop */}
+          <div className="hidden md:flex items-center justify-center gap-2 flex-1 min-w-0">
+            <span className="text-white/90 text-sm font-medium text-center truncate">
+              Recognized Among TOP 1% Companies Globally
             </span>
+          </div>
+
+          {/* Center - Forward marquee loop on mobile */}
+          <div className="md:hidden flex-1 min-w-0 overflow-hidden">
+            <div className="inline-flex whitespace-nowrap animate-marquee" style={{ animationDuration: "20s" }}>
+              {[0, 1].map((dup) => (
+                <div key={dup} className="inline-flex items-center">
+                  {[
+                    "AI-Driven Business",
+                    "Recognized Among TOP 1% Companies Globally",
+                    "150+ Projects Delivered",
+                    "3.2x Average Client ROI",
+                    "Serving 12+ Global Markets",
+                    "24/7 AI-Powered Support",
+                  ].map((text, i) => (
+                    <span key={i} className="inline-flex items-center text-white/90 text-xs font-medium">
+                      {text}
+                      <span className="mx-3 w-1 h-1 rounded-full bg-[#1BE1D3] inline-block" />
+                    </span>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* WhatsApp - Right Side */}
@@ -200,7 +232,7 @@ const Header = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo - Yurekh Brand */}
-            <a href="/" className="flex items-center space-x-1.5 sm:space-x-3" onClick={(e) => { e.preventDefault(); navigate("/"); }}>
+            <a href="/" className="flex items-center space-x-1.5 sm:space-x-3" onClick={(e) => { e.preventDefault(); goTo("/"); }}>
               <div className="w-9 h-9 sm:w-12 sm:h-12 overflow-hidden flex-shrink-0">
                 <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
               </div>
@@ -243,12 +275,11 @@ const Header = () => {
                       } else if (item.dropdown || item.megaMenu || item.industryMenu) {
                         e.preventDefault();
                         if (item.href) {
-                          navigate(item.href);
-                          setActiveDropdown(null);
+                          goTo(item.href);
                         }
                       } else if (item.href) {
                         e.preventDefault();
-                        navigate(item.href);
+                        goTo(item.href);
                       }
                     }}
                   >
@@ -306,8 +337,7 @@ const Header = () => {
                                       onClick={(e) => {
                                         if (serviceNameToSlug[service]) {
                                           e.preventDefault();
-                                          navigate(`/services/${serviceNameToSlug[service]}`);
-                                          setActiveDropdown(null);
+                                          goTo(`/services/${serviceNameToSlug[service]}`);
                                         }
                                       }}
                                     >
@@ -347,8 +377,7 @@ const Header = () => {
                                 className="group block p-3 sm:p-4 rounded-xl border border-white/10 hover:border-[#1BE1D3]/40 hover:bg-white/5 transition-all duration-300"
                                 onClick={(e) => {
                                   e.preventDefault();
-                                  navigate(slug ? `/industries/${slug}` : "/industries");
-                                  setActiveDropdown(null);
+                                  goTo(slug ? `/industries/${slug}` : "/industries");
                                 }}
                               >
                                 <h4
@@ -404,8 +433,7 @@ const Header = () => {
                           }}
                           onClick={(e) => {
                             e.preventDefault();
-                            navigate(subItem.href);
-                            setActiveDropdown(null);
+                            goTo(subItem.href);
                           }}
                         >
                           {subItem.name}
@@ -431,14 +459,14 @@ const Header = () => {
                   padding: "0 24px",
                   height: "42px",
                   border: "1px solid rgba(27,225,211,0.25)",
-                  backdropFilter: "blur(12px)",
+                  backdropFilter: "blur(12px)", 
                   WebkitBackdropFilter: "blur(12px)",
                   boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                   transition: "all 0.3s ease",
                 }}
                 className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px"
               >
-               Get Touch
+               Book Now
               </button>
             </div>
 
@@ -468,14 +496,11 @@ const Header = () => {
                           setActiveDropdown(
                             activeDropdown === item.name ? null : item.name
                           );
-                        } else if (item.href) {
+                        } else if (item.external && item.href) {
                           setIsMenuOpen(false);
-                          setActiveDropdown(null);
-                          if (item.external) {
-                            window.location.href = item.href;
-                          } else {
-                            navigate(item.href);
-                          }
+                          window.location.href = item.href;
+                        } else if (item.href) {
+                          goTo(item.href);
                         }
                       }}
                     >
@@ -504,9 +529,7 @@ const Header = () => {
                                   className="block py-1 text-xs text-gray-400 hover:text-[#1BE1D3] transition-colors"
                                   onClick={(e) => {
                                     e.preventDefault();
-                                    setIsMenuOpen(false);
-                                    setActiveDropdown(null);
-                                    navigate(serviceNameToSlug[service] ? `/services/${serviceNameToSlug[service]}` : "/services");
+                                    goTo(serviceNameToSlug[service] ? `/services/${serviceNameToSlug[service]}` : "/services");
                                   }}
                                 >
                                   {service}
@@ -529,9 +552,7 @@ const Header = () => {
                               className="block py-2"
                               onClick={(e) => {
                                 e.preventDefault();
-                                setIsMenuOpen(false);
-                                setActiveDropdown(null);
-                                navigate(slug ? `/industries/${slug}` : "/industries");
+                                goTo(slug ? `/industries/${slug}` : "/industries");
                               }}
                             >
                               <span
@@ -561,9 +582,7 @@ const Header = () => {
                             className="block py-2 text-sm text-gray-400 hover:text-[#1BE1D3] transition-colors"
                             onClick={(e) => {
                               e.preventDefault();
-                              setIsMenuOpen(false);
-                              setActiveDropdown(null);
-                              navigate(subItem.href);
+                              goTo(subItem.href);
                             }}
                           >
                             {subItem.name}
@@ -590,11 +609,10 @@ const Header = () => {
                       fontWeight: 600,
                     }}
                     onClick={() => {
-                      setIsMenuOpen(false);
-                      navigate("/bookingform");
+                      goTo("/bookingform");
                     }}
                   >
-                    Get Touch
+                    Book Now
                   </button>
                 </div>
               </div>

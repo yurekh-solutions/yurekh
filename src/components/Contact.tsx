@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -24,7 +24,10 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/bookingform");
+    const message = encodeURIComponent(
+      `NEW INQUIRY — Yurekh Solutions\n\nName: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCategory: ${formData.category || '—'}\n\nProject Needs:\n${formData.message || '—'}`
+    );
+    window.open(`https://wa.me/919136242706?text=${message}`, "_blank");
   };
 
   const categories = [
@@ -266,15 +269,18 @@ const Contact = () => {
 
                 {/* Submit Button */}
                 <motion.button
-                  type="submit"
+                  type="button"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-3 sm:py-4 rounded-lg sm:rounded-xl text-white text-[14px] sm:text-[16px] font-semibold cursor-pointer transition-all duration-300"
+                  onClick={() => navigate("/contact")}
+                  className="w-full py-3 sm:py-4 rounded-full text-[#1BE1D3] text-[14px] sm:text-[16px] font-semibold cursor-pointer transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px"
                   style={{
                     fontFamily: "Poppins, sans-serif",
-                    background: "linear-gradient(90deg, #5f636b, #1be1d3, #345d66, #1c1d20)",
-                    backgroundSize: "300% 100%",
-                    animation: "gradientBtn 5s ease-in-out infinite",
+                    background: "rgba(27,225,211,0.08)",
+                    border: "1px solid rgba(27,225,211,0.25)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                   }}
                 >
                   Get In Touch

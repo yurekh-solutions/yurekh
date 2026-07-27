@@ -1,104 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Calendar, Clock, User, Phone, Mail, Building, Globe, Target, MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles, Zap, TrendingUp, Bot, Shield, Award, Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Calendar, Clock, User, Building, Target,
+  MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles,
+  Zap, TrendingUp, Bot, Shield, ChevronRight, ChevronLeft,
+  Video, Gift, CalendarDays, ClipboardList
+} from 'lucide-react';
 import SEOHead from "@/components/SEOHead";
-
-const Button = ({ children, onClick, className = '', variant = 'default', disabled = false, type = 'button' }: {
-  children: React.ReactNode;
-  onClick?: () => void;
-  className?: string;
-  variant?: 'default' | 'outline' | 'secondary';
-  disabled?: boolean;
-  type?: 'button' | 'submit';
-}) => {
-  const baseClasses = 'inline-flex items-center justify-center px-4 py-2 rounded-lg font-normal transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed';
-  const variants = {
-    default: 'bg-[#1BE1D3] hover:bg-[#1BE1D3]/80 text-black shadow-lg hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]',
-    outline: 'border-2 border-[#1BE1D3] text-[#1BE1D3] hover:bg-[#1BE1D3]/10',
-    secondary: 'bg-white/10 hover:bg-white/15 text-white border border-white/20'
-  };
-  return (
-    <button type={type} onClick={onClick} disabled={disabled} className={`${baseClasses} ${variants[variant]} ${className}`}>
-      {children}
-    </button>
-  );
-};
-
-const Input = ({ value, onChange, placeholder, className = '', type = 'text', id, required = false }: {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  placeholder?: string;
-  className?: string;
-  type?: string;
-  id?: string;
-  required?: boolean;
-}) => (
-  <input
-    type={type} id={id} value={value} onChange={onChange} placeholder={placeholder} required={required}
-    className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-[#1BE1D3]/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#1BE1D3]/50 focus:border-[#1BE1D3]/50 transition-all duration-300 ${className}`}
-  />
-);
-
-const Textarea = ({ value, onChange, placeholder, className = '', id, rows = 3 }: {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  placeholder?: string;
-  className?: string;
-  id?: string;
-  rows?: number;
-}) => (
-  <textarea
-    id={id} value={value} onChange={onChange} placeholder={placeholder} rows={rows}
-    className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-[#1BE1D3]/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-[#1BE1D3]/50 focus:border-[#1BE1D3]/50 transition-all duration-300 resize-none ${className}`}
-  />
-);
-
-const Select = ({ value, onChange, children, placeholder, className = '' }: {
-  value: string;
-  onChange: (value: string) => void;
-  children: React.ReactNode;
-  placeholder?: string;
-  className?: string;
-}) => (
-  <select
-    value={value} onChange={(e) => onChange(e.target.value)}
-    className={`w-full px-4 py-3 rounded-xl bg-white/5 border border-[#1BE1D3]/20 text-white focus:outline-none focus:ring-2 focus:ring-[#1BE1D3]/50 focus:border-[#1BE1D3]/50 transition-all duration-300 ${className}`}
-  >
-    {placeholder && <option value="" className="bg-[#0b0f0f] text-white">{placeholder}</option>}
-    {children}
-  </select>
-);
-
-const Label = ({ children, htmlFor, className = '' }: {
-  children: React.ReactNode;
-  htmlFor?: string;
-  className?: string;
-}) => (
-  <label htmlFor={htmlFor} className={`block text-sm font-normal text-white/90 mb-2 ${className}`} style={{ fontFamily: "Poppins, sans-serif" }}>
-    {children}
-  </label>
-);
-
-const Checkbox = ({ checked, onChange, id }: {
-  checked: boolean;
-  onChange: (checked: boolean) => void;
-  id?: string;
-}) => (
-  <input
-    type="checkbox" id={id} checked={checked} onChange={(e) => onChange(e.target.checked)}
-    className="w-5 h-5 rounded border-[#1BE1D3]/30 bg-white/5 text-[#1BE1D3] focus:ring-[#1BE1D3] focus:ring-2 accent-[#1BE1D3]"
-  />
-);
-
-const SectionIcon = ({ icon: Icon }: { icon: React.ElementType }) => (
-  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30">
-    <Icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
-  </div>
-);
 
 const BookingForm = () => {
   const [selectedDate, setSelectedDate] = useState<Date>(new Date());
   const [selectedTime, setSelectedTime] = useState<string>('');
+  const [viewMonth, setViewMonth] = useState(new Date().getMonth());
+  const [viewYear, setViewYear] = useState(new Date().getFullYear());
   const [formData, setFormData] = useState({
     firstName: '', phone: '', email: '', companyName: '', website: '',
     industry: '', businessSize: '', goals: [] as string[],
@@ -106,38 +21,87 @@ const BookingForm = () => {
   });
   const [step, setStep] = useState<'calendar' | 'form'>('calendar');
 
+  // Professional glass button — no blur, crisp border + soft glow
+  const glassBtn = {
+    background: "linear-gradient(135deg, rgba(27,225,211,0.12) 0%, rgba(27,225,211,0.05) 100%)",
+    border: "1px solid rgba(27,225,211,0.3)",
+    boxShadow: "0 4px 20px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.08)",
+  };
+
+  // Glass card — crisp, no blur
+  const glassCard = {
+    background: "linear-gradient(160deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.012) 60%, rgba(27,225,211,0.02) 100%)",
+    border: "1px solid rgba(255,255,255,0.08)",
+    boxShadow: "0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)",
+  };
+
+  const innerCard = {
+    background: "linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)",
+    border: "1px solid rgba(255,255,255,0.07)",
+    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
+  };
+
+  const fadeUp = {
+    hidden: { opacity: 0, y: 24 },
+    show: (i: number = 0) => ({
+      opacity: 1, y: 0,
+      transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const },
+    }),
+  };
+
   const generateCalendarDays = () => {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = now.getMonth();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-    const firstDay = new Date(year, month, 1).getDay();
-    const days = [];
+    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+    const firstDay = new Date(viewYear, viewMonth, 1).getDay();
+    const days: { day: number; isCurrentMonth: boolean; date: Date }[] = [];
+
+    // Previous month days
+    const prevMonth = viewMonth - 1;
+    const prevYear = prevMonth < 0 ? viewYear - 1 : viewYear;
+    const actualPrevMonth = prevMonth < 0 ? 11 : prevMonth;
+    const prevDaysInMonth = new Date(prevYear, actualPrevMonth + 1, 0).getDate();
     for (let i = firstDay - 1; i >= 0; i--) {
-      const prevMonth = month - 1;
-      const prevYear = prevMonth < 0 ? year - 1 : year;
-      const actualPrevMonth = prevMonth < 0 ? 11 : prevMonth;
-      const prevDaysInMonth = new Date(prevYear, actualPrevMonth + 1, 0).getDate();
       days.push({ day: prevDaysInMonth - i, isCurrentMonth: false, date: new Date(prevYear, actualPrevMonth, prevDaysInMonth - i) });
     }
+
+    // Current month days
     for (let day = 1; day <= daysInMonth; day++) {
-      days.push({ day, isCurrentMonth: true, date: new Date(year, month, day) });
+      days.push({ day, isCurrentMonth: true, date: new Date(viewYear, viewMonth, day) });
     }
+
+    // Next month days to fill grid
+    const remaining = 42 - days.length;
+    for (let day = 1; day <= remaining; day++) {
+      const nextMonth = viewMonth + 1;
+      const nextYear = nextMonth > 11 ? viewYear + 1 : viewYear;
+      const actualNextMonth = nextMonth > 11 ? 0 : nextMonth;
+      days.push({ day, isCurrentMonth: false, date: new Date(nextYear, actualNextMonth, day) });
+    }
+
     return days;
   };
 
-  const timeSlots = ['06:30 PM', '07:00 PM', '07:30 PM', '08:00 PM', '08:30 PM', '09:00 PM', '09:30 PM', '10:00 PM'];
+  const prevMonth = () => {
+    if (viewMonth === 0) { setViewMonth(11); setViewYear(viewYear - 1); }
+    else setViewMonth(viewMonth - 1);
+  };
 
+  const nextMonth = () => {
+    if (viewMonth === 11) { setViewMonth(0); setViewYear(viewYear + 1); }
+    else setViewMonth(viewMonth + 1);
+  };
+
+  const monthName = new Date(viewYear, viewMonth).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+  const timeSlots = ['06:30 PM', '07:00 PM', '07:30 PM', '08:00 PM', '08:30 PM', '09:00 PM', '09:30 PM', '10:00 PM'];
   const industries = ['Healthcare', 'E-commerce', 'Real Estate', 'Professional Services', 'Technology', 'Education', 'Manufacturing', 'Retail', 'Finance', 'Food & Beverage', 'Fitness & Wellness', 'Other'];
   const businessSizes = ['Solo Entrepreneur', '2-10 Employees', '11-50 Employees', '51-200 Employees', '200+ Employees'];
-
   const goalOptions = [
-    'Get more Online reviews (so that your business looks more credible and ranks higher locally)',
-    'Automate Appointment booking (so that leads are captured even after business hours)',
-    'Reduce Missed calls (so that you never lose a potential customer)',
-    'Use a 24/7 AI Assistant (so that your business works while you sleep)',
-    'Reduce Admin workload (so that your team can focus on high-value tasks)',
-    'Increase Leads and Conversions (so that marketing efforts result in real revenue)'
+    'Get more online reviews for credibility & local ranking',
+    'Automate appointment booking after business hours',
+    'Reduce missed calls — never lose a customer',
+    '24/7 AI assistant — your business works while you sleep',
+    'Reduce admin workload for high-value tasks',
+    'Increase leads & conversions for real revenue',
   ];
 
   const handleGoalChange = (goal: string, checked: boolean) => {
@@ -145,15 +109,14 @@ const BookingForm = () => {
   };
 
   const scrollToBooking = () => {
-    setStep('calendar');
     setTimeout(() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' }), 100);
   };
 
   const generateWhatsAppMessage = () => {
     const dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    const goalsText = formData.goals.length > 0 ? formData.goals.map(goal => `  - ${goal}`).join('\n') : '  Not specified';
+    const goalsText = formData.goals.length > 0 ? formData.goals.map(g => `  - ${g}`).join('\n') : '  Not specified';
     return encodeURIComponent(
-      `========================================\n  CONSULTATION BOOKING\n  Yurekh Solutions\n========================================\n\nDATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nGOOGLE MEET:\n  https://meet.google.com/new\n\n----------------------------------------\nCONTACT INFORMATION\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || 'Not provided'}\n  Website: ${formData.website || 'Not provided'}\n\n----------------------------------------\nBUSINESS DETAILS\n----------------------------------------\n  Industry:      ${formData.industry || 'Not specified'}\n  Business Size: ${formData.businessSize || 'Not specified'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS\n----------------------------------------\n  ${formData.currentProcess || 'Not specified'}\n\n----------------------------------------\nPAIN POINTS\n----------------------------------------\n  ${formData.painPoints || 'Not specified'}\n\n----------------------------------------\nCONSULTATION FEE: $100\n----------------------------------------\n\nLooking forward to the consultation.\nThank you!`
+      `========================================\n  CONSULTATION BOOKING — Yurekh Solutions\n========================================\n\nDATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nGOOGLE MEET:\n  https://meet.google.com/new\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION FEE: $100\n========================================`
     );
   };
 
@@ -166,11 +129,9 @@ const BookingForm = () => {
     if (period === 'AM' && h === 12) h = 0;
     startDate.setHours(h, minutes, 0, 0);
     const endDate = new Date(startDate.getTime() + 30 * 60 * 1000);
-    const formatGCal = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-    const details = encodeURIComponent(
-      `Consultation with Yurekh Solutions\n\nGoogle Meet: https://meet.google.com/new\n\nJoin via: https://meet.google.com/new\n\nBooking details sent via WhatsApp. Looking forward to our consultation!`
-    );
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Consultation+with+Yurekh+Solutions&dates=${formatGCal(startDate)}/${formatGCal(endDate)}&details=${details}&location=https://meet.google.com/new&add=guests&sf=true&output=xml`;
+    const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
+    const details = encodeURIComponent(`Consultation with Yurekh Solutions\nGoogle Meet: https://meet.google.com/new`);
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Consultation+with+Yurekh+Solutions&dates=${fmt(startDate)}/${fmt(endDate)}&details=${details}&location=https://meet.google.com/new&sf=true&output=xml`;
   };
 
   const handleSubmit = () => {
@@ -178,321 +139,439 @@ const BookingForm = () => {
       alert('Please fill in all required fields and accept the agreement.');
       return;
     }
-    const whatsappUrl = `https://wa.me/919136242706?text=${generateWhatsAppMessage()}`;
-    const gcalUrl = generateGoogleCalendarLink();
-    window.open(whatsappUrl, '_blank');
-    setTimeout(() => window.open(gcalUrl, '_blank'), 1500);
+    window.open(`https://wa.me/919136242706?text=${generateWhatsAppMessage()}`, '_blank');
+    setTimeout(() => window.open(generateGoogleCalendarLink(), '_blank'), 1500);
   };
 
+  const isDatePast = (date: Date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return date < today;
+  };
+
+  const inputCls = "w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.1] text-white/90 text-sm placeholder:text-white/25 focus:outline-none focus:border-[#1BE1D3]/50 focus:ring-1 focus:ring-[#1BE1D3]/25 focus:bg-white/[0.06] transition-all duration-200";
+  const labelCls = "block text-xs text-white/45 mb-1.5 font-medium";
+
+  // Step tabs config
+  const tabs = [
+    { key: 'calendar' as const, label: 'Date & Time', icon: CalendarDays },
+    { key: 'form' as const, label: 'Your Details', icon: ClipboardList },
+  ];
+
   return (
-    <div className="min-h-screen bg-[#0b0f0f] relative overflow-hidden">
+    <div
+      className="min-h-screen relative overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
+    >
       <SEOHead
         title="Book a Consultation | Schedule Your Free Strategy Session | Yurekh Solutions"
         description="Schedule a free consultation with Yurekh Solutions. Discuss your business vision, get expert advice on strategy, technology, branding, and go-to-market. Call +91 91362 42706."
-        keywords="book consultation, schedule meeting, free consultation, business strategy session, Yurekh Solutions booking, contact Yurekh"
+        keywords="book consultation, schedule meeting, free consultation, business strategy session, Yurekh Solutions booking"
         canonical="https://yurekh.com/bookingform"
         breadcrumbs={[{ name: "Book Consultation", url: "https://yurekh.com/bookingform" }]}
       />
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#1BE1D3]/5 via-transparent to-[#1BE1D3]/3" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:pt-32 sm:pb-16 lg:pt-36 lg:pb-20 relative z-10">
+      {/* Ambient glow accents */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(27,225,211,0.05),transparent_55%)] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[420px] h-[420px] bg-[#1BE1D3]/[0.03] rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[380px] h-[380px] bg-[#1BE1D3]/[0.02] rounded-full blur-[120px] pointer-events-none" />
 
-        {/* Hero Section */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-32 sm:pt-36 pb-20 sm:pb-24 relative z-10">
+
+        {/* ─── Hero ─── */}
         {step === 'calendar' && (
-          <div className="text-center mb-14 sm:mb-20">
-            <div className="inline-flex items-center mt-6 gap-2 bg-[#1BE1D3]/10 backdrop-blur-sm px-5 py-2.5 rounded-full border border-[#1BE1D3]/30 mb-6">
-              <Bot className="w-5 h-5 text-[#1BE1D3] animate-pulse " />
-              <span className="text-[#1BE1D3] font-normal text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>AI-Powered Business Automation</span>
-            </div>
+          <div className="text-center mb-14 sm:mb-16">
+            <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7"
+              style={{ background: "rgba(27,225,211,0.07)", border: "1px solid rgba(27,225,211,0.2)" }}>
+              <Bot className="w-3.5 h-3.5 text-[#1BE1D3]" />
+              <span className="text-[#1BE1D3] text-[11px] tracking-wider uppercase font-medium">AI-Powered Business Automation</span>
+            </motion.div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal mb-6 leading-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 500, letterSpacing: "-0.02em" }}>
-              <span className="text-white block mb-1">Transform Your Business with</span>
-              <span className="text-[#1BE1D3]">AI Automation</span>
-            </h1>
+            <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1}
+              className="text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight"
+              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 500 }}>
+              Transform Your Business with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1BE1D3] to-[#5CF5E8]">AI Automation
+</span>
+            </motion.h1>
 
-            <p className="text-base sm:text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-10" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
-              Never miss a lead again. Our AI Employee handles calls, chats, books appointments, and manages reviews 24/7 — while you focus on growing your business.
-            </p>
+            <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2}
+              className="text-white/45 max-w-lg mx-auto text-sm leading-relaxed mb-9">
+              Our AI Employee handles calls, chats, books appointments, and manages reviews 24/7 — while you focus on growing your business.
+            </motion.p>
 
-            {/* Benefits Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 mt-12">
+            {/* Feature pills */}
+            <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3}
+              className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10">
               {[
-                { icon: Zap, title: "24/7 AI Assistant", desc: "Never miss a customer inquiry, even after business hours" },
-                { icon: TrendingUp, title: "Boost Conversions", desc: "Convert more leads with intelligent automated responses" },
-                { icon: Sparkles, title: "Smart Automation", desc: "Automate repetitive tasks and focus on high-value work" },
-              ].map((item, idx) => (
-                <div key={idx} className="bg-gradient-to-br from-[#0d2828] to-[#0a1f1f] border-2 border-[#1BE1D3]/20 rounded-2xl p-6 text-center hover:border-[#1BE1D3]/50 hover:shadow-[0_0_30px_rgba(27,225,211,0.15)] transition-all duration-500">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30 mx-auto mb-4">
-                    <item.icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
-                  </div>
-                  <h3 className="text-base sm:text-lg font-normal text-white mb-2 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 500 }}>{item.title}</h3>
-                  <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>{item.desc}</p>
+                { icon: Zap, text: "24/7 AI Assistant" },
+                { icon: TrendingUp, text: "3x More Leads" },
+                { icon: Sparkles, text: "Smart Automation" },
+                { icon: Video, text: "Google Meet" },
+              ].map((f, i) => (
+                <div key={i}
+                  className="flex items-center gap-2 rounded-full px-4 py-2.5 transition-all duration-300 hover:border-[#1BE1D3]/30 hover:-translate-y-0.5"
+                  style={innerCard}>
+                  <f.icon className="w-3.5 h-3.5 text-[#1BE1D3]" />
+                  <span className="text-white/60 text-[11px] font-medium">{f.text}</span>
                 </div>
               ))}
-            </div>
+            </motion.div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col gap-3 sm:gap-4 justify-center items-center mt-10 w-full max-w-md mx-auto sm:max-w-none">
-              <Button onClick={scrollToBooking} className="text-base sm:text-lg px-6 sm:px-8 py-4 w-full">
-                Book Free Demo <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-              <Button variant="outline" className="text-base sm:text-lg px-6 sm:px-8 py-4 w-full" onClick={() => window.open('https://wa.me/9136242706', '_blank')}>
-                Chat on WhatsApp
-              </Button>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 mt-14">
-              {[
-                { value: "24/7", label: "AI Availability" },
-                { value: "300%", label: "Lead Increase" },
-                { value: "90%", label: "Time Saved" },
-                { value: "$100", label: "Starting Price" },
-              ].map((stat, idx) => (
-                <div key={idx} className="text-center p-3 sm:p-4">
-                  <div className="text-xl sm:text-2xl md:text-3xl font-normal text-[#1BE1D3] mb-1" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, letterSpacing: "-0.01em" }}>{stat.value}</div>
-                  <div className="text-white/60 text-xs sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{stat.label}</div>
-                </div>
-              ))}
-            </div>
+            <motion.button variants={fadeUp} initial="hidden" animate="show" custom={4}
+              onClick={scrollToBooking}
+              className="inline-flex items-center gap-2 text-[#1BE1D3] px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-[0_8px_30px_rgba(27,225,211,0.25)] hover:-translate-y-0.5 hover:brightness-125"
+              style={glassBtn}>
+              Book Free Demo <ArrowRight className="w-4 h-4" />
+            </motion.button>
           </div>
         )}
 
-        {/* Booking Content */}
-        <div id="booking-section" className="mt-16 sm:mt-20 bg-gradient-to-br from-[#0d2828]/80 to-[#0a1f1f]/80 backdrop-blur-xl border-2 border-[#1BE1D3]/20 rounded-3xl p-6 sm:p-8 lg:p-10">
-          {step === 'calendar' ? (
-            <div className="space-y-10">
-              <div className="text-center space-y-5">
-                <div className="flex items-center justify-center gap-3">
-                  <SectionIcon icon={Calendar} />
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Select Date & Time</h2>
-                </div>
-                <div className="flex items-center justify-center gap-2 text-[#1BE1D3]">
-                  <Clock className="w-5 h-5" />
-                  <span className="font-normal" style={{ fontFamily: "Poppins, sans-serif" }}>30 Mins</span>
-                </div>
-                <p className="text-[#1BE1D3]/80 font-normal" style={{ fontFamily: "Poppins, sans-serif" }}>
-                  {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
-                </p>
-              </div>
+        {/* ─── Step Tabs ─── */}
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}
+          className="flex justify-center mb-8 sm:mb-10">
+          <div className="inline-flex items-center gap-1.5 p-1.5 rounded-full" style={innerCard}>
+            {tabs.map((tab, i) => {
+              const isActive = step === tab.key;
+              const isLocked = tab.key === 'form' && !selectedTime;
+              return (
+                <React.Fragment key={tab.key}>
+                  {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-white/20 mx-0.5" />}
+                  <button
+                    onClick={() => { if (!isLocked) { setStep(tab.key); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}
+                    disabled={isLocked}
+                    className={`relative flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300
+                      ${isActive ? 'text-black' : isLocked ? 'text-white/25 cursor-not-allowed' : 'text-white/55 hover:text-[#1BE1D3]'}`}
+                  >
+                    {isActive && (
+                      <motion.span layoutId="tab-pill"
+                        className="absolute inset-0 rounded-full bg-[#1BE1D3]"
+                        style={{ boxShadow: "0 4px 20px rgba(27,225,211,0.35)" }}
+                        transition={{ type: "spring", stiffness: 400, damping: 32 }} />
+                    )}
+                    <tab.icon className="w-4 h-4 relative z-10" />
+                    <span className="relative z-10">{tab.label}</span>
+                  </button>
+                </React.Fragment>
+              );
+            })}
+          </div>
+        </motion.div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                {/* Calendar */}
-                <div className="space-y-6">
-                  <div className="grid grid-cols-7 gap-1">
-                    {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(day => (
-                      <div key={day} className="text-center py-3 text-white/60 font-normal text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{day}</div>
-                    ))}
-                    {generateCalendarDays().map((day, index) => (
-                      <button key={index} onClick={() => setSelectedDate(day.date)}
-                        className={`py-3 text-center rounded-xl font-normal transition-all duration-300 hover:scale-105 ${day.isCurrentMonth ? 'text-white hover:bg-[#1BE1D3]/20' : 'text-white/30'} ${selectedDate.toDateString() === day.date.toDateString() ? 'bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)]' : ''}`}
-                        style={{ fontFamily: "Poppins, sans-serif" }}
-                      >{day.day}</button>
-                    ))}
-                  </div>
-                  <div className="bg-white/5 border border-[#1BE1D3]/20 rounded-xl p-4">
-                    <div className="text-[#1BE1D3] font-normal mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>
-                      {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
-                    </div>
-                    <div className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>GMT+05:30 Asia/Calcutta</div>
-                  </div>
-                </div>
+        {/* ─── Booking Section ─── */}
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={1}
+          id="booking-section" className="rounded-3xl overflow-hidden" style={glassCard}>
 
-                {/* Time Slots */}
-                <div className="space-y-6">
-                  <div className="grid grid-cols-2 gap-3">
-                    {timeSlots.map(time => (
-                      <button key={time} onClick={() => setSelectedTime(time)}
-                        className={`p-4 rounded-xl font-normal transition-all duration-300 hover:scale-105 ${selectedTime === time ? 'bg-[#1BE1D3] text-black shadow-[0_0_20px_rgba(27,225,211,0.4)]' : 'bg-white/5 border border-[#1BE1D3]/20 text-white hover:bg-[#1BE1D3]/10'}`}
-                        style={{ fontFamily: "Poppins, sans-serif" }}
-                      >{time}</button>
-                    ))}
+          <AnimatePresence mode="wait">
+            {step === 'calendar' ? (
+              /* ─── STEP 1: Calendar + Time ─── */
+              <motion.div key="calendar"
+                initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 24 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="p-6 sm:p-9 lg:p-12">
+                {/* Step header */}
+                <div className="flex items-center justify-between mb-9">
+                  <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center" style={glassBtn}>
+                      <CalendarDays className="w-5 h-5 text-[#1BE1D3]" />
+                    </div>
+                    <div>
+                      <h2 className="text-lg sm:text-xl text-white mb-0.5" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 500 }}>
+                        Select Date & Time
+                      </h2>
+                      <p className="text-white/35 text-xs sm:text-sm">30-minute consultation via Google Meet</p>
+                    </div>
                   </div>
-                  {selectedTime && (
-                    <Button onClick={() => { setStep('form'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="w-full py-4 text-base sm:text-lg">
-                      Continue to Form <ArrowRight className="w-5 h-5 ml-2" />
-                    </Button>
-                  )}
-                </div>
-              </div>
-
-              {/* Demo Benefits */}
-              <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8">
-                <div className="flex items-center gap-3 mb-6">
-                  <SectionIcon icon={Star} />
-                  <h3 className="text-lg sm:text-xl md:text-2xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>What You'll Get in This Demo:</h3>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                  {[
-                    'Live demonstration of AI Employee handling calls and chats',
-                    'See how it captures leads and books appointments automatically',
-                    'Learn how it manages your reputation and reviews',
-                    'Personalized setup walkthrough for your business',
-                    'Custom pricing based on your specific needs',
-                    'Q&A session to address your unique challenges'
-                  ].map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-[#1BE1D3] mt-0.5 flex-shrink-0" />
-                      <span className="text-white/90 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>{benefit}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 rounded-xl p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30">
-                      <Target className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
-                    </div>
-                    <h4 className="text-lg sm:text-xl font-normal text-[#1BE1D3] tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>100% Money Back Guarantee</h4>
-                  </div>
-                  <p className="text-white/90 mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    Try AI Employee today — no commitments, just results. See how it can transform your business in just a few days!
-                  </p>
-                  <div className="bg-white/5 border border-[#1BE1D3]/20 px-4 py-3 rounded-lg">
-                    <span className="text-[#1BE1D3] font-normal" style={{ fontFamily: "Poppins, sans-serif" }}>Special Launch Offer: </span>
-                    <span className="text-white" style={{ fontFamily: "Poppins, sans-serif" }}>Get your first 7 days free – no risk, no commitment, no pressure to continue.</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className="space-y-10">
-              <div className="flex flex-col md:flex-row md:items-center gap-4 mb-10">
-                <Button variant="outline" onClick={() => setStep('calendar')}>
-                  <ArrowLeft className="w-4 h-4 mr-2" /> Back to Calendar
-                </Button>
-                <div className="text-center flex-1">
-                  <h2 className="text-xl sm:text-2xl md:text-3xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Complete Your Booking</h2>
-                  <p className="text-[#1BE1D3] mt-2" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })} at {selectedTime}
-                  </p>
-                </div>
-              </div>
-
-              <form className="space-y-10" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
-                {/* Contact Information */}
-                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
-                  <div className="flex items-center gap-3">
-                    <SectionIcon icon={User} />
-                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Contact Information</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <Label htmlFor="firstName">First Name <span className="text-red-400">*</span></Label>
-                      <Input id="firstName" value={formData.firstName} onChange={(e) => setFormData(prev => ({...prev, firstName: e.target.value}))} placeholder="Enter your first name" required />
-                    </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="phone" className="flex items-center gap-2"><Phone className="w-4 h-4 text-[#1BE1D3]" /> Phone <span className="text-red-400">*</span></Label>
-                      <Input id="phone" value={formData.phone} onChange={(e) => setFormData(prev => ({...prev, phone: e.target.value}))} placeholder="Enter your phone number" required />
-                    </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="email" className="flex items-center gap-2"><Mail className="w-4 h-4 text-[#1BE1D3]" /> Email <span className="text-red-400">*</span></Label>
-                      <Input id="email" type="email" value={formData.email} onChange={(e) => setFormData(prev => ({...prev, email: e.target.value}))} placeholder="Enter your email address" required />
-                    </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="companyName" className="flex items-center gap-2"><Building className="w-4 h-4 text-[#1BE1D3]" /> Company Name</Label>
-                      <Input id="companyName" value={formData.companyName} onChange={(e) => setFormData(prev => ({...prev, companyName: e.target.value}))} placeholder="Enter your company name" />
-                    </div>
-                    <div className="md:col-span-2 space-y-3">
-                      <Label htmlFor="website" className="flex items-center gap-2"><Globe className="w-4 h-4 text-[#1BE1D3]" /> Website (if any)</Label>
-                      <Input id="website" value={formData.website} onChange={(e) => setFormData(prev => ({...prev, website: e.target.value}))} placeholder="https://your-website.com" />
-                    </div>
+                  <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full text-[#1BE1D3] text-xs font-medium" style={{ background: "rgba(27,225,211,0.07)", border: "1px solid rgba(27,225,211,0.2)" }}>
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>30 mins</span>
                   </div>
                 </div>
 
-                {/* Business Information */}
-                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
-                  <div className="flex items-center gap-3">
-                    <SectionIcon icon={Building} />
-                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Business Information</h3>
-                  </div>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-3">
-                      <Label>Industry Type</Label>
-                      <Select value={formData.industry} onChange={(value) => setFormData(prev => ({...prev, industry: value}))} placeholder="Select your industry">
-                        {industries.map(industry => (<option key={industry} value={industry} className="bg-[#0b0f0f] text-white">{industry}</option>))}
-                      </Select>
-                    </div>
-                    <div className="space-y-3">
-                      <Label>Business Size</Label>
-                      <Select value={formData.businessSize} onChange={(value) => setFormData(prev => ({...prev, businessSize: value}))} placeholder="Select business size">
-                        {businessSizes.map(size => (<option key={size} value={size} className="bg-[#0b0f0f] text-white">{size}</option>))}
-                      </Select>
-                    </div>
-                  </div>
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
 
-                {/* Goals */}
-                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
-                  <div className="flex items-center gap-3">
-                    <SectionIcon icon={Target} />
-                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>What would you like to achieve?</h3>
+                  {/* Calendar — 7 cols */}
+                  <div className="lg:col-span-7">
+                    {/* Month nav */}
+                    <div className="flex items-center justify-between mb-5">
+                      <button onClick={prevMonth} className="w-10 h-10 rounded-full flex items-center justify-center text-white/50 hover:text-[#1BE1D3] hover:border-[#1BE1D3]/40 hover:-translate-y-0.5 transition-all duration-200" style={innerCard}>
+                        <ChevronLeft className="w-4 h-4" />
+                      </button>
+                      <h3 className="text-white text-sm sm:text-base font-medium" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                        {monthName}
+                      </h3>
+                      <button onClick={nextMonth} className="w-10 h-10 rounded-full flex items-center justify-center text-white/50 hover:text-[#1BE1D3] hover:border-[#1BE1D3]/40 hover:-translate-y-0.5 transition-all duration-200" style={innerCard}>
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    {/* Day headers */}
+                    <div className="grid grid-cols-7 gap-1.5 mb-2">
+                      {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(d => (
+                        <div key={d} className="text-center py-2 text-white/35 text-[11px] font-medium uppercase tracking-wider">{d}</div>
+                      ))}
+                    </div>
+
+                    {/* Calendar grid */}
+                    <div className="grid grid-cols-7 gap-1.5">
+                      {generateCalendarDays().map((day, i) => {
+                        const isSelected = selectedDate.toDateString() === day.date.toDateString();
+                        const isToday = new Date().toDateString() === day.date.toDateString();
+                        const isPast = isDatePast(day.date);
+                        return (
+                          <button
+                            key={i}
+                            onClick={() => !isPast && setSelectedDate(day.date)}
+                            disabled={isPast}
+                            className={`aspect-square flex items-center justify-center rounded-xl text-sm transition-all duration-200
+                              ${!day.isCurrentMonth ? 'text-white/10' : isPast ? 'text-white/15 cursor-not-allowed' : 'text-white/70 hover:bg-[#1BE1D3]/[0.08] hover:text-[#1BE1D3] hover:scale-105 cursor-pointer'}
+                              ${isSelected ? '!bg-[#1BE1D3] !text-black font-semibold shadow-[0_4px_20px_rgba(27,225,211,0.35)] scale-105' : ''}
+                              ${isToday && !isSelected ? 'ring-1 ring-[#1BE1D3]/40 text-[#1BE1D3]' : ''}`}
+                          >
+                            {day.day}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    {/* Selected date */}
+                    <div className="mt-6 flex items-center gap-2.5 px-4 py-3 rounded-xl text-xs text-white/50" style={innerCard}>
+                      <Calendar className="w-4 h-4 text-[#1BE1D3]" />
+                      <span>{selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} · IST (GMT+5:30)</span>
+                    </div>
                   </div>
-                  <p className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>Select all that apply</p>
-                  <div className="space-y-4">
-                    {goalOptions.map((goal, index) => (
-                      <div key={index} className="flex items-start gap-3 p-3 rounded-lg hover:bg-[#1BE1D3]/5 transition-colors duration-200">
-                        <Checkbox id={`goal-${index}`} checked={formData.goals.includes(goal)} onChange={(checked) => handleGoalChange(goal, checked)} />
-                        <Label htmlFor={`goal-${index}`} className="text-white/90 leading-relaxed cursor-pointer text-sm md:text-base">{goal}</Label>
+
+                  {/* Time slots — 5 cols */}
+                  <div className="lg:col-span-5 space-y-6">
+                    <div className="rounded-2xl p-5 sm:p-6" style={innerCard}>
+                      <p className="text-xs text-white/45 mb-5 flex items-center gap-2 font-medium uppercase tracking-wider">
+                        <Clock className="w-3.5 h-3.5 text-[#1BE1D3]" /> Available Time Slots
+                      </p>
+                      <div className="grid grid-cols-2 gap-3">
+                        {timeSlots.map(t => (
+                          <button
+                            key={t}
+                            onClick={() => setSelectedTime(t)}
+                            className={`py-3 rounded-xl text-sm transition-all duration-200
+                              ${selectedTime === t
+                                ? 'bg-[#1BE1D3] text-black font-semibold shadow-[0_4px_20px_rgba(27,225,211,0.3)] scale-[1.03]'
+                                : 'border border-white/[0.09] bg-white/[0.03] text-white/55 hover:border-[#1BE1D3]/40 hover:text-[#1BE1D3] hover:bg-[#1BE1D3]/[0.06] hover:-translate-y-0.5'}`}
+                          >
+                            {t}
+                          </button>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
 
-                {/* Additional Information */}
-                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
-                  <div className="flex items-center gap-3">
-                    <SectionIcon icon={MessageSquare} />
-                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Additional Information</h3>
-                  </div>
-                  <div className="space-y-6">
-                    <div className="space-y-3">
-                      <Label htmlFor="currentProcess">How are you currently managing appointments, reviews, and inquiries?</Label>
-                      <Textarea id="currentProcess" value={formData.currentProcess} onChange={(e) => setFormData(prev => ({...prev, currentProcess: e.target.value}))} placeholder="Tell us about your current process..." rows={4} />
+                      {selectedTime && (
+                        <motion.button
+                          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
+                          onClick={() => { setStep('form'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                          className="w-full mt-6 flex items-center justify-center gap-2 text-[#1BE1D3] py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-[0_8px_30px_rgba(27,225,211,0.25)] hover:-translate-y-0.5 hover:brightness-125"
+                          style={glassBtn}
+                        >
+                          Continue <ChevronRight className="w-4 h-4" />
+                        </motion.button>
+                      )}
                     </div>
-                    <div className="space-y-3">
-                      <Label htmlFor="painPoints">What specific pain points would you like us to focus on during the demo?</Label>
-                      <Textarea id="painPoints" value={formData.painPoints} onChange={(e) => setFormData(prev => ({...prev, painPoints: e.target.value}))} placeholder="Describe your main challenges..." rows={4} />
+
+                    {/* What you get */}
+                    <div className="rounded-2xl p-5 sm:p-6" style={innerCard}>
+                      <h3 className="text-xs text-white/45 mb-5 flex items-center gap-2 font-medium uppercase tracking-wider">
+                        <Gift className="w-3.5 h-3.5 text-[#1BE1D3]" /> What You Get
+                      </h3>
+                      <div className="space-y-3">
+                        {[
+                          'Live demo of AI Employee handling calls & chats',
+                          'Automatic lead capture & appointment booking',
+                          'Reputation & review management walkthrough',
+                          'Personalized setup for your business',
+                          'Custom pricing for your needs',
+                          'Q&A for your unique challenges',
+                        ].map((b, i) => (
+                          <div key={i} className="flex items-start gap-2.5">
+                            <CheckCircle className="w-3.5 h-3.5 text-[#1BE1D3] flex-shrink-0 mt-0.5" />
+                            <span className="text-white/45 text-xs leading-relaxed">{b}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Guarantee */}
+                    <div className="rounded-2xl p-4 sm:p-5 flex items-center gap-3.5" style={{ background: "rgba(27,225,211,0.05)", border: "1px solid rgba(27,225,211,0.18)" }}>
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(27,225,211,0.08)" }}>
+                        <Shield className="w-5 h-5 text-[#1BE1D3]" />
+                      </div>
+                      <div>
+                        <p className="text-[#1BE1D3] text-xs font-semibold">100% Money Back Guarantee</p>
+                        <p className="text-white/35 text-[11px] mt-0.5">First 7 days free — no risk, no commitment.</p>
+                      </div>
                     </div>
                   </div>
                 </div>
+              </motion.div>
 
-                {/* Agreement */}
-                <div className="bg-white/5 border border-[#1BE1D3]/15 rounded-2xl p-6 md:p-8 space-y-6">
-                  <div className="flex items-center gap-3">
-                    <SectionIcon icon={Shield} />
-                    <h3 className="text-lg sm:text-xl font-normal text-white tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Agreement</h3>
-                  </div>
-                  <div className="flex items-start gap-3 p-3 rounded-lg">
-                    <Checkbox id="agreement" checked={formData.agreement} onChange={(checked) => setFormData(prev => ({...prev, agreement: checked}))} />
-                    <Label htmlFor="agreement" className="text-white/90 cursor-pointer">
-                      I agree to be contacted for the Demo and further communication.
-                    </Label>
-                  </div>
-                  <p className="text-white/50 text-sm px-3" style={{ fontFamily: "Poppins, sans-serif" }}>
-                    By submitting this form, you agree to our <Link to="/privacy" className="text-[#1BE1D3] hover:underline">Privacy Policy</Link>.
-                  </p>
-                  <div className="p-4 md:p-6 bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 rounded-xl">
-                    <p className="text-[#1BE1D3] font-normal text-center text-lg" style={{ fontFamily: "Poppins, sans-serif" }}>
-                      💰 Consultation Fee: $100 — Expert guidance for your business transformation
-                    </p>
+            ) : (
+              /* ─── STEP 2: Form ─── */
+              <motion.div key="form"
+                initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                className="p-6 sm:p-9 lg:p-12">
+                {/* Form header */}
+                <div className="flex flex-wrap items-center gap-4 mb-9">
+                  <button
+                    onClick={() => setStep('calendar')}
+                    className="flex items-center gap-1.5 text-white/50 hover:text-[#1BE1D3] hover:border-[#1BE1D3]/40 text-sm transition-all duration-200 px-4 py-2 rounded-full"
+                    style={innerCard}
+                  >
+                    <ArrowLeft className="w-4 h-4" /> Back
+                  </button>
+                  <div className="h-px flex-1 bg-white/[0.07] hidden sm:block" />
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-full text-[#1BE1D3] text-xs font-medium" style={{ background: "rgba(27,225,211,0.07)", border: "1px solid rgba(27,225,211,0.2)" }}>
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>{selectedDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</span>
+                    <span className="text-white/25">|</span>
+                    <Clock className="w-3.5 h-3.5" />
+                    <span>{selectedTime}</span>
                   </div>
                 </div>
 
-                {/* Submit */}
-                <div className="flex flex-col gap-4">
-                  <Button type="button" onClick={() => setStep('calendar')} variant="outline" className="w-full py-4 text-base sm:text-lg">
-                    <ArrowLeft className="w-5 h-5 mr-2" /> Back to Calendar
-                  </Button>
-                  <Button type="submit" className="w-full py-4 text-base sm:text-lg" disabled={!formData.agreement || !formData.firstName || !formData.phone || !formData.email}>
-                    Book Demo <MessageSquare className="w-5 h-5 ml-2" />
-                  </Button>
-                </div>
-              </form>
-            </div>
-          )}
-        </div>
+                <form className="space-y-7" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
+
+                  {/* Contact */}
+                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
+                    <h3 className="text-sm text-white/70 mb-6 flex items-center gap-2.5 font-medium">
+                      <span className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(27,225,211,0.08)", border: "1px solid rgba(27,225,211,0.18)" }}>
+                        <User className="w-4 h-4 text-[#1BE1D3]" />
+                      </span>
+                      Contact Information
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className={labelCls}>Full Name <span className="text-[#1BE1D3]/60">*</span></label>
+                        <input className={inputCls} value={formData.firstName} onChange={e => setFormData(p => ({ ...p, firstName: e.target.value }))} placeholder="John Doe" required />
+                      </div>
+                      <div>
+                        <label className={labelCls}>Phone <span className="text-[#1BE1D3]/60">*</span></label>
+                        <input className={inputCls} value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} placeholder="+91 98765 43210" required />
+                      </div>
+                      <div>
+                        <label className={labelCls}>Email <span className="text-[#1BE1D3]/60">*</span></label>
+                        <input type="email" className={inputCls} value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} placeholder="john@company.com" required />
+                      </div>
+                      <div>
+                        <label className={labelCls}>Company</label>
+                        <input className={inputCls} value={formData.companyName} onChange={e => setFormData(p => ({ ...p, companyName: e.target.value }))} placeholder="Your company name" />
+                      </div>
+                      <div className="sm:col-span-2">
+                        <label className={labelCls}>Website</label>
+                        <input className={inputCls} value={formData.website} onChange={e => setFormData(p => ({ ...p, website: e.target.value }))} placeholder="https://yourcompany.com" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Business */}
+                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
+                    <h3 className="text-sm text-white/70 mb-6 flex items-center gap-2.5 font-medium">
+                      <span className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(27,225,211,0.08)", border: "1px solid rgba(27,225,211,0.18)" }}>
+                        <Building className="w-4 h-4 text-[#1BE1D3]" />
+                      </span>
+                      Business Details
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className={labelCls}>Industry</label>
+                        <select value={formData.industry} onChange={e => setFormData(p => ({ ...p, industry: e.target.value }))} className={inputCls}>
+                          <option value="" className="bg-[#0b0f0f]">Select industry</option>
+                          {industries.map(i => <option key={i} value={i} className="bg-[#0b0f0f]">{i}</option>)}
+                        </select>
+                      </div>
+                      <div>
+                        <label className={labelCls}>Business Size</label>
+                        <select value={formData.businessSize} onChange={e => setFormData(p => ({ ...p, businessSize: e.target.value }))} className={inputCls}>
+                          <option value="" className="bg-[#0b0f0f]">Select size</option>
+                          {businessSizes.map(s => <option key={s} value={s} className="bg-[#0b0f0f]">{s}</option>)}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Goals */}
+                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
+                    <h3 className="text-sm text-white/70 mb-6 flex items-center gap-2.5 font-medium">
+                      <span className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(27,225,211,0.08)", border: "1px solid rgba(27,225,211,0.18)" }}>
+                        <Target className="w-4 h-4 text-[#1BE1D3]" />
+                      </span>
+                      What would you like to achieve?
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                      {goalOptions.map((goal, i) => (
+                        <label key={i} className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-all duration-200 ${formData.goals.includes(goal) ? 'border-[#1BE1D3]/35 bg-[#1BE1D3]/[0.06] shadow-[0_4px_16px_rgba(27,225,211,0.08)]' : 'border-white/[0.07] bg-white/[0.02] hover:border-white/[0.15] hover:bg-white/[0.04] hover:-translate-y-0.5'}`}>
+                          <input type="checkbox" checked={formData.goals.includes(goal)} onChange={e => handleGoalChange(goal, e.target.checked)}
+                            className="w-4 h-4 rounded border-white/20 accent-[#1BE1D3] mt-0.5 flex-shrink-0" />
+                          <span className="text-white/55 text-xs leading-relaxed">{goal}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Additional */}
+                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
+                    <h3 className="text-sm text-white/70 mb-6 flex items-center gap-2.5 font-medium">
+                      <span className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(27,225,211,0.08)", border: "1px solid rgba(27,225,211,0.18)" }}>
+                        <MessageSquare className="w-4 h-4 text-[#1BE1D3]" />
+                      </span>
+                      Additional Context
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className={labelCls}>Current process for appointments & reviews</label>
+                        <textarea className={`${inputCls} resize-none`} rows={3} value={formData.currentProcess} onChange={e => setFormData(p => ({ ...p, currentProcess: e.target.value }))} placeholder="How do you currently manage this?" />
+                      </div>
+                      <div>
+                        <label className={labelCls}>Pain points to focus on</label>
+                        <textarea className={`${inputCls} resize-none`} rows={3} value={formData.painPoints} onChange={e => setFormData(p => ({ ...p, painPoints: e.target.value }))} placeholder="What challenges should we address?" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Agreement + Submit */}
+                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
+                    <label className="flex items-start gap-3 cursor-pointer mb-6">
+                      <input type="checkbox" checked={formData.agreement} onChange={e => setFormData(p => ({ ...p, agreement: e.target.checked }))}
+                        className="w-4 h-4 rounded border-white/20 accent-[#1BE1D3] mt-0.5 flex-shrink-0" />
+                      <span className="text-white/40 text-xs leading-relaxed">I agree to be contacted for the demo and further communication. <Link to="/privacy" className="text-[#1BE1D3]/60 hover:text-[#1BE1D3]">Privacy Policy</Link></span>
+                    </label>
+
+                    <button
+                      type="submit"
+                      disabled={!formData.agreement || !formData.firstName || !formData.phone || !formData.email}
+                      className="w-full flex items-center justify-center gap-2 text-[#1BE1D3] py-4 rounded-full text-sm font-semibold disabled:opacity-25 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-[0_8px_30px_rgba(27,225,211,0.25)] hover:-translate-y-0.5 hover:brightness-125"
+                      style={glassBtn}
+                    >
+                      <MessageSquare className="w-4 h-4" /> Book Demo — $100 Consultation
+                    </button>
+                    <p className="text-center text-white/25 text-[11px] mt-4">WhatsApp message will be sent · Google Calendar event created</p>
+                  </div>
+                </form>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </motion.div>
+
+        {/* Trust bar */}
+        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0}
+          className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3 text-white/30 text-[11px]">
+          {[
+            { icon: Bot, text: '24/7 AI Availability' },
+            { icon: TrendingUp, text: '300% Lead Increase' },
+            { icon: Clock, text: '90% Time Saved' },
+            { icon: Shield, text: '100% Money Back' },
+          ].map((s, i) => (
+            <span key={i} className="flex items-center gap-1.5">
+              <s.icon className="w-3.5 h-3.5 text-[#1BE1D3]/50" /> {s.text}
+            </span>
+          ))}
+        </motion.div>
       </div>
     </div>
   );

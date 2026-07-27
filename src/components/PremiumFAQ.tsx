@@ -148,41 +148,11 @@ const PremiumFAQ = () => {
             ))}
           </div>
 
-          {/* Bottom CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-center mt-12 sm:mt-16"
-          >
-            <p className="text-[14px] sm:text-[16px] text-white/70 mb-4 sm:mb-6">
-              Still have questions? We're here to help.
-            </p>
-            <a
-              href="/contact"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-full text-[14px] sm:text-[15px] font-semibold text-white transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                background: "linear-gradient(90deg, #5f636b, #1be1d3, #345d66, #1c1d20)",
-                backgroundSize: "300% 100%",
-                animation: "gradientBtn 5s ease-in-out infinite",
-              }}
-            >
-              <MessageCircle className="w-4 h-4 sm:w-5 sm:h-5" />
-              Contact Us
-            </a>
-          </motion.div>
+      
         </div>
       </div>
 
-      <style>{`
-        @keyframes gradientBtn {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
+      
     </section>
   );
 };
