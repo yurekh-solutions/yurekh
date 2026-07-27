@@ -1,8 +1,6 @@
-Add dedicated /contact page with SEO and hero section
+Fix fixed header overlap on all pages using AppLayout
 
-- New Contact page at /contact with SEO metadata (title, description,
-  keywords, canonical URL, breadcrumbs)
-- Hero section with "Get in Touch" heading and teal gradient glows
-- Wraps existing Contact component (form, trust indicators, contact
-  details, country code selector)
-- Added to lazy imports and routing in App.tsx
+- Added pt-[110px] to main element in AppLayout to account for the
+  fixed header height (top bar ~40px + nav bar ~70px)
+- Prevents page content from hiding behind the fixed header
+- Index page unaffected (includes Header directly)
