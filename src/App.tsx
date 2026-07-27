@@ -31,6 +31,7 @@ const pageImporters = {
   Impact: () => import("./pages/Impact"),
   FAQ: () => import("./pages/FAQ"),
   BusinessLaunchIndia: () => import("./pages/BusinessLaunchIndia"),
+  Contact: () => import("./pages/Contact"),
 };
 
 const Index = lazy(pageImporters.Index);
@@ -51,6 +52,7 @@ const BusinessConsulting = lazy(pageImporters.BusinessConsulting);
 const Impact = lazy(pageImporters.Impact);
 const FAQ = lazy(pageImporters.FAQ);
 const BusinessLaunchIndia = lazy(pageImporters.BusinessLaunchIndia);
+const Contact = lazy(pageImporters.Contact);
 
 // Prefetch all page chunks during browser idle time so navigation is instant
 const PrefetchPages = () => {
@@ -233,6 +235,14 @@ const App = () => (
             element={
               <AppLayout>
                 <BusinessLaunchIndia />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <AppLayout>
+                <Contact />
               </AppLayout>
             }
           />

@@ -1,7 +1,8 @@
-Chat button shows strategy call popup instead of auto-opening chat
+Add dedicated /contact page with SEO and hero section
 
-- AIChat: removed auto-open after 5 seconds
-- Chat button click now opens "Wait — Let's Talk First" strategy call popup
-- Popup is mobile-responsive with backdrop overlay
-- Popup includes: Book Strategy Call, Call +91 91362 42706, WhatsApp Us
-- ExitIntentPopup still triggers on mouse leave (desktop only)
+- New Contact page at /contact with SEO metadata (title, description,
+  keywords, canonical URL, breadcrumbs)
+- Hero section with "Get in Touch" heading and teal gradient glows
+- Wraps existing Contact component (form, trust indicators, contact
+  details, country code selector)
+- Added to lazy imports and routing in App.tsx
