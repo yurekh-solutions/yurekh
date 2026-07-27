@@ -177,6 +177,22 @@ const serviceIcons: Record<string, LucideIcon> = {
   "royal-brand-ambassador": Award,
   "luxury-brand-partnerships": Handshake,
   "high-profile-media-placements": Megaphone,
+
+  // Start a New Business
+  "company-formation": Building,
+  "legal-compliance": Shield,
+  "business-strategy": Lightbulb,
+  "brand-identity": Palette,
+  "technology-stack": Server,
+  "digital-marketing": Megaphone,
+
+  // Scale Existing Business
+  "brand-transformation": Sparkles,
+  "market-expansion": Globe,
+  "digital-transformation": Cloud,
+  "growth-marketing": TrendingUp,
+  "operational-excellence": Workflow,
+  "customer-experience": HeartHandshake,
 };
 
 const ServiceDetail = () => {

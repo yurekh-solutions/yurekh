@@ -117,7 +117,7 @@ const Header = () => {
         },
         {
           title: "Scale Existing Business",
-          services: ["Brand Transformation", "Market Expansion", "Digital Transformation", "Growth Marketing"],
+          services: ["Brand Transformation", "Market Expansion", "Digital Transformation", "Growth Marketing", "Operational Excellence", "Customer Experience"],
         },
       ],
     },

@@ -947,6 +947,24 @@ export const serviceCategories: ServiceCategory[] = [
         features: ["Growth Strategy", "Performance Marketing", "Conversion Optimization", "Customer Retention", "Analytics & Insights"],
         keywords: ["growth marketing", "performance marketing", "conversion optimization", "customer acquisition", "customer retention"],
       },
+      {
+        name: "Operational Excellence",
+        slug: "operational-excellence",
+        description: "Streamline operations and boost efficiency with process optimization, workflow automation, team structure design, and standard operating procedures built for scale.",
+        seoTitle: "Operational Excellence Services | Process & Workflow Optimization | Yurekh Solutions",
+        seoDescription: "Operational excellence for scaling businesses: process optimization, workflow automation, SOP development, team structure design, and cost efficiency analysis.",
+        features: ["Process Optimization", "Workflow Automation", "SOP Development", "Team Structure Design", "Cost Efficiency Analysis"],
+        keywords: ["operational excellence", "process optimization", "workflow automation", "business operations", "cost efficiency"],
+      },
+      {
+        name: "Customer Experience",
+        slug: "customer-experience",
+        description: "Turn customers into advocates with journey mapping, service design, support systems, and loyalty programs that increase retention and lifetime value.",
+        seoTitle: "Customer Experience Services | Retention & Loyalty | Yurekh Solutions",
+        seoDescription: "Customer experience transformation: journey mapping, service design, support system setup, and loyalty programs that increase retention and customer lifetime value.",
+        features: ["Customer Journey Mapping", "Service Design", "Support System Setup", "Loyalty Programs", "Retention Analytics"],
+        keywords: ["customer experience", "customer journey mapping", "customer retention", "loyalty programs", "service design"],
+      },
     ],
   },
 ];
@@ -1094,6 +1112,8 @@ export const serviceImages: Record<string, string> = {
   "market-expansion": "/services/luxury-distribution-channels.jpg",
   "digital-transformation": "/services/website-development.jpg",
   "growth-marketing": "/services/regal-campaign-optimization.jpg",
+  "operational-excellence": "/services/milestone-timeline.jpg",
+  "customer-experience": "/services/elite-customer-segmentation.jpg",
 };
 
 // Helper to get service image
