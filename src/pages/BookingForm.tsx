@@ -206,7 +206,7 @@ const BookingForm = () => {
               <span className="text-[#1BE1D3] font-normal text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>AI-Powered Business Automation</span>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal mb-6 leading-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, letterSpacing: "-0.02em" }}>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal mb-6 leading-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 500, letterSpacing: "-0.02em" }}>
               <span className="text-white block mb-1">Transform Your Business with</span>
               <span className="text-[#1BE1D3]">AI Automation</span>
             </h1>
@@ -226,18 +226,18 @@ const BookingForm = () => {
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30 mx-auto mb-4">
                     <item.icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
                   </div>
-                  <h3 className="text-lg font-normal text-white mb-2 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>{item.title}</h3>
+                  <h3 className="text-base sm:text-lg font-normal text-white mb-2 tracking-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 500 }}>{item.title}</h3>
                   <p className="text-white/70 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>{item.desc}</p>
                 </div>
               ))}
             </div>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mt-10">
-              <Button onClick={scrollToBooking} className="text-lg px-8 py-4">
+            <div className="flex flex-col gap-3 sm:gap-4 justify-center items-center mt-10 w-full max-w-md mx-auto sm:max-w-none">
+              <Button onClick={scrollToBooking} className="text-base sm:text-lg px-6 sm:px-8 py-4 w-full">
                 Book Free Demo <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-              <Button variant="outline" className="text-lg px-8 py-4" onClick={() => window.open('https://wa.me/9136242706', '_blank')}>
+              <Button variant="outline" className="text-base sm:text-lg px-6 sm:px-8 py-4 w-full" onClick={() => window.open('https://wa.me/9136242706', '_blank')}>
                 Chat on WhatsApp
               </Button>
             </div>
@@ -310,7 +310,7 @@ const BookingForm = () => {
                     ))}
                   </div>
                   {selectedTime && (
-                    <Button onClick={() => { setStep('form'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="w-full py-4 text-lg">
+                    <Button onClick={() => { setStep('form'); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="w-full py-4 text-base sm:text-lg">
                       Continue to Form <ArrowRight className="w-5 h-5 ml-2" />
                     </Button>
                   )}
@@ -481,11 +481,11 @@ const BookingForm = () => {
                 </div>
 
                 {/* Submit */}
-                <div className="flex flex-col md:flex-row gap-4">
-                  <Button type="button" onClick={() => setStep('calendar')} variant="outline" className="flex-1 py-4 text-lg">
+                <div className="flex flex-col gap-4">
+                  <Button type="button" onClick={() => setStep('calendar')} variant="outline" className="w-full py-4 text-base sm:text-lg">
                     <ArrowLeft className="w-5 h-5 mr-2" /> Back to Calendar
                   </Button>
-                  <Button type="submit" className="flex-1 py-4 text-lg" disabled={!formData.agreement || !formData.firstName || !formData.phone || !formData.email}>
+                  <Button type="submit" className="w-full py-4 text-base sm:text-lg" disabled={!formData.agreement || !formData.firstName || !formData.phone || !formData.email}>
                     Book Demo <MessageSquare className="w-5 h-5 ml-2" />
                   </Button>
                 </div>
