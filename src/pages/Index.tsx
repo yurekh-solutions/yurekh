@@ -18,7 +18,6 @@ import SEOHead from "@/components/SEOHead";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ProcessSection from "@/components/ProcessSection";
 import BusinessSolutions from "@/components/BusinessSolutions";
-import LeadMagnetPopup from "@/components/LeadMagnetPopup";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 
 const Index = () => {
@@ -93,8 +92,7 @@ const Index = () => {
       <section id="instagram">
         <InstagramSection />
       </section>
-      {/* Lead Capture Popups */}
-      <LeadMagnetPopup />
+      {/* Lead Capture Popup — single-popup policy: exit-intent only on homepage */}
       <ExitIntentPopup />
     </div>
   );

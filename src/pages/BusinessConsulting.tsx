@@ -16,15 +16,27 @@ const BusinessConsulting = () => {
       {/* Hero Section */}
       <section
         className="relative min-h-[90svh] flex items-center justify-center pt-32 md:pt-40 pb-16 md:pb-20 overflow-hidden"
-        style={{
-          backgroundImage: "url('/services/website-development.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center 30%",
-          backgroundRepeat: "no-repeat",
-        }}
+        style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/40" />
-        <div className="absolute inset-0 bg-black/50" />
+        {/* Grid Pattern Overlay */}
+        <div
+          className="absolute inset-0 z-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        {/* Teal Radial Gradient Glows */}
+        <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
+          <div
+            className="absolute top-1/3 left-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] rounded-full blur-3xl opacity-20"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.5), transparent 70%)" }}
+          />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] rounded-full blur-3xl opacity-15"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.4), transparent 70%)" }}
+          />
+        </div>
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-5xl mx-auto text-center">

@@ -128,7 +128,7 @@ const Hero = () => {
               Book a Consultation <ArrowRight className="w-4 h-4" />
             </button>
           </Link>
-          <Link to="/launch-in-india" className="w-full sm:w-auto">
+          <Link to="/business-consulting" className="w-full sm:w-auto">
             <button
               style={{
                 fontFamily: "Poppins, sans-serif",

@@ -111,6 +111,14 @@ const Header = () => {
           title: "Public Relations (PR)",
           services: ["VIP Media Relations & Press Releases", "Exquisite Event Publicity & Coverage", "Royal Brand Ambassador Programs", "Luxury Brand Partnership & Sponsorships", "High-Profile Media Placements & Features"],
         },
+        {
+          title: "Start a New Business",
+          services: ["Company Formation", "Legal & Compliance", "Business Strategy", "Brand Identity", "Technology Stack", "Digital Marketing"],
+        },
+        {
+          title: "Scale Existing Business",
+          services: ["Brand Transformation", "Market Expansion", "Digital Transformation", "Growth Marketing"],
+        },
       ],
     },
     {

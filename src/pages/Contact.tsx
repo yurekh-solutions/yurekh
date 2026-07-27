@@ -24,9 +24,25 @@ const ContactPage = () => {
         className="relative pt-28 sm:pt-32 md:pt-36 pb-12 sm:pb-16 md:pb-20 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
       >
-        {/* Teal gradient glow */}
-        <div className="absolute top-1/4 left-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#1BE1D3]/5 rounded-full blur-[100px] sm:blur-[120px]" />
-        <div className="absolute bottom-0 right-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-[#1BE1D3]/3 rounded-full blur-[80px] sm:blur-[100px]" />
+        {/* Grid Pattern Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        {/* Teal Radial Gradient Glows */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            className="absolute top-1/3 left-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full blur-3xl opacity-20"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.5), transparent 70%)" }}
+          />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] rounded-full blur-3xl opacity-15"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.4), transparent 70%)" }}
+          />
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
           <motion.div

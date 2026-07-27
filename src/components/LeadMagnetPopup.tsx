@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Download, CheckCircle } from "lucide-react";
+import { captureLead } from "@/lib/leadCapture";
 
 const LeadMagnetPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,8 +25,13 @@ const LeadMagnetPopup = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
+      // Deliver the lead to our inbox so the guide can be sent
+      captureLead("Market Entry Guide request — yurekh.com", {
+        Email: email,
+        Page: "/launch-in-india",
+        Requested: "Global Market Entry Guide (30-page PDF)",
+      });
       setIsSubmitted(true);
-      // In production, send to email service
       setTimeout(() => {
         setIsOpen(false);
       }, 3000);
@@ -156,7 +162,7 @@ const LeadMagnetPopup = () => {
                     className="text-white/60 text-sm"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
-                    Your guide is on its way.
+                    Your guide will reach your inbox within 24 hours.
                   </p>
                 </div>
               )}

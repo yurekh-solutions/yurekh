@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Shield, Zap, Globe, Target, Clock, CheckCircle } from "lucide-react";
+import { Shield, Zap, Globe, Target, Clock, CheckCircle, ArrowRight } from "lucide-react";
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -109,15 +109,16 @@ const WhyChooseUs = () => {
         >
           <a
             href="/bookingform"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-black font-normal transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+            className="group inline-flex items-center gap-2.5 px-8 py-4 rounded-full text-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] hover:scale-[1.03]"
             style={{
               fontFamily: "Poppins, sans-serif",
               fontSize: "15px",
               backgroundColor: "#1BE1D3",
-              fontWeight: 400,
+              fontWeight: 600,
             }}
           >
             Start Your Journey
+            <ArrowRight className="w-4 h-4 flex-shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </motion.div>
       </div>

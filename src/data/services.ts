@@ -845,6 +845,110 @@ export const serviceCategories: ServiceCategory[] = [
       },
     ],
   },
+  {
+    title: "Start a New Business",
+    slug: "start-a-new-business",
+    icon: "🏢",
+    services: [
+      {
+        name: "Company Formation",
+        slug: "company-formation",
+        description: "Complete business registration, legal structure setup, compliance frameworks, and corporate governance for India, UAE, US, UK, and Singapore markets.",
+        seoTitle: "Company Formation Services | India, UAE, US, UK & Singapore | Yurekh Solutions",
+        seoDescription: "End-to-end company formation services: business registration, legal structure setup, compliance frameworks, and corporate governance across India, UAE, US, UK, and Singapore.",
+        features: ["Business Registration", "Legal Structure Setup", "Compliance Frameworks", "Corporate Governance", "Multi-Market Coverage: India, UAE, US, UK, Singapore"],
+        keywords: ["company formation", "business registration", "company incorporation", "legal structure setup", "corporate governance"],
+      },
+      {
+        name: "Legal & Compliance",
+        slug: "legal-compliance",
+        description: "End-to-end legal support including contracts, IP protection, regulatory compliance, tax structuring, and ongoing legal advisory for global operations.",
+        seoTitle: "Legal & Compliance Services for Global Business | Yurekh Solutions",
+        seoDescription: "Complete legal and compliance support: contracts, IP protection, regulatory compliance, tax structuring, and ongoing legal advisory for businesses operating globally.",
+        features: ["Contract Drafting & Review", "IP Protection", "Regulatory Compliance", "Tax Structuring", "Ongoing Legal Advisory"],
+        keywords: ["legal compliance", "business contracts", "IP protection", "tax structuring", "regulatory compliance"],
+      },
+      {
+        name: "Business Strategy",
+        slug: "business-strategy",
+        description: "Market research, competitive analysis, business model design, financial planning, and go-to-market strategy tailored to your industry and target markets.",
+        seoTitle: "Business Strategy Consulting | Market Research & Go-to-Market | Yurekh Solutions",
+        seoDescription: "Business strategy services covering market research, competitive analysis, business model design, financial planning, and go-to-market strategy tailored to your industry.",
+        features: ["Market Research", "Competitive Analysis", "Business Model Design", "Financial Planning", "Go-to-Market Strategy"],
+        keywords: ["business strategy", "market research", "competitive analysis", "business model design", "go-to-market strategy"],
+      },
+      {
+        name: "Brand Identity",
+        slug: "brand-identity",
+        description: "Complete brand creation from naming and logo design to brand guidelines, visual identity, messaging framework, and brand positioning for global markets.",
+        seoTitle: "Brand Identity Design Services | Naming, Logo & Positioning | Yurekh Solutions",
+        seoDescription: "Complete brand identity creation: naming, logo design, brand guidelines, visual identity, messaging framework, and brand positioning built for global markets.",
+        features: ["Naming & Logo Design", "Brand Guidelines", "Visual Identity System", "Messaging Framework", "Global Brand Positioning"],
+        keywords: ["brand identity", "logo design", "brand guidelines", "brand positioning", "visual identity"],
+      },
+      {
+        name: "Technology Stack",
+        slug: "technology-stack",
+        description: "Custom software development, website creation, mobile apps, cloud infrastructure, AI integration, and complete digital ecosystem built for scale.",
+        seoTitle: "Technology Stack Development | Software, Apps & Cloud | Yurekh Solutions",
+        seoDescription: "Complete technology stack for new businesses: custom software, websites, mobile apps, cloud infrastructure, and AI integration — a digital ecosystem built for scale.",
+        features: ["Custom Software Development", "Website & Mobile Apps", "Cloud Infrastructure", "AI Integration", "Scalable Digital Ecosystem"],
+        keywords: ["technology stack", "custom software development", "mobile app development", "cloud infrastructure", "AI integration"],
+      },
+      {
+        name: "Digital Marketing",
+        slug: "digital-marketing",
+        description: "SEO, social media, content marketing, paid advertising, email campaigns, and performance marketing to acquire customers and build market presence.",
+        seoTitle: "Digital Marketing Services | SEO, Social & Performance | Yurekh Solutions",
+        seoDescription: "Full-stack digital marketing: SEO, social media, content marketing, paid advertising, email campaigns, and performance marketing to acquire customers and build market presence.",
+        features: ["SEO & Content Marketing", "Social Media Marketing", "Paid Advertising", "Email Campaigns", "Performance Marketing"],
+        keywords: ["digital marketing", "SEO services", "social media marketing", "paid advertising", "performance marketing"],
+      },
+    ],
+  },
+  {
+    title: "Scale Existing Business",
+    slug: "scale-existing-business",
+    icon: "📈",
+    services: [
+      {
+        name: "Brand Transformation",
+        slug: "brand-transformation",
+        description: "Complete brand overhaul for companies that have outgrown their current identity. We preserve your equity while building a brand that matches your ambition.",
+        seoTitle: "Brand Transformation Services | Rebranding for Growth | Yurekh Solutions",
+        seoDescription: "Complete brand transformation for established companies: brand audit, visual identity redesign, messaging framework, market repositioning, and global brand guidelines.",
+        features: ["Brand Audit & Strategy", "Visual Identity Redesign", "Messaging Framework", "Market Repositioning", "Global Brand Guidelines"],
+        keywords: ["brand transformation", "rebranding", "brand overhaul", "market repositioning", "brand audit"],
+      },
+      {
+        name: "Market Expansion",
+        slug: "market-expansion",
+        description: "Enter new geographic markets with confidence. We handle market research, localization, regulatory compliance, and go-to-market execution.",
+        seoTitle: "Market Expansion Services | Enter New Markets | Yurekh Solutions",
+        seoDescription: "Market expansion services for established businesses: market entry strategy, localization, regulatory compliance, partner identification, and launch execution.",
+        features: ["Market Entry Strategy", "Localization & Translation", "Regulatory Compliance", "Partner Identification", "Launch Execution"],
+        keywords: ["market expansion", "market entry strategy", "international expansion", "localization", "go-to-market execution"],
+      },
+      {
+        name: "Digital Transformation",
+        slug: "digital-transformation",
+        description: "Modernize your technology stack and digital presence. From legacy system migration to AI-powered automation and cloud infrastructure.",
+        seoTitle: "Digital Transformation Services | Modernize Your Business | Yurekh Solutions",
+        seoDescription: "Digital transformation for established companies: technology audit, system architecture, cloud migration, AI integration, and process automation.",
+        features: ["Technology Audit", "System Architecture", "Cloud Migration", "AI Integration", "Process Automation"],
+        keywords: ["digital transformation", "cloud migration", "legacy system modernization", "AI automation", "technology audit"],
+      },
+      {
+        name: "Growth Marketing",
+        slug: "growth-marketing",
+        description: "Scale customer acquisition and revenue with data-driven marketing strategies, performance optimization, and multi-channel campaigns.",
+        seoTitle: "Growth Marketing Services | Scale Customer Acquisition | Yurekh Solutions",
+        seoDescription: "Growth marketing services: growth strategy, performance marketing, conversion optimization, customer retention, and analytics-driven multi-channel campaigns.",
+        features: ["Growth Strategy", "Performance Marketing", "Conversion Optimization", "Customer Retention", "Analytics & Insights"],
+        keywords: ["growth marketing", "performance marketing", "conversion optimization", "customer acquisition", "customer retention"],
+      },
+    ],
+  },
 ];
 
 // Helper to find a service by slug
@@ -976,6 +1080,20 @@ export const serviceImages: Record<string, string> = {
   "operational-setup-infrastructure": "/services/custom-software.jpg",
   "legal-contractual-advisory": "/services/aristocratic-brand-audit.jpg",
   "growth-acceleration-scaling-support": "/services/strategic-launch-blueprint.jpg",
+
+  // Start a New Business
+  "company-formation": "/services/expert-pricing-consultation.jpg",
+  "legal-compliance": "/services/aristocratic-brand-audit.jpg",
+  "business-strategy": "/services/strategic-launch-blueprint.jpg",
+  "brand-identity": "/services/luxury-logo-design.jpg",
+  "technology-stack": "/services/custom-software.jpg",
+  "digital-marketing": "/services/decadent-seo-strategies.jpg",
+
+  // Scale Existing Business
+  "brand-transformation": "/services/premium-brand-positioning.jpg",
+  "market-expansion": "/services/luxury-distribution-channels.jpg",
+  "digital-transformation": "/services/website-development.jpg",
+  "growth-marketing": "/services/regal-campaign-optimization.jpg",
 };
 
 // Helper to get service image

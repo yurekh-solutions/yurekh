@@ -209,7 +209,7 @@ const Careers = () => {
               </div>
 
               <a
-                href="mailto:yurekhsolutions@gmail.com?subject=Application for {job.title}"
+                href={`mailto:hr.yurekh@gmail.com?subject=Application for ${job.title}`}
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#1BE1D3] text-black font-semibold hover:bg-[#1BE1D3]/90 transition-colors text-sm"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
@@ -236,7 +236,7 @@ const Careers = () => {
             We're always interested in hearing from talented individuals. Send us your resume and let us know how you can contribute to our team.
           </p>
           <a
-            href="mailto:yurekhsolutions@gmail.com?subject=Career Opportunity"
+            href="mailto:hr.yurekh@gmail.com?subject=Career Opportunity"
             className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1BE1D3] text-black font-semibold text-sm sm:text-base hover:bg-[#1BE1D3]/90 transition-colors"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >

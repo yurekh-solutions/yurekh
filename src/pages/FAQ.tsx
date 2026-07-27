@@ -89,8 +89,27 @@ const FAQ = () => {
         breadcrumbs={[{ name: "FAQ", url: "https://yurekh.com/faq" }]}
       />
       {/* Hero Section */}
-      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="pt-32 md:pt-40 pb-20 md:pb-28 border-b border-white/10">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="relative pt-32 md:pt-40 pb-20 md:pb-28 border-b border-white/10 overflow-hidden">
+        {/* Grid Pattern Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        {/* Teal Radial Gradient Glows */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            className="absolute top-1/3 left-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full blur-3xl opacity-20"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.5), transparent 70%)" }}
+          />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] rounded-full blur-3xl opacity-15"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.4), transparent 70%)" }}
+          />
+        </div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}

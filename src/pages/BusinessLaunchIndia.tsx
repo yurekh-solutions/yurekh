@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import LeadMagnetPopup from "@/components/LeadMagnetPopup";
 import {
   ArrowRight,
   Building2,
@@ -238,7 +239,7 @@ const BusinessLaunchIndia = () => {
             <h1
               className="text-white mb-4 sm:mb-6"
               style={{
-                fontWeight: 500,
+                fontWeight: 600,
                 fontSize: "clamp(28px, 5.5vw, 42px)",
                 lineHeight: "1.0",
                 letterSpacing: "-0.01em",
@@ -1123,6 +1124,9 @@ const BusinessLaunchIndia = () => {
           </div>
         </motion.div>
       </Section>
+
+      {/* Market Entry Guide popup — lives only on this page (single-popup policy) */}
+      <LeadMagnetPopup />
     </div>
   );
 };

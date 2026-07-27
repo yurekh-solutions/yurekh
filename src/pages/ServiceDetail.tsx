@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import {
   findServiceBySlug,
   serviceCategories,
-  getServiceImage,
 } from "@/data/services";
 import SEOHead from "@/components/SEOHead";
 import {
@@ -329,13 +328,29 @@ const ServiceDetail = () => {
         ])}
       />
       {/* Hero Banner */}
-      <section className="relative h-[400px] sm:h-[500px] overflow-hidden pt-20 sm:pt-24">
-        <img
-          src={getServiceImage(service.slug)}
-          alt={service.name}
-          className="absolute inset-0 w-full h-full object-cover"
+      <section
+        className="relative h-[460px] sm:h-[520px] overflow-hidden pt-28 sm:pt-32"
+        style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
+      >
+        {/* Grid Pattern Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+        {/* Teal Radial Gradient Glows */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            className="absolute top-1/3 left-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full blur-3xl opacity-20"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.5), transparent 70%)" }}
+          />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] rounded-full blur-3xl opacity-15"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.4), transparent 70%)" }}
+          />
+        </div>
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
           <motion.div
@@ -359,12 +374,12 @@ const ServiceDetail = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex items-center gap-3 text-white/80 text-sm"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-white/80 text-sm max-w-full px-4"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             <Link to="/" className="hover:text-[#1BE1D3] transition-colors">Home</Link>
-            <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
-            <span className="text-[#1BE1D3]">{category.title}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-white/50 flex-shrink-0" />
+            <span className="text-[#1BE1D3] text-center">{category.title}</span>
           </motion.nav>
         </div>
       </section>
@@ -378,10 +393,10 @@ const ServiceDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
+            <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mt-5 mb-3 block">
               OUR SERVICES
             </span>
-            <h2 className="text-white text-[30px] font-semibold mb-6 leading-[1.2]">
+            <h2 className="text-white text-[26px] sm:text-[30px] font-semibold mb-6 leading-[1.2]">
               {category.title} <span className="text-[#1BE1D3]">We Provide</span>
             </h2>
             <div className="flex items-center justify-center gap-2">

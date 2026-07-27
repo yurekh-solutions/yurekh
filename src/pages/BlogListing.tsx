@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, Search, ChevronDown } from "lucide-react";
 import { blogPosts } from "../components/BlogSection";
-import heroBg from "../assets/hero-bg.jpg";
 import SEOHead from "@/components/SEOHead";
 
 const categories = [
@@ -69,14 +68,26 @@ const BlogListing = () => {
         canonical="https://yurekh.com/blogs"
         breadcrumbs={[{ name: "Blog", url: "https://yurekh.com/blogs" }]}
       />
-      <div className="relative h-[350px] sm:h-[400px] md:h-[450px] overflow-hidden mt-20 md:mt-24">
-        <img
-          src={heroBg}
-          alt="Blogs Hero"
-          className="absolute inset-0 w-full h-full object-cover"
+      <div className="relative h-[350px] sm:h-[400px] md:h-[450px] overflow-hidden mt-28 md:mt-32">
+        {/* Grid Pattern Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80" />
+        {/* Teal Radial Gradient Glows */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            className="absolute top-1/3 left-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full blur-3xl opacity-20"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.5), transparent 70%)" }}
+          />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] rounded-full blur-3xl opacity-15"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.4), transparent 70%)" }}
+          />
+        </div>
 
         <div className="relative z-10 h-full flex items-center px-4 sm:px-6 md:px-8">
           <div className="max-w-7xl mx-auto w-full">

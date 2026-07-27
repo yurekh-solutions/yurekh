@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import {
   findIndustryBySlug,
   industryCategories,
-  getIndustryImage,
 } from "@/data/industries";
 import SEOHead from "@/components/SEOHead";
 import {
@@ -163,13 +162,29 @@ const IndustryDetail = () => {
         ])}
       />
       {/* Hero Banner */}
-      <section className="relative h-[400px] sm:h-[500px] overflow-hidden">
-        <img
-          src={getIndustryImage(industry.slug)}
-          alt={industry.name}
-          className="absolute inset-0 w-full h-full object-cover"
+      <section
+        className="relative h-[460px] sm:h-[520px] overflow-hidden pt-28 sm:pt-32"
+        style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
+      >
+        {/* Grid Pattern Overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
+        {/* Teal Radial Gradient Glows */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div
+            className="absolute top-1/3 left-1/4 w-[300px] h-[300px] sm:w-[500px] sm:h-[500px] rounded-full blur-3xl opacity-20"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.5), transparent 70%)" }}
+          />
+          <div
+            className="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] sm:w-[350px] sm:h-[350px] rounded-full blur-3xl opacity-15"
+            style={{ background: "radial-gradient(circle, rgba(27,225,211,0.4), transparent 70%)" }}
+          />
+        </div>
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
           <motion.div
@@ -202,13 +217,13 @@ const IndustryDetail = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex items-center gap-3 text-white/80 text-sm"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-white/80 text-sm max-w-full px-4"
           >
             <Link to="/" className="hover:text-[#1BE1D3] transition-colors">Home</Link>
-            <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white/50 flex-shrink-0" />
             <Link to="/industries" className="hover:text-[#1BE1D3] transition-colors">Industries</Link>
-            <span className="w-1.5 h-1.5 rounded-full bg-white/50" />
-            <span className="text-[#1BE1D3]">{industry.name}</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-white/50 flex-shrink-0" />
+            <span className="text-[#1BE1D3] text-center">{industry.name}</span>
           </motion.nav>
         </div>
       </section>
@@ -216,25 +231,28 @@ const IndustryDetail = () => {
       {/* Overview Section */}
       <section className="py-16 sm:py-20 bg-[#0b0f0f]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mt-5 mb-3 block">
                 OVERVIEW
               </span>
-              <h2 className="text-white text-[30px] font-semibold mb-6 leading-[1.2]">
+              <h2 className="text-white text-[26px] sm:text-[30px] font-semibold mb-4 leading-[1.2]">
                 About {industry.name} Industry
               </h2>
-              <div className="flex items-center gap-2 mb-8">
+              <div className="flex items-center justify-center gap-2 mb-8">
                 <div className="w-16 h-1 bg-[#1BE1D3] rounded-full" />
                 <div className="w-3 h-1 bg-[#1BE1D3] rounded-full" />
               </div>
-              <p className="text-white/70 text-[15px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/70 text-[15px] leading-[1.8] max-w-3xl mx-auto mb-6" style={{ fontFamily: "Poppins, sans-serif" }}>
                 {industry.description}
+              </p>
+              <p className="text-white/60 text-[14px] sm:text-[15px] leading-[1.8] max-w-3xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+                At Yurekh Solutions, we combine deep sector understanding with proven engineering and marketing execution. Every {industry.name.toLowerCase()} engagement begins with a discovery of your workflows, market position, and growth targets — so the systems we build solve real operational problems, not generic ones. From strategy through launch and ongoing optimisation, one accountable team delivers the complete stack.
               </p>
             </motion.div>
           </div>
