@@ -47,8 +47,8 @@ const ProblemSection = () => {
         <div className="container mx-auto px-8">
           {/* Section Header */}
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-cyan-400/30 mb-6">
-              <span className="text-[12px] font-semibold text-cyan-400 uppercase tracking-[0.3em]">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-[#1BE1D3]/30 mb-6">
+              <span className="text-[12px] font-semibold text-[#1BE1D3] uppercase tracking-[0.3em]">
                 The Real Struggles in IT & Digital Marketing
               </span>
             </div>
@@ -67,18 +67,18 @@ const ProblemSection = () => {
                   return (
                     <div
                       key={idx}
-                      className="group backdrop-blur-xl bg-white/10 border border-cyan-400/30 p-6 rounded-2xl w-72 flex-shrink-0 
-                                 transition-all duration-700 hover:scale-105 relative shadow-lg hover:shadow-cyan-500/40"
+                      className="group backdrop-blur-xl bg-white/10 border border-[#1BE1D3]/30 p-6 rounded-2xl w-72 flex-shrink-0 
+                                 transition-all duration-700 hover:scale-105 relative shadow-lg hover:shadow-[#1BE1D3]/40"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/20 to-cyan-400/10 
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1BE1D3]/10 via-[#1BE1D3]/20 to-[#1BE1D3]/10 
                                       opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
                       <div className="flex items-center gap-4 mb-4 relative z-10">
-                        <div className="w-12 h-12 bg-gradient-to-r from-cyan-400/20 to-blue-500/10 
+                        <div className="w-12 h-12 bg-gradient-to-r from-[#1BE1D3]/20 to-[#1BE1D3]/10 
                                         rounded-xl flex items-center justify-center shadow-inner">
-                          <Icon className="w-5 h-5 text-cyan-400" />
+                          <Icon className="w-5 h-5 text-[#1BE1D3]" />
                         </div>
-                        <div className="text-lg font-medium text-cyan-400">{problem.stat}</div>
+                        <div className="text-lg font-medium text-[#1BE1D3]">{problem.stat}</div>
                       </div>
 
                       <h3 className="text-base font-medium mb-2 relative z-10">{problem.title}</h3>
@@ -95,17 +95,17 @@ const ProblemSection = () => {
                   return (
                     <div
                       key={`dup-${idx}`}
-                      className="group backdrop-blur-xl bg-white/10 border border-cyan-400/30 p-6 rounded-2xl w-72 flex-shrink-0 
-                                 transition-all duration-700 hover:scale-105 relative shadow-lg hover:shadow-cyan-500/40"
+                      className="group backdrop-blur-xl bg-white/10 border border-[#1BE1D3]/30 p-6 rounded-2xl w-72 flex-shrink-0 
+                                 transition-all duration-700 hover:scale-105 relative shadow-lg hover:shadow-[#1BE1D3]/40"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/20 to-cyan-400/10 
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1BE1D3]/10 via-[#1BE1D3]/20 to-[#1BE1D3]/10 
                                       opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                       <div className="flex items-center gap-4 mb-4 relative z-10">
-                        <div className="w-12 h-12 bg-gradient-to-r from-cyan-400/20 to-blue-500/10 
+                        <div className="w-12 h-12 bg-gradient-to-r from-[#1BE1D3]/20 to-[#1BE1D3]/10 
                                         rounded-xl flex items-center justify-center shadow-inner">
-                          <Icon className="w-5 h-5 text-cyan-400" />
+                          <Icon className="w-5 h-5 text-[#1BE1D3]" />
                         </div>
-                        <div className="text-lg font-medium text-cyan-400">{problem.stat}</div>
+                        <div className="text-lg font-medium text-[#1BE1D3]">{problem.stat}</div>
                       </div>
                       <h3 className="text-base font-medium mb-2 relative z-10">{problem.title}</h3>
                       <p className="text-sm text-muted-foreground relative z-10">{problem.description}</p>
@@ -123,17 +123,17 @@ const ProblemSection = () => {
                   return (
                     <div
                       key={`rev-${idx}`}
-                      className="group backdrop-blur-xl bg-white/10 border border-cyan-400/30 p-6 rounded-2xl w-72 flex-shrink-0 
-                                 transition-all duration-700 hover:scale-105 relative shadow-lg hover:shadow-cyan-500/40"
+                      className="group backdrop-blur-xl bg-white/10 border border-[#1BE1D3]/30 p-6 rounded-2xl w-72 flex-shrink-0 
+                                 transition-all duration-700 hover:scale-105 relative shadow-lg hover:shadow-[#1BE1D3]/40"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/20 to-cyan-400/10 
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1BE1D3]/10 via-[#1BE1D3]/20 to-[#1BE1D3]/10 
                                       opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                       <div className="flex items-center gap-4 mb-4 relative z-10">
-                        <div className="w-12 h-12 bg-gradient-to-r from-cyan-400/20 to-blue-500/10 
+                        <div className="w-12 h-12 bg-gradient-to-r from-[#1BE1D3]/20 to-[#1BE1D3]/10 
                                         rounded-xl flex items-center justify-center shadow-inner">
-                          <Icon className="w-5 h-5 text-cyan-400" />
+                          <Icon className="w-5 h-5 text-[#1BE1D3]" />
                         </div>
-                        <div className="text-lg font-medium text-cyan-400">{problem.stat}</div>
+                        <div className="text-lg font-medium text-[#1BE1D3]">{problem.stat}</div>
                       </div>
                       <h3 className="text-base font-medium mb-2 relative z-10">{problem.title}</h3>
                       <p className="text-sm text-muted-foreground relative z-10">{problem.description}</p>
@@ -149,17 +149,17 @@ const ProblemSection = () => {
                   return (
                     <div
                       key={`revdup-${idx}`}
-                      className="group backdrop-blur-xl bg-white/10 border border-cyan-400/30 p-6 rounded-2xl w-72 flex-shrink-0 
-                                 transition-all duration-700 hover:scale-105 relative shadow-lg hover:shadow-cyan-500/40"
+                      className="group backdrop-blur-xl bg-white/10 border border-[#1BE1D3]/30 p-6 rounded-2xl w-72 flex-shrink-0 
+                                 transition-all duration-700 hover:scale-105 relative shadow-lg hover:shadow-[#1BE1D3]/40"
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-blue-500/20 to-cyan-400/10 
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#1BE1D3]/10 via-[#1BE1D3]/20 to-[#1BE1D3]/10 
                                       opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                       <div className="flex items-center gap-4 mb-4 relative z-10">
-                        <div className="w-12 h-12 bg-gradient-to-r from-cyan-400/20 to-blue-500/10 
+                        <div className="w-12 h-12 bg-gradient-to-r from-[#1BE1D3]/20 to-[#1BE1D3]/10 
                                         rounded-xl flex items-center justify-center shadow-inner">
-                          <Icon className="w-5 h-5 text-cyan-400" />
+                          <Icon className="w-5 h-5 text-[#1BE1D3]" />
                         </div>
-                        <div className="text-lg font-medium text-cyan-400">{problem.stat}</div>
+                        <div className="text-lg font-medium text-[#1BE1D3]">{problem.stat}</div>
                       </div>
                       <h3 className="text-base font-medium mb-2 relative z-10">{problem.title}</h3>
                       <p className="text-sm text-muted-foreground relative z-10">{problem.description}</p>

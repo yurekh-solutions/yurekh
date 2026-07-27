@@ -98,7 +98,7 @@ const CTABanner = () => {
 
               {/* Bottom tag */}
               <div className="mt-8 flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
+                <div className="w-2 h-2 rounded-full bg-[#1BE1D3] animate-pulse flex-shrink-0" />
                 <p className="text-[11px] text-gray-500 leading-snug">Currently serving clients in 12+ markets</p>
               </div>
             </div>

@@ -1,1 +1,1 @@
-Perf + SEO + leads: prerender all 294 routes at build time, silent FormSubmit lead capture on booking/contact, compress ~210MB of images in place, lazy-load blog cards, fix duplicated PreuimServices.tsx, booking chip copy update
+Brand color unification: replace cyan/blue/emerald accent drift with #1BE1D3 in homepage ProblemSection marquee and CTABanner pulse dot
