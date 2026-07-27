@@ -1,1 +1,1 @@
-BookingForm: reliable Google Calendar scheduling via success screen (popup-blocker-safe), encoded calendar URL, WhatsApp resend fallback
+Privacy & Terms pages restyled to site typography standard; AIChat logo swap to loo.png; footer copyright year 2026

@@ -302,7 +302,7 @@ const Footer = () => {
           {/* Divider & Social Icons */}
           <div className="border-t border-[#1BE1D3]/20 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <p className="text-white/70 text-xs md:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>© 2025 Yurekh Solutions. All rights reserved.</p>
+              <p className="text-white/70 text-xs md:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>© 2026 Yurekh Solutions. All rights reserved.</p>
               <p className="text-white/50 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>Empowering businesses through intelligent technology solutions.</p>
             </div>
 
