@@ -7,6 +7,7 @@ import {
   Video, Check, Pencil, Globe
 } from 'lucide-react';
 import SEOHead from "@/components/SEOHead";
+import { captureLead } from "@/lib/leadCapture";
 
 const poppins = { fontFamily: "Poppins, sans-serif" };
 
@@ -75,6 +76,21 @@ const BookingForm = () => {
       alert('Please fill in all required fields and accept the agreement.');
       return;
     }
+    // Silent backup — the lead reaches our inbox even if WhatsApp is never sent
+    captureLead('New booking — yurekh.com', {
+      Date: selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
+      Time: `${selectedTime} IST`,
+      Name: formData.firstName,
+      Phone: formData.phone,
+      Email: formData.email,
+      Company: formData.companyName || '—',
+      Website: formData.website || '—',
+      Industry: formData.industry || '—',
+      'Business size': formData.businessSize || '—',
+      Goals: formData.goals.join('; ') || '—',
+      'Current process': formData.currentProcess || '—',
+      'Pain points': formData.painPoints || '—',
+    });
     // Direct user gesture — WhatsApp opens reliably; calendar link is offered
     // on the success screen as a direct click (popup blockers kill delayed window.open)
     window.open(`https://wa.me/919136242706?text=${generateWhatsAppMessage()}`, '_blank');
@@ -165,7 +181,7 @@ const BookingForm = () => {
               {[
                 { icon: Video, text: 'Google Meet' },
                 { icon: Clock, text: '30 minutes' },
-                { icon: Sparkles, text: '100% Free' },
+                { icon: Sparkles, text: 'client Inquiries' },
                 { icon: Globe, text: 'English · Hindi' },
               ].map((c, i) => (
                 <span key={i} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-white/10 bg-white/[0.03] text-white/60 text-[12px]">

@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
 import contact from "@/assets/contact.png";
+import { captureLead } from "@/lib/leadCapture";
 const Contact = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -24,6 +25,14 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Silent backup — the inquiry reaches our inbox even if WhatsApp is never sent
+    captureLead('New inquiry — yurekh.com contact form', {
+      Name: `${formData.firstName} ${formData.lastName}`.trim(),
+      Email: formData.email,
+      Phone: formData.phone,
+      Category: formData.category || '—',
+      Message: formData.message || '—',
+    });
     const message = encodeURIComponent(
       `NEW INQUIRY — Yurekh Solutions\n\nName: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCategory: ${formData.category || '—'}\n\nProject Needs:\n${formData.message || '—'}`
     );
