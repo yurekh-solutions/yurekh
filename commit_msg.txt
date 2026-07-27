@@ -1,1 +1,1 @@
-BookingForm: add top margin to hero badge
+BookingForm: reliable Google Calendar scheduling via success screen (popup-blocker-safe), encoded calendar URL, WhatsApp resend fallback

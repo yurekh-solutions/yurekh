@@ -22,6 +22,7 @@ const BookingForm = () => {
     currentProcess: '', painPoints: '', agreement: false,
   });
   const [step, setStep] = useState<1 | 2 | 3>(1);
+  const [booked, setBooked] = useState(false);
 
   // 7-day week strip starting from today (past dates never rendered)
   const weekDays = Array.from({ length: 7 }, (_, i) => {
@@ -66,7 +67,7 @@ const BookingForm = () => {
     const endDate = new Date(startDate.getTime() + 30 * 60 * 1000);
     const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
     const details = encodeURIComponent(`Consultation with Yurekh Solutions\nGoogle Meet: https://meet.google.com/new`);
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Consultation+with+Yurekh+Solutions&dates=${fmt(startDate)}/${fmt(endDate)}&details=${details}&location=https://meet.google.com/new&sf=true&output=xml`;
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Consultation with Yurekh Solutions')}&dates=${fmt(startDate)}/${fmt(endDate)}&details=${details}&location=${encodeURIComponent('https://meet.google.com/new')}&sf=true`;
   };
 
   const handleSubmit = () => {
@@ -74,8 +75,13 @@ const BookingForm = () => {
       alert('Please fill in all required fields and accept the agreement.');
       return;
     }
+    // Direct user gesture — WhatsApp opens reliably; calendar link is offered
+    // on the success screen as a direct click (popup blockers kill delayed window.open)
     window.open(`https://wa.me/919136242706?text=${generateWhatsAppMessage()}`, '_blank');
-    setTimeout(() => window.open(generateGoogleCalendarLink(), '_blank'), 1500);
+    setBooked(true);
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      document.getElementById('booking-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
   const detailsValid = formData.firstName && formData.phone && formData.email;
@@ -212,23 +218,23 @@ const BookingForm = () => {
                 <div className="flex items-center justify-between gap-4 mb-4">
                   <div>
                     <AnimatePresence mode="wait">
-                      <motion.div key={step} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}>
+                      <motion.div key={booked ? 'done' : step} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}>
                         <h2 className="text-white text-[18px] sm:text-[20px] font-semibold leading-tight">
-                          {stepMeta[step - 1].title}
+                          {booked ? 'Booking confirmed' : stepMeta[step - 1].title}
                         </h2>
-                        <p className="text-white/50 text-[12px] mt-1" style={poppins}>{stepMeta[step - 1].sub}</p>
+                        <p className="text-white/50 text-[12px] mt-1" style={poppins}>{booked ? 'Add the session to your Google Calendar below' : stepMeta[step - 1].sub}</p>
                       </motion.div>
                     </AnimatePresence>
                   </div>
                   <span className="flex-shrink-0 px-3.5 py-1.5 rounded-full border border-[#1BE1D3]/25 bg-[#1BE1D3]/[0.06] text-[#1BE1D3] text-[12px] font-semibold" style={poppins}>
-                    {step} / 3
+                    {booked ? '✓ Done' : `${step} / 3`}
                   </span>
                 </div>
                 {/* Progress bar */}
                 <div className="h-1 rounded-full bg-white/[0.06] overflow-hidden">
                   <motion.div
                     className="h-full rounded-full bg-gradient-to-r from-[#1BE1D3]/60 to-[#1BE1D3] shadow-[0_0_12px_rgba(27,225,211,0.5)]"
-                    animate={{ width: `${(step / 3) * 100}%` }}
+                    animate={{ width: booked ? '100%' : `${(step / 3) * 100}%` }}
                     transition={{ duration: 0.45, ease: 'easeOut' }}
                   />
                 </div>
@@ -238,8 +244,63 @@ const BookingForm = () => {
               <div className="p-5 sm:p-8">
                 <AnimatePresence mode="wait">
 
+                  {/* ─── SUCCESS · Booking sent ─── */}
+                  {booked && (
+                    <motion.div key="done"
+                      initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0.96 }}
+                      transition={{ duration: 0.35 }}
+                      className="text-center py-4 sm:py-6"
+                    >
+                      <div className="w-16 h-16 mx-auto rounded-full bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 flex items-center justify-center mb-5">
+                        <CheckCircle className="w-8 h-8 text-[#1BE1D3]" />
+                      </div>
+                      <h3 className="text-white text-[20px] sm:text-[22px] font-semibold mb-2">Your booking is on its way!</h3>
+                      <p className="text-white/55 text-[13px] sm:text-[14px] leading-[1.7] max-w-md mx-auto mb-6" style={poppins}>
+                        WhatsApp opened with your booking details — just press <span className="text-white/85 font-medium">Send</span>. Then add the session to your calendar so you never miss it.
+                      </p>
+
+                      <div className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 rounded-2xl border border-[#1BE1D3]/25 bg-[#1BE1D3]/[0.05] px-5 py-4 mb-7">
+                        <span className="flex items-center gap-2 text-white text-[14px] font-semibold">
+                          <Calendar className="w-4 h-4 text-[#1BE1D3]" />
+                          {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+                        </span>
+                        <span className="flex items-center gap-2 text-white text-[14px] font-semibold">
+                          <Clock className="w-4 h-4 text-[#1BE1D3]" /> {selectedTime} IST
+                        </span>
+                        <span className="flex items-center gap-2 text-white/60 text-[13px]" style={poppins}>
+                          <Video className="w-4 h-4 text-[#1BE1D3]" /> Google Meet · 30 mins
+                        </span>
+                      </div>
+
+                      <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5">
+                        <a
+                          href={generateGoogleCalendarLink()}
+                          target="_blank" rel="noopener noreferrer"
+                          className={`${primaryBtn} w-full sm:w-auto`} style={primaryStyle}
+                        >
+                          <Calendar className="h-4 w-4 flex-shrink-0" /> Add to Google Calendar
+                        </a>
+                        <a
+                          href={`https://wa.me/919136242706?text=${generateWhatsAppMessage()}`}
+                          target="_blank" rel="noopener noreferrer"
+                          className={`${ghostBtn} w-full sm:w-auto`} style={ghostStyle}
+                        >
+                          <MessageSquare className="h-4 w-4 flex-shrink-0" /> Resend on WhatsApp
+                        </a>
+                      </div>
+
+                      <button
+                        onClick={() => { setBooked(false); goTo(1); }}
+                        className="mt-6 text-white/40 text-[13px] hover:text-[#1BE1D3] transition-colors duration-200 underline underline-offset-4"
+                        style={poppins}
+                      >
+                        Book another slot
+                      </button>
+                    </motion.div>
+                  )}
+
                   {/* ─── STEP 1 · When ─── */}
-                  {step === 1 && (
+                  {!booked && step === 1 && (
                     <motion.div key="s1"
                       initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}
                       transition={{ duration: 0.3 }}
@@ -345,7 +406,7 @@ const BookingForm = () => {
                   )}
 
                   {/* ─── STEP 2 · Details ─── */}
-                  {step === 2 && (
+                  {!booked && step === 2 && (
                     <motion.div key="s2"
                       initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.3 }}
@@ -454,7 +515,7 @@ const BookingForm = () => {
                   )}
 
                   {/* ─── STEP 3 · Confirm ─── */}
-                  {step === 3 && (
+                  {!booked && step === 3 && (
                     <motion.div key="s3"
                       initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.3 }}
@@ -531,7 +592,7 @@ const BookingForm = () => {
                         </button>
                       </div>
                       <p className="text-white/40 text-[12px] mt-4" style={poppins}>
-                        100% free consultation · WhatsApp message sent instantly · Google Calendar event created
+                        100% free consultation · WhatsApp opens instantly · Add to Google Calendar in one tap
                       </p>
                     </motion.div>
                   )}
