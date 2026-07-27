@@ -1,11 +1,11 @@
-Add comprehensive sections to Contact page
+Fix mobile responsiveness and reduce font bulkiness
 
-- Multiple Ways to Reach Us: 4 contact method cards (Phone, WhatsApp,
-  Email, Book a Call) with hover effects
-- Why Work With Yurekh?: 6 value proposition cards (12-hour response,
-  dedicated consultant, end-to-end execution, global reach, flexible
-  engagement, NDA & confidentiality)
-- Office Hours: Mon-Fri 9AM-7PM, Sat 10AM-5PM, Sunday closed with
-  status badges
-- Our Location: Mumbai, India with map pin icon and quick contact links
-- All sections use staggered fade-in animations and teal gradient theme
+- Reduced heading font weights from 600 to 500 globally (index.css)
+- Added font-weight: 400 to paragraph styles
+- Hero component: buttons now full-width on mobile (max-w-md centered)
+- Button height increased from 44px to 48px for better touch targets
+- Button border-radius increased from 10px to 12px
+- Button font sizes adjusted (13px → 14px clamp)
+- Eyebrow badge font-weight reduced from 600 to 500
+- All buttons use w-full for consistent mobile alignment
+- Matches reference design: clean full-width buttons, lighter typography

@@ -61,7 +61,7 @@ const Hero = () => {
         <div className="flex justify-center mt-14 sm:mt-0 mb-5 sm:mb-8 w-full">
           <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#1BE1D3]/20 bg-[#1BE1D3]/5">
             <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#1BE1D3] flex-shrink-0" strokeWidth={1.8} />
-            <span className="text-[#1BE1D3] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.25em] uppercase" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <span className="text-[#1BE1D3] font-medium text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.25em] uppercase" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>
               Business Partner in Global Growth
             </span>
           </span>
@@ -71,7 +71,7 @@ const Hero = () => {
           className="text-white mb-6 sm:mb-8 text-center px-2"
           style={{
             fontFamily: "Montserrat, sans-serif",
-            fontWeight: 600,
+            fontWeight: 500,
             fontSize: "clamp(26px, 5vw, 48px)",
             lineHeight: "1.25",
             letterSpacing: "-0.02em",
@@ -104,46 +104,46 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto"
+          className="flex flex-col items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full max-w-md mx-auto sm:max-w-none"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
         >
-          <Link to="/bookingform" className="w-full sm:w-auto">
+          <Link to="/bookingform" className="w-full">
             <button
               style={{
                 fontFamily: "Poppins, sans-serif",
-                fontWeight: 600,
-                fontSize: "clamp(13px, 2vw, 15px)",
+                fontWeight: 500,
+                fontSize: "clamp(14px, 2vw, 15px)",
                 padding: "0 24px",
-                height: "44px",
-                borderRadius: "10px",
+                height: "48px",
+                borderRadius: "12px",
                 backgroundColor: "#1BE1D3",
                 color: "#000",
                 border: "none",
                 boxShadow: "0 0 30px rgba(27,225,211,0.15)",
               }}
-              className="hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)] transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
+              className="hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)] transition-all duration-300 flex items-center justify-center gap-2 w-full"
             >
               Book a Consultation <ArrowRight className="w-4 h-4" />
             </button>
           </Link>
-          <Link to="/launch-in-india" className="w-full sm:w-auto">
+          <Link to="/launch-in-india" className="w-full">
             <button
               style={{
                 fontFamily: "Poppins, sans-serif",
                 fontWeight: 400,
-                fontSize: "clamp(13px, 2vw, 15px)",
+                fontSize: "clamp(14px, 2vw, 15px)",
                 padding: "0 24px",
-                height: "44px",
-                borderRadius: "10px",
+                height: "48px",
+                borderRadius: "12px",
                 backgroundColor: "rgba(27,225,211,0.08)",
                 color: "#1BE1D3",
                 border: "1px solid rgba(27,225,211,0.3)",
                 backdropFilter: "blur(12px)",
                 boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
               }}
-              className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] transition-all duration-300 w-full sm:w-auto"
+              className="hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] transition-all duration-300 w-full"
             >
              Build Business
             </button>
