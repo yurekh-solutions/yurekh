@@ -1,10 +1,1 @@
-Fix BookingForm mobile responsiveness and font bulkiness
-
-- CTA buttons now full-width on mobile (w-full, max-w-md centered)
-- Button text sizes reduced: text-lg → text-base sm:text-lg
-- Button padding reduced on mobile: px-8 → px-6 sm:px-8
-- H1 heading sizes reduced: text-3xl sm:text-4xl → text-2xl sm:text-3xl
-- H3 benefit card titles: text-lg → text-base sm:text-lg
-- Submit buttons stacked vertically on mobile (removed md:flex-row)
-- Font weights: 400 → 500 for headings (consistent with global styles)
-- Cleaner mobile layout matching reference design
+SEO: dedupe brand in titles, add Service+FAQ schema to industry pages, regenerate sitemap; BookingForm split-screen redesign with free consultation

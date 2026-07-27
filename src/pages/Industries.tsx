@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { industryCategories, getIndustryImage } from "@/data/industries";
-import { ArrowRight, Phone } from "lucide-react";
+import { ArrowRight, Phone, Sparkles } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 
 const Industries = () => {
@@ -24,13 +24,14 @@ const Industries = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-4 block">
-                INDUSTRIES
-              </span>
-              <h1 className="text-white text-4xl sm:text-5xl md:text-6xl font-light mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+                <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+                <span className="text-[#1BE1D3] text-sm font-medium">Industries</span>
+              </div>
+              <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold mb-6 leading-[1.2]">
                 Industry Solutions
               </h1>
-              <p className="text-white/70 text-lg sm:text-xl max-w-3xl mx-auto mb-8">
+              <p className="text-white/70 text-[15px] max-w-3xl mx-auto mb-8 leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 We provide tailored digital solutions across sectors, helping businesses streamline operations, enhance customer experiences, and drive growth with cutting-edge technology.
               </p>
               <button
@@ -38,13 +39,20 @@ const Industries = () => {
                   const element = document.getElementById("industries-grid");
                   element?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px w-full sm:w-auto max-w-md"
                 style={{
-                  backgroundColor: "rgba(27,225,211,0.1)",
-                  border: "2px solid rgba(27,225,211,0.5)",
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  background: "rgba(27,225,211,0.08)",
+                  color: "#1BE1D3",
+                  border: "1px solid rgba(27,225,211,0.25)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                Explore Industries <ArrowRight className="h-5 w-5" />
+                Explore Industries <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </button>
             </motion.div>
           </div>
@@ -61,10 +69,10 @@ const Industries = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+            <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
               Industries We Serve
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto">
+            <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
               Delivering value to multiple industries, we innovate industry-specific technologies to scale and optimize operations and bottom line.
             </p>
           </motion.div>
@@ -95,13 +103,13 @@ const Industries = () => {
 
                     {/* Content */}
                     <div className="p-8">
-                      <h3 className="text-[#1BE1D3] text-2xl font-light mb-3">
+                      <h3 className="text-[#1BE1D3] text-[16px] font-semibold mb-3">
                         {industry.name}
                       </h3>
-                      <p className="text-white/70 text-sm leading-relaxed mb-4">
+                      <p className="text-white/60 text-[13px] leading-[1.7] mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
                         {industry.tagline}
                       </p>
-                      <div className="flex items-center gap-2 text-[#1BE1D3] text-sm font-medium">
+                      <div className="flex items-center gap-2 text-[#1BE1D3] text-[13px] font-medium" style={{ fontFamily: "Poppins, sans-serif" }}>
                         Learn More <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
@@ -122,49 +130,40 @@ const Industries = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-light mb-6">
+            <h2 className="text-white text-[30px] font-semibold mb-6 leading-[1.2]">
               Ready to Transform Your Industry?
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto mb-8">
+            <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto mb-10" style={{ fontFamily: "Poppins, sans-serif" }}>
               Let's discuss how our industry-specific solutions can drive growth and efficiency for your business.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
               <a
                 href="/bookingform"
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-all duration-300 hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto sm:min-w-[240px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(13px, 2vw, 15px)",
-                  padding: "0 24px",
-                  height: "44px",
-                  borderRadius: "10px",
+                  fontSize: "15px",
                   backgroundColor: "#1BE1D3",
-                  color: "#000",
-                  border: "none",
-                  boxShadow: "0 0 30px rgba(27,225,211,0.15)",
                 }}
               >
-                Consult Our Experts <ArrowRight className="h-4 w-4" />
+                Consult Our Experts <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </a>
               <a
                 href="tel:+919136242706"
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px w-full sm:w-auto sm:min-w-[240px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "clamp(13px, 2vw, 15px)",
-                  padding: "0 24px",
-                  height: "44px",
-                  borderRadius: "10px",
-                  backgroundColor: "rgba(27,225,211,0.08)",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  background: "rgba(27,225,211,0.08)",
                   color: "#1BE1D3",
-                  border: "1px solid rgba(27,225,211,0.3)",
+                  border: "1px solid rgba(27,225,211,0.25)",
                   backdropFilter: "blur(12px)",
-                  boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                <Phone className="h-4 w-4" /> Call Us
+                <Phone className="h-4 w-4 flex-shrink-0" /> Call Us
               </a>
             </div>
           </motion.div>

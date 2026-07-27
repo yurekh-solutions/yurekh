@@ -1,96 +1,35 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar, Clock, User, Building, Target,
   MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles,
   Zap, TrendingUp, Bot, Shield, ChevronRight, ChevronLeft,
-  Video, Gift, CalendarDays, ClipboardList
+  Video, Check, Pencil, Globe
 } from 'lucide-react';
 import SEOHead from "@/components/SEOHead";
 
+const poppins = { fontFamily: "Poppins, sans-serif" };
+
 const BookingForm = () => {
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date());
+  const today = (() => { const t = new Date(); t.setHours(0, 0, 0, 0); return t; })();
+
+  const [weekOffset, setWeekOffset] = useState(0);
+  const [selectedDate, setSelectedDate] = useState<Date>(today);
   const [selectedTime, setSelectedTime] = useState<string>('');
-  const [viewMonth, setViewMonth] = useState(new Date().getMonth());
-  const [viewYear, setViewYear] = useState(new Date().getFullYear());
   const [formData, setFormData] = useState({
     firstName: '', phone: '', email: '', companyName: '', website: '',
     industry: '', businessSize: '', goals: [] as string[],
     currentProcess: '', painPoints: '', agreement: false,
   });
-  const [step, setStep] = useState<'calendar' | 'form'>('calendar');
+  const [step, setStep] = useState<1 | 2 | 3>(1);
 
-  // Professional glass button — no blur, crisp border + soft glow
-  const glassBtn = {
-    background: "linear-gradient(135deg, rgba(27,225,211,0.12) 0%, rgba(27,225,211,0.05) 100%)",
-    border: "1px solid rgba(27,225,211,0.3)",
-    boxShadow: "0 4px 20px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.08)",
-  };
-
-  // Glass card — crisp, no blur
-  const glassCard = {
-    background: "linear-gradient(160deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.012) 60%, rgba(27,225,211,0.02) 100%)",
-    border: "1px solid rgba(255,255,255,0.08)",
-    boxShadow: "0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06)",
-  };
-
-  const innerCard = {
-    background: "linear-gradient(160deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)",
-    border: "1px solid rgba(255,255,255,0.07)",
-    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
-  };
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 24 },
-    show: (i: number = 0) => ({
-      opacity: 1, y: 0,
-      transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] as const },
-    }),
-  };
-
-  const generateCalendarDays = () => {
-    const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
-    const firstDay = new Date(viewYear, viewMonth, 1).getDay();
-    const days: { day: number; isCurrentMonth: boolean; date: Date }[] = [];
-
-    // Previous month days
-    const prevMonth = viewMonth - 1;
-    const prevYear = prevMonth < 0 ? viewYear - 1 : viewYear;
-    const actualPrevMonth = prevMonth < 0 ? 11 : prevMonth;
-    const prevDaysInMonth = new Date(prevYear, actualPrevMonth + 1, 0).getDate();
-    for (let i = firstDay - 1; i >= 0; i--) {
-      days.push({ day: prevDaysInMonth - i, isCurrentMonth: false, date: new Date(prevYear, actualPrevMonth, prevDaysInMonth - i) });
-    }
-
-    // Current month days
-    for (let day = 1; day <= daysInMonth; day++) {
-      days.push({ day, isCurrentMonth: true, date: new Date(viewYear, viewMonth, day) });
-    }
-
-    // Next month days to fill grid
-    const remaining = 42 - days.length;
-    for (let day = 1; day <= remaining; day++) {
-      const nextMonth = viewMonth + 1;
-      const nextYear = nextMonth > 11 ? viewYear + 1 : viewYear;
-      const actualNextMonth = nextMonth > 11 ? 0 : nextMonth;
-      days.push({ day, isCurrentMonth: false, date: new Date(nextYear, actualNextMonth, day) });
-    }
-
-    return days;
-  };
-
-  const prevMonth = () => {
-    if (viewMonth === 0) { setViewMonth(11); setViewYear(viewYear - 1); }
-    else setViewMonth(viewMonth - 1);
-  };
-
-  const nextMonth = () => {
-    if (viewMonth === 11) { setViewMonth(0); setViewYear(viewYear + 1); }
-    else setViewMonth(viewMonth + 1);
-  };
-
-  const monthName = new Date(viewYear, viewMonth).toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  // 7-day week strip starting from today (past dates never rendered)
+  const weekDays = Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(today);
+    d.setDate(today.getDate() + weekOffset * 7 + i);
+    return d;
+  });
+  const weekLabel = `${weekDays[0].toLocaleDateString('en-US', { month: 'short', day: 'numeric' })} – ${weekDays[6].toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}`;
 
   const timeSlots = ['06:30 PM', '07:00 PM', '07:30 PM', '08:00 PM', '08:30 PM', '09:00 PM', '09:30 PM', '10:00 PM'];
   const industries = ['Healthcare', 'E-commerce', 'Real Estate', 'Professional Services', 'Technology', 'Education', 'Manufacturing', 'Retail', 'Finance', 'Food & Beverage', 'Fitness & Wellness', 'Other'];
@@ -108,15 +47,11 @@ const BookingForm = () => {
     setFormData(prev => ({ ...prev, goals: checked ? [...prev.goals, goal] : prev.goals.filter(g => g !== goal) }));
   };
 
-  const scrollToBooking = () => {
-    setTimeout(() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' }), 100);
-  };
-
   const generateWhatsAppMessage = () => {
     const dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const goalsText = formData.goals.length > 0 ? formData.goals.map(g => `  - ${g}`).join('\n') : '  Not specified';
     return encodeURIComponent(
-      `========================================\n  CONSULTATION BOOKING — Yurekh Solutions\n========================================\n\nDATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nGOOGLE MEET:\n  https://meet.google.com/new\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION FEE: $100\n========================================`
+      `========================================\n  CONSULTATION BOOKING — Yurekh Solutions\n========================================\n\nDATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nGOOGLE MEET:\n  https://meet.google.com/new\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION: 100% FREE\n========================================`
     );
   };
 
@@ -143,19 +78,44 @@ const BookingForm = () => {
     setTimeout(() => window.open(generateGoogleCalendarLink(), '_blank'), 1500);
   };
 
-  const isDatePast = (date: Date) => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    return date < today;
+  const detailsValid = formData.firstName && formData.phone && formData.email;
+
+  const goTo = (s: 1 | 2 | 3) => {
+    setStep(s);
+    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+      document.getElementById('booking-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   };
 
-  const inputCls = "w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.1] text-white/90 text-sm placeholder:text-white/25 focus:outline-none focus:border-[#1BE1D3]/50 focus:ring-1 focus:ring-[#1BE1D3]/25 focus:bg-white/[0.06] transition-all duration-200";
-  const labelCls = "block text-xs text-white/45 mb-1.5 font-medium";
+  const inputCls = "w-full px-4 py-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-white/90 text-[14px] placeholder:text-white/25 focus:outline-none focus:border-[#1BE1D3]/50 focus:ring-1 focus:ring-[#1BE1D3]/25 focus:bg-white/[0.06] transition-all duration-200";
+  const labelCls = "block text-[12px] text-white/60 mb-2 font-medium";
 
-  // Step tabs config
-  const tabs = [
-    { key: 'calendar' as const, label: 'Date & Time', icon: CalendarDays },
-    { key: 'form' as const, label: 'Your Details', icon: ClipboardList },
+  const primaryBtn = "inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:shadow-none";
+  const primaryStyle = { ...poppins, fontSize: "15px", backgroundColor: "#1BE1D3" };
+  const ghostBtn = "inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)]";
+  const ghostStyle: React.CSSProperties = {
+    ...poppins, fontWeight: 600, fontSize: "15px",
+    background: "rgba(27,225,211,0.08)", color: "#1BE1D3",
+    border: "1px solid rgba(27,225,211,0.25)",
+  };
+
+  const stepMeta = [
+    { n: 1, title: 'Choose your slot', sub: 'Pick a day and evening time (IST)' },
+    { n: 2, title: 'Your details', sub: 'Tell us about you and your business' },
+    { n: 3, title: 'Review & confirm', sub: 'One tap to confirm on WhatsApp' },
+  ];
+
+  const benefits = [
+    { icon: Bot, title: 'Live AI Employee demo', desc: 'Watch it answer calls, chats & book appointments in real time.' },
+    { icon: TrendingUp, title: 'Revenue growth plan', desc: 'A roadmap to more leads, reviews and conversions.' },
+    { icon: Zap, title: 'Automation blueprint', desc: 'Which tasks to automate first for maximum ROI.' },
+    { icon: Shield, title: 'Zero-risk start', desc: 'First 7 days free — 100% money back guarantee.' },
+  ];
+
+  const stats = [
+    { value: '300%', label: 'More Leads' },
+    { value: '24/7', label: 'AI Availability' },
+    { value: '90%', label: 'Time Saved' },
   ];
 
   return (
@@ -171,406 +131,458 @@ const BookingForm = () => {
         breadcrumbs={[{ name: "Book Consultation", url: "https://yurekh.com/bookingform" }]}
       />
 
-      {/* Ambient glow accents */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(27,225,211,0.05),transparent_55%)] pointer-events-none" />
-      <div className="absolute top-1/4 right-0 w-[420px] h-[420px] bg-[#1BE1D3]/[0.03] rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[380px] h-[380px] bg-[#1BE1D3]/[0.02] rounded-full blur-[120px] pointer-events-none" />
+      {/* Ambient glows */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(27,225,211,0.07),transparent_50%)] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-[480px] h-[480px] bg-[#1BE1D3]/[0.04] rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-32 sm:pt-36 pb-20 sm:pb-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,440px)_minmax(0,1fr)] gap-10 lg:gap-14 items-start">
 
-        {/* ─── Hero ─── */}
-        {step === 'calendar' && (
-          <div className="text-center mb-14 sm:mb-16">
-            <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-7"
-              style={{ background: "rgba(27,225,211,0.07)", border: "1px solid rgba(27,225,211,0.2)" }}>
-              <Bot className="w-3.5 h-3.5 text-[#1BE1D3]" />
-              <span className="text-[#1BE1D3] text-[11px] tracking-wider uppercase font-medium">AI-Powered Business Automation</span>
-            </motion.div>
-
-            <motion.h1 variants={fadeUp} initial="hidden" animate="show" custom={1}
-              className="text-2xl sm:text-3xl lg:text-4xl text-white mb-5 leading-tight"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 500 }}>
-              Transform Your Business with <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#1BE1D3] to-[#5CF5E8]">AI Automation
-</span>
-            </motion.h1>
-
-            <motion.p variants={fadeUp} initial="hidden" animate="show" custom={2}
-              className="text-white/45 max-w-lg mx-auto text-sm leading-relaxed mb-9">
+          {/* ═══════════ LEFT — Pitch panel ═══════════ */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
+            className="lg:sticky lg:top-28 text-center lg:text-left"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+              <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+              <span className="text-[#1BE1D3] text-sm font-medium">AI-Powered Business Automation</span>
+            </div>
+            <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[40px] font-semibold mb-5 leading-[1.2]">
+              Transform Your Business with <span className="text-[#1BE1D3]">AI Automation</span>
+            </h1>
+            <p className="text-white/70 text-[15px] leading-[1.7] mb-8 max-w-md mx-auto lg:mx-0" style={poppins}>
               Our AI Employee handles calls, chats, books appointments, and manages reviews 24/7 — while you focus on growing your business.
-            </motion.p>
+            </p>
 
-            {/* Feature pills */}
-            <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3}
-              className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10">
+            {/* Meeting chips */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 mb-10" style={poppins}>
               {[
-                { icon: Zap, text: "24/7 AI Assistant" },
-                { icon: TrendingUp, text: "3x More Leads" },
-                { icon: Sparkles, text: "Smart Automation" },
-                { icon: Video, text: "Google Meet" },
-              ].map((f, i) => (
-                <div key={i}
-                  className="flex items-center gap-2 rounded-full px-4 py-2.5 transition-all duration-300 hover:border-[#1BE1D3]/30 hover:-translate-y-0.5"
-                  style={innerCard}>
-                  <f.icon className="w-3.5 h-3.5 text-[#1BE1D3]" />
-                  <span className="text-white/60 text-[11px] font-medium">{f.text}</span>
+                { icon: Video, text: 'Google Meet' },
+                { icon: Clock, text: '30 minutes' },
+                { icon: Sparkles, text: '100% Free' },
+                { icon: Globe, text: 'English · Hindi' },
+              ].map((c, i) => (
+                <span key={i} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-white/10 bg-white/[0.03] text-white/60 text-[12px]">
+                  <c.icon className="w-3.5 h-3.5 text-[#1BE1D3]" /> {c.text}
+                </span>
+              ))}
+            </div>
+
+            {/* Benefits — desktop only (mobile version below the card) */}
+            <div className="hidden lg:block space-y-5 mb-10">
+              {benefits.map((b, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                  className="flex items-start gap-4"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center flex-shrink-0">
+                    <b.icon className="w-[18px] h-[18px] text-[#1BE1D3]" />
+                  </div>
+                  <div>
+                    <p className="text-white text-[14px] font-semibold">{b.title}</p>
+                    <p className="text-white/55 text-[13px] leading-[1.6] mt-0.5" style={poppins}>{b.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Stats — desktop only */}
+            <div className="hidden lg:flex items-center gap-8 border-t border-white/10 pt-7">
+              {stats.map((s, i) => (
+                <div key={i}>
+                  <p className="text-[#1BE1D3] text-[24px] font-semibold leading-none">{s.value}</p>
+                  <p className="text-white/45 text-[12px] mt-1.5" style={poppins}>{s.label}</p>
                 </div>
               ))}
-            </motion.div>
+            </div>
+          </motion.div>
 
-            <motion.button variants={fadeUp} initial="hidden" animate="show" custom={4}
-              onClick={scrollToBooking}
-              className="inline-flex items-center gap-2 text-[#1BE1D3] px-8 py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-[0_8px_30px_rgba(27,225,211,0.25)] hover:-translate-y-0.5 hover:brightness-125"
-              style={glassBtn}>
-              Book Free Demo <ArrowRight className="w-4 h-4" />
-            </motion.button>
-          </div>
-        )}
+          {/* ═══════════ RIGHT — Booking card ═══════════ */}
+          <motion.div
+            id="booking-card"
+            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }}
+            className="rounded-[28px] p-[1px] bg-gradient-to-b from-[#1BE1D3]/40 via-white/10 to-transparent scroll-mt-28"
+          >
+            <div className="rounded-[27px] bg-[#0a1414]/95 overflow-hidden">
 
-        {/* ─── Step Tabs ─── */}
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}
-          className="flex justify-center mb-8 sm:mb-10">
-          <div className="inline-flex items-center gap-1.5 p-1.5 rounded-full" style={innerCard}>
-            {tabs.map((tab, i) => {
-              const isActive = step === tab.key;
-              const isLocked = tab.key === 'form' && !selectedTime;
-              return (
-                <React.Fragment key={tab.key}>
-                  {i > 0 && <ChevronRight className="w-3.5 h-3.5 text-white/20 mx-0.5" />}
-                  <button
-                    onClick={() => { if (!isLocked) { setStep(tab.key); window.scrollTo({ top: 0, behavior: 'smooth' }); } }}
-                    disabled={isLocked}
-                    className={`relative flex items-center gap-2 px-4 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all duration-300
-                      ${isActive ? 'text-black' : isLocked ? 'text-white/25 cursor-not-allowed' : 'text-white/55 hover:text-[#1BE1D3]'}`}
-                  >
-                    {isActive && (
-                      <motion.span layoutId="tab-pill"
-                        className="absolute inset-0 rounded-full bg-[#1BE1D3]"
-                        style={{ boxShadow: "0 4px 20px rgba(27,225,211,0.35)" }}
-                        transition={{ type: "spring", stiffness: 400, damping: 32 }} />
-                    )}
-                    <tab.icon className="w-4 h-4 relative z-10" />
-                    <span className="relative z-10">{tab.label}</span>
-                  </button>
-                </React.Fragment>
-              );
-            })}
-          </div>
-        </motion.div>
-
-        {/* ─── Booking Section ─── */}
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={1}
-          id="booking-section" className="rounded-3xl overflow-hidden" style={glassCard}>
-
-          <AnimatePresence mode="wait">
-            {step === 'calendar' ? (
-              /* ─── STEP 1: Calendar + Time ─── */
-              <motion.div key="calendar"
-                initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 24 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                className="p-6 sm:p-9 lg:p-12">
-                {/* Step header */}
-                <div className="flex items-center justify-between mb-9">
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-2xl flex items-center justify-center" style={glassBtn}>
-                      <CalendarDays className="w-5 h-5 text-[#1BE1D3]" />
-                    </div>
-                    <div>
-                      <h2 className="text-lg sm:text-xl text-white mb-0.5" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 500 }}>
-                        Select Date & Time
-                      </h2>
-                      <p className="text-white/35 text-xs sm:text-sm">30-minute consultation via Google Meet</p>
-                    </div>
+              {/* Card header */}
+              <div className="px-5 sm:px-8 pt-6 sm:pt-7 pb-5 border-b border-white/[0.06]">
+                <div className="flex items-center justify-between gap-4 mb-4">
+                  <div>
+                    <AnimatePresence mode="wait">
+                      <motion.div key={step} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.25 }}>
+                        <h2 className="text-white text-[18px] sm:text-[20px] font-semibold leading-tight">
+                          {stepMeta[step - 1].title}
+                        </h2>
+                        <p className="text-white/50 text-[12px] mt-1" style={poppins}>{stepMeta[step - 1].sub}</p>
+                      </motion.div>
+                    </AnimatePresence>
                   </div>
-                  <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full text-[#1BE1D3] text-xs font-medium" style={{ background: "rgba(27,225,211,0.07)", border: "1px solid rgba(27,225,211,0.2)" }}>
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>30 mins</span>
-                  </div>
+                  <span className="flex-shrink-0 px-3.5 py-1.5 rounded-full border border-[#1BE1D3]/25 bg-[#1BE1D3]/[0.06] text-[#1BE1D3] text-[12px] font-semibold" style={poppins}>
+                    {step} / 3
+                  </span>
                 </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-
-                  {/* Calendar — 7 cols */}
-                  <div className="lg:col-span-7">
-                    {/* Month nav */}
-                    <div className="flex items-center justify-between mb-5">
-                      <button onClick={prevMonth} className="w-10 h-10 rounded-full flex items-center justify-center text-white/50 hover:text-[#1BE1D3] hover:border-[#1BE1D3]/40 hover:-translate-y-0.5 transition-all duration-200" style={innerCard}>
-                        <ChevronLeft className="w-4 h-4" />
-                      </button>
-                      <h3 className="text-white text-sm sm:text-base font-medium" style={{ fontFamily: "Montserrat, sans-serif" }}>
-                        {monthName}
-                      </h3>
-                      <button onClick={nextMonth} className="w-10 h-10 rounded-full flex items-center justify-center text-white/50 hover:text-[#1BE1D3] hover:border-[#1BE1D3]/40 hover:-translate-y-0.5 transition-all duration-200" style={innerCard}>
-                        <ChevronRight className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                    {/* Day headers */}
-                    <div className="grid grid-cols-7 gap-1.5 mb-2">
-                      {['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'].map(d => (
-                        <div key={d} className="text-center py-2 text-white/35 text-[11px] font-medium uppercase tracking-wider">{d}</div>
-                      ))}
-                    </div>
-
-                    {/* Calendar grid */}
-                    <div className="grid grid-cols-7 gap-1.5">
-                      {generateCalendarDays().map((day, i) => {
-                        const isSelected = selectedDate.toDateString() === day.date.toDateString();
-                        const isToday = new Date().toDateString() === day.date.toDateString();
-                        const isPast = isDatePast(day.date);
-                        return (
-                          <button
-                            key={i}
-                            onClick={() => !isPast && setSelectedDate(day.date)}
-                            disabled={isPast}
-                            className={`aspect-square flex items-center justify-center rounded-xl text-sm transition-all duration-200
-                              ${!day.isCurrentMonth ? 'text-white/10' : isPast ? 'text-white/15 cursor-not-allowed' : 'text-white/70 hover:bg-[#1BE1D3]/[0.08] hover:text-[#1BE1D3] hover:scale-105 cursor-pointer'}
-                              ${isSelected ? '!bg-[#1BE1D3] !text-black font-semibold shadow-[0_4px_20px_rgba(27,225,211,0.35)] scale-105' : ''}
-                              ${isToday && !isSelected ? 'ring-1 ring-[#1BE1D3]/40 text-[#1BE1D3]' : ''}`}
-                          >
-                            {day.day}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    {/* Selected date */}
-                    <div className="mt-6 flex items-center gap-2.5 px-4 py-3 rounded-xl text-xs text-white/50" style={innerCard}>
-                      <Calendar className="w-4 h-4 text-[#1BE1D3]" />
-                      <span>{selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} · IST (GMT+5:30)</span>
-                    </div>
-                  </div>
-
-                  {/* Time slots — 5 cols */}
-                  <div className="lg:col-span-5 space-y-6">
-                    <div className="rounded-2xl p-5 sm:p-6" style={innerCard}>
-                      <p className="text-xs text-white/45 mb-5 flex items-center gap-2 font-medium uppercase tracking-wider">
-                        <Clock className="w-3.5 h-3.5 text-[#1BE1D3]" /> Available Time Slots
-                      </p>
-                      <div className="grid grid-cols-2 gap-3">
-                        {timeSlots.map(t => (
-                          <button
-                            key={t}
-                            onClick={() => setSelectedTime(t)}
-                            className={`py-3 rounded-xl text-sm transition-all duration-200
-                              ${selectedTime === t
-                                ? 'bg-[#1BE1D3] text-black font-semibold shadow-[0_4px_20px_rgba(27,225,211,0.3)] scale-[1.03]'
-                                : 'border border-white/[0.09] bg-white/[0.03] text-white/55 hover:border-[#1BE1D3]/40 hover:text-[#1BE1D3] hover:bg-[#1BE1D3]/[0.06] hover:-translate-y-0.5'}`}
-                          >
-                            {t}
-                          </button>
-                        ))}
-                      </div>
-
-                      {selectedTime && (
-                        <motion.button
-                          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
-                          onClick={() => { setStep('form'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
-                          className="w-full mt-6 flex items-center justify-center gap-2 text-[#1BE1D3] py-3.5 rounded-full text-sm font-semibold transition-all duration-300 hover:shadow-[0_8px_30px_rgba(27,225,211,0.25)] hover:-translate-y-0.5 hover:brightness-125"
-                          style={glassBtn}
-                        >
-                          Continue <ChevronRight className="w-4 h-4" />
-                        </motion.button>
-                      )}
-                    </div>
-
-                    {/* What you get */}
-                    <div className="rounded-2xl p-5 sm:p-6" style={innerCard}>
-                      <h3 className="text-xs text-white/45 mb-5 flex items-center gap-2 font-medium uppercase tracking-wider">
-                        <Gift className="w-3.5 h-3.5 text-[#1BE1D3]" /> What You Get
-                      </h3>
-                      <div className="space-y-3">
-                        {[
-                          'Live demo of AI Employee handling calls & chats',
-                          'Automatic lead capture & appointment booking',
-                          'Reputation & review management walkthrough',
-                          'Personalized setup for your business',
-                          'Custom pricing for your needs',
-                          'Q&A for your unique challenges',
-                        ].map((b, i) => (
-                          <div key={i} className="flex items-start gap-2.5">
-                            <CheckCircle className="w-3.5 h-3.5 text-[#1BE1D3] flex-shrink-0 mt-0.5" />
-                            <span className="text-white/45 text-xs leading-relaxed">{b}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Guarantee */}
-                    <div className="rounded-2xl p-4 sm:p-5 flex items-center gap-3.5" style={{ background: "rgba(27,225,211,0.05)", border: "1px solid rgba(27,225,211,0.18)" }}>
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(27,225,211,0.08)" }}>
-                        <Shield className="w-5 h-5 text-[#1BE1D3]" />
-                      </div>
-                      <div>
-                        <p className="text-[#1BE1D3] text-xs font-semibold">100% Money Back Guarantee</p>
-                        <p className="text-white/35 text-[11px] mt-0.5">First 7 days free — no risk, no commitment.</p>
-                      </div>
-                    </div>
-                  </div>
+                {/* Progress bar */}
+                <div className="h-1 rounded-full bg-white/[0.06] overflow-hidden">
+                  <motion.div
+                    className="h-full rounded-full bg-gradient-to-r from-[#1BE1D3]/60 to-[#1BE1D3] shadow-[0_0_12px_rgba(27,225,211,0.5)]"
+                    animate={{ width: `${(step / 3) * 100}%` }}
+                    transition={{ duration: 0.45, ease: 'easeOut' }}
+                  />
                 </div>
-              </motion.div>
+              </div>
 
-            ) : (
-              /* ─── STEP 2: Form ─── */
-              <motion.div key="form"
-                initial={{ opacity: 0, x: 24 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -24 }}
-                transition={{ duration: 0.35, ease: "easeOut" }}
-                className="p-6 sm:p-9 lg:p-12">
-                {/* Form header */}
-                <div className="flex flex-wrap items-center gap-4 mb-9">
-                  <button
-                    onClick={() => setStep('calendar')}
-                    className="flex items-center gap-1.5 text-white/50 hover:text-[#1BE1D3] hover:border-[#1BE1D3]/40 text-sm transition-all duration-200 px-4 py-2 rounded-full"
-                    style={innerCard}
-                  >
-                    <ArrowLeft className="w-4 h-4" /> Back
-                  </button>
-                  <div className="h-px flex-1 bg-white/[0.07] hidden sm:block" />
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full text-[#1BE1D3] text-xs font-medium" style={{ background: "rgba(27,225,211,0.07)", border: "1px solid rgba(27,225,211,0.2)" }}>
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{selectedDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</span>
-                    <span className="text-white/25">|</span>
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>{selectedTime}</span>
-                  </div>
-                </div>
+              {/* Card body */}
+              <div className="p-5 sm:p-8">
+                <AnimatePresence mode="wait">
 
-                <form className="space-y-7" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
-
-                  {/* Contact */}
-                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
-                    <h3 className="text-sm text-white/70 mb-6 flex items-center gap-2.5 font-medium">
-                      <span className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(27,225,211,0.08)", border: "1px solid rgba(27,225,211,0.18)" }}>
-                        <User className="w-4 h-4 text-[#1BE1D3]" />
-                      </span>
-                      Contact Information
-                    </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div>
-                        <label className={labelCls}>Full Name <span className="text-[#1BE1D3]/60">*</span></label>
-                        <input className={inputCls} value={formData.firstName} onChange={e => setFormData(p => ({ ...p, firstName: e.target.value }))} placeholder="John Doe" required />
-                      </div>
-                      <div>
-                        <label className={labelCls}>Phone <span className="text-[#1BE1D3]/60">*</span></label>
-                        <input className={inputCls} value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} placeholder="+91 98765 43210" required />
-                      </div>
-                      <div>
-                        <label className={labelCls}>Email <span className="text-[#1BE1D3]/60">*</span></label>
-                        <input type="email" className={inputCls} value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} placeholder="john@company.com" required />
-                      </div>
-                      <div>
-                        <label className={labelCls}>Company</label>
-                        <input className={inputCls} value={formData.companyName} onChange={e => setFormData(p => ({ ...p, companyName: e.target.value }))} placeholder="Your company name" />
-                      </div>
-                      <div className="sm:col-span-2">
-                        <label className={labelCls}>Website</label>
-                        <input className={inputCls} value={formData.website} onChange={e => setFormData(p => ({ ...p, website: e.target.value }))} placeholder="https://yourcompany.com" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Business */}
-                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
-                    <h3 className="text-sm text-white/70 mb-6 flex items-center gap-2.5 font-medium">
-                      <span className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(27,225,211,0.08)", border: "1px solid rgba(27,225,211,0.18)" }}>
-                        <Building className="w-4 h-4 text-[#1BE1D3]" />
-                      </span>
-                      Business Details
-                    </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div>
-                        <label className={labelCls}>Industry</label>
-                        <select value={formData.industry} onChange={e => setFormData(p => ({ ...p, industry: e.target.value }))} className={inputCls}>
-                          <option value="" className="bg-[#0b0f0f]">Select industry</option>
-                          {industries.map(i => <option key={i} value={i} className="bg-[#0b0f0f]">{i}</option>)}
-                        </select>
-                      </div>
-                      <div>
-                        <label className={labelCls}>Business Size</label>
-                        <select value={formData.businessSize} onChange={e => setFormData(p => ({ ...p, businessSize: e.target.value }))} className={inputCls}>
-                          <option value="" className="bg-[#0b0f0f]">Select size</option>
-                          {businessSizes.map(s => <option key={s} value={s} className="bg-[#0b0f0f]">{s}</option>)}
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Goals */}
-                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
-                    <h3 className="text-sm text-white/70 mb-6 flex items-center gap-2.5 font-medium">
-                      <span className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(27,225,211,0.08)", border: "1px solid rgba(27,225,211,0.18)" }}>
-                        <Target className="w-4 h-4 text-[#1BE1D3]" />
-                      </span>
-                      What would you like to achieve?
-                    </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                      {goalOptions.map((goal, i) => (
-                        <label key={i} className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-all duration-200 ${formData.goals.includes(goal) ? 'border-[#1BE1D3]/35 bg-[#1BE1D3]/[0.06] shadow-[0_4px_16px_rgba(27,225,211,0.08)]' : 'border-white/[0.07] bg-white/[0.02] hover:border-white/[0.15] hover:bg-white/[0.04] hover:-translate-y-0.5'}`}>
-                          <input type="checkbox" checked={formData.goals.includes(goal)} onChange={e => handleGoalChange(goal, e.target.checked)}
-                            className="w-4 h-4 rounded border-white/20 accent-[#1BE1D3] mt-0.5 flex-shrink-0" />
-                          <span className="text-white/55 text-xs leading-relaxed">{goal}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Additional */}
-                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
-                    <h3 className="text-sm text-white/70 mb-6 flex items-center gap-2.5 font-medium">
-                      <span className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ background: "rgba(27,225,211,0.08)", border: "1px solid rgba(27,225,211,0.18)" }}>
-                        <MessageSquare className="w-4 h-4 text-[#1BE1D3]" />
-                      </span>
-                      Additional Context
-                    </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                      <div>
-                        <label className={labelCls}>Current process for appointments & reviews</label>
-                        <textarea className={`${inputCls} resize-none`} rows={3} value={formData.currentProcess} onChange={e => setFormData(p => ({ ...p, currentProcess: e.target.value }))} placeholder="How do you currently manage this?" />
-                      </div>
-                      <div>
-                        <label className={labelCls}>Pain points to focus on</label>
-                        <textarea className={`${inputCls} resize-none`} rows={3} value={formData.painPoints} onChange={e => setFormData(p => ({ ...p, painPoints: e.target.value }))} placeholder="What challenges should we address?" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Agreement + Submit */}
-                  <div className="rounded-2xl p-5 sm:p-7" style={innerCard}>
-                    <label className="flex items-start gap-3 cursor-pointer mb-6">
-                      <input type="checkbox" checked={formData.agreement} onChange={e => setFormData(p => ({ ...p, agreement: e.target.checked }))}
-                        className="w-4 h-4 rounded border-white/20 accent-[#1BE1D3] mt-0.5 flex-shrink-0" />
-                      <span className="text-white/40 text-xs leading-relaxed">I agree to be contacted for the demo and further communication. <Link to="/privacy" className="text-[#1BE1D3]/60 hover:text-[#1BE1D3]">Privacy Policy</Link></span>
-                    </label>
-
-                    <button
-                      type="submit"
-                      disabled={!formData.agreement || !formData.firstName || !formData.phone || !formData.email}
-                      className="w-full flex items-center justify-center gap-2 text-[#1BE1D3] py-4 rounded-full text-sm font-semibold disabled:opacity-25 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-[0_8px_30px_rgba(27,225,211,0.25)] hover:-translate-y-0.5 hover:brightness-125"
-                      style={glassBtn}
+                  {/* ─── STEP 1 · When ─── */}
+                  {step === 1 && (
+                    <motion.div key="s1"
+                      initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.3 }}
                     >
-                      <MessageSquare className="w-4 h-4" /> Book Demo — $100 Consultation
-                    </button>
-                    <p className="text-center text-white/25 text-[11px] mt-4">WhatsApp message will be sent · Google Calendar event created</p>
-                  </div>
-                </form>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
+                      {/* Week navigation */}
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase">
+                          {weekLabel}
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <button
+                            onClick={() => setWeekOffset(Math.max(0, weekOffset - 1))}
+                            disabled={weekOffset === 0}
+                            aria-label="Previous week"
+                            className="w-9 h-9 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/50 hover:text-[#1BE1D3] hover:border-[#1BE1D3]/40 disabled:opacity-25 disabled:cursor-not-allowed transition-all duration-200"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => setWeekOffset(weekOffset + 1)}
+                            aria-label="Next week"
+                            className="w-9 h-9 rounded-full border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/50 hover:text-[#1BE1D3] hover:border-[#1BE1D3]/40 transition-all duration-200"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
 
-        {/* Trust bar */}
-        <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} custom={0}
-          className="mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3 text-white/30 text-[11px]">
-          {[
-            { icon: Bot, text: '24/7 AI Availability' },
-            { icon: TrendingUp, text: '300% Lead Increase' },
-            { icon: Clock, text: '90% Time Saved' },
-            { icon: Shield, text: '100% Money Back' },
-          ].map((s, i) => (
-            <span key={i} className="flex items-center gap-1.5">
-              <s.icon className="w-3.5 h-3.5 text-[#1BE1D3]/50" /> {s.text}
-            </span>
-          ))}
+                      {/* Week strip */}
+                      <div className="grid grid-cols-7 gap-1.5 sm:gap-2 mb-8">
+                        {weekDays.map((d, i) => {
+                          const isSelected = selectedDate.toDateString() === d.toDateString();
+                          const isToday = d.toDateString() === today.toDateString();
+                          return (
+                            <button
+                              key={i}
+                              onClick={() => setSelectedDate(d)}
+                              className={`flex flex-col items-center gap-1.5 sm:gap-2 py-3 sm:py-4 rounded-2xl border transition-all duration-200
+                                ${isSelected
+                                  ? 'bg-[#1BE1D3] border-[#1BE1D3] shadow-[0_8px_26px_rgba(27,225,211,0.35)]'
+                                  : 'border-white/10 bg-white/[0.02] hover:border-[#1BE1D3]/40 hover:bg-[#1BE1D3]/[0.05]'}`}
+                            >
+                              <span className={`text-[9px] sm:text-[10px] font-semibold uppercase tracking-[0.12em] ${isSelected ? 'text-black/60' : 'text-white/40'}`} style={poppins}>
+                                {d.toLocaleDateString('en-US', { weekday: 'short' })}
+                              </span>
+                              <span className={`text-[16px] sm:text-[20px] font-semibold leading-none ${isSelected ? 'text-black' : isToday ? 'text-[#1BE1D3]' : 'text-white/85'}`}>
+                                {d.getDate()}
+                              </span>
+                              <span className={`w-1 h-1 rounded-full ${isToday ? (isSelected ? 'bg-black/50' : 'bg-[#1BE1D3]') : 'bg-transparent'}`} />
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Time slots */}
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase">
+                          EVENING SLOTS
+                        </span>
+                        <span className="flex items-center gap-1.5 text-white/40 text-[11px]" style={poppins}>
+                          <Clock className="w-3.5 h-3.5 text-[#1BE1D3]/60" /> IST (GMT+5:30)
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 mb-8">
+                        {timeSlots.map(t => {
+                          const isSelected = selectedTime === t;
+                          return (
+                            <button
+                              key={t}
+                              onClick={() => setSelectedTime(t)}
+                              className={`flex items-center justify-center gap-1.5 py-3.5 rounded-xl text-[13px] transition-all duration-200 ${isSelected
+                                ? 'bg-[#1BE1D3] text-black font-semibold shadow-[0_6px_22px_rgba(27,225,211,0.3)]'
+                                : 'border border-white/10 bg-white/[0.02] text-white/60 hover:border-[#1BE1D3]/40 hover:text-[#1BE1D3] hover:bg-[#1BE1D3]/[0.05]'}`}
+                              style={poppins}
+                            >
+                              {isSelected && <Check className="w-3.5 h-3.5" />}
+                              {t}
+                            </button>
+                          );
+                        })}
+                      </div>
+
+                      {/* Footer summary + CTA */}
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4 border-t border-white/[0.06] pt-6">
+                        <div className="flex-1 min-w-0">
+                          <p className="text-white text-[14px] font-semibold truncate">
+                            {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
+                          </p>
+                          <p className={`text-[12px] mt-0.5 ${selectedTime ? 'text-[#1BE1D3]' : 'text-white/40'}`} style={poppins}>
+                            {selectedTime ? `${selectedTime} IST · 30 mins · Google Meet` : 'Select a time slot to continue'}
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => goTo(2)}
+                          disabled={!selectedTime}
+                          className={`${primaryBtn} w-full sm:w-auto sm:min-w-[180px] flex-shrink-0`}
+                          style={primaryStyle}
+                        >
+                          Continue <ArrowRight className="h-4 w-4 flex-shrink-0" />
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* ─── STEP 2 · Details ─── */}
+                  {step === 2 && (
+                    <motion.div key="s2"
+                      initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <form className="space-y-8" onSubmit={(e) => { e.preventDefault(); if (detailsValid) goTo(3); }}>
+                        {/* Contact */}
+                        <div>
+                          <h3 className="text-white text-[15px] font-semibold mb-4 flex items-center gap-2.5">
+                            <User className="w-4 h-4 text-[#1BE1D3]" /> Contact Information
+                          </h3>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                              <label className={labelCls} style={poppins}>Full Name <span className="text-[#1BE1D3]">*</span></label>
+                              <input className={inputCls} style={poppins} value={formData.firstName} onChange={e => setFormData(p => ({ ...p, firstName: e.target.value }))} placeholder="John Doe" required />
+                            </div>
+                            <div>
+                              <label className={labelCls} style={poppins}>Phone <span className="text-[#1BE1D3]">*</span></label>
+                              <input className={inputCls} style={poppins} value={formData.phone} onChange={e => setFormData(p => ({ ...p, phone: e.target.value }))} placeholder="+91 98765 43210" required />
+                            </div>
+                            <div>
+                              <label className={labelCls} style={poppins}>Email <span className="text-[#1BE1D3]">*</span></label>
+                              <input type="email" className={inputCls} style={poppins} value={formData.email} onChange={e => setFormData(p => ({ ...p, email: e.target.value }))} placeholder="john@company.com" required />
+                            </div>
+                            <div>
+                              <label className={labelCls} style={poppins}>Company</label>
+                              <input className={inputCls} style={poppins} value={formData.companyName} onChange={e => setFormData(p => ({ ...p, companyName: e.target.value }))} placeholder="Your company name" />
+                            </div>
+                            <div className="sm:col-span-2">
+                              <label className={labelCls} style={poppins}>Website</label>
+                              <input className={inputCls} style={poppins} value={formData.website} onChange={e => setFormData(p => ({ ...p, website: e.target.value }))} placeholder="https://yourcompany.com" />
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Business */}
+                        <div>
+                          <h3 className="text-white text-[15px] font-semibold mb-4 flex items-center gap-2.5">
+                            <Building className="w-4 h-4 text-[#1BE1D3]" /> Business Details
+                          </h3>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                              <label className={labelCls} style={poppins}>Industry</label>
+                              <select value={formData.industry} onChange={e => setFormData(p => ({ ...p, industry: e.target.value }))} className={inputCls} style={poppins}>
+                                <option value="" className="bg-[#0a1414]">Select industry</option>
+                                {industries.map(i => <option key={i} value={i} className="bg-[#0a1414]">{i}</option>)}
+                              </select>
+                            </div>
+                            <div>
+                              <label className={labelCls} style={poppins}>Business Size</label>
+                              <select value={formData.businessSize} onChange={e => setFormData(p => ({ ...p, businessSize: e.target.value }))} className={inputCls} style={poppins}>
+                                <option value="" className="bg-[#0a1414]">Select size</option>
+                                {businessSizes.map(s => <option key={s} value={s} className="bg-[#0a1414]">{s}</option>)}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Goals */}
+                        <div>
+                          <h3 className="text-white text-[15px] font-semibold mb-4 flex items-center gap-2.5">
+                            <Target className="w-4 h-4 text-[#1BE1D3]" /> What would you like to achieve?
+                          </h3>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {goalOptions.map((goal, i) => {
+                              const checked = formData.goals.includes(goal);
+                              return (
+                                <label key={i} className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-all duration-200 ${checked ? 'border-[#1BE1D3]/40 bg-[#1BE1D3]/[0.06]' : 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'}`}>
+                                  <span className={`w-4 h-4 mt-0.5 rounded-[5px] border flex-shrink-0 flex items-center justify-center transition-all duration-200 ${checked ? 'bg-[#1BE1D3] border-[#1BE1D3]' : 'border-white/25'}`}>
+                                    {checked && <Check className="w-3 h-3 text-black" />}
+                                  </span>
+                                  <input type="checkbox" checked={checked} onChange={e => handleGoalChange(goal, e.target.checked)} className="sr-only" />
+                                  <span className="text-white/70 text-[13px] leading-[1.7]" style={poppins}>{goal}</span>
+                                </label>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        {/* Context */}
+                        <div>
+                          <h3 className="text-white text-[15px] font-semibold mb-4 flex items-center gap-2.5">
+                            <MessageSquare className="w-4 h-4 text-[#1BE1D3]" /> Additional Context <span className="text-white/40 text-[12px] font-normal" style={poppins}>(optional)</span>
+                          </h3>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                              <label className={labelCls} style={poppins}>Current process for appointments & reviews</label>
+                              <textarea className={`${inputCls} resize-none`} style={poppins} rows={3} value={formData.currentProcess} onChange={e => setFormData(p => ({ ...p, currentProcess: e.target.value }))} placeholder="How do you currently manage this?" />
+                            </div>
+                            <div>
+                              <label className={labelCls} style={poppins}>Pain points to focus on</label>
+                              <textarea className={`${inputCls} resize-none`} style={poppins} rows={3} value={formData.painPoints} onChange={e => setFormData(p => ({ ...p, painPoints: e.target.value }))} placeholder="What challenges should we address?" />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center border-t border-white/[0.06] pt-6">
+                          <button type="button" onClick={() => goTo(1)} className={`${ghostBtn} w-full sm:w-auto sm:min-w-[140px]`} style={ghostStyle}>
+                            <ArrowLeft className="h-4 w-4 flex-shrink-0" /> Back
+                          </button>
+                          <button type="submit" disabled={!detailsValid} className={`${primaryBtn} w-full sm:flex-1 sm:max-w-[320px]`} style={primaryStyle}>
+                            Review Booking <ArrowRight className="h-4 w-4 flex-shrink-0" />
+                          </button>
+                        </div>
+                      </form>
+                    </motion.div>
+                  )}
+
+                  {/* ─── STEP 3 · Confirm ─── */}
+                  {step === 3 && (
+                    <motion.div key="s3"
+                      initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="space-y-4 mb-8">
+                        {/* Meeting recap */}
+                        <div className="rounded-2xl border border-[#1BE1D3]/25 bg-[#1BE1D3]/[0.05] p-5">
+                          <div className="flex items-center justify-between gap-3 mb-3">
+                            <span className="text-[#1BE1D3] font-semibold text-[11px] tracking-[0.3em] uppercase">YOUR SESSION</span>
+                            <button onClick={() => goTo(1)} className="flex items-center gap-1.5 text-[#1BE1D3] text-[12px] font-semibold hover:underline" style={poppins}>
+                              <Pencil className="w-3 h-3" /> Edit
+                            </button>
+                          </div>
+                          <div className="flex flex-wrap items-center gap-x-6 gap-y-2.5">
+                            <span className="flex items-center gap-2 text-white text-[14px] font-semibold">
+                              <Calendar className="w-4 h-4 text-[#1BE1D3]" />
+                              {selectedDate.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })}
+                            </span>
+                            <span className="flex items-center gap-2 text-white text-[14px] font-semibold">
+                              <Clock className="w-4 h-4 text-[#1BE1D3]" /> {selectedTime} IST
+                            </span>
+                            <span className="flex items-center gap-2 text-white/60 text-[13px]" style={poppins}>
+                              <Video className="w-4 h-4 text-[#1BE1D3]" /> Google Meet · 30 mins
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Contact recap */}
+                        <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+                          <div className="flex items-center justify-between gap-3 mb-4">
+                            <span className="text-[#1BE1D3] font-semibold text-[11px] tracking-[0.3em] uppercase">YOUR DETAILS</span>
+                            <button onClick={() => goTo(2)} className="flex items-center gap-1.5 text-[#1BE1D3] text-[12px] font-semibold hover:underline" style={poppins}>
+                              <Pencil className="w-3 h-3" /> Edit
+                            </button>
+                          </div>
+                          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2.5 text-[13px]" style={poppins}>
+                            <div className="flex gap-2"><dt className="text-white/40 min-w-[72px]">Name</dt><dd className="text-white/80 break-all">{formData.firstName}</dd></div>
+                            <div className="flex gap-2"><dt className="text-white/40 min-w-[72px]">Phone</dt><dd className="text-white/80 break-all">{formData.phone}</dd></div>
+                            <div className="flex gap-2"><dt className="text-white/40 min-w-[72px]">Email</dt><dd className="text-white/80 break-all">{formData.email}</dd></div>
+                            <div className="flex gap-2"><dt className="text-white/40 min-w-[72px]">Company</dt><dd className="text-white/80 break-all">{formData.companyName || '—'}</dd></div>
+                            <div className="flex gap-2"><dt className="text-white/40 min-w-[72px]">Industry</dt><dd className="text-white/80">{formData.industry || '—'}</dd></div>
+                            <div className="flex gap-2"><dt className="text-white/40 min-w-[72px]">Size</dt><dd className="text-white/80">{formData.businessSize || '—'}</dd></div>
+                          </dl>
+                          {formData.goals.length > 0 && (
+                            <div className="mt-4 pt-4 border-t border-white/[0.06] space-y-2">
+                              {formData.goals.map((g, i) => (
+                                <div key={i} className="flex items-start gap-2.5">
+                                  <CheckCircle className="w-3.5 h-3.5 text-[#1BE1D3] flex-shrink-0 mt-0.5" />
+                                  <span className="text-white/70 text-[13px] leading-[1.7]" style={poppins}>{g}</span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      </div>
+
+                      {/* Agreement */}
+                      <label className="flex items-start gap-3 cursor-pointer mb-6">
+                        <span className={`w-4 h-4 mt-0.5 rounded-[5px] border flex-shrink-0 flex items-center justify-center transition-all duration-200 ${formData.agreement ? 'bg-[#1BE1D3] border-[#1BE1D3]' : 'border-white/25'}`}>
+                          {formData.agreement && <Check className="w-3 h-3 text-black" />}
+                        </span>
+                        <input type="checkbox" checked={formData.agreement} onChange={e => setFormData(p => ({ ...p, agreement: e.target.checked }))} className="sr-only" />
+                        <span className="text-white/60 text-[13px] leading-[1.7]" style={poppins}>
+                          I agree to be contacted for the consultation and further communication.
+                        </span>
+                      </label>
+
+                      <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center border-t border-white/[0.06] pt-6">
+                        <button onClick={() => goTo(2)} className={`${ghostBtn} w-full sm:w-auto sm:min-w-[140px]`} style={ghostStyle}>
+                          <ArrowLeft className="h-4 w-4 flex-shrink-0" /> Back
+                        </button>
+                        <button onClick={handleSubmit} disabled={!formData.agreement} className={`${primaryBtn} w-full sm:flex-1 sm:max-w-[360px]`} style={primaryStyle}>
+                          <MessageSquare className="h-4 w-4 flex-shrink-0" /> Confirm on WhatsApp
+                        </button>
+                      </div>
+                      <p className="text-white/40 text-[12px] mt-4" style={poppins}>
+                        100% free consultation · WhatsApp message sent instantly · Google Calendar event created
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* ═══════════ Mobile benefits (below card) ═══════════ */}
+        <div className="lg:hidden mt-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {benefits.map((b, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5"
+              >
+                <div className="w-10 h-10 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center flex-shrink-0">
+                  <b.icon className="w-[18px] h-[18px] text-[#1BE1D3]" />
+                </div>
+                <div>
+                  <p className="text-white text-[14px] font-semibold">{b.title}</p>
+                  <p className="text-white/55 text-[13px] leading-[1.6] mt-0.5" style={poppins}>{b.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="flex items-center justify-center gap-10 border-t border-white/10 mt-8 pt-7">
+            {stats.map((s, i) => (
+              <div key={i} className="text-center">
+                <p className="text-[#1BE1D3] text-[22px] font-semibold leading-none">{s.value}</p>
+                <p className="text-white/45 text-[12px] mt-1.5" style={poppins}>{s.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Guarantee strip */}
+        <motion.div
+          initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
+          className="mt-10 sm:mt-14 max-w-2xl mx-auto rounded-3xl border border-[#1BE1D3]/25 bg-[#1BE1D3]/[0.05] p-5 flex items-center justify-center gap-4"
+        >
+          <div className="w-11 h-11 rounded-2xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center flex-shrink-0">
+            <Shield className="w-5 h-5 text-[#1BE1D3]" />
+          </div>
+          <div>
+            <p className="text-[#1BE1D3] text-[13px] font-semibold">100% Money Back Guarantee</p>
+            <p className="text-white/55 text-[12px] mt-0.5 leading-[1.6]" style={poppins}>First 7 days free — no risk, no commitment.</p>
+          </div>
         </motion.div>
       </div>
     </div>

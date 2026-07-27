@@ -184,17 +184,39 @@ const CaseStudy = () => {
               >
                 Discover how Yurekh Solutions transforms businesses through innovative technology solutions. Explore our projects across industries and see real results delivered through smart, scalable, and impactful digital strategies.
               </p>
-              <Link
-                to="/bookingform"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
-                style={{
-                  fontFamily: "Poppins, sans-serif",
-                  fontSize: "15px",
-                  backgroundColor: "#1BE1D3",
-                }}
-              >
-                Start Your Project Consultation <ArrowRight className="h-4 w-4" />
-              </Link>
+             <Link
+  to="/bookingform"
+  className="
+    inline-flex
+    items-center
+    justify-center
+    gap-2
+    rounded-full
+    font-semibold
+    transition-all
+    duration-300
+    hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]
+    px-5 py-3
+    sm:px-6 sm:py-3.5
+    md:px-8 md:py-4
+    text-sm
+    sm:text-[15px]
+    md:text-[15px]
+    w-full
+    sm:w-auto
+    max-w-full
+    text-center
+    leading-snug
+  "
+  style={{
+    fontFamily: "Poppins, sans-serif",
+    backgroundColor: "#1BE1D3",
+    color: "#000",
+  }}
+>
+  <span>Start Your Project Consultation</span>
+  <ArrowRight className="h-4 w-4 flex-shrink-0" />
+</Link>
             </motion.div>
           </div>
         </div>

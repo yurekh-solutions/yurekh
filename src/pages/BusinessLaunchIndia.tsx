@@ -226,7 +226,7 @@ const BusinessLaunchIndia = () => {
         <div className="relative z-10 flex flex-col items-center justify-center flex-1 w-full px-4 sm:px-8 pt-28 sm:pt-32 lg:pt-40 pb-12 sm:pb-16">
           <motion.div {...fadeUp(0.2)} className="text-center max-w-4xl mx-auto">
             {/* Eyebrow */}
-            <div className="flex justify-center mb-6 sm:mb-8">
+            <div className=" mt-5 flex justify-center mb-6 sm:mb-8">
               <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#1BE1D3]/20 bg-[#1BE1D3]/5">
                 <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#1BE1D3]" strokeWidth={1.8} />
                 <span className="text-[#1BE1D3] font-semibold text-[10px] sm:text-[11px] tracking-[0.25em] uppercase">
@@ -238,10 +238,10 @@ const BusinessLaunchIndia = () => {
             <h1
               className="text-white mb-4 sm:mb-6"
               style={{
-                fontWeight: 600,
-                fontSize: "clamp(28px, 5.5vw, 52px)",
-                lineHeight: "1.15",
-                letterSpacing: "-0.02em",
+                fontWeight: 500,
+                fontSize: "clamp(28px, 5.5vw, 42px)",
+                lineHeight: "1.0",
+                letterSpacing: "-0.01em",
               }}
             >
               Launch Your Business{" "}
@@ -251,9 +251,9 @@ const BusinessLaunchIndia = () => {
             <p
               className="text-white/70 mb-8 sm:mb-10 max-w-3xl mx-auto"
               style={{
-                fontWeight: 400,
-                fontSize: "clamp(14px, 2.5vw, 18px)",
-                lineHeight: "1.67",
+                fontWeight: 300,
+                fontSize: "clamp(14px, 2.5vw, 16px)",
+                lineHeight: "1.6",
               }}
             >
               India is one of the fastest-growing major economies — with a massive consumer base, a thriving startup
@@ -264,25 +264,24 @@ const BusinessLaunchIndia = () => {
 
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto justify-center">
+              <button
+                onClick={() => document.getElementById("india-entry-services")?.scrollIntoView({ behavior: "smooth" })}
+                style={{
+                  fontWeight: 600,
+                  fontSize: "clamp(13px, 2vw, 15px)",
+                  padding: "0 24px",
+                  height: "46px",
+                  borderRadius: "10px",
+                  backgroundColor: "#1BE1D3",
+                  color: "#000",
+                  border: "none",
+                  boxShadow: "0 0 30px rgba(27,225,211,0.15)",
+                }}
+                className="hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)] transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
+              >
+                Start Your India Entry <ArrowRight className="w-4 h-4" />
+              </button>
               <Link to="/bookingform" className="w-full sm:w-auto">
-                <button
-                  style={{
-                    fontWeight: 600,
-                    fontSize: "clamp(13px, 2vw, 15px)",
-                    padding: "0 24px",
-                    height: "46px",
-                    borderRadius: "10px",
-                    backgroundColor: "#1BE1D3",
-                    color: "#000",
-                    border: "none",
-                    boxShadow: "0 0 30px rgba(27,225,211,0.15)",
-                  }}
-                  className="hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)] transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto"
-                >
-                  Start Your India Entry <ArrowRight className="w-4 h-4" />
-                </button>
-              </Link>
-              <a href="tel:+919136242706" className="w-full sm:w-auto">
                 <button
                   style={{
                     fontWeight: 400,
@@ -301,7 +300,7 @@ const BusinessLaunchIndia = () => {
                   <Phone className="w-4 h-4" />
                   Schedule Consultation
                 </button>
-              </a>
+              </Link>
             </div>
 
             <p
@@ -429,7 +428,7 @@ const BusinessLaunchIndia = () => {
       </Section>
 
       {/* ═══════════════ SERVICES ═══════════════ */}
-      <Section>
+      <Section id="india-entry-services">
         <SectionHeader
           eyebrow="Your On-Ground Partner"
           title={<>We Handle the Complexity. You Focus on Your Business.</>}

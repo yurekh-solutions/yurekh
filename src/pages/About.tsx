@@ -221,13 +221,12 @@ const About = () => {
                 <span className="text-[#1BE1D3] text-sm font-medium">About Yurekh Solutions</span>
               </div>
               <h1
-                className="text-white text-4xl sm:text-5xl lg:text-7xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.15" }}
+                className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold mb-6 leading-[1.2]"
               >
                 One Partner. <span className="text-[#1BE1D3]">Complete Execution.</span>
               </h1>
               <p
-                className="text-white/80 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto mb-8 leading-relaxed"
+                className="text-white/70 text-[15px] max-w-3xl mx-auto mb-8 leading-[1.7]"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 We are a senior-led business building studio that unites AI-powered software, digital branding, and
@@ -244,8 +243,18 @@ const About = () => {
                 </Link>
                 <Link
                   to="/business-consulting"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
-                  style={{ fontSize: "15px", backgroundColor: "rgba(255,255,255,0.05)", border: "2px solid rgba(255,255,255,0.2)" }}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px"
+                  style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontWeight: 600,
+                    fontSize: "15px",
+                    background: "rgba(27,225,211,0.08)",
+                    color: "#1BE1D3",
+                    border: "1px solid rgba(27,225,211,0.25)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
+                  }}
                 >
                   Explore What We Do
                 </Link>
@@ -262,7 +271,7 @@ const About = () => {
             <p className="text-white/60 text-sm tracking-widest uppercase" style={{ fontFamily: "Poppins, sans-serif" }}>
               Building Businesses Across
             </p>
-            <p className="text-[#1BE1D3] text-2xl sm:text-3xl font-normal mt-3" style={{ fontFamily: "Montserrat, sans-serif" }}>
+            <p className="text-[#1BE1D3] text-xl sm:text-2xl font-normal mt-3" style={{ fontFamily: "Montserrat, sans-serif" }}>
               IND ⋅ DXB ⋅ NYC ⋅ SGP ⋅ LDN ⋅ SYD
             </p>
           </div>
@@ -282,10 +291,10 @@ const About = () => {
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
                 className="text-center p-8 rounded-2xl border border-[#1BE1D3]/20 bg-gradient-to-br from-[#1BE1D3]/5 to-transparent"
               >
-                <div className="text-3xl md:text-5xl font-normal text-[#1BE1D3] mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                <div className="text-[28px] md:text-[36px] font-semibold text-[#1BE1D3] mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
                   {stat.number}
                 </div>
-                <div className="text-gray-400 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <div className="text-white/60 text-[13px] leading-[1.5]" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {stat.label}
                 </div>
               </motion.div>
@@ -306,12 +315,11 @@ const About = () => {
             >
               <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">Our Story</p>
               <h2
-                className="text-white text-2xl sm:text-3xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-[30px] font-semibold text-white mb-6 leading-[1.2]"
               >
                 Built to close the gap between idea and impact.
               </h2>
-              <div className="space-y-5 text-white/70 text-base sm:text-lg leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.8" }}>
+              <div className="space-y-5 text-white/70 text-[15px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 <p>
                   Too many businesses stall because strategy, technology, brand, and marketing live in separate silos —
                   each vendor optimising their own piece while the bigger vision fractures. We built Yurekh Solutions to
@@ -347,9 +355,9 @@ const About = () => {
                 <div className="w-12 h-12 rounded-xl bg-[#1BE1D3]/10 flex items-center justify-center">
                   <Target className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-normal text-white" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Our Mission</h2>
+                <h2 className="text-[18px] sm:text-[20px] font-semibold text-white">Our Mission</h2>
               </div>
-              <p className="text-gray-300 leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/70 text-[15px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 To empower businesses of all sizes with intelligent technology and integrated execution that drive growth,
                 efficiency, and innovation — delivering solutions that meet today's challenges while anticipating
                 tomorrow's opportunities.
@@ -367,9 +375,9 @@ const About = () => {
                 <div className="w-12 h-12 rounded-xl bg-[#1BE1D3]/10 flex items-center justify-center">
                   <Eye className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-normal text-white" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Our Vision</h2>
+                <h2 className="text-[18px] sm:text-[20px] font-semibold text-white">Our Vision</h2>
               </div>
-              <p className="text-gray-300 leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/70 text-[15px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 To be the global partner of choice for AI-powered business building — recognised for craft, integrity, and
                 measurable impact, and for a model where technology and strategy combine to create unprecedented value.
               </p>
@@ -391,12 +399,11 @@ const About = () => {
             >
               <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">How We Work</p>
               <h2
-                className="text-white text-2xl sm:text-3xl lg:text-5xl font-normal mb-4 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-[30px] font-semibold text-white mb-4 leading-[1.2]"
               >
                 A single, integrated process.
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Four connected stages that take you from opportunity to scale — with one accountable team throughout.
               </p>
             </motion.div>
@@ -417,10 +424,10 @@ const About = () => {
                     </div>
                     <span className="text-[#1BE1D3]/40 text-2xl font-normal" style={{ fontFamily: "Montserrat, sans-serif" }}>{phase.step}</span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-normal text-white mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <h3 className="text-[16px] font-semibold text-white mb-2">
                     {phase.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {phase.desc}
                   </p>
                 </motion.div>
@@ -441,10 +448,10 @@ const About = () => {
             className="text-center mb-12"
           >
             <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">What Drives Us</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-4 tracking-normal" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+            <h2 className="text-[30px] font-semibold text-white mb-4 leading-[1.2]">
               Our Core Values
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
               The principles that guide every decision, every project, every partnership.
             </p>
           </motion.div>
@@ -460,10 +467,10 @@ const About = () => {
                 className="p-6 rounded-2xl border border-[#1BE1D3]/20 bg-gradient-to-br from-[#1BE1D3]/5 to-transparent hover:border-[#1BE1D3]/40 transition-all duration-300"
               >
                 <div className="text-[#1BE1D3] mb-4">{value.icon}</div>
-                <h3 className="text-base sm:text-lg font-normal text-white mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                <h3 className="text-[16px] font-semibold text-white mb-2">
                   {value.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {value.description}
                 </p>
               </motion.div>
@@ -483,10 +490,10 @@ const About = () => {
             className="text-center mb-12"
           >
             <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">Capabilities</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-4 tracking-normal" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+            <h2 className="text-[30px] font-semibold text-white mb-4 leading-[1.2]">
               What We Do
             </h2>
-            <p className="text-gray-400 max-w-3xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <p className="text-white/70 text-[15px] leading-[1.7] max-w-3xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
               A complete stack of services designed to work together — so your business grows as one coherent system, not
               a patchwork of disconnected vendors.
             </p>
@@ -508,11 +515,11 @@ const About = () => {
                   <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#1BE1D3]/10 text-[#1BE1D3] mb-4">
                     {item.icon}
                   </div>
-                  <h3 className="text-base sm:text-lg font-normal text-white mb-2 flex items-center gap-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <h3 className="text-[16px] font-semibold text-white mb-2 flex items-center gap-2">
                     {item.title}
                     <ArrowRight className="w-4 h-4 text-[#1BE1D3] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {item.desc}
                   </p>
                 </Link>
@@ -533,10 +540,10 @@ const About = () => {
             className="text-center mb-12"
           >
             <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">Why Yurekh</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-4 tracking-normal" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+            <h2 className="text-[30px] font-semibold text-white mb-4 leading-[1.2]">
               Why Partner With Us
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
               The advantages that make us a genuine building partner — not just another agency.
             </p>
           </motion.div>
@@ -555,10 +562,10 @@ const About = () => {
                   {item.icon}
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-normal text-white mb-1.5" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <h3 className="text-[16px] font-semibold text-white mb-1.5">
                     {item.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {item.desc}
                   </p>
                 </div>
@@ -579,10 +586,10 @@ const About = () => {
             className="text-center mb-12"
           >
             <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">The People</p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-4 tracking-normal" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+            <h2 className="text-[30px] font-semibold text-white mb-4 leading-[1.2]">
               Our Teams
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
               Senior specialists across strategy, engineering, design, and growth — working as one.
             </p>
           </motion.div>
@@ -601,7 +608,7 @@ const About = () => {
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover" loading="lazy" />
                 </div>
                 <div className="p-6 text-center">
-                  <h3 className="text-base sm:text-lg font-normal text-white mb-1" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <h3 className="text-[16px] font-semibold text-white mb-1">
                     {member.name}
                   </h3>
                   <p className="text-[#1BE1D3] text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
@@ -624,10 +631,10 @@ const About = () => {
             transition={{ duration: 0.6 }}
             className="text-center p-10 sm:p-12 rounded-3xl border border-[#1BE1D3]/30 bg-gradient-to-br from-[#1BE1D3]/10 to-transparent max-w-5xl mx-auto"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-normal text-white mb-4 tracking-normal" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+            <h2 className="text-[30px] font-semibold text-white mb-4 leading-[1.2]">
               Ready to Build or Scale Your Business?
             </h2>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+            <p className="text-white/70 text-[15px] leading-[1.7] mb-8 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
               Let's discuss how Yurekh Solutions can help you start, scale, and dominate your market — with one integrated
               team behind you.
             </p>
@@ -642,8 +649,17 @@ const About = () => {
               </Link>
               <Link
                 to="/case-study"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-white text-sm sm:text-base transition-all duration-300 hover:bg-white/10 whitespace-nowrap"
-                style={{ fontFamily: "Poppins, sans-serif", backgroundColor: "rgba(255,255,255,0.05)", border: "2px solid rgba(255,255,255,0.2)" }}
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm sm:text-base transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px whitespace-nowrap"
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 600,
+                  background: "rgba(27,225,211,0.08)",
+                  color: "#1BE1D3",
+                  border: "1px solid rgba(27,225,211,0.25)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
+                }}
               >
                 See Our Work
                 <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5" />

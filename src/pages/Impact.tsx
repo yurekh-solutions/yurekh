@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Globe, Building2, Zap } from "lucide-react";
+import { ArrowRight, Users, Globe, Building2, Zap, Sparkles } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 
 const Impact = () => {
@@ -65,18 +65,18 @@ const Impact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-6">
-                Our Impact
-              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+                <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+                <span className="text-[#1BE1D3] text-sm font-medium">Our Impact</span>
+              </div>
               <h1
-                className="text-white text-4xl sm:text-5xl lg:text-7xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.15" }}
+                className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold mb-6 leading-[1.2]"
               >
                 We Build Businesses.
               </h1>
               <p
-                className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                className="text-white/70 text-[15px] max-w-3xl mx-auto leading-[1.7]"
+                style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 From company formation to global scale — we handle strategy, legal, technology, branding, and go-to-market. One partner, complete execution.
               </p>
@@ -100,10 +100,10 @@ const Impact = () => {
                   className="text-center"
                 >
                   <div className="text-[#1BE1D3] mb-4 flex justify-center">{cap.icon}</div>
-                  <p className="text-white text-base font-normal mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <p className="text-white text-[16px] font-semibold mb-2">
                     {cap.label}
                   </p>
-                  <p className="text-white/50 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {cap.description}
                   </p>
                 </motion.div>
@@ -124,12 +124,11 @@ const Impact = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <p className="text-[#1BE1D3] font-normal text-[12px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">
                 What We Do
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 Four Pillars. One Partner.
               </h2>
@@ -145,17 +144,17 @@ const Impact = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
-                  <h3 className="text-white text-xl font-normal mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <h3 className="text-white text-[18px] font-semibold mb-4">
                     {item.title}
                   </h3>
-                  <p className="text-white/70 text-sm leading-relaxed mb-5" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
+                  <p className="text-white/70 text-[13px] leading-[1.7] mb-5" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {item.description}
                   </p>
                   <div className="space-y-2">
                     {item.details.map((detail, dIdx) => (
                       <div key={dIdx} className="flex items-start gap-2">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#1BE1D3] mt-2 flex-shrink-0" />
-                        <span className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                        <span className="text-white/60 text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                           {detail}
                         </span>
                       </div>
@@ -179,12 +178,11 @@ const Impact = () => {
               transition={{ duration: 0.8 }}
               className="text-center mb-16"
             >
-              <p className="text-[#1BE1D3] font-normal text-[12px] tracking-[0.3em] uppercase mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4">
                 Industries
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 Sectors We Work In.
               </h2>
@@ -200,7 +198,7 @@ const Impact = () => {
                   transition={{ duration: 0.4, delay: idx * 0.03 }}
                   className="px-5 py-3 rounded-full border border-white/10 hover:border-[#1BE1D3]/40 transition-all duration-300"
                 >
-                  <p className="text-white/80 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <p className="text-white/80 text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {industry}
                   </p>
                 </motion.div>
@@ -222,19 +220,18 @@ const Impact = () => {
             >
               <Globe className="w-16 h-16 text-[#1BE1D3] mx-auto mb-6" />
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 Global Presence. Local Expertise.
               </h2>
-              <p className="text-white/70 text-lg mb-12" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/70 text-[15px] leading-[1.7] mb-12" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Operating across 6 countries with deep understanding of local markets, regulations, and business culture.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 {["India", "UAE", "United States", "United Kingdom", "Singapore", "Australia"].map((country, idx) => (
                   <div
                     key={idx}
-                    className="px-6 py-3 rounded-full border border-[#1BE1D3]/30 text-[#1BE1D3] font-medium"
+                    className="px-6 py-3 rounded-full border border-[#1BE1D3]/30 text-[#1BE1D3] font-medium text-[13px]"
                     style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     {country}
@@ -256,27 +253,26 @@ const Impact = () => {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-normal mb-6 tracking-normal"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.25" }}
+              className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
             >
               Ready to Create Your Success Story?
             </h2>
             <p
-              className="text-white/70 max-w-2xl mx-auto mb-10 text-base sm:text-lg"
-              style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+              className="text-white/70 max-w-2xl mx-auto mb-10 text-[15px] leading-[1.7]"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Join businesses across industries that have built and scaled with Yurekh Solutions.
             </p>
             <Link
               to="/business-consulting"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+              className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto max-w-md sm:max-w-none"
               style={{
                 fontFamily: "Poppins, sans-serif",
-                fontSize: "16px",
+                fontSize: "15px",
                 backgroundColor: "#1BE1D3",
               }}
             >
-              Start Your Journey <ArrowRight className="h-5 w-5" />
+              Start Your Journey <ArrowRight className="h-4 w-4 flex-shrink-0" />
             </Link>
           </motion.div>
         </div>

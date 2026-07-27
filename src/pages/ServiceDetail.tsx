@@ -232,10 +232,16 @@ const ServiceDetail = () => {
   const relatedServices = category.services.filter((s) => s.slug !== service.slug);
   const IconComponent = serviceIcons[service.slug] || Layers;
 
+  // Split service name: first part white, last part teal (e.g. "Decadent" + "SEO Strategies")
+  const nameWords = service.name.split(" ");
+  const nameSplitAt = Math.max(1, Math.floor(nameWords.length / 2));
+  const namePlain = nameWords.slice(0, nameSplitAt).join(" ");
+  const nameAccent = nameWords.slice(nameSplitAt).join(" ");
+
   return (
     <div className="min-h-screen bg-[#0b0f0f]">
       <SEOHead
-        title={service.seoTitle.replace(" | Yurekh Solutions", "")}
+        title={service.seoTitle}
         description={service.seoDescription}
         keywords={service.keywords.join(", ")}
         canonical={`https://yurekh.com/services/${service.slug}`}
@@ -332,12 +338,20 @@ const ServiceDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white text-4xl sm:text-5xl md:text-6xl font-light mb-4"
-            style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300, lineHeight: "1.15" }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/10 backdrop-blur-sm mb-6"
+          >
+            <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+            <span className="text-[#1BE1D3] text-sm font-medium">Services</span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold mb-4 leading-[1.2]"
           >
             {service.name}
           </motion.h1>
@@ -364,11 +378,11 @@ const ServiceDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-semibold mb-3 block" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>
+            <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
               OUR SERVICES
             </span>
-            <h2 className="text-white text-3xl sm:text-4xl md:text-5xl font-light mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
-              {category.title} We Provide
+            <h2 className="text-white text-[30px] font-semibold mb-6 leading-[1.2]">
+              {category.title} <span className="text-[#1BE1D3]">We Provide</span>
             </h2>
             <div className="flex items-center justify-center gap-2">
               <div className="w-16 h-1 bg-[#1BE1D3] rounded-full" />
@@ -399,10 +413,10 @@ const ServiceDetail = () => {
                     <IconComponent className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
                   </div>
                 </div>
-                <h3 className="text-[#1BE1D3] text-2xl font-light text-center mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
+                <h3 className="text-[#1BE1D3] text-[16px] font-semibold text-center mb-4">
                   {service.name}
                 </h3>
-                <p className="text-white/70 text-center leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px" }}>
+                <p className="text-white/60 text-center text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {service.description}
                 </p>
               </div>
@@ -432,10 +446,10 @@ const ServiceDetail = () => {
                           <RelatedIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
                         </div>
                       </div>
-                      <h3 className="text-[#1BE1D3] text-2xl font-light text-center mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
+                      <h3 className="text-[#1BE1D3] text-[16px] font-semibold text-center mb-4">
                         {rs.name}
                       </h3>
-                      <p className="text-white/70 text-center leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px" }}>
+                      <p className="text-white/60 text-center text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                         {rs.description.substring(0, 130)}...
                       </p>
                     </div>
@@ -457,10 +471,19 @@ const ServiceDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-8 text-center" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
-                About {service.name}
-              </h2>
-              <div className="space-y-6 text-white/70 leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", fontSize: "16px", lineHeight: "1.8" }}>
+              <div className="text-center">
+                <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
+                  ABOUT THIS SERVICE
+                </span>
+                <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
+                  About {namePlain}{nameAccent && <> <span className="text-[#1BE1D3]">{nameAccent}</span></>}
+                </h2>
+                <div className="flex items-center justify-center gap-2 mb-10">
+                  <div className="w-16 h-1 bg-[#1BE1D3] rounded-full" />
+                  <div className="w-3 h-1 bg-[#1BE1D3] rounded-full" />
+                </div>
+              </div>
+              <div className="space-y-6 text-white/70" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", lineHeight: "1.7" }}>
                 <p>{service.description}</p>
                 <p>
                   At Yurekh Solutions, our {service.name.toLowerCase()} services are designed to help businesses stand out in today's competitive digital landscape. We combine industry expertise with innovative approaches to deliver results that exceed expectations. Whether you're a startup or an established enterprise, our team tailors every solution to your unique needs.
@@ -484,10 +507,17 @@ const ServiceDetail = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-light mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
-              What We Offer
+            <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
+              OUR EXPERTISE
+            </span>
+            <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
+              What We <span className="text-[#1BE1D3]">Offer</span>
             </h2>
-            <p className="text-white/60 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px" }}>
+            <div className="flex items-center justify-center gap-2 mb-6">
+              <div className="w-16 h-1 bg-[#1BE1D3] rounded-full" />
+              <div className="w-3 h-1 bg-[#1BE1D3] rounded-full" />
+            </div>
+            <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
               Comprehensive solutions tailored to your business needs
             </p>
           </motion.div>
@@ -503,7 +533,7 @@ const ServiceDetail = () => {
                 className="flex items-start gap-4 p-6 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#1BE1D3]/30 hover:bg-[#1BE1D3]/[0.02] transition-all duration-300"
               >
                 <CheckCircle className="h-6 w-6 text-[#1BE1D3] mt-1 flex-shrink-0" />
-                <span className="text-white/80 text-base" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>
+                <span className="text-white/80 text-[15px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 500 }}>
                   {feature}
                 </span>
               </motion.div>
@@ -522,9 +552,16 @@ const ServiceDetail = () => {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-light mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
+            <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
+              WHY US
+            </span>
+            <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
               Why Choose <span className="text-[#1BE1D3]">Yurekh</span>
             </h2>
+            <div className="flex items-center justify-center gap-2">
+              <div className="w-16 h-1 bg-[#1BE1D3] rounded-full" />
+              <div className="w-3 h-1 bg-[#1BE1D3] rounded-full" />
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
@@ -545,10 +582,10 @@ const ServiceDetail = () => {
               <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30 mx-auto mb-4">
                 <item.icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
               </div>
-                <h3 className="text-white text-lg mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
+                <h3 className="text-white text-[16px] font-semibold mb-2">
                   {item.title}
                 </h3>
-                <p className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {item.desc}
                 </p>
               </motion.div>
@@ -588,49 +625,43 @@ const ServiceDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-light mb-6" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 300 }}>
-              Ready to Get Started?
+            <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
+              GET STARTED
+            </span>
+            <h2 className="text-white text-[30px] font-semibold mb-6 leading-[1.2]">
+              Ready to <span className="text-[#1BE1D3]">Get Started?</span>
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto mb-8" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", lineHeight: "1.7" }}>
+            <p className="text-white/70 max-w-2xl mx-auto mb-10" style={{ fontFamily: "Poppins, sans-serif", fontSize: "15px", lineHeight: "1.7" }}>
               Let's discuss how our {service.name.toLowerCase()} can transform your business.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
               <button
                 onClick={() => navigate("/bookingform")}
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-all duration-300 hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto sm:min-w-[240px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(13px, 2vw, 15px)",
-                  padding: "0 24px",
-                  height: "44px",
-                  borderRadius: "10px",
+                  fontSize: "15px",
                   backgroundColor: "#1BE1D3",
-                  color: "#000",
-                  border: "none",
-                  boxShadow: "0 0 30px rgba(27,225,211,0.15)",
                 }}
               >
-                Get a Quote <ArrowRight className="h-4 w-4" />
+                Get a Quote <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </button>
               <a
                 href="tel:+919136242706"
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px w-full sm:w-auto sm:min-w-[240px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "clamp(13px, 2vw, 15px)",
-                  padding: "0 24px",
-                  height: "44px",
-                  borderRadius: "10px",
-                  backgroundColor: "rgba(27,225,211,0.08)",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  background: "rgba(27,225,211,0.08)",
                   color: "#1BE1D3",
-                  border: "1px solid rgba(27,225,211,0.3)",
+                  border: "1px solid rgba(27,225,211,0.25)",
                   backdropFilter: "blur(12px)",
-                  boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                <Phone className="h-4 w-4" /> Call Us
+                <Phone className="h-4 w-4 flex-shrink-0" /> Call Us
               </a>
             </div>
           </motion.div>

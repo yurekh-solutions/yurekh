@@ -73,7 +73,7 @@ const Services = () => {
       />
       {/* Hero Section */}
       <section className="relative pt-32 md:pt-40 pb-20 md:pb-28 overflow-hidden">
-        <div className="px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="mx-auto max-w-3xl text-center">
               <motion.div
@@ -81,13 +81,14 @@ const Services = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <p className="text-[#1BE1D3] font-medium text-[12px] tracking-[0.3em] uppercase mb-4">
-                  Services
-                </p>
-                <h1 className="text-white text-[32px] md:text-[48px] font-light leading-[1.2] mb-6">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+                  <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+                  <span className="text-[#1BE1D3] text-sm font-medium">Services</span>
+                </div>
+                <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold leading-[1.2] mb-6">
                   Deep Technical Expertise, Supporting Modern Systems
                 </h1>
-                <p className="text-[14px] font-light text-white/70 max-w-2xl mx-auto leading-[1.7]">
+                <p className="text-white/70 text-[15px] max-w-2xl mx-auto leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                   Explore our comprehensive range of technology services designed to transform your business. From AI and machine learning to cloud infrastructure and cybersecurity, we deliver solutions that drive real results.
                 </p>
               </motion.div>
@@ -98,7 +99,7 @@ const Services = () => {
 
       {/* Services Grid */}
       <section className="py-10">
-        <div className="px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
               {services.map((service, idx) => (
@@ -121,12 +122,12 @@ const Services = () => {
                         <service.icon className="h-5 w-5 text-[#1BE1D3]" strokeWidth={1.6} />
                       </span>
                       {/* Title */}
-                      <h3 className="text-[20px] font-light">
+                      <h3 className="text-[16px] font-semibold">
                         {service.title}
                       </h3>
                     </div>
                     {/* Description */}
-                    <p className="text-[14px] font-light leading-6 text-white/70">
+                    <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                       {service.description}
                     </p>
                   </div>
@@ -139,7 +140,7 @@ const Services = () => {
 
       {/* CTA Section */}
       <section className="py-20">
-        <div className="px-8">
+        <div className="px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -148,21 +149,22 @@ const Services = () => {
               transition={{ duration: 0.8 }}
               className="text-center"
             >
-              <h2 className="text-white text-[32px] font-light mb-4 leading-[1.2]">
+              <h2 className="text-white text-[30px] font-semibold mb-6 leading-[1.2]">
                 Ready to Transform Your Business?
               </h2>
-              <p className="text-[14px] font-light text-white/70 max-w-2xl mx-auto mb-8 leading-[1.7]">
+              <p className="text-white/70 text-[15px] max-w-2xl mx-auto mb-10 leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Let's discuss how our services can help you achieve your goals.
               </p>
               <Link
                 to="/bookingform"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-[14px] font-medium text-[#1BE1D3] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.3)]"
-                                style={{
-                                  backgroundColor: "rgba(27,225,211,0.1)",
-                                  border: "2px solid rgba(27,225,211,0.5)",
-                                }}
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto max-w-md sm:max-w-none"
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontSize: "15px",
+                  backgroundColor: "#1BE1D3",
+                }}
               >
-                Start Your Project <ArrowRight className="h-4 w-4" />
+                Start Your Project <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </Link>
             </motion.div>
           </div>

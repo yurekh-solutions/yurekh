@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
-import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, CheckCircle, Globe, Building2, Users } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, CheckCircle, Globe, Building2, Users, Sparkles } from "lucide-react";
 
 const ContactPage = () => {
   useEffect(() => {
@@ -21,7 +21,7 @@ const ContactPage = () => {
 
       {/* Hero Section */}
       <section
-        className="relative py-12 sm:py-16 md:py-20 overflow-hidden"
+        className="relative pt-28 sm:pt-32 md:pt-36 pb-12 sm:pb-16 md:pb-20 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
       >
         {/* Teal gradient glow */}
@@ -34,14 +34,17 @@ const ContactPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+              <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+              <span className="text-[#1BE1D3] text-sm font-medium">Contact Us</span>
+            </div>
             <h1
-              className="text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-semibold text-white leading-[1.1] mb-4 sm:mb-6"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+              className="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold text-white leading-[1.2] mb-4 sm:mb-6"
             >
               Get in Touch
             </h1>
             <p
-              className="text-white/60 text-[14px] sm:text-[16px] md:text-[18px] max-w-2xl mx-auto leading-[1.6]"
+              className="text-white/70 text-[15px] max-w-2xl mx-auto leading-[1.7]"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
             >
               Ready to transform your business? Let's discuss how we can help you achieve your goals.
@@ -67,13 +70,12 @@ const ContactPage = () => {
             className="text-center mb-10 sm:mb-12"
           >
             <h2
-              className="text-[28px] sm:text-[32px] md:text-[40px] font-semibold text-white leading-[1.1] mb-4"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+              className="text-[30px] font-semibold text-white leading-[1.2] mb-4"
             >
               Multiple Ways to Reach Us
             </h2>
             <p
-              className="text-white/60 text-[14px] sm:text-[16px] max-w-2xl mx-auto"
+              className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
             >
               Choose the contact method that works best for you
@@ -94,13 +96,13 @@ const ContactPage = () => {
               <div className="w-14 h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Phone className="w-7 h-7 text-[#1BE1D3]" />
               </div>
-              <h3 className="text-white text-lg font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <h3 className="text-white text-[16px] font-semibold mb-2">
                 Call Us
               </h3>
-              <p className="text-white/60 text-sm mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/60 text-[13px] mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Direct line to our team
               </p>
-              <p className="text-[#1BE1D3] font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 +91 91362 42706
               </p>
             </motion.a>
@@ -120,13 +122,13 @@ const ContactPage = () => {
               <div className="w-14 h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <MessageCircle className="w-7 h-7 text-[#1BE1D3]" />
               </div>
-              <h3 className="text-white text-lg font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <h3 className="text-white text-[16px] font-semibold mb-2">
                 WhatsApp
               </h3>
-              <p className="text-white/60 text-sm mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/60 text-[13px] mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Quick chat with us
               </p>
-              <p className="text-[#1BE1D3] font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Message Now
               </p>
             </motion.a>
@@ -144,13 +146,13 @@ const ContactPage = () => {
               <div className="w-14 h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Mail className="w-7 h-7 text-[#1BE1D3]" />
               </div>
-              <h3 className="text-white text-lg font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <h3 className="text-white text-[16px] font-semibold mb-2">
                 Email Us
               </h3>
-              <p className="text-white/60 text-sm mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/60 text-[13px] mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
                 We respond within 12 hours
               </p>
-              <p className="text-[#1BE1D3] font-semibold text-sm break-all" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[13px] break-all" style={{ fontFamily: "Poppins, sans-serif" }}>
                 yurekhsolutions@gmail.com
               </p>
             </motion.a>
@@ -168,13 +170,13 @@ const ContactPage = () => {
               <div className="w-14 h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                 <Calendar className="w-7 h-7 text-[#1BE1D3]" />
               </div>
-              <h3 className="text-white text-lg font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <h3 className="text-white text-[16px] font-semibold mb-2">
                 Book a Call
               </h3>
-              <p className="text-white/60 text-sm mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/60 text-[13px] mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
                 30-minute strategy session
               </p>
-              <p className="text-[#1BE1D3] font-semibold" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Schedule Now
               </p>
             </motion.a>
@@ -198,13 +200,12 @@ const ContactPage = () => {
             className="text-center mb-10 sm:mb-12"
           >
             <h2
-              className="text-[28px] sm:text-[32px] md:text-[40px] font-semibold text-white leading-[1.1] mb-4"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+              className="text-[30px] font-semibold text-white leading-[1.2] mb-4"
             >
               Why Work With Yurekh?
             </h2>
             <p
-              className="text-white/60 text-[14px] sm:text-[16px] max-w-2xl mx-auto"
+              className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
             >
               We're not just consultants — we're your growth partners
@@ -256,10 +257,10 @@ const ContactPage = () => {
                 <div className="w-12 h-12 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4">
                   <item.icon className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
-                <h3 className="text-white text-lg font-semibold mb-3" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                <h3 className="text-white text-[16px] font-semibold mb-3">
                   {item.title}
                 </h3>
-                <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {item.description}
                 </p>
               </motion.div>
@@ -283,8 +284,7 @@ const ContactPage = () => {
               transition={{ duration: 0.8 }}
             >
               <h2
-                className="text-[24px] sm:text-[28px] md:text-[32px] font-semibold text-white leading-[1.1] mb-6"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+                className="text-[24px] font-semibold text-white leading-[1.2] mb-6"
               >
                 Office Hours
               </h2>
@@ -300,10 +300,10 @@ const ContactPage = () => {
                     style={{ background: "linear-gradient(135deg, rgba(10,26,26,0.6) 0%, rgba(5,15,15,0.8) 100%)" }}
                   >
                     <div>
-                      <p className="text-white font-semibold mb-1" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                      <p className="text-white text-[15px] font-semibold mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>
                         {item.day}
                       </p>
-                      <p className="text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      <p className="text-white/60 text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                         {item.time}
                       </p>
                     </div>
@@ -333,8 +333,7 @@ const ContactPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h2
-                className="text-[24px] sm:text-[28px] md:text-[32px] font-semibold text-white leading-[1.1] mb-6"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}
+                className="text-[24px] font-semibold text-white leading-[1.2] mb-6"
               >
                 Our Location
               </h2>
@@ -347,10 +346,10 @@ const ContactPage = () => {
                     <MapPin className="w-6 h-6 text-[#1BE1D3]" />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                    <h3 className="text-white text-[16px] font-semibold mb-2">
                       Mumbai, India
                     </h3>
-                    <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                       Serving clients globally with remote and on-site consulting options available
                     </p>
                   </div>

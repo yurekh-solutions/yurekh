@@ -262,7 +262,11 @@ const Contact = () => {
                 {/* Privacy */}
                 <p className="text-white/40 text-[11px] sm:text-[12px]">
                   By submitting this form, you agree to our{" "}
-                  <a href="#" className="text-[#1BE1D3] underline hover:no-underline">
+                  <a
+                    href="/privacy"
+                    className="text-[#1BE1D3] underline hover:no-underline"
+                    onClick={(e) => { e.preventDefault(); navigate("/privacy"); }}
+                  >
                     Privacy Policy
                   </a>.
                 </p>

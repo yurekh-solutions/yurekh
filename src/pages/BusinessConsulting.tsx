@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Zap, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone } from "lucide-react";
+import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Zap, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone, Sparkles, Phone } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 
 const BusinessConsulting = () => {
@@ -33,41 +33,49 @@ const BusinessConsulting = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-6">
-                Global Business Consulting
-              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+                <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+                <span className="text-[#1BE1D3] text-sm font-medium">Global Business Consulting</span>
+              </div>
               <h1
-                className="text-white text-4xl sm:text-5xl lg:text-7xl font-normal mb-6 tracking-normal"
+                className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold mb-6 leading-[1.2]"
               >
                 We Build Businesses.
               </h1>
               <p
-                className="text-white/80 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto mb-8 leading-relaxed"
+                className="text-white/70 text-[15px] max-w-3xl mx-auto mb-8 leading-[1.7]"
+                style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 From concept to global launch. Yurekh Solutions is your end-to-end business building partner—strategy, legal, technology, digital presence, and go-to-market as one integrated system. We help founders and enterprises start, scale, and dominate markets worldwide.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
                 <Link
                   to="/bookingform"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto sm:min-w-[280px]"
                   style={{
                     fontSize: "15px",
                     backgroundColor: "#1BE1D3",
                   }}
                 >
-                  Start Your Business Journey <ArrowRight className="h-4 w-4" />
+                  Start Your Business Journey <ArrowRight className="h-4 w-4 flex-shrink-0" />
                 </Link>
-                <a
-                  href="tel:+919136242706"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
+                <Link
+                  to="/bookingform"
+                  className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px w-full sm:w-auto sm:min-w-[280px]"
                   style={{
+                    fontFamily: "Poppins, sans-serif",
+                    fontWeight: 600,
                     fontSize: "15px",
-                    backgroundColor: "rgba(255,255,255,0.05)",
-                    border: "2px solid rgba(255,255,255,0.2)",
+                    background: "rgba(27,225,211,0.08)",
+                    color: "#1BE1D3",
+                    border: "1px solid rgba(27,225,211,0.25)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                   }}
                 >
-                  Schedule  Consultation
-                </a>
+                  <Phone className="h-4 w-4 flex-shrink-0" /> Schedule Consultation
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -81,7 +89,7 @@ const BusinessConsulting = () => {
             <p className="text-white/60 text-sm tracking-widest uppercase">
               Serving Clients Across
             </p>
-            <p className="text-[#1BE1D3] text-2xl sm:text-3xl font-normal mt-3">
+            <p className="text-[#1BE1D3] text-xl sm:text-2xl font-normal mt-3">
               IND ⋅ DXB  NYC ⋅ SGP ⋅ LDN ⋅ SYD
             </p>
           </div>
@@ -103,14 +111,13 @@ const BusinessConsulting = () => {
                 For Founders
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 Start Your Business From Scratch.
               </h2>
               <p
-                className="text-white/70 text-base sm:text-lg max-w-3xl leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                className="text-white/70 text-[15px] max-w-3xl leading-[1.7]"
+                style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 You have a vision and a market opportunity. We become your founding team—handling everything from company registration and legal compliance to brand identity, technology infrastructure, and market launch. One partner, complete execution.
               </p>
@@ -161,13 +168,13 @@ const BusinessConsulting = () => {
                     {service.icon}
                   </div>
                   <h3
-                    className="text-white text-xl font-normal mb-3"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
+                    className="text-white text-[16px] font-semibold mb-3"
                   >
                     {service.title}
                   </h3>
                   <p
-                    className="text-white/60 text-sm leading-relaxed"
+                    className="text-white/60 text-[13px] leading-[1.7]"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     {service.description}
                   </p>
@@ -193,14 +200,13 @@ const BusinessConsulting = () => {
                 For Existing Businesses
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 Scale & Expand Globally.
               </h2>
               <p
-                className="text-white/70 text-base sm:text-lg max-w-3xl leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                className="text-white/70 text-[15px] max-w-3xl leading-[1.7]"
+                style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 Your business is ready for the next level. We help established companies transform their brand, enter new markets, launch new products, and build technology infrastructure for global scale.
               </p>
@@ -238,20 +244,19 @@ const BusinessConsulting = () => {
                   className="p-8 md:p-10 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/50 transition-all duration-300"
                 >
                   <h3
-                    className="text-white text-2xl font-normal mb-4"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
+                    className="text-white text-[18px] font-semibold mb-4"
                   >
                     {service.title}
                   </h3>
                   <p
-                    className="text-white/70 text-sm leading-relaxed mb-6"
-                    style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                    className="text-white/70 text-[13px] leading-[1.7] mb-6"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     {service.description}
                   </p>
                   <ul className="space-y-2">
                     {service.features.map((feature, fidx) => (
-                      <li key={fidx} className="flex items-start gap-2 text-white/60 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      <li key={fidx} className="flex items-start gap-2 text-white/60 text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                         <CheckCircle className="w-4 h-4 text-[#1BE1D3] flex-shrink-0 mt-0.5" />
                         {feature}
                       </li>
@@ -279,14 +284,13 @@ const BusinessConsulting = () => {
                 Technology Solutions
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 Build Your Digital Infrastructure.
               </h2>
               <p
-                className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                className="text-white/70 text-[15px] max-w-3xl mx-auto leading-[1.7]"
+                style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 From SaaS platforms to AI-powered chatbots, we build the technology that powers your business. Custom solutions designed for scale, security, and performance.
               </p>
@@ -341,14 +345,13 @@ const BusinessConsulting = () => {
                 >
                   <div className="text-[#1BE1D3] mb-5">{solution.icon}</div>
                   <h3
-                    className="text-white text-xl font-normal mb-3"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
+                    className="text-white text-[16px] font-semibold mb-3"
                   >
                     {solution.title}
                   </h3>
                   <p
-                    className="text-white/60 text-sm leading-relaxed mb-5"
-                    style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                    className="text-white/60 text-[13px] leading-[1.7] mb-5"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     {solution.description}
                   </p>
@@ -396,14 +399,13 @@ const BusinessConsulting = () => {
                 Why Yurekh Solutions
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 One Partner. Complete Execution.
               </h2>
               <p
-                className="text-white/70 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                className="text-white/70 text-[15px] max-w-3xl mx-auto leading-[1.7]"
+                style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 Instead of managing multiple vendors for legal, technology, branding, and marketing, work with one integrated team that understands your business holistically and executes with precision.
               </p>
@@ -445,13 +447,13 @@ const BusinessConsulting = () => {
                   className="text-center p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
                   <div className="text-[#1BE1D3] mb-4 flex justify-center">{item.icon}</div>
-                  <p className="text-[#1BE1D3] text-2xl font-normal mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <p className="text-[#1BE1D3] text-[22px] font-semibold mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
                     {item.stat}
                   </p>
-                  <h3 className="text-white text-lg font-normal mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <h3 className="text-white text-[16px] font-semibold mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
+                  <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {item.description}
                   </p>
                 </motion.div>
@@ -476,8 +478,7 @@ const BusinessConsulting = () => {
                 Industries
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 We Build Businesses Across Sectors.
               </h2>
@@ -504,7 +505,7 @@ const BusinessConsulting = () => {
                   transition={{ duration: 0.5, delay: idx * 0.05 }}
                   className="p-6 rounded-xl border border-white/10 hover:border-[#1BE1D3]/50 transition-all duration-300 text-center hover:bg-white/5"
                 >
-                  <p className="text-white text-sm font-medium" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <p className="text-white text-[13px] font-medium" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {industry}
                   </p>
                 </motion.div>
@@ -529,8 +530,7 @@ const BusinessConsulting = () => {
                 Our Process
               </p>
               <h2
-                className="text-white text-3xl sm:text-4xl lg:text-5xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
               >
                 From Vision to Reality.
               </h2>
@@ -567,13 +567,13 @@ const BusinessConsulting = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="relative"
                 >
-                  <div className="text-[#1BE1D3] text-5xl font-normal mb-4 opacity-30" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <div className="text-[#1BE1D3] text-[36px] font-semibold mb-4 opacity-30" style={{ fontFamily: "Montserrat, sans-serif" }}>
                     {phase.step}
                   </div>
-                  <h3 className="text-white text-xl font-normal mb-3" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>
+                  <h3 className="text-white text-[16px] font-semibold mb-3">
                     {phase.title}
                   </h3>
-                  <p className="text-white/60 text-sm leading-relaxed" style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}>
+                  <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {phase.description}
                   </p>
                 </motion.div>
@@ -593,40 +593,44 @@ const BusinessConsulting = () => {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-normal mb-6 tracking-normal"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.25" }}
+              className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
             >
               Ready to Build Your Business?
             </h2>
             <p
-              className="text-white/70 max-w-2xl mx-auto mb-10 text-base sm:text-lg"
-              style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+              className="text-white/70 max-w-2xl mx-auto mb-10 text-[15px] leading-[1.7]"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Whether you're starting from scratch or scaling globally, we're here to make it happen. Let's discuss your vision and create a roadmap to success.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
               <Link
                 to="/bookingform"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto sm:min-w-[260px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontSize: "16px",
+                  fontSize: "15px",
                   backgroundColor: "#1BE1D3",
                 }}
               >
-                Book  Consultation <ArrowRight className="h-5 w-5" />
+                Book Consultation <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </Link>
               <a
                 href="tel:+919136242706"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px w-full sm:w-auto sm:min-w-[260px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontSize: "16px",
-                  backgroundColor: "rgba(255,255,255,0.05)",
-                  border: "2px solid rgba(255,255,255,0.2)",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  background: "rgba(27,225,211,0.08)",
+                  color: "#1BE1D3",
+                  border: "1px solid rgba(27,225,211,0.25)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                Call +91 91362 42706
+                <Phone className="h-4 w-4 flex-shrink-0" /> Call +91 91362 42706
               </a>
             </div>
           </motion.div>

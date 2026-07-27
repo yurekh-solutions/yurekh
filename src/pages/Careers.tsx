@@ -88,15 +88,15 @@ const Careers = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+          <div className=" mt-10 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
             <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
             <span className="text-[#1BE1D3] text-sm font-medium">Join Our Team</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-normal text-white mb-6" style={{ fontFamily: "Montserrat, sans-serif" }}>
+        <h1 className="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold text-white mb-6 leading-[1.2]">
             Build Your Career with{" "}
             <span className="text-[#1BE1D3]">Yurekh Solutions</span>
-          </h1>
-          <p className="text-lg text-gray-300 leading-relaxed" style={{ fontFamily: "Poppins, sans-serif" }}>
+          </h1>  
+          <p className="text-white/70 text-[15px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
             We're always looking for talented individuals who are passionate about technology and innovation. 
             Join our team and help shape the future of digital transformation.
           </p>
@@ -111,10 +111,10 @@ const Careers = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-[30px] font-semibold text-white mb-4 leading-[1.2]">
             Why Work With Us?
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
             We offer more than just a job — we offer a career growth opportunity
           </p>
         </motion.div>
@@ -129,7 +129,7 @@ const Careers = () => {
               className="flex items-center gap-3 p-4 rounded-xl border border-[#1BE1D3]/20 bg-gradient-to-br from-[#1BE1D3]/5 to-transparent"
             >
               <CheckCircle className="w-5 h-5 text-[#1BE1D3] flex-shrink-0" />
-              <span className="text-gray-300 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <span className="text-white/70 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 {benefit}
               </span>
             </motion.div>
@@ -145,10 +145,10 @@ const Careers = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-[30px] font-semibold text-white mb-4 leading-[1.2]">
             Open Positions
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
             Explore current opportunities and find your perfect role
           </p>
         </motion.div>
@@ -164,10 +164,10 @@ const Careers = () => {
             >
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                 <div>
-                  <h3 className="text-xl md:text-2xl font-normal text-white mb-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                  <h3 className="text-[18px] font-semibold text-white mb-2">
                     {job.title}
                   </h3>
-                  <div className="flex flex-wrap gap-3 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <div className="flex flex-wrap gap-3 text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     <span className="flex items-center gap-1 text-[#1BE1D3]">
                       <MapPin className="w-4 h-4" />
                       {job.location}
@@ -187,19 +187,19 @@ const Careers = () => {
                 </span>
               </div>
 
-              <p className="text-gray-300 mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/70 text-[15px] leading-[1.7] mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
                 {job.description}
               </p>
 
               <div className="mb-6">
-                <h4 className="text-sm font-normal text-white mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <h4 className="text-[13px] font-semibold text-white mb-2" style={{ fontFamily: "Poppins, sans-serif" }}>
                   Requirements:
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {job.requirements.map((req, reqIdx) => (
                     <span
                       key={reqIdx}
-                      className="px-3 py-1 rounded-full border border-[#1BE1D3]/20 text-gray-300 text-xs"
+                      className="px-3 py-1 rounded-full border border-[#1BE1D3]/20 text-white/60 text-xs"
                       style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       {req}
@@ -210,7 +210,7 @@ const Careers = () => {
 
               <a
                 href="mailto:yurekhsolutions@gmail.com?subject=Application for {job.title}"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#1BE1D3] text-black font-normal hover:bg-[#1BE1D3]/90 transition-colors text-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#1BE1D3] text-black font-semibold hover:bg-[#1BE1D3]/90 transition-colors text-sm"
                 style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 Apply Now
@@ -229,15 +229,15 @@ const Careers = () => {
           transition={{ duration: 0.6 }}
           className="text-center p-12 rounded-3xl border border-[#1BE1D3]/30 bg-gradient-to-br from-[#1BE1D3]/10 to-transparent"
         >
-          <h2 className="text-3xl md:text-4xl font-normal text-white mb-4" style={{ fontFamily: "Montserrat, sans-serif" }}>
+          <h2 className="text-[30px] font-semibold text-white mb-4 leading-[1.2]">
             Don't See Your Role?
           </h2>
-          <p className="text-gray-300 mb-8 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
+          <p className="text-white/70 text-[15px] leading-[1.7] mb-8 max-w-2xl mx-auto" style={{ fontFamily: "Poppins, sans-serif" }}>
             We're always interested in hearing from talented individuals. Send us your resume and let us know how you can contribute to our team.
           </p>
           <a
             href="mailto:yurekhsolutions@gmail.com?subject=Career Opportunity"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#1BE1D3] text-black font-normal hover:bg-[#1BE1D3]/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-[#1BE1D3] text-black font-semibold text-sm sm:text-base hover:bg-[#1BE1D3]/90 transition-colors"
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Send Your Resume

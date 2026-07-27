@@ -26,7 +26,8 @@ const SEOHead = ({
   breadcrumbs,
   noindex = false,
 }: SEOHeadProps) => {
-  const fullTitle = `${title} | Yurekh Solutions`;
+    // Append brand once — never duplicate "Yurekh Solutions" if the title already contains it
+    const fullTitle = title.includes("Yurekh Solutions") ? title : `${title} | Yurekh Solutions`;
   const url = canonical || "https://yurekh.com";
 
   // Generate breadcrumb schema

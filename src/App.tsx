@@ -30,6 +30,7 @@ const pageImporters = {
   BusinessConsulting: () => import("./pages/BusinessConsulting"),
   Impact: () => import("./pages/Impact"),
   FAQ: () => import("./pages/FAQ"),
+  Contact: () => import("./pages/Contact"),
   BusinessLaunchIndia: () => import("./pages/BusinessLaunchIndia"),
 };
 
@@ -50,6 +51,7 @@ const TermsAndConditions = lazy(pageImporters.TermsAndConditions);
 const BusinessConsulting = lazy(pageImporters.BusinessConsulting);
 const Impact = lazy(pageImporters.Impact);
 const FAQ = lazy(pageImporters.FAQ);
+const ContactPage = lazy(pageImporters.Contact);
 const BusinessLaunchIndia = lazy(pageImporters.BusinessLaunchIndia);
 
 // Prefetch all page chunks during browser idle time so navigation is instant
@@ -225,6 +227,14 @@ const App = () => (
             element={
               <AppLayout>
                 <FAQ />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <AppLayout>
+                <ContactPage />
               </AppLayout>
             }
           />

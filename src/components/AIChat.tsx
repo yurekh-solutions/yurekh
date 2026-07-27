@@ -15,19 +15,9 @@ const AIChat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Auto-open chat after 5 seconds
-  useEffect(() => {
-    if (!hasAutoOpened) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        setHasAutoOpened(true);
-      }, 5000);
-      return () => clearTimeout(timer);
-    }
-  }, [hasAutoOpened]);
+  // Chat opens only when the user clicks the bubble — no auto-open popup
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });

@@ -32,6 +32,7 @@ import {
   Briefcase,
   Rocket,
   CheckSquare,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
@@ -84,6 +85,82 @@ const IndustryDetail = () => {
           { name: "Industries", url: "https://yurekh.com/industries" },
           { name: industry.name, url: `https://yurekh.com/industries/${industry.slug}` },
         ]}
+        schema={JSON.stringify([
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: `${industry.name} Industry Solutions`,
+            description: industry.description,
+            provider: {
+              "@type": "Organization",
+              name: "Yurekh Solutions",
+              url: "https://yurekh.com",
+              telephone: "+91-9136242706",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "IN",
+              },
+            },
+            areaServed: [
+              { "@type": "Country", name: "India" },
+              { "@type": "Country", name: "United Arab Emirates" },
+              { "@type": "Country", name: "United States" },
+              { "@type": "Country", name: "United Kingdom" },
+              { "@type": "Country", name: "Singapore" },
+              { "@type": "Country", name: "Australia" },
+            ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: `${industry.name} Capabilities`,
+              itemListElement: industry.capabilities.map((c) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: c.title,
+                  description: c.description,
+                },
+              })),
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: `What challenges do ${industry.name.toLowerCase()} businesses face with technology?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: industry.challenges.map((c) => `${c.title}: ${c.description}`).join(" "),
+                },
+              },
+              {
+                "@type": "Question",
+                name: `What ${industry.name.toLowerCase()} industry solutions does Yurekh Solutions provide?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: industry.solutions.map((s) => `${s.title}: ${s.description}`).join(" "),
+                },
+              },
+              {
+                "@type": "Question",
+                name: `What results can ${industry.name.toLowerCase()} businesses expect from Yurekh Solutions?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: industry.outcomes.map((o) => `${o.title}: ${o.description}`).join(" "),
+                },
+              },
+              {
+                "@type": "Question",
+                name: `Which countries does Yurekh Solutions serve for the ${industry.name.toLowerCase()} industry?`,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: "We provide services across India, UAE, USA, UK, Singapore, and Australia with local market expertise in each region.",
+                },
+              },
+            ],
+          },
+        ])}
       />
       {/* Hero Banner */}
       <section className="relative h-[400px] sm:h-[500px] overflow-hidden">
@@ -95,11 +172,20 @@ const IndustryDetail = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/80" />
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
-          <motion.h1
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white text-4xl sm:text-5xl md:text-6xl font-light mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/10 backdrop-blur-sm mb-6"
+          >
+            <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+            <span className="text-[#1BE1D3] text-sm font-medium">Industries</span>
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold mb-4 leading-[1.2]"
           >
             {industry.name}
           </motion.h1>
@@ -107,7 +193,8 @@ const IndustryDetail = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-white/80 text-lg sm:text-xl max-w-3xl mb-6"
+            className="text-white/80 text-[15px] leading-[1.7] max-w-3xl mb-6"
+            style={{ fontFamily: "Poppins, sans-serif" }}
           >
             {industry.tagline}
           </motion.p>
@@ -136,17 +223,17 @@ const IndustryDetail = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
                 OVERVIEW
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-6">
+              <h2 className="text-white text-[30px] font-semibold mb-6 leading-[1.2]">
                 About {industry.name} Industry
               </h2>
               <div className="flex items-center gap-2 mb-8">
                 <div className="w-16 h-1 bg-[#1BE1D3] rounded-full" />
                 <div className="w-3 h-1 bg-[#1BE1D3] rounded-full" />
               </div>
-              <p className="text-white/70 leading-relaxed text-lg">
+              <p className="text-white/70 text-[15px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 {industry.description}
               </p>
             </motion.div>
@@ -170,10 +257,10 @@ const IndustryDetail = () => {
                   <AlertTriangle className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
                 CHALLENGES
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+              <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
                 Key Challenges
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -199,10 +286,10 @@ const IndustryDetail = () => {
                         <ChallengeIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2.5} />
                       </div>
                     </div>
-                    <h3 className="text-white text-lg sm:text-xl font-light text-center mb-3">
+                    <h3 className="text-white text-[16px] font-semibold text-center mb-3">
                       {challenge.title}
                     </h3>
-                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base">
+                    <p className="text-white/60 text-[13px] leading-[1.7] text-center" style={{ fontFamily: "Poppins, sans-serif" }}>
                       {challenge.description}
                     </p>
                   </motion.div>
@@ -229,10 +316,10 @@ const IndustryDetail = () => {
                   <Lightbulb className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
                 SOLUTIONS
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+              <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
                 Our Solution Approach
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -258,10 +345,10 @@ const IndustryDetail = () => {
                         <SolutionIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2.5} />
                       </div>
                     </div>
-                    <h3 className="text-white text-lg sm:text-xl font-light text-center mb-3">
+                    <h3 className="text-white text-[16px] font-semibold text-center mb-3">
                       {solution.title}
                     </h3>
-                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base">
+                    <p className="text-white/60 text-[13px] leading-[1.7] text-center" style={{ fontFamily: "Poppins, sans-serif" }}>
                       {solution.description}
                     </p>
                   </motion.div>
@@ -288,10 +375,10 @@ const IndustryDetail = () => {
                   <Settings className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
                 CAPABILITIES
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+              <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
                 Platform Capabilities
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -318,10 +405,10 @@ const IndustryDetail = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-white text-base font-light mb-2">
+                      <h3 className="text-white text-[16px] font-semibold mb-2">
                         {capability.title}
                       </h3>
-                      <p className="text-white/70 text-sm leading-relaxed">
+                      <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                         {capability.description}
                       </p>
                     </div>
@@ -349,10 +436,10 @@ const IndustryDetail = () => {
                   <TrendingUp className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
                 OUTCOMES
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+              <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
                 Business Outcomes
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -378,10 +465,10 @@ const IndustryDetail = () => {
                         <OutcomeIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2.5} />
                       </div>
                     </div>
-                    <h3 className="text-white text-lg sm:text-xl font-light text-center mb-3">
+                    <h3 className="text-white text-[16px] font-semibold text-center mb-3">
                       {outcome.title}
                     </h3>
-                    <p className="text-white/80 text-center leading-relaxed text-sm sm:text-base">
+                    <p className="text-white/60 text-[13px] leading-[1.7] text-center" style={{ fontFamily: "Poppins, sans-serif" }}>
                       {outcome.description}
                     </p>
                   </motion.div>
@@ -408,10 +495,10 @@ const IndustryDetail = () => {
                   <Activity className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
                 INSIGHTS
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+              <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
                 Industry Insights & Trends
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -458,10 +545,10 @@ const IndustryDetail = () => {
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-white text-lg font-light mb-2">
+                      <h3 className="text-white text-[16px] font-semibold mb-2">
                         {insight.title}
                       </h3>
-                      <p className="text-white/70 text-sm sm:text-base leading-relaxed">
+                      <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                         {insight.description}
                       </p>
                     </div>
@@ -489,10 +576,10 @@ const IndustryDetail = () => {
                   <Award className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
                 WHY CHOOSE US
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+              <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
                 Why Choose Yurekh for {industry.name}
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -517,10 +604,10 @@ const IndustryDetail = () => {
                   className="text-center p-6 rounded-xl border border-white/10 bg-white/[0.02] hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
                   <item.icon className="h-10 w-10 text-[#1BE1D3] mx-auto mb-4" />
-                  <h3 className="text-white text-lg mb-2">
+                  <h3 className="text-white text-[16px] font-semibold mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-white/60 text-sm">
+                  <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {item.desc}
                   </p>
                 </motion.div>
@@ -546,10 +633,10 @@ const IndustryDetail = () => {
                   <CheckSquare className="w-6 h-6 text-[#1BE1D3]" />
                 </div>
               </div>
-              <span className="text-[#1BE1D3] uppercase tracking-[0.25em] text-xs font-medium mb-3 block">
+              <span className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-3 block">
                 FAQ
               </span>
-              <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+              <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
                 Frequently Asked Questions
               </h2>
               <div className="flex items-center justify-center gap-2">
@@ -585,10 +672,10 @@ const IndustryDetail = () => {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="bg-[#0d2828]/50 border border-white/10 rounded-xl p-6 hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
-                  <h3 className="text-[#1BE1D3] text-lg font-light mb-3">
+                  <h3 className="text-[#1BE1D3] text-[16px] font-semibold mb-3">
                     {faq.q}
                   </h3>
-                  <p className="text-white/70 leading-relaxed">
+                  <p className="text-white/70 text-[15px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                     {faq.a}
                   </p>
                 </motion.div>
@@ -628,49 +715,40 @@ const IndustryDetail = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-white text-3xl sm:text-4xl font-light mb-4">
+            <h2 className="text-white text-[30px] font-semibold mb-4 leading-[1.2]">
               {industry.ctaTitle}
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto mb-8">
+            <p className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto mb-10" style={{ fontFamily: "Poppins, sans-serif" }}>
               {industry.ctaDescription}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
               <button
                 onClick={() => navigate("/bookingform")}
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-all duration-300 hover:bg-[#1BE1D3]/90 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto sm:min-w-[240px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontWeight: 600,
-                  fontSize: "clamp(13px, 2vw, 15px)",
-                  padding: "0 24px",
-                  height: "44px",
-                  borderRadius: "10px",
+                  fontSize: "15px",
                   backgroundColor: "#1BE1D3",
-                  color: "#000",
-                  border: "none",
-                  boxShadow: "0 0 30px rgba(27,225,211,0.15)",
                 }}
               >
-                Consult Our Experts <ArrowRight className="h-4 w-4" />
+                Consult Our Experts <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </button>
               <a
                 href="tel:+919136242706"
-                className="inline-flex items-center justify-center gap-2 w-full sm:w-auto transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px w-full sm:w-auto sm:min-w-[240px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontWeight: 400,
-                  fontSize: "clamp(13px, 2vw, 15px)",
-                  padding: "0 24px",
-                  height: "44px",
-                  borderRadius: "10px",
-                  backgroundColor: "rgba(27,225,211,0.08)",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  background: "rgba(27,225,211,0.08)",
                   color: "#1BE1D3",
-                  border: "1px solid rgba(27,225,211,0.3)",
+                  border: "1px solid rgba(27,225,211,0.25)",
                   backdropFilter: "blur(12px)",
-                  boxShadow: "0 0 30px rgba(27,225,211,0.1), inset 0 1px 0 rgba(255,255,255,0.05)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                <Phone className="h-4 w-4" /> Call Us
+                <Phone className="h-4 w-4 flex-shrink-0" /> Call Us
               </a>
             </div>
           </motion.div>

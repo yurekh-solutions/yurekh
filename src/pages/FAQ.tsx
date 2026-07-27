@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Sparkles, Mail } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 
 const FAQ = () => {
@@ -97,18 +97,18 @@ const FAQ = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <p className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-6">
-                Frequently Asked Questions
-              </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+                <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+                <span className="text-[#1BE1D3] text-sm font-medium">Frequently Asked Questions</span>
+              </div>
               <h1
-                className="text-white text-4xl sm:text-5xl lg:text-6xl font-normal mb-6 tracking-normal"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.15" }}
+                className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold mb-6 leading-[1.2]"
               >
                 Everything You Need to Know.
               </h1>
               <p
-                className="text-white/70 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
-                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                className="text-white/70 text-[15px] max-w-2xl mx-auto leading-[1.7]"
+                style={{ fontFamily: "Poppins, sans-serif" }}
               >
                 What Yurekh Solutions is, how we work, who we work with, and how to start a conversation. Everything you need to know before reaching out.
               </p>
@@ -132,14 +132,13 @@ const FAQ = () => {
                   className="p-6 md:p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/30 transition-all duration-300"
                 >
                   <h3
-                    className="text-white text-lg md:text-xl font-normal mb-4"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
+                    className="text-white text-[16px] font-semibold mb-4"
                   >
                     {faq.question}
                   </h3>
                   <p
-                    className="text-white/70 text-sm md:text-base leading-relaxed"
-                    style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                    className="text-white/70 text-[15px] leading-[1.7]"
+                    style={{ fontFamily: "Poppins, sans-serif" }}
                   >
                     {faq.answer}
                   </p>
@@ -160,40 +159,44 @@ const FAQ = () => {
             transition={{ duration: 0.8 }}
           >
             <h2
-              className="text-white text-3xl sm:text-4xl md:text-5xl font-normal mb-6 tracking-normal"
-              style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.25" }}
+              className="text-white text-[30px] font-semibold mb-6 leading-[1.2]"
             >
               Still Have Questions?
             </h2>
             <p
-              className="text-white/70 max-w-2xl mx-auto mb-10 text-base sm:text-lg"
-              style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+              className="text-white/70 max-w-2xl mx-auto mb-10 text-[15px] leading-[1.7]"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Let's discuss your specific needs and how Yurekh Solutions can help you build, launch, and scale your business globally.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
               <Link
                 to="/bookingform"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto sm:min-w-[260px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontSize: "16px",
+                  fontSize: "15px",
                   backgroundColor: "#1BE1D3",
                 }}
               >
-                Book a Consultation <ArrowRight className="h-5 w-5" />
+                Book a Consultation <ArrowRight className="h-4 w-4 flex-shrink-0" />
               </Link>
               <a
                 href="mailto:yurekhsolutions@gmail.com"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-white transition-all duration-300 hover:bg-white/10"
+                className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px w-full sm:w-auto sm:min-w-[260px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
-                  fontSize: "16px",
-                  backgroundColor: "rgba(255,255,255,0.05)",
-                  border: "2px solid rgba(255,255,255,0.2)",
+                  fontWeight: 600,
+                  fontSize: "15px",
+                  background: "rgba(27,225,211,0.08)",
+                  color: "#1BE1D3",
+                  border: "1px solid rgba(27,225,211,0.25)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                Email Us Directly
+                <Mail className="h-4 w-4 flex-shrink-0" /> Email Us Directly
               </a>
             </div>
           </motion.div>
