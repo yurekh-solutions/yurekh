@@ -143,7 +143,7 @@ const BookingForm = () => {
             initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}
             className="lg:sticky lg:top-28 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
+            <div className=" mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
               <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
               <span className="text-[#1BE1D3] text-sm font-medium">AI-Powered Business Automation</span>
             </div>

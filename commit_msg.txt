@@ -1,1 +1,1 @@
-SEO: dedupe brand in titles, add Service+FAQ schema to industry pages, regenerate sitemap; BookingForm split-screen redesign with free consultation
+BookingForm: add top margin to hero badge
