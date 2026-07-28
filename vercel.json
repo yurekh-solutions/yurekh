@@ -3,8 +3,7 @@
     { "source": "/ainos", "destination": "https://ainos-ywu0.onrender.com/ainos" },
     { "source": "/ainos/(.*)", "destination": "https://ainos-ywu0.onrender.com/ainos/$1" },
     { "source": "/api/(.*)", "destination": "https://ainos-ywu0.onrender.com/ainos/api/$1" },
-    { "source": "/assets/(.*)", "destination": "/assets/$1" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ],
   "headers": [
     {
@@ -13,6 +12,15 @@
         {
           "key": "Cache-Control",
           "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/((?!assets/).*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, must-revalidate"
         }
       ]
     }
