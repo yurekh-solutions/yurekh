@@ -47,6 +47,7 @@ const staticRoutes = [
   { loc: "/industries", priority: "0.8", changefreq: "monthly" },
   { loc: "/launch-in-india", priority: "0.9", changefreq: "weekly", hreflang: true },
   { loc: "/business-consulting", priority: "0.9", changefreq: "weekly" },
+    { loc: "/ainos-suite", priority: "0.9", changefreq: "weekly" },
   { loc: "/case-study", priority: "0.8", changefreq: "weekly" },
   { loc: "/impact", priority: "0.8", changefreq: "monthly" },
   { loc: "/blogs", priority: "0.9", changefreq: "daily" },

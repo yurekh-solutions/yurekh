@@ -32,6 +32,7 @@ const pageImporters = {
   FAQ: () => import("./pages/FAQ"),
   Contact: () => import("./pages/Contact"),
   BusinessLaunchIndia: () => import("./pages/BusinessLaunchIndia"),
+  AinosSuite: () => import("./pages/AinosSuite"),
 };
 
 const Index = lazy(pageImporters.Index);
@@ -53,6 +54,7 @@ const Impact = lazy(pageImporters.Impact);
 const FAQ = lazy(pageImporters.FAQ);
 const ContactPage = lazy(pageImporters.Contact);
 const BusinessLaunchIndia = lazy(pageImporters.BusinessLaunchIndia);
+const AinosSuite = lazy(pageImporters.AinosSuite);
 
 // Prefetch all page chunks during browser idle time so navigation is instant
 const PrefetchPages = () => {
@@ -243,6 +245,14 @@ const App = () => (
             element={
               <AppLayout>
                 <BusinessLaunchIndia />
+              </AppLayout>
+            }
+          />
+          <Route
+            path="/ainos-suite"
+            element={
+              <AppLayout>
+                <AinosSuite />
               </AppLayout>
             }
           />
