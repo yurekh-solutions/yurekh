@@ -1,59 +1,70 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, HelpCircle, MessageCircle } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Plus, ArrowRight, MessageCircle } from "lucide-react";
 
 const faqs = [
   {
     id: 1,
-    question: "What services does Yurekh Solutions offer?",
-    answer: "We offer a comprehensive range of digital services including AI & Machine Learning, Web & App Development, Digital Marketing, SEO, Branding & Design, Cloud Solutions, Cybersecurity, and DevOps & Automation. Each service is tailored to help businesses grow and succeed in the digital landscape."
+    question: "What services does Yurekh Solutions offer for growing businesses?",
+    answer: "Yurekh Solutions is one partner for complete execution: website development, e-commerce development, custom software, mobile apps, AI chatbots and automation, SEO, digital marketing, branding and design, and the AINOS Business Suite (invoicing, CRM, HR and automation in one dashboard). Instead of managing five vendors, you get strategy, design, build and marketing delivered as one accountable system."
   },
   {
     id: 2,
-    question: "How long does it take to complete a project?",
-    answer: "Project timelines vary based on scope and complexity. A typical website takes 4-8 weeks, while complex web applications may take 3-6 months. We provide detailed timelines during our initial consultation and keep you updated throughout the development process."
+    question: "How much does a professional business website cost in India?",
+    answer: "It depends on what the website must do for your business. A conversion-focused business website is a different investment from an e-commerce store with payments and inventory, or a custom web application. After a short discovery call we give you a transparent, fixed quote in \u20B9 with clear deliverables \u2014 no hidden fees and no surprise add-ons later."
   },
   {
     id: 3,
-    question: "What is your pricing structure?",
-    answer: "We offer flexible pricing models including project-based, monthly retainers, and hourly rates. Every project starts with a free consultation where we understand your requirements and provide a transparent quote. No hidden fees, no surprises."
+    question: "How long does it take to launch a website or e-commerce store?",
+    answer: "A conversion-ready business website typically launches in 4\u20138 weeks. E-commerce stores and custom web applications take 2\u20136 months depending on features. You get a detailed timeline before we start, weekly progress updates while we build, and a launch plan so the site starts generating enquiries from day one."
   },
   {
     id: 4,
-    question: "Do you provide ongoing support after project delivery?",
-    answer: "Yes! We offer various maintenance and support packages to ensure your website or application runs smoothly. This includes bug fixes, security updates, performance optimization, and feature enhancements. We're here for the long term."
+    question: "Can you help my business get more leads and sales online?",
+    answer: "Yes \u2014 that is the outcome we are hired for. We combine buyer-intent SEO, Google rankings, conversion-focused website design, WhatsApp funnels and follow-up automation so enquiries actually turn into paying customers. Traffic without conversion is vanity; we build the full pipeline from search to sale."
   },
   {
     id: 5,
-    question: "Can you work with our existing team?",
-    answer: "Absolutely! We frequently collaborate with in-house teams, acting as an extension of your organization. Whether you need additional developers, designers, or marketing experts, we integrate seamlessly with your workflow and tools."
+    question: "Do you help foreign companies enter the Indian market?",
+    answer: "Yes. Our Launch in India service covers the full sequence: company registration and compliance, an India-first website with \u20B9 pricing and WhatsApp integration, and go-to-market execution. One partner runs entity, presence and demand in parallel \u2014 which is how clients launch in around 90 days instead of 9 months."
   },
   {
     id: 6,
-    question: "What technologies do you specialize in?",
-    answer: "We work with modern technologies including React, Next.js, Node.js, Python, AWS, Google Cloud, and more. For AI projects, we use TensorFlow, PyTorch, and OpenAI APIs. We choose the best tech stack based on your project requirements."
+    question: "What is AINOS Business Suite and who is it for?",
+    answer: "AINOS is our all-in-one business software for Indian SMEs: invoicing, CRM, HR and payroll, inventory, automations and an AI Studio behind one login. Plans start at \u20B91,999/month with no per-user charges. If your business runs on six disconnected apps and spreadsheets today, AINOS replaces the stack in one afternoon."
   },
   {
     id: 7,
-    question: "How do you ensure project quality?",
-    answer: "Quality is built into our process. We follow agile methodology with regular sprint reviews, automated testing, code reviews, and QA testing. Every project goes through multiple quality checkpoints before delivery."
+    question: "Do you provide ongoing support after project delivery?",
+    answer: "Yes. We offer maintenance and growth packages covering bug fixes, security updates, speed optimization, new features, and monthly SEO and analytics reports explained in plain language. Most clients stay with us long after launch \u2014 your website should keep improving, not quietly decay."
   },
   {
     id: 8,
-    question: "Do you sign NDAs and protect our data?",
-    answer: "Yes, we take data security seriously. We sign NDAs before any project discussion, use secure communication channels, and follow industry-standard security practices. Your intellectual property and data are always protected."
+    question: "Do you sign NDAs and keep client work confidential?",
+    answer: "Yes. We sign NDAs before any project discussion and never publish client names or data without written permission \u2014 confidentiality is a core policy, not an exception. Your intellectual property, business data and even the fact that we work together stay protected."
   },
   {
     id: 9,
-    question: "Can you help with digital marketing and SEO?",
-    answer: "Yes! Our digital marketing services include SEO optimization, social media marketing, content marketing, PPC advertising, and email marketing. We create data-driven strategies to increase your online visibility and drive qualified traffic."
+    question: "Can you work with our existing team or agency?",
+    answer: "Absolutely. We regularly act as an extension of in-house teams \u2014 adding senior developers, designers or marketing specialists where you have gaps. We integrate with your tools and workflow, and we are equally comfortable leading the engagement end-to-end or slotting into yours."
   },
   {
     id: 10,
     question: "What makes Yurekh Solutions different from other agencies?",
-    answer: "We combine technical expertise with creative excellence. Our team brings 10+ years of experience, we focus on measurable results, and we treat every client as a long-term partner. Plus, we offer competitive pricing without compromising on quality."
+    answer: "One Partner. Complete Execution. Most agencies sell you one piece and blame the other vendors when results stall. We own the whole outcome \u2014 strategy, brand, website, marketing and the software that runs your operations \u2014 with senior people on every engagement and results measured in enquiries and revenue, not just deliverables."
   },
 ];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: { "@type": "Answer", text: faq.answer },
+  })),
+};
 
 const PremiumFAQ = () => {
   const [openId, setOpenId] = useState<number | null>(1);
@@ -81,7 +92,7 @@ const PremiumFAQ = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-[13px] sm:text-[14px] font-normal text-white/70 max-w-2xl mx-auto">
-              Find answers to common questions about our services, process, and how we can help your business grow.
+              Straight answers on pricing, timelines, launching in India, and how we turn websites into revenue.
             </p>
           </motion.div>
 
@@ -148,11 +159,47 @@ const PremiumFAQ = () => {
             ))}
           </div>
 
-      
+          {/* Conversion CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mt-10 sm:mt-12 text-center"
+          >
+            <p className="text-[13px] sm:text-[14px] text-white/60 mb-5">
+              Have a question about your specific business?
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
+              <Link
+                to="/bookingform"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full text-black font-semibold text-[14px] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+                style={{ backgroundColor: "#1BE1D3" }}
+              >
+                Book a Consultation <ArrowRight className="h-4 w-4 flex-shrink-0" />
+              </Link>
+              <a
+                href="https://wa.me/919136242706"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-[14px] text-[#1BE1D3] transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)]"
+                style={{
+                  background: "rgba(27,225,211,0.08)",
+                  border: "1px solid rgba(27,225,211,0.25)",
+                }}
+              >
+                <MessageCircle className="h-4 w-4 flex-shrink-0" /> WhatsApp Us
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      
+      {/* FAQPage structured data for Google rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </section>
   );
 };

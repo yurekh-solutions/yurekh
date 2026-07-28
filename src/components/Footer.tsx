@@ -244,7 +244,7 @@ const Footer = () => {
                 </div>
                 <div>
                   <h3 className="text-lg font-normal text-[#1BE1D3]" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>YUREKH SOLUTIONS</h3>
-                  <p className="text-[#1BE1D3]/80 text-sm font-normal" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}>AI-Powered Digital Excellence</p>
+                  <p className="text-[#1BE1D3]/80 text-sm font-normal" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 300 }}>A COMPLETE BUSINESS SOLUTIONS</p>
                 </div>
               </div>
 
