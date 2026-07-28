@@ -247,6 +247,14 @@ const ServiceDetail = () => {
   const relatedServices = category.services.filter((s) => s.slug !== service.slug);
   const IconComponent = serviceIcons[service.slug] || Layers;
 
+  // Pad features to 6 cards so the 3x2 grid is always complete
+  const universalFeatures = ["Dedicated Project Manager", "Transparent Reporting & Analytics", "Ongoing Support & Optimization"];
+  const displayFeatures = [...service.features];
+  for (const uf of universalFeatures) {
+    if (displayFeatures.length >= 6) break;
+    if (!displayFeatures.includes(uf)) displayFeatures.push(uf);
+  }
+
   // Split service name: first part white, last part teal (e.g. "Decadent" + "SEO Strategies")
   const nameWords = service.name.split(" ");
   const nameSplitAt = Math.max(1, Math.floor(nameWords.length / 2));
@@ -554,7 +562,7 @@ const ServiceDetail = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-            {service.features.map((feature, idx) => (
+            {displayFeatures.map((feature, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
