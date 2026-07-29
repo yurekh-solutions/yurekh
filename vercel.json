@@ -1,8 +1,8 @@
 {
   "rewrites": [
-    { "source": "/ainos", "destination": "https://ainos-ywu0.onrender.com/ainos" },
-    { "source": "/ainos/(.*)", "destination": "https://ainos-ywu0.onrender.com/ainos/$1" },
-    { "source": "/api/(.*)", "destination": "https://ainos-ywu0.onrender.com/ainos/api/$1" },
+    { "source": "/ainos", "destination": "https://ainos-one.vercel.app/ainos" },
+    { "source": "/ainos/(.*)", "destination": "https://ainos-one.vercel.app/ainos/$1" },
+    { "source": "/api/(.*)", "destination": "https://ainos-one.vercel.app/ainos/api/$1" },
     { "source": "/((?!assets/).*)", "destination": "/index.html" }
   ],
   "headers": [

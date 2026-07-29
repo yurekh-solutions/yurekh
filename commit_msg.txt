@@ -1,1 +1,6 @@
-Brand color unification: replace cyan/blue/emerald accent drift with #1BE1D3 in homepage ProblemSection marquee and CTABanner pulse dot
+fix(proxy): route /ainos and /api through ainos-one.vercel.app instead of dead Render backend
+
+- Render free instance (ainos-ywu0.onrender.com) stopped responding, causing 502 ROUTER_EXTERNAL_TARGET_ERROR on yurekh.vercel.app/ainos
+- Point rewrites to the Vercel AINOS deployment (no cold starts, <1s response)
+- Ignore .vercel CLI folder
+- Add LinkedIn AI-stack marketing assets under public/linkedin-ai-stack
