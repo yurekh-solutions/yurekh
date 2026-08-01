@@ -130,7 +130,7 @@ const BookingForm = () => {
     { icon: Bot, title: 'Live AI Employee demo', desc: 'Watch it answer calls, chats & book appointments in real time.' },
     { icon: TrendingUp, title: 'Revenue growth plan', desc: 'A roadmap to more leads, reviews and conversions.' },
     { icon: Zap, title: 'Automation blueprint', desc: 'Which tasks to automate first for maximum ROI.' },
-    { icon: Shield, title: 'Zero-risk start', desc: 'First 7 days trial — 100% money back guarantee.' },
+    { icon: Shield, title: 'Commitment-free consultation', desc: 'Get expert advice with no pressure to proceed — your business, your call.' },
   ];
 
   const stats = [
@@ -655,8 +655,8 @@ const BookingForm = () => {
             <Shield className="w-5 h-5 text-[#1BE1D3]" />
           </div>
           <div>
-            <p className="text-[#1BE1D3] text-[13px] font-semibold">100% Money Back Guarantee</p>
-            <p className="text-white/55 text-[12px] mt-0.5 leading-[1.6]" style={poppins}>First 7 days trial — no risk, no commitment.</p>
+            <p className="text-[#1BE1D3] text-[13px] font-semibold">No Obligation, Full Clarity</p>
+            <p className="text-white/55 text-[12px] mt-0.5 leading-[1.6]" style={poppins}>Walk away with a clear roadmap — whether you work with us or not.</p>
           </div>
         </motion.div>
       </div>
