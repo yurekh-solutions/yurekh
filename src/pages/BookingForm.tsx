@@ -655,8 +655,8 @@ const BookingForm = () => {
             <Shield className="w-5 h-5 text-[#1BE1D3]" />
           </div>
           <div>
-            <p className="text-[#1BE1D3] text-[13px] font-semibold">No Obligation, Full Clarity</p>
-            <p className="text-white/55 text-[12px] mt-0.5 leading-[1.6]" style={poppins}>Walk away with a clear roadmap — whether you work with us or not.</p>
+            <p className="text-[#1BE1D3] text-[13px] font-semibold">One-on-One Strategy Session</p>
+            <p className="text-white/55 text-[12px] mt-0.5 leading-[1.6]" style={poppins}>A focused 30-minute consultation with actionable insights — no obligation, no follow-up pressure.</p>
           </div>
         </motion.div>
       </div>

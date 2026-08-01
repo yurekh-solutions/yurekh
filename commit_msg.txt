@@ -1,6 +1,1 @@
-fix(booking): replace 'zero-risk start' with 'commitment-free consultation'
-
-- Benefits list: 'Zero-risk start / First 7 days trial — 100% money back guarantee'
-  doesn't fit a consultation booking (no payment, no trial)
-- Replaced with: 'Commitment-free consultation / Get expert advice with no
-  pressure to proceed — your business, your call.'
+fix(booking): 'One-on-One Strategy Session' replaces 'Complimentary'
