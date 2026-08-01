@@ -53,7 +53,7 @@ const BookingForm = () => {
     const dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const goalsText = formData.goals.length > 0 ? formData.goals.map(g => `  - ${g}`).join('\n') : '  Not specified';
     return encodeURIComponent(
-      `========================================\n  CONSULTATION BOOKING — Yurekh Solutions\n========================================\n\nDATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nGOOGLE MEET:\n  https://meet.google.com/new\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION: 100% FREE\n========================================`
+      `========================================\n  CONSULTATION BOOKING — Yurekh Solutions\n========================================\n\nDATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nGOOGLE MEET:\n  https://meet.google.com/new\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION: COMPLIMENTARY\n========================================`
     );
   };
 
@@ -76,8 +76,8 @@ const BookingForm = () => {
       alert('Please fill in all required fields and accept the agreement.');
       return;
     }
-    // Silent backup — the lead reaches our inbox even if WhatsApp is never sent
-    captureLead('New booking — yurekh.com', {
+    // Email delivery — lands in yurekhsolutions@gmail.com inbox
+    captureLead('New consultation booking — yurekh.com', {
       Date: selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
       Time: `${selectedTime} IST`,
       Name: formData.firstName,
@@ -91,9 +91,8 @@ const BookingForm = () => {
       'Current process': formData.currentProcess || '—',
       'Pain points': formData.painPoints || '—',
     });
-    // Direct user gesture — WhatsApp opens reliably; calendar link is offered
-    // on the success screen as a direct click (popup blockers kill delayed window.open)
-    window.open(`https://wa.me/919136242706?text=${generateWhatsAppMessage()}`, '_blank');
+    // Open Google Calendar so the visitor can add the session to their calendar
+    window.open(generateGoogleCalendarLink(), '_blank');
     setBooked(true);
     if (typeof window !== 'undefined' && window.innerWidth < 1024) {
       document.getElementById('booking-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -124,14 +123,14 @@ const BookingForm = () => {
   const stepMeta = [
     { n: 1, title: 'Choose your slot', sub: 'Pick a day and evening time (IST)' },
     { n: 2, title: 'Your details', sub: 'Tell us about you and your business' },
-    { n: 3, title: 'Review & confirm', sub: 'One tap to confirm on WhatsApp' },
+    { n: 3, title: 'Review & confirm', sub: 'Confirm your booking details' },
   ];
 
   const benefits = [
     { icon: Bot, title: 'Live AI Employee demo', desc: 'Watch it answer calls, chats & book appointments in real time.' },
     { icon: TrendingUp, title: 'Revenue growth plan', desc: 'A roadmap to more leads, reviews and conversions.' },
     { icon: Zap, title: 'Automation blueprint', desc: 'Which tasks to automate first for maximum ROI.' },
-    { icon: Shield, title: 'Zero-risk start', desc: 'First 7 days free — 100% money back guarantee.' },
+    { icon: Shield, title: 'Zero-risk start', desc: 'First 7 days trial — 100% money back guarantee.' },
   ];
 
   const stats = [
@@ -146,9 +145,9 @@ const BookingForm = () => {
       style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
     >
       <SEOHead
-        title="Book a Consultation | Schedule Your Free Strategy Session | Yurekh Solutions"
-        description="Schedule a free consultation with Yurekh Solutions. Discuss your business vision, get expert advice on strategy, technology, branding, and go-to-market. Call +91 91362 42706."
-        keywords="book consultation, schedule meeting, free consultation, business strategy session, Yurekh Solutions booking"
+        title="Book a Consultation | Schedule Your Strategy Session | Yurekh Solutions"
+        description="Schedule a consultation with Yurekh Solutions. Discuss your business vision, get expert advice on strategy, technology, branding, and go-to-market. Call +91 91362 42706."
+        keywords="book consultation, schedule meeting, consultation, business strategy session, Yurekh Solutions booking"
         canonical="https://yurekh.com/bookingform"
         breadcrumbs={[{ name: "Book Consultation", url: "https://yurekh.com/bookingform" }]}
       />
@@ -272,7 +271,7 @@ const BookingForm = () => {
                       </div>
                       <h3 className="text-white text-[20px] sm:text-[22px] font-semibold mb-2">Your booking is on its way!</h3>
                       <p className="text-white/55 text-[13px] sm:text-[14px] leading-[1.7] max-w-md mx-auto mb-6" style={poppins}>
-                        WhatsApp opened with your booking details — just press <span className="text-white/85 font-medium">Send</span>. Then add the session to your calendar so you never miss it.
+                        Your booking details have been emailed to our team — we'll confirm within 24 hours. Add the session to your calendar so you never miss it.
                       </p>
 
                       <div className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 rounded-2xl border border-[#1BE1D3]/25 bg-[#1BE1D3]/[0.05] px-5 py-4 mb-7">
@@ -297,11 +296,10 @@ const BookingForm = () => {
                           <Calendar className="h-4 w-4 flex-shrink-0" /> Add to Google Calendar
                         </a>
                         <a
-                          href={`https://wa.me/919136242706?text=${generateWhatsAppMessage()}`}
-                          target="_blank" rel="noopener noreferrer"
+                          href={`mailto:yurekhsolutions@gmail.com?subject=${encodeURIComponent('Consultation Booking — ' + formData.firstName)}&body=${encodeURIComponent(generateWhatsAppMessage().replace(/%20/g, ' '))}`}
                           className={`${ghostBtn} w-full sm:w-auto`} style={ghostStyle}
                         >
-                          <MessageSquare className="h-4 w-4 flex-shrink-0" /> Resend on WhatsApp
+                          <Mail className="h-4 w-4 flex-shrink-0" /> Send via Email
                         </a>
                       </div>
 
@@ -604,11 +602,11 @@ const BookingForm = () => {
                           <ArrowLeft className="h-4 w-4 flex-shrink-0" /> Back
                         </button>
                         <button onClick={handleSubmit} disabled={!formData.agreement} className={`${primaryBtn} w-full sm:flex-1 sm:max-w-[360px]`} style={primaryStyle}>
-                          <MessageSquare className="h-4 w-4 flex-shrink-0" /> Confirm on WhatsApp
+                          <Calendar className="h-4 w-4 flex-shrink-0" /> Confirm Booking
                         </button>
                       </div>
                       <p className="text-white/40 text-[12px] mt-4" style={poppins}>
-                        100% free consultation · WhatsApp opens instantly · Add to Google Calendar in one tap
+                        Complimentary consultation · Email confirmation · Add to Google Calendar in one tap
                       </p>
                     </motion.div>
                   )}
@@ -658,7 +656,7 @@ const BookingForm = () => {
           </div>
           <div>
             <p className="text-[#1BE1D3] text-[13px] font-semibold">100% Money Back Guarantee</p>
-            <p className="text-white/55 text-[12px] mt-0.5 leading-[1.6]" style={poppins}>First 7 days free — no risk, no commitment.</p>
+            <p className="text-white/55 text-[12px] mt-0.5 leading-[1.6]" style={poppins}>First 7 days trial — no risk, no commitment.</p>
           </div>
         </motion.div>
       </div>

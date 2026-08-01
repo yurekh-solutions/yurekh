@@ -1,6 +1,11 @@
-fix(proxy): route /ainos and /api through ainos-one.vercel.app instead of dead Render backend
+feat: AI chat full-screen on mobile, booking form email+calendar only, remove 'free' copy
 
-- Render free instance (ainos-ywu0.onrender.com) stopped responding, causing 502 ROUTER_EXTERNAL_TARGET_ERROR on yurekh.vercel.app/ainos
-- Point rewrites to the Vercel AINOS deployment (no cold starts, <1s response)
-- Ignore .vercel CLI folder
-- Add LinkedIn AI-stack marketing assets under public/linkedin-ai-stack
+- AIChat: mobile now opens full-screen (inset-0, no rounded corners, no border)
+  instead of a small floating popup; desktop keeps the existing bottom-right card
+- BookingForm: removed WhatsApp submission; now sends email via FormSubmit
+  (captureLead) + opens Google Calendar add-to-calendar on confirm
+- BookingForm: removed all 'free' copy per brand policy
+  ('100% free consultation' -> 'Complimentary consultation',
+   'First 7 days free' -> 'First 7 days trial',
+   'Schedule Your Free Strategy Session' -> 'Schedule Your Strategy Session')
+- AIChat: removed 'free consultation' from pricing bot response

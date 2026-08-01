@@ -68,7 +68,7 @@ const AIChat = () => {
 
     if (message.includes('price') || message.includes('cost') || message.includes('quote')) {
       return {
-        text: "Our pricing is tailored to your specific needs. We offer:\n\n💰 **Consultation**: Starting at $100\n📦 **Project-based**: Custom quotes\n🔄 **Retainer**: Monthly packages\n\nFor an accurate quote, I'd recommend booking a free consultation. Would you like to proceed?",
+        text: "Our pricing is tailored to your specific needs. We offer:\n\n💰 **Consultation**: Starting at $100\n📦 **Project-based**: Custom quotes\n🔄 **Retainer**: Monthly packages\n\nFor an accurate quote, I'd recommend booking a consultation. Would you like to proceed?",
         options: ['Book consultation', 'Learn about services', 'Contact sales']
       };
     }
@@ -186,7 +186,7 @@ const AIChat = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 left-4 sm:bottom-6 sm:right-6 sm:left-auto z-50 w-auto sm:w-[90vw] max-w-md h-[70vh] sm:h-[600px] max-h-[500px] sm:max-h-[600px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border border-[#1BE1D3]/30 flex flex-col" style={{ background: 'linear-gradient(135deg, #0b1f1f 0%, #0a2929 50%, #071919 100%)' }}>
+        <div className="fixed inset-0 sm:bottom-6 sm:right-6 sm:left-auto sm:inset-auto z-50 w-full sm:w-[90vw] sm:max-w-md h-full sm:h-[600px] sm:max-h-[600px] rounded-none sm:rounded-3xl overflow-hidden shadow-2xl border-0 sm:border border-[#1BE1D3]/30 flex flex-col" style={{ background: 'linear-gradient(135deg, #0b1f1f 0%, #0a2929 50%, #071919 100%)' }}>
           {/* Header */}
           <div className="bg-gradient-to-r from-[#1BE1D3]/20 to-[#1BE1D3]/10 border-b border-[#1BE1D3]/30 p-3 sm:p-4 flex items-center justify-between flex-shrink-0">
             <div className="flex items-center gap-3">
