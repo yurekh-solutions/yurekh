@@ -1,4 +1,4 @@
-fix(ai-chat): remove white background from logo with mix-blend-mode
+feat(ai-chat): update logo with marble background version
 
-- Added mixBlendMode: 'multiply' to logo images
-- White/light background now blends with dark chat background
+- Replaced ai-logo.png with new marble background version
+- Removed mix-blend-mode (not needed for this image)
