@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe, ArrowRight, Sparkles } from "lucide-react";
 import widgetCloud from "../assets/yurekh-dashboard (1).jpg";
+import yurekhLogo from "../assets/yurekhlog.png";
 
 const pillars = [
   { icon: Briefcase, label: "Business Strategy" },
@@ -60,7 +61,7 @@ const Hero = () => {
         {/* Eyebrow */}
         <div className="flex justify-center mt-14 sm:mt-0 mb-5 sm:mb-8 w-full">
           <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#1BE1D3]/20 bg-[#1BE1D3]/5">
-            <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#1BE1D3] flex-shrink-0" strokeWidth={1.8} />
+            <img src={yurekhLogo} alt="" className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 object-contain" />
             <span className="text-[#1BE1D3] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.25em] uppercase" style={{ fontFamily: "Poppins, sans-serif" }}>
               Business Partner in Global Growth
             </span>
