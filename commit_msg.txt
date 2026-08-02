@@ -1,4 +1,4 @@
-feat(ai-chat): replace logo with teal glass cube
+fix(ai-chat): remove white background from logo with mix-blend-mode
 
-- New AI logo: teal glass cube with glowing edges
-- Replaces previous loo.png in AIChat header + message avatars
+- Added mixBlendMode: 'multiply' to logo images
+- White/light background now blends with dark chat background
