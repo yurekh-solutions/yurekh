@@ -1,3 +1,4 @@
-feat(hero): replace Sparkles icon with yurekhlog in "Business Partner" badge
+fix(hero): increase yurekhlog icon size in "Business Partner" badge
 
-- Hero eyebrow badge now uses yurekhlog.png instead of Sparkles icon
+- Mobile: 12px → 16px
+- Desktop: 14px → 20px
