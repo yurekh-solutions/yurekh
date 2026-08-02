@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X, Send, Phone, Mail, Globe, Zap, Bot, User, Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
-import aiLogo from '../assets/ai-logo.png';
+import aiLogo from '../assets/yurekhlog.png';
 
 interface Message {
   id: number;
@@ -197,7 +197,7 @@ const AIChat = () => {
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-[#0b1f1f]" />
               </div>
               <div>
-                <h3 className="text-white text-sm" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Yurekh AI Assistant</h3>
+                <h3 className="text-white text-sm" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Yurekh Concierge</h3>
                 <p className="text-[#1BE1D3] text-xs flex items-center gap-1" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}>
                   <Sparkles className="w-3 h-3" /> Online • Ready to help
                 </p>

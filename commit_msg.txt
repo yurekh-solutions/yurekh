@@ -1,4 +1,4 @@
-feat(ai-chat): update logo with marble background version
+feat(ai-chat): rename to Yurekh Concierge + update logo
 
-- Replaced ai-logo.png with new marble background version
-- Removed mix-blend-mode (not needed for this image)
+- Title: 'Yurekh AI Assistant' → 'Yurekh Concierge'
+- Logo: ai-logo.png → yurekhlog.png
