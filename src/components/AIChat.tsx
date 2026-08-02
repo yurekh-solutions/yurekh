@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X, Send, Phone, Mail, Globe, Zap, Bot, User, Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
-import logo from '../assets/loo.png';
+import aiLogo from '../assets/ai-logo.png';
 
 interface Message {
   id: number;
@@ -192,7 +192,7 @@ const AIChat = () => {
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-[#1BE1D3]/50 shadow-[0_0_20px_rgba(27,225,211,0.3)]">
-                  <img src={logo} alt="Yurekh AI" className="w-full h-full object-cover" />
+                  <img src={aiLogo} alt="Yurekh AI" className="w-full h-full object-cover" />
                 </div>
                 <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-[#0b1f1f]" />
               </div>
@@ -219,7 +219,7 @@ const AIChat = () => {
                 <div className={`flex gap-2 max-w-[80%] ${message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
                   {message.sender === 'bot' && (
                     <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-[#1BE1D3]/30">
-                      <img src={logo} alt="Yurekh AI" className="w-full h-full object-cover" />
+                      <img src={aiLogo} alt="Yurekh AI" className="w-full h-full object-cover" />
                     </div>
                   )}
                   <div>
@@ -259,7 +259,7 @@ const AIChat = () => {
               <div className="flex justify-start">
                 <div className="flex gap-2">
                   <div className="w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-[#1BE1D3]/30">
-                    <img src={logo} alt="Yurekh AI" className="w-full h-full object-cover" />
+                    <img src={aiLogo} alt="Yurekh AI" className="w-full h-full object-cover" />
                   </div>
                   <div className="bg-white/10 border border-[#1BE1D3]/20 rounded-2xl px-4 py-3">
                     <div className="flex gap-1">

@@ -1,1 +1,4 @@
-fix(booking): 'One-on-One Strategy Session' replaces 'Complimentary'
+feat(ai-chat): replace logo with teal glass cube
+
+- New AI logo: teal glass cube with glowing edges
+- Replaces previous loo.png in AIChat header + message avatars
