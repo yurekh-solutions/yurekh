@@ -4,10 +4,11 @@ import {
   Calendar, Clock, User, Building, Target,
   MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles,
   Zap, TrendingUp, Bot, Shield, ChevronRight, ChevronLeft,
-  Video, Check, Pencil, Globe
+  Video, Check, Pencil, Globe, Mail
 } from 'lucide-react';
 import SEOHead from "@/components/SEOHead";
 import { captureLead } from "@/lib/leadCapture";
+import yurekhLogo from "../assets/yurekhlog.png";
 
 const poppins = { fontFamily: "Poppins, sans-serif" };
 
@@ -165,7 +166,7 @@ const BookingForm = () => {
             className="lg:sticky lg:top-28 text-center lg:text-left"
           >
             <div className=" mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-              <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+              <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
               <span className="text-[#1BE1D3] text-sm font-medium">AI-Powered Business Automation</span>
             </div>
             <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[40px] font-semibold mb-5 leading-[1.2]">

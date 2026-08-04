@@ -6,6 +6,7 @@ import {
   industryCategories,
 } from "@/data/industries";
 import SEOHead from "@/components/SEOHead";
+import yurekhLogo from "../assets/yurekhlog.png";
 import {
   CheckCircle,
   ArrowRight,
@@ -193,7 +194,7 @@ const IndustryDetail = () => {
             transition={{ duration: 0.8 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/10 backdrop-blur-sm mb-6"
           >
-            <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+            <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
             <span className="text-[#1BE1D3] text-sm font-medium">Industries</span>
           </motion.div>
           <motion.h1

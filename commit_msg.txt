@@ -1,4 +1,7 @@
-fix(hero): increase yurekhlog icon size in "Business Partner" badge
+feat(pages): replace Sparkles icon with yurekhlog in all page badges
 
-- Mobile: 12px → 16px
-- Desktop: 14px → 20px
+- Replaced Sparkles icon with yurekhlog.png in badge/eyebrow across all pages:
+  BookingForm, BusinessConsulting, BusinessLaunchIndia, CaseStudy, About,
+  Contact, Services, ServiceDetail, Impact, Industries, AinosSuite, FAQ,
+  Careers, IndustryDetail
+- Also fixed missing Mail import in BookingForm

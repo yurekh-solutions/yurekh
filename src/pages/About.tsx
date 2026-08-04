@@ -21,6 +21,7 @@ import {
   Building2,
 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import yurekhLogo from "../assets/yurekhlog.png";
 
 const BG = "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)";
 
@@ -217,7 +218,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-                <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+                <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
                 <span className="text-[#1BE1D3] text-sm font-medium">About Yurekh Solutions</span>
               </div>
               <h1

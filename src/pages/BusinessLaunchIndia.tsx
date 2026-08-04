@@ -41,6 +41,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import SEOHead from "@/components/SEOHead";
+import yurekhLogo from "../assets/yurekhlog.png";
 
 /* ─── reusable fade-up variant ─── */
 const fadeUp = (delay = 0) => ({
@@ -229,7 +230,7 @@ const BusinessLaunchIndia = () => {
             {/* Eyebrow */}
             <div className=" mt-5 flex justify-center mb-6 sm:mb-8">
               <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#1BE1D3]/20 bg-[#1BE1D3]/5">
-                <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#1BE1D3]" strokeWidth={1.8} />
+                <img src={yurekhLogo} alt="" className="w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 object-contain" />
                 <span className="text-[#1BE1D3] font-semibold text-[10px] sm:text-[11px] tracking-[0.25em] uppercase">
                   India Market Entry
                 </span>

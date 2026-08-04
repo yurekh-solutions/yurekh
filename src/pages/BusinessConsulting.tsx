@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Zap, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone, Sparkles, Phone } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import yurekhLogo from "../assets/yurekhlog.png";
 
 const BusinessConsulting = () => {
   return (
@@ -46,7 +47,7 @@ const BusinessConsulting = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-                <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+                <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
                 <span className="text-[#1BE1D3] text-sm font-medium">Global Business Consulting</span>
               </div>
               <h1

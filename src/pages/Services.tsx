@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Brain, Sparkles, Bot, LineChart, Eye, Cloud, Database, Shield, Wifi, Glasses, Link2 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
+import yurekhLogo from "../assets/yurekhlog.png";
 
 const services = [
   {
@@ -104,7 +105,7 @@ const Services = () => {
                 transition={{ duration: 0.8 }}
               >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-                  <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+                  <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
                   <span className="text-[#1BE1D3] text-sm font-medium">Services</span>
                 </div>
                 <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold leading-[1.2] mb-6">

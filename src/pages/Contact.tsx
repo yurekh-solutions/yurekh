@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
+import yurekhLogo from "../assets/yurekhlog.png";
 import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, CheckCircle, Globe, Building2, Users, Sparkles } from "lucide-react";
 
 const ContactPage = () => {
@@ -51,7 +52,7 @@ const ContactPage = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-              <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+              <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
               <span className="text-[#1BE1D3] text-sm font-medium">Contact Us</span>
             </div>
             <h1

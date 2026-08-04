@@ -17,6 +17,7 @@ import {
   Zap,
   Crown,
 } from "lucide-react";
+import yurekhLogo from "../assets/yurekhlog.png";
 
 const modules = [
   { icon: Users, title: "CRM & Sales Pipeline", desc: "Contacts, deals, and follow-ups in one view. Never lose a lead again." },
@@ -125,7 +126,7 @@ const AinosSuite = () => {
 
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-            <Sparkles className="w-4 h-4 text-[#1BE1D3]" />
+            <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
             <span className="text-[#1BE1D3] text-xs md:text-sm tracking-wider uppercase" style={{ fontFamily: "Poppins, sans-serif" }}>
               One Platform. Every Department.
             </span>
