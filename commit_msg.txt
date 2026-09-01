@@ -1,7 +1,5 @@
-feat(pages): replace Sparkles icon with yurekhlog in all page badges
+feat(blogs): 4 premium SEO/AEO articles with Pexels images + updated sitemap
 
-- Replaced Sparkles icon with yurekhlog.png in badge/eyebrow across all pages:
-  BookingForm, BusinessConsulting, BusinessLaunchIndia, CaseStudy, About,
-  Contact, Services, ServiceDetail, Impact, Industries, AinosSuite, FAQ,
-  Careers, IndustryDetail
-- Also fixed missing Mail import in BookingForm
+- AI agents cost guide, business website cost India, SEO vs Google Ads, daily blogging guide
+- Full long-form articles in BlogDetail with question-first structure and Yurekh CTA sections
+- sitemap.xml regenerated (184 blog URLs)

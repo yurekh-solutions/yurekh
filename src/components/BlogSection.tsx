@@ -1741,6 +1741,39 @@ export const blogPosts = [
     image: instagram40,
     instagramUrl: "https://www.instagram.com/p/PLACEHOLDER_147/",
   }
+,
+  {
+    slug: "ai-agents-for-business-cost-guide-2026",
+    title: "AI Agents for Business in 2026: What They Do, What They Cost, and How to Start",
+    description: "A practical 2026 guide to AI agents for business - real use cases, realistic costs (build vs subscribe), ROI math, and a 3-step starter plan for small teams.",
+    date: "September 1, 2026",
+    image: "https://images.pexels.com/photos/8566473/pexels-photo-8566473.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    category: "AI & Automation",
+  },
+  {
+    slug: "business-website-cost-india-2026",
+    title: "How Much Does a Business Website Cost in India in 2026? (Honest Breakdown)",
+    description: "Real 2026 website pricing in India: basic, business, e-commerce and custom tiers in rupees, hidden costs to budget for, and a checklist to choose the right agency.",
+    date: "September 1, 2026",
+    image: "https://images.pexels.com/photos/3861951/pexels-photo-3861951.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    category: "Web Development",
+  },
+  {
+    slug: "seo-vs-google-ads-small-business-2026",
+    title: "SEO vs Google Ads in 2026: Where Should Small Businesses Invest First?",
+    description: "SEO or Google Ads for small business in 2026? Real CPC numbers, compounding math, a head-to-head comparison, and the hybrid playbook smart brands use.",
+    date: "September 1, 2026",
+    image: "https://images.pexels.com/photos/669617/pexels-photo-669617.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    category: "Digital Marketing",
+  },
+  {
+    slug: "daily-blogging-ai-seo-growth-2026",
+    title: "Why Publishing One Blog Every Day Is the Best SEO Investment in 2026",
+    description: "The math behind daily blogging: 365 ranking surfaces a year, AI Overview citations, and how AI automation makes one-post-per-day publishing effortless.",
+    date: "September 1, 2026",
+    image: "https://images.pexels.com/photos/265667/pexels-photo-265667.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+    category: "Content Marketing",
+  }
 ];
 
 const BlogSection = () => {
