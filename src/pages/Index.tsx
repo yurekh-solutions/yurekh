@@ -7,7 +7,7 @@ import VideoShowcase from "@/components/VideoShowcase";
 import ProblemSection from "@/components/ProblemSection";
 import IndustriesSection from "@/components/IndustriesSection";
 import CTABanner from "@/components/CTABanner";
-import PremiumFAQ from "@/components/PremiumFAQ";
+import PremiumFAQ, { faqSchema } from "@/components/PremiumFAQ";
 import Contact from "@/components/Contact";
 import CaseStudySection from "@/components/CaseStudySection";
 import CaseStudiesSection from "@/components/CaseStudiesSection";
@@ -28,6 +28,7 @@ const Index = () => {
         description="Yurekh Solutions is a global business consulting and technology partner. We help startups, SMEs, and enterprises build, launch, and scale — from strategy and company formation to technology development, branding, marketing, operations, and global expansion. One partner. Complete execution."
         keywords="Yurekh Solutions, business consulting, startup consulting, enterprise consulting, business strategy, company formation, technology development, custom software, mobile app development, brand building, digital marketing, go-to-market strategy, business growth partner, operations consulting, global expansion, SaaS development, AI solutions, cloud infrastructure, SEO agency, web development, e-commerce solutions, CRM systems, business partner"
         canonical="https://yurekh.com/"
+        schema={JSON.stringify(faqSchema)}
       />
       <section id="header">
         <Header />

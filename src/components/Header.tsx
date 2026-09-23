@@ -309,6 +309,7 @@ const Header = () => {
                         marginTop: '20px',
                         maxHeight: '75vh',
                         overflowY: 'auto',
+                        overscrollBehavior: 'contain',
                         background: 'linear-gradient(135deg, #0b1f1f 0%, #0a2929 50%, #071919 100%)',
                       }}
                       onMouseEnter={() => handleDropdownEnter(item.name)}
@@ -369,6 +370,7 @@ const Header = () => {
                         marginTop: '20px',
                         maxHeight: '75vh',
                         overflowY: 'auto',
+                        overscrollBehavior: 'contain',
                         background: 'linear-gradient(135deg, #0b1f1f 0%, #0a2929 50%, #071919 100%)',
                       }}
                       onMouseEnter={() => handleDropdownEnter(item.name)}
@@ -425,6 +427,7 @@ const Header = () => {
                         borderRadius: '16px',
                         background: 'linear-gradient(135deg, #0b1f1f 0%, #0a2929 50%, #071919 100%)',
                         border: '1px solid rgba(255,255,255,0.1)',
+                        overscrollBehavior: 'contain',
                       }}
                       onMouseEnter={() => handleDropdownEnter(item.name)}
                       onMouseLeave={handleDropdownLeave}
@@ -523,7 +526,7 @@ const Header = () => {
                     </button>
                     {/* Mobile mega menu categories */}
                     {item.megaMenu && activeDropdown === item.name && (
-                      <div className="ml-4 border-l border-white/10 pl-4 space-y-3 max-h-80 overflow-y-auto scrollbar-hide">
+                      <div className="ml-4 border-l border-white/10 pl-4 space-y-3 max-h-80 overflow-y-auto overscroll-contain scrollbar-hide">
                         {item.megaMenu.map((category, catIdx) => (
                           <div key={catIdx}>
                             <h5 className="text-[#1BE1D3] text-xs font-bold uppercase tracking-wider mb-1">
@@ -550,7 +553,7 @@ const Header = () => {
                     )}
                     {/* Mobile industries menu */}
                     {item.industryMenu && activeDropdown === item.name && (
-                      <div className="ml-4 border-l border-white/10 pl-4 space-y-2 max-h-80 overflow-y-auto scrollbar-hide">
+                      <div className="ml-4 border-l border-white/10 pl-4 space-y-2 max-h-80 overflow-y-auto overscroll-contain scrollbar-hide">
                         {item.industryMenu.map((industry, idx) => {
                           const slug = industryNameToSlug[industry.name];
                           return (

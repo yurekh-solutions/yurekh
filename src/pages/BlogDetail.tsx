@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Calendar, Clock, User } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User, ArrowRight, Sparkles, CheckCircle } from "lucide-react";
 import { blogPosts } from "../components/BlogSection";
 import blogHero from "../assets/blog/blog-hero.jpg";
 import SEOHead from "@/components/SEOHead";
@@ -1748,6 +1748,8 @@ const BlogDetail = () => {
   const heroImage = post.image || blogHero;
 
   const canonical = `https://yurekh.com/blogs/${post.slug}`;
+
+  // Article schema
   const articleSchema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "Article",
@@ -1764,13 +1766,33 @@ const BlogDetail = () => {
     mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
   });
 
+  // FAQ schema — auto-generated from blog sections for featured snippets
+  const faqSchema = content && content.sections.length >= 2
+    ? JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: content.sections.slice(0, 6).map((s) => ({
+          "@type": "Question",
+          name: s.heading.replace(/\*\*/g, ''),
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: s.content.replace(/\*\*/g, '').replace(/\n/g, ' ').substring(0, 500),
+          },
+        })),
+      })
+    : null;
+
+  const combinedSchema = faqSchema
+    ? JSON.stringify([JSON.parse(articleSchema), JSON.parse(faqSchema)])
+    : articleSchema;
+
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
       <SEOHead
         title={post.title}
         description={post.description}
         canonical={canonical}
-        schema={articleSchema}
+        schema={combinedSchema}
         breadcrumbs={[
           { name: "Blog", url: "https://yurekh.com/blogs" },
           { name: post.title, url: canonical },
@@ -1831,41 +1853,91 @@ const BlogDetail = () => {
           </p>
 
           {/* Content Sections */}
-          {content && content.sections.map((section, idx) => (
-            <div key={idx} className="mb-10">
-              <h2 className="text-[22px] md:text-[26px] font-semibold text-white mb-4 leading-[1.3]">
-                {section.heading}
-              </h2>
-              <div className="text-[15px] text-white/75 leading-[1.9] whitespace-pre-line">
-                {section.content}
+          {content && content.sections.map((section, idx) => {
+            const isMidPoint = content.sections.length > 3 && idx === Math.floor(content.sections.length / 2);
+            return (
+              <div key={idx}>
+                <div className="mb-10">
+                  <h2 className="text-[22px] md:text-[26px] font-semibold text-white mb-4 leading-[1.3]">
+                    {section.heading}
+                  </h2>
+                  <div className="text-[15px] text-white/75 leading-[1.9] whitespace-pre-line">
+                    {section.content}
+                  </div>
+                </div>
+                {/* Mid-article CTA — appears once at the halfway point */}
+                {isMidPoint && (
+                  <div className="my-10 rounded-[20px] border border-[#1BE1D3]/25 bg-gradient-to-r from-[#1BE1D3]/[0.06] to-[#1BE1D3]/[0.02] p-6 sm:p-8">
+                    <div className="flex items-start gap-4">
+                      <div className="w-11 h-11 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center flex-shrink-0">
+                        <Sparkles className="w-5 h-5 text-[#1BE1D3]" />
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-white text-[16px] font-semibold mb-1.5">Enjoying this article?</h3>
+                        <p className="text-white/60 text-[13px] leading-[1.7] mb-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+                          Get a tailored strategy session for your business — 30 minutes, no commitment.
+                        </p>
+                        <Link
+                          to="/bookingform"
+                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-black font-semibold text-[13px] transition-all duration-300 hover:shadow-[0_0_20px_rgba(27,225,211,0.3)]"
+                          style={{ background: "#1BE1D3", fontFamily: "Poppins, sans-serif" }}
+                        >
+                          Book Strategy Call <ArrowRight className="w-3.5 h-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
 
-          {/* Fallback CTA when no detailed content exists */}
-          {!content && (
-            <div className="mb-10 rounded-[20px] bg-white/5 border border-white/10 p-8 text-center">
-              <p className="text-[16px] text-white/70 leading-[1.8] mb-6">
-                This article is being prepared by our team. In the meantime, reach out to us directly for detailed insights on this topic.
+          {/* End-of-article CTA — premium conversion block */}
+          <div className="mt-10 rounded-[24px] border border-[#1BE1D3]/25 bg-gradient-to-br from-[#0b1f1f] via-[#0a2929] to-[#071919] p-8 sm:p-10">
+            <div className="text-center max-w-lg mx-auto">
+              <div className="w-14 h-14 rounded-2xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center mx-auto mb-5">
+                <Sparkles className="w-7 h-7 text-[#1BE1D3]" />
+              </div>
+              <h3 className="text-white text-[22px] sm:text-[26px] font-semibold mb-3 leading-[1.3]">
+                Ready to Transform Your Business?
+              </h3>
+              <p className="text-white/60 text-[14px] leading-[1.7] mb-6" style={{ fontFamily: "Poppins, sans-serif" }}>
+                Book a 30-minute strategy session with our experts. Get actionable insights tailored to your industry — no obligation, no pressure.
               </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 mb-7">
+                {[
+                  { icon: CheckCircle, text: 'Industry-specific roadmap' },
+                  { icon: CheckCircle, text: 'AI automation blueprint' },
+                  { icon: CheckCircle, text: 'Revenue growth plan' },
+                ].map((item, i) => (
+                  <span key={i} className="inline-flex items-center gap-1.5 text-white/70 text-[12px]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <item.icon className="w-3.5 h-3.5 text-[#1BE1D3]" /> {item.text}
+                  </span>
+                ))}
+              </div>
               <Link
                 to="/bookingform"
-                className="inline-block px-8 py-3 rounded-full font-semibold text-black transition-all duration-300 hover:scale-105"
-                style={{ background: "linear-gradient(135deg, #1BE1D3, #0fb8a8)" }}
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-black font-semibold text-[15px] transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
+                style={{ background: "#1BE1D3", fontFamily: "Poppins, sans-serif" }}
               >
-                Request a Consultation
+                Book Your Strategy Call <ArrowRight className="w-4 h-4" />
               </Link>
+              <p className="text-white/35 text-[12px] mt-4" style={{ fontFamily: "Poppins, sans-serif" }}>
+                Complimentary consultation · No commitment required
+              </p>
             </div>
-          )}
+          </div>
 
-          {/* Related Posts */}
+          {/* Related Posts — category-matched for relevance */}
           <div className="mt-16 pt-10 border-t border-white/10">
-            <h3 className="text-[22px] font-semibold text-white mb-8">Related Articles</h3>
+            <h3 className="text-[22px] font-semibold text-white mb-2">Read Next</h3>
+            <p className="text-white/45 text-[13px] mb-8" style={{ fontFamily: "Poppins, sans-serif" }}>More insights from our blog</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {blogPosts
-                .filter((p) => p.slug !== slug)
-                .slice(0, 3)
-                .map((related, idx) => (
+              {(() => {
+                const sameCategory = blogPosts.filter((p) => p.slug !== slug && p.category === post.category);
+                const others = blogPosts.filter((p) => p.slug !== slug && p.category !== post.category);
+                const related = [...sameCategory, ...others].slice(0, 3);
+                return related.map((related, idx) => (
                   <Link
                     key={idx}
                     to={`/blogs/${related.slug}`}
@@ -1876,13 +1948,19 @@ const BlogDetail = () => {
                       style={{ backgroundImage: `url(${related.image})` }}
                     />
                     <div className="p-4">
+                      {related.category && (
+                        <span className="inline-block text-[10px] font-semibold text-[#1BE1D3] uppercase tracking-wider mb-1.5" style={{ fontFamily: "Poppins, sans-serif" }}>
+                          {related.category}
+                        </span>
+                      )}
                       <h4 className="text-[15px] font-semibold text-white group-hover:text-[#1BE1D3] transition-colors duration-300 line-clamp-2">
                         {related.title}
                       </h4>
                       <p className="text-[12px] text-gray-500 mt-2">{related.date}</p>
                     </div>
                   </Link>
-                ))}
+                ));
+              })()}
             </div>
           </div>
         </div>

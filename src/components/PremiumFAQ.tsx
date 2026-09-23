@@ -56,7 +56,7 @@ const faqs = [
   },
 ];
 
-const faqSchema = {
+export const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   mainEntity: faqs.map((faq) => ({
@@ -195,11 +195,6 @@ const PremiumFAQ = () => {
         </div>
       </div>
 
-      {/* FAQPage structured data for Google rich results */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
     </section>
   );
 };
