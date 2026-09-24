@@ -131,7 +131,7 @@ const BookingForm = () => {
     { icon: Bot, title: 'Live AI Employee demo', desc: 'Watch it answer calls, chats & book appointments in real time.' },
     { icon: TrendingUp, title: 'Revenue growth plan', desc: 'A roadmap to more leads, reviews and conversions.' },
     { icon: Zap, title: 'Automation blueprint', desc: 'Which tasks to automate first for maximum ROI.' },
-    { icon: Shield, title: 'Commitment-free consultation', desc: 'Get expert advice with no pressure to proceed — your business, your call.' },
+    { icon: Shield, title: 'No-obligation consultation', desc: 'Get expert advice with no pressure to proceed — your business, your call.' }
   ];
 
   const stats = [

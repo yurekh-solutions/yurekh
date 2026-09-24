@@ -19,6 +19,9 @@ export default {
 			}
 		},
 		extend: {
+			screens: {
+				'xs': '480px',
+			},
 			fontFamily: {
 				'poppins': ['Poppins', 'sans-serif'],
 				'montserrat': ['Montserrat', 'sans-serif'],

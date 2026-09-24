@@ -22,7 +22,7 @@ const ContactPage = () => {
 
       {/* Hero Section */}
       <section
-        className="relative pt-28 sm:pt-32 md:pt-36 pb-12 sm:pb-16 md:pb-20 overflow-hidden"
+        className="relative pt-24 xs:pt-28 sm:pt-32 md:pt-36 pb-10 sm:pb-16 md:pb-20 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
       >
         {/* Grid Pattern Overlay */}
@@ -45,23 +45,23 @@ const ContactPage = () => {
           />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 md:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-              <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
-              <span className="text-[#1BE1D3] text-sm font-medium">Contact Us</span>
+            <div className="inline-flex items-center gap-2 px-3 xs:px-4 py-1.5 xs:py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mt-5 xs:mt-6 mb-4 xs:mb-6">
+              <img src={yurekhLogo} alt="" className="w-3.5 h-3.5 xs:w-4 xs:h-4 flex-shrink-0 object-contain" />
+              <span className="text-[#1BE1D3] text-[12px] xs:text-sm font-medium">Contact Us</span>
             </div>
             <h1
-              className="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold text-white leading-[1.2] mb-4 sm:mb-6"
+              className="text-[26px] xs:text-[30px] sm:text-[36px] lg:text-[44px] font-semibold text-white leading-[1.2] mb-3 xs:mb-4 sm:mb-6"
             >
               Get in Touch
             </h1>
             <p
-              className="text-white/70 text-[15px] max-w-2xl mx-auto leading-[1.7]"
+              className="text-white/70 text-[13px] xs:text-[14px] sm:text-[15px] max-w-2xl mx-auto leading-[1.7] px-2"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
             >
               Ready to transform your business? Let's discuss how we can help you achieve your goals.
@@ -75,31 +75,31 @@ const ContactPage = () => {
 
       {/* Multiple Contact Methods */}
       <section
-        className="relative py-12 sm:py-16 md:py-20 overflow-hidden"
+        className="relative py-10 xs:py-12 sm:py-16 md:py-20 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-10 sm:mb-12"
+            className="text-center mb-8 xs:mb-10 sm:mb-12"
           >
             <h2
-              className="text-[30px] font-semibold text-white leading-[1.2] mb-4"
+              className="text-[24px] xs:text-[28px] sm:text-[30px] font-semibold text-white leading-[1.2] mb-3 xs:mb-4"
             >
               Multiple Ways to Reach Us
             </h2>
             <p
-              className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto"
+              className="text-white/70 text-[13px] xs:text-[14px] sm:text-[15px] leading-[1.7] max-w-2xl mx-auto px-2"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
             >
               Choose the contact method that works best for you
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-4 xs:gap-6 sm:gap-8">
             {/* Phone */}
             <motion.a
               href="tel:+919136242706"
@@ -107,19 +107,19 @@ const ContactPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="group relative p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/40 transition-all duration-300"
+              className="group relative p-4 xs:p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/40 transition-all duration-300"
               style={{ background: "linear-gradient(135deg, rgba(10,26,26,0.8) 0%, rgba(5,15,15,0.95) 100%)" }}
             >
-              <div className="w-14 h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Phone className="w-7 h-7 text-[#1BE1D3]" />
+              <div className="w-12 h-12 xs:w-14 xs:h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-3 xs:mb-4 group-hover:scale-110 transition-transform">
+                <Phone className="w-6 h-6 xs:w-7 xs:h-7 text-[#1BE1D3]" />
               </div>
-              <h3 className="text-white text-[16px] font-semibold mb-2">
+              <h3 className="text-white text-[15px] xs:text-[16px] font-semibold mb-1.5 xs:mb-2">
                 Call Us
               </h3>
-              <p className="text-white/60 text-[13px] mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/60 text-[12px] xs:text-[13px] mb-2 xs:mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Direct line to our team
               </p>
-              <p className="text-[#1BE1D3] font-semibold text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[12px] xs:text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 +91 91362 42706
               </p>
             </motion.a>
@@ -133,19 +133,19 @@ const ContactPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="group relative p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/40 transition-all duration-300"
+              className="group relative p-4 xs:p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/40 transition-all duration-300"
               style={{ background: "linear-gradient(135deg, rgba(10,26,26,0.8) 0%, rgba(5,15,15,0.95) 100%)" }}
             >
-              <div className="w-14 h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <MessageCircle className="w-7 h-7 text-[#1BE1D3]" />
+              <div className="w-12 h-12 xs:w-14 xs:h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-3 xs:mb-4 group-hover:scale-110 transition-transform">
+                <MessageCircle className="w-6 h-6 xs:w-7 xs:h-7 text-[#1BE1D3]" />
               </div>
-              <h3 className="text-white text-[16px] font-semibold mb-2">
+              <h3 className="text-white text-[15px] xs:text-[16px] font-semibold mb-1.5 xs:mb-2">
                 WhatsApp
               </h3>
-              <p className="text-white/60 text-[13px] mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/60 text-[12px] xs:text-[13px] mb-2 xs:mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Quick chat with us
               </p>
-              <p className="text-[#1BE1D3] font-semibold text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[12px] xs:text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Message Now
               </p>
             </motion.a>
@@ -157,19 +157,19 @@ const ContactPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="group relative p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/40 transition-all duration-300"
+              className="group relative p-4 xs:p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/40 transition-all duration-300"
               style={{ background: "linear-gradient(135deg, rgba(10,26,26,0.8) 0%, rgba(5,15,15,0.95) 100%)" }}
             >
-              <div className="w-14 h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Mail className="w-7 h-7 text-[#1BE1D3]" />
+              <div className="w-12 h-12 xs:w-14 xs:h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-3 xs:mb-4 group-hover:scale-110 transition-transform">
+                <Mail className="w-6 h-6 xs:w-7 xs:h-7 text-[#1BE1D3]" />
               </div>
-              <h3 className="text-white text-[16px] font-semibold mb-2">
+              <h3 className="text-white text-[15px] xs:text-[16px] font-semibold mb-1.5 xs:mb-2">
                 Email Us
               </h3>
-              <p className="text-white/60 text-[13px] mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/60 text-[12px] xs:text-[13px] mb-2 xs:mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
                 We respond within 12 hours
               </p>
-              <p className="text-[#1BE1D3] font-semibold text-[13px] break-all" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[12px] xs:text-[13px] break-all" style={{ fontFamily: "Poppins, sans-serif" }}>
                 yurekhsolutions@gmail.com
               </p>
             </motion.a>
@@ -181,19 +181,19 @@ const ContactPage = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="group relative p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/40 transition-all duration-300"
+              className="group relative p-4 xs:p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20 hover:border-[#1BE1D3]/40 transition-all duration-300"
               style={{ background: "linear-gradient(135deg, rgba(10,26,26,0.8) 0%, rgba(5,15,15,0.95) 100%)" }}
             >
-              <div className="w-14 h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <Calendar className="w-7 h-7 text-[#1BE1D3]" />
+              <div className="w-12 h-12 xs:w-14 xs:h-14 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-3 xs:mb-4 group-hover:scale-110 transition-transform">
+                <Calendar className="w-6 h-6 xs:w-7 xs:h-7 text-[#1BE1D3]" />
               </div>
-              <h3 className="text-white text-[16px] font-semibold mb-2">
+              <h3 className="text-white text-[15px] xs:text-[16px] font-semibold mb-1.5 xs:mb-2">
                 Book a Call
               </h3>
-              <p className="text-white/60 text-[13px] mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-white/60 text-[12px] xs:text-[13px] mb-2 xs:mb-3" style={{ fontFamily: "Poppins, sans-serif" }}>
                 30-minute strategy session
               </p>
-              <p className="text-[#1BE1D3] font-semibold text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
+              <p className="text-[#1BE1D3] font-semibold text-[12px] xs:text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                 Schedule Now
               </p>
             </motion.a>
@@ -203,33 +203,33 @@ const ContactPage = () => {
 
       {/* Why Choose Us */}
       <section
-        className="relative py-12 sm:py-16 md:py-20 overflow-hidden"
+        className="relative py-10 xs:py-12 sm:py-16 md:py-20 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
       >
-        <div className="absolute top-1/4 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#1BE1D3]/5 rounded-full blur-[100px] sm:blur-[120px]" />
+        <div className="absolute top-1/4 right-0 w-[200px] xs:w-[300px] sm:w-[500px] h-[200px] xs:h-[300px] sm:h-[500px] bg-[#1BE1D3]/5 rounded-full blur-[80px] xs:blur-[100px] sm:blur-[120px]" />
         
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-10 sm:mb-12"
+            className="text-center mb-8 xs:mb-10 sm:mb-12"
           >
             <h2
-              className="text-[30px] font-semibold text-white leading-[1.2] mb-4"
+              className="text-[24px] xs:text-[28px] sm:text-[30px] font-semibold text-white leading-[1.2] mb-3 xs:mb-4"
             >
               Why Work With Yurekh?
             </h2>
             <p
-              className="text-white/70 text-[15px] leading-[1.7] max-w-2xl mx-auto"
+              className="text-white/70 text-[13px] xs:text-[14px] sm:text-[15px] leading-[1.7] max-w-2xl mx-auto px-2"
               style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}
             >
               We're not just consultants — we're your growth partners
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-6 sm:gap-8">
             {[
               {
                 icon: CheckCircle,
@@ -268,16 +268,16 @@ const ContactPage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20"
+                className="p-4 xs:p-6 sm:p-8 rounded-2xl border border-[#1BE1D3]/20"
                 style={{ background: "linear-gradient(135deg, rgba(10,26,26,0.8) 0%, rgba(5,15,15,0.95) 100%)" }}
               >
-                <div className="w-12 h-12 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-[#1BE1D3]" />
+                <div className="w-10 h-10 xs:w-12 xs:h-12 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mb-3 xs:mb-4">
+                  <item.icon className="w-5 h-5 xs:w-6 xs:h-6 text-[#1BE1D3]" />
                 </div>
-                <h3 className="text-white text-[16px] font-semibold mb-3">
+                <h3 className="text-white text-[15px] xs:text-[16px] font-semibold mb-2 xs:mb-3">
                   {item.title}
                 </h3>
-                <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                <p className="text-white/60 text-[12px] xs:text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                   {item.description}
                 </p>
               </motion.div>
@@ -288,11 +288,11 @@ const ContactPage = () => {
 
       {/* Office Hours & Location */}
       <section
-        className="relative py-12 sm:py-16 md:py-20 overflow-hidden"
+        className="relative py-10 xs:py-12 sm:py-16 md:py-20 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
       >
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-3 xs:px-4 sm:px-6 md:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
             {/* Office Hours */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -301,7 +301,7 @@ const ContactPage = () => {
               transition={{ duration: 0.8 }}
             >
               <h2
-                className="text-[24px] font-semibold text-white leading-[1.2] mb-6"
+                className="text-[20px] xs:text-[22px] sm:text-[24px] font-semibold text-white leading-[1.2] mb-4 xs:mb-5 sm:mb-6"
               >
                 Office Hours
               </h2>
@@ -313,14 +313,14 @@ const ContactPage = () => {
                 ].map((item, idx) => (
                   <div
                     key={idx}
-                    className="flex items-center justify-between p-4 rounded-xl border border-[#1BE1D3]/20"
+                    className="flex items-center justify-between p-3 xs:p-4 rounded-xl border border-[#1BE1D3]/20"
                     style={{ background: "linear-gradient(135deg, rgba(10,26,26,0.6) 0%, rgba(5,15,15,0.8) 100%)" }}
                   >
                     <div>
-                      <p className="text-white text-[15px] font-semibold mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      <p className="text-white text-[13px] xs:text-[14px] sm:text-[15px] font-semibold mb-0.5 xs:mb-1" style={{ fontFamily: "Poppins, sans-serif" }}>
                         {item.day}
                       </p>
-                      <p className="text-white/60 text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                      <p className="text-white/60 text-[11px] xs:text-[12px] sm:text-[13px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                         {item.time}
                       </p>
                     </div>
@@ -350,23 +350,23 @@ const ContactPage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h2
-                className="text-[24px] font-semibold text-white leading-[1.2] mb-6"
+                className="text-[20px] xs:text-[22px] sm:text-[24px] font-semibold text-white leading-[1.2] mb-4 xs:mb-5 sm:mb-6"
               >
                 Our Location
               </h2>
               <div
-                className="p-6 rounded-2xl border border-[#1BE1D3]/20 mb-4"
+                className="p-4 xs:p-6 rounded-2xl border border-[#1BE1D3]/20 mb-3 xs:mb-4"
                 style={{ background: "linear-gradient(135deg, rgba(10,26,26,0.8) 0%, rgba(5,15,15,0.95) 100%)" }}
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-6 h-6 text-[#1BE1D3]" />
+                <div className="flex items-start gap-3 xs:gap-4 mb-3 xs:mb-4">
+                  <div className="w-10 h-10 xs:w-12 xs:h-12 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 xs:w-6 xs:h-6 text-[#1BE1D3]" />
                   </div>
                   <div>
-                    <h3 className="text-white text-[16px] font-semibold mb-2">
+                    <h3 className="text-white text-[15px] xs:text-[16px] font-semibold mb-1 xs:mb-2">
                       Mumbai, India
                     </h3>
-                    <p className="text-white/60 text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <p className="text-white/60 text-[12px] xs:text-[13px] leading-[1.7]" style={{ fontFamily: "Poppins, sans-serif" }}>
                       Serving clients globally with remote and on-site consulting options available
                     </p>
                   </div>
@@ -380,7 +380,7 @@ const ContactPage = () => {
                   className="flex items-center gap-3 text-[#1BE1D3] hover:text-white transition-colors"
                 >
                   <MessageCircle className="w-5 h-5" />
-                  <span className="text-sm font-medium" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <span className="text-[12px] xs:text-[13px] sm:text-sm font-medium" style={{ fontFamily: "Poppins, sans-serif" }}>
                     Chat on WhatsApp for instant response
                   </span>
                 </a>
@@ -388,8 +388,8 @@ const ContactPage = () => {
                   href="tel:+919136242706"
                   className="flex items-center gap-3 text-white/60 hover:text-[#1BE1D3] transition-colors"
                 >
-                  <Phone className="w-5 h-5" />
-                  <span className="text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <Phone className="w-4 h-4 xs:w-5 xs:h-5" />
+                  <span className="text-[12px] xs:text-[13px] sm:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
                     +91 91362 42706
                   </span>
                 </a>

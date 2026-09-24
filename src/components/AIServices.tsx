@@ -258,7 +258,7 @@ const AIServices = () => {
               these services for your unique needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary">Get Free Consultation</button>
+              <button className="btn-primary">Get Complimentary Consultation</button>
               <button className="btn-glass">View Case Studies</button>
             </div>
           </div>

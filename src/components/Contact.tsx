@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin, Send, CheckCircle } from "lucide-react";
+import { Mail, Phone, MapPin, CheckCircle, MessageCircle } from "lucide-react";
 import contact from "@/assets/contact.png";
 import { captureLead } from "@/lib/leadCapture";
 const Contact = () => {
@@ -54,23 +53,23 @@ const Contact = () => {
 
   return (
     <section
-      className="relative py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden"
+      className="relative py-10 xs:py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden"
       style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}
     >
       {/* Teal gradient glow */}
-      <div className="absolute top-1/4 left-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-[#1BE1D3]/5 rounded-full blur-[100px] sm:blur-[120px]" />
-      <div className="absolute bottom-0 right-0 w-[250px] sm:w-[400px] h-[250px] sm:h-[400px] bg-[#1BE1D3]/3 rounded-full blur-[80px] sm:blur-[100px]" />
+      <div className="absolute top-1/4 left-0 w-[200px] xs:w-[300px] sm:w-[500px] h-[200px] xs:h-[300px] sm:h-[500px] bg-[#1BE1D3]/5 rounded-full blur-[80px] xs:blur-[100px] sm:blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-[180px] xs:w-[250px] sm:w-[400px] h-[180px] xs:h-[250px] sm:h-[400px] bg-[#1BE1D3]/3 rounded-full blur-[60px] xs:blur-[80px] sm:blur-[100px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 md:px-8">
         {/* Main Content - Two Column inside rounded container */}
         <div
-          className="rounded-[20px] sm:rounded-[28px] overflow-hidden"
+          className="rounded-[16px] sm:rounded-[24px] md:rounded-[28px] overflow-hidden"
           style={{
             background: "linear-gradient(135deg, rgba(10,26,26,0.8) 0%, rgba(5,15,15,0.95) 100%)",
             border: "1px solid rgba(27,225,211,0.08)",
           }}
         >
-          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 p-3 sm:p-6 md:p-8 lg:p-12 xl:p-16 items-start">
             {/* Left Side - Tell us about your project */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -78,31 +77,31 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-[20px] sm:text-[24px] md:text-[28px] lg:text-[36px] font-semibold text-white leading-[1.2] mb-4 sm:mb-6 md:mb-8" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
+              <h2 className="text-[18px] xs:text-[20px] sm:text-[24px] md:text-[28px] lg:text-[36px] font-semibold text-white leading-[1.2] mb-4 sm:mb-6 md:mb-8" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
                 Tell us about your project
               </h2>
 
               {/* Trust indicators with checkmarks */}
               <div className="space-y-3 sm:space-y-4 md:space-y-5 mb-6 sm:mb-8 md:mb-12">
-                <div className="flex items-center gap-4">
-                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0 mt-0.5">
                     <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#1BE1D3]" strokeWidth={2.5} />
                   </div>
-                  <span className="text-white/80 text-[12px] sm:text-[13px] md:text-[15px]">We will respond to you within 12 hours</span>
+                  <span className="text-white/80 text-[11px] xs:text-[12px] sm:text-[13px] md:text-[15px] leading-[1.5]">We will respond to you within 12 hours</span>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0 mt-0.5">
                     <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#1BE1D3]" strokeWidth={2.5} />
                   </div>
-                  <span className="text-white/80 text-[12px] sm:text-[13px] md:text-[15px]">We'll sign an NDA if requested</span>
+                  <span className="text-white/80 text-[11px] xs:text-[12px] sm:text-[13px] md:text-[15px] leading-[1.5]">We'll sign an NDA if requested</span>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0">
+                <div className="flex items-start gap-3 sm:gap-4">
+                  <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-[#1BE1D3]/15 border border-[#1BE1D3]/25 flex-shrink-0 mt-0.5">
                     <CheckCircle className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#1BE1D3]" strokeWidth={2.5} />
                   </div>
-                  <span className="text-white/80 text-[12px] sm:text-[13px] md:text-[15px]">Access to dedicated consultant specialists</span>
+                  <span className="text-white/80 text-[11px] xs:text-[12px] sm:text-[13px] md:text-[15px] leading-[1.5]">Access to dedicated consultant specialists</span>
                 </div>
               </div>
 
@@ -110,10 +109,10 @@ const Contact = () => {
               <div className="space-y-2.5 sm:space-y-3 md:space-y-4 mb-6 sm:mb-8 md:mb-10">
                 <a
                   href="mailto:yurekhsolutions@gmail.com"
-                  className="flex items-center gap-3 text-[#1BE1D3] hover:text-white transition-colors duration-300 group"
+                  className="flex items-center gap-3 text-[#1BE1D3] hover:text-white transition-colors duration-300 group break-all"
                 >
-                  <Mail className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-[13px] sm:text-[14px] md:text-[16px] font-medium group-hover:underline">yurekhsolutions@gmail.com</span>
+                  <Mail className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                  <span className="text-[12px] xs:text-[13px] sm:text-[14px] md:text-[16px] font-medium group-hover:underline">yurekhsolutions@gmail.com</span>
                 </a>
                 <a
                   href="https://wa.me/919136242706"
@@ -121,12 +120,12 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-white/60 hover:text-[#1BE1D3] transition-colors duration-300"
                 >
-                  <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-[13px] sm:text-[14px] md:text-[16px]">+91 91362 42706</span>
+                  <Phone className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                  <span className="text-[12px] xs:text-[13px] sm:text-[14px] md:text-[16px]">+91 91362 42706</span>
                 </a>
                 <div className="flex items-center gap-3 text-white/60">
-                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-[13px] sm:text-[14px] md:text-[16px]">Mumbai, India</span>
+                  <MapPin className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />
+                  <span className="text-[12px] xs:text-[13px] sm:text-[14px] md:text-[16px]">Mumbai, India</span>
                 </div>
               </div>
 
@@ -135,7 +134,7 @@ const Contact = () => {
   <img
     src={contact}
     alt="Contact"
-    className="w-full max-w-[280px] sm:max-w-[350px] mb-3 sm:mb-4 mx-auto object-contain"
+    className="w-full max-w-[200px] xs:max-w-[260px] sm:max-w-[320px] md:max-w-[350px] mb-3 sm:mb-4 mx-auto object-contain"
   />
 </div>
             </motion.div>
@@ -147,8 +146,8 @@ const Contact = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h3 className="text-[18px] sm:text-[20px] md:text-[24px] font-semibold text-white mb-1.5 sm:mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
-                Get A Free Consultation
+              <h3 className="text-[18px] xs:text-[20px] sm:text-[20px] md:text-[24px] font-semibold text-white mb-1.5 sm:mb-2" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 600 }}>
+                Get A Consultation
               </h3>
               <p className="text-white/50 text-[12px] sm:text-[13px] md:text-[14px] mb-4 sm:mb-6 md:mb-8">
                 Fill out the form below and we'll get back to you shortly.
@@ -209,9 +208,9 @@ const Contact = () => {
                   <Label htmlFor="phone" className="text-white/80 text-[11px] sm:text-[12px] font-semibold tracking-wider uppercase mb-1.5 sm:mb-2 block">
                     Phone Number <span className="text-[#1BE1D3]">*</span>
                   </Label>
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 min-w-0">
                     <select
-                      className="bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-2.5 sm:py-3 text-white/70 text-[13px] sm:text-[14px] focus:outline-none focus:border-[#1BE1D3]/60 cursor-pointer appearance-none w-[120px] sm:w-[140px] flex-shrink-0 transition-colors duration-300"
+                      className="bg-transparent border-0 border-b border-white/15 rounded-none px-0 py-2.5 sm:py-3 text-white/70 text-[12px] xs:text-[13px] sm:text-[14px] focus:outline-none focus:border-[#1BE1D3]/60 cursor-pointer appearance-none w-[100px] xs:w-[120px] sm:w-[140px] flex-shrink-0 transition-colors duration-300"
                     >
                       <option value="+91">India (+91)</option>
                       <option value="+1">+1</option>
@@ -285,8 +284,16 @@ const Contact = () => {
                   type="button"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => navigate("/contact")}
-                  className="w-full py-3 sm:py-4 rounded-full text-[#1BE1D3] text-[14px] sm:text-[16px] font-semibold cursor-pointer transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px"
+                  onClick={() => {
+                    if (!formData.firstName.trim() || !formData.lastName.trim() || !formData.email.trim() || !formData.phone.trim()) {
+                      return;
+                    }
+                    const message = encodeURIComponent(
+                      `NEW INQUIRY — Yurekh Solutions\n\nName: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCategory: ${formData.category || '—'}\n\nProject Needs:\n${formData.message || '—'}`
+                    );
+                    window.open(`https://wa.me/919136242706?text=${message}`, "_blank");
+                  }}
+                  className="w-full inline-flex items-center justify-center gap-2 py-3 sm:py-4 rounded-full text-[#1BE1D3] text-[14px] sm:text-[16px] font-semibold cursor-pointer transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px"
                   style={{
                     fontFamily: "Poppins, sans-serif",
                     background: "rgba(27,225,211,0.08)",
@@ -296,6 +303,7 @@ const Contact = () => {
                     boxShadow: "0 0 20px rgba(27,225,211,0.08), inset 0 1px 0 rgba(255,255,255,0.05)",
                   }}
                 >
+                  <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
                   Get In Touch
                 </motion.button>
 

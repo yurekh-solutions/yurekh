@@ -17,7 +17,7 @@ const sitemapData = [
       { name: "Services", href: "/services" },
       { name: "Blog", href: "/blogs" },
       { name: "Contact", href: "/#contact" },
-      { name: "AINOS Business Suite", href: "/ainos", external: true },
+      { name: "AINOS Business Suite", href: "https://ainos-ywu0.onrender.com", external: true },
     ],
   },
   {
@@ -154,7 +154,7 @@ const sitemapData = [
     title: "Quick Links",
     links: [
       { name: "Book a Demo", href: "/bookingform" },
-      { name: "Free Consultation", href: "/bookingform" },
+      { name: "Complimentary Consultation", href: "/bookingform" },
       { name: "Privacy Policy", href: "/privacy" },
       { name: "Terms & Conditions", href: "/terms" },
       { name: "Sitemap", href: "/sitemap.xml" },

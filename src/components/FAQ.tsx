@@ -59,7 +59,7 @@ const FAQ = () => {
         {
           id: "consultation-cost",
           question: "Do you charge for consultations?",
-          answer: "Initial consultations (up to 30 minutes) are completely free. For detailed strategy sessions and comprehensive audits, we offer premium consultation packages ranging from $179 to $499, which can be credited toward your project if you proceed with our services."
+          answer: "Initial consultations (up to 30 minutes) are complimentary. For detailed strategy sessions and comprehensive audits, we offer premium consultation packages ranging from $179 to $499, which can be credited toward your project if you proceed with our services."
         },
         {
           id: "maintenance-cost",
@@ -108,7 +108,7 @@ const FAQ = () => {
         {
           id: "post-launch",
           question: "What happens after my project launches?",
-          answer: "We provide 30 days of free post-launch support including bug fixes, minor adjustments, and technical assistance. We also offer training sessions, documentation, and ongoing maintenance packages to ensure your continued success."
+          answer: "We provide 30 days of complimentary post-launch support including bug fixes, minor adjustments, and technical assistance. We also offer training sessions, documentation, and ongoing maintenance packages to ensure your continued success."
         },
         {
           id: "hosting-domain",

@@ -155,7 +155,7 @@ const Header = () => {
       ],
     },
     { name: "Case Study", href: "/case-study" },
-    { name: "AINOS", href: "/ainos", external: true },
+    { name: "AINOS", href: "https://ainos-ywu0.onrender.com", external: true },
   ];
 
   const handleDropdownEnter = (name: string) => {
