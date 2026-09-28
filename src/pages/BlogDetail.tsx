@@ -1747,7 +1747,7 @@ const BlogDetail = () => {
 
   const heroImage = post.image || blogHero;
 
-  const canonical = `https://yurekh.com/blogs/${post.slug}`;
+  const canonical = `https://yurekh.com/blogs/${post.slug}/`;
 
   // Article schema
   const articleSchema = JSON.stringify({
@@ -1757,7 +1757,7 @@ const BlogDetail = () => {
     description: post.description,
     image: "https://yurekh.com/og-image.png",
     datePublished: post.date,
-    author: { "@type": "Organization", name: "Yurekh Solutions", url: "https://yurekh.com" },
+    author: { "@type": "Organization", name: "Yurekh Solutions", url: "https://yurekh.com/" },
     publisher: {
       "@type": "Organization",
       name: "Yurekh Solutions",
@@ -1794,7 +1794,7 @@ const BlogDetail = () => {
         canonical={canonical}
         schema={combinedSchema}
         breadcrumbs={[
-          { name: "Blog", url: "https://yurekh.com/blogs" },
+          { name: "Blog", url: "https://yurekh.com/blogs/" },
           { name: post.title, url: canonical },
         ]}
       />

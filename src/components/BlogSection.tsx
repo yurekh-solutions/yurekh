@@ -1,6 +1,7 @@
+import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Calendar, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 import blog1 from "../assets/blog/blog1.png";
 import blog2 from "../assets/blog/blog2.jpg";
@@ -172,19 +173,12 @@ const getDynamicDate = (daysAgo: number): string => {
   return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 };
 
-// Seeded daily shuffle: homepage shows a different set of blog cards every day.
-// The seed changes each day, so over a month every blog gets featured.
+// Fresh Fisher-Yates shuffle on every page load, so each visit (and every
+// refresh) surfaces a different set of featured cards from the blog pool.
 const getFeaturedPosts = () => {
-  const now = new Date();
-  const dayKey = now.getFullYear() * 372 + now.getMonth() * 31 + now.getDate();
   const arr = [...blogPosts];
-  let seed = dayKey;
-  const rand = () => {
-    seed = (seed * 9301 + 49297) % 233280;
-    return seed / 233280;
-  };
   for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(rand() * (i + 1));
+    const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
@@ -1807,6 +1801,9 @@ export const blogPosts = [
 ];
 
 const BlogSection = () => {
+  // Shuffle once per mount — stable during the visit, fresh on every refresh.
+  const featuredPosts = useMemo(() => getFeaturedPosts().slice(0, 3), []);
+
   return (
     <section
       className="relative py-16 sm:py-20 overflow-hidden"
@@ -1861,7 +1858,7 @@ const BlogSection = () => {
 
           {/* Blog Cards - 3 cards grid with View All button */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {getFeaturedPosts().slice(0, 3).map((post, idx) => (
+            {featuredPosts.map((post, idx) => (
               <Link to={`/blogs/${post.slug}`} key={idx}>
                 <motion.article
                   initial={{ opacity: 0, y: 20 }}
@@ -1880,10 +1877,6 @@ const BlogSection = () => {
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-black/60 backdrop-blur-sm border border-white/10">
-                      <Calendar className="h-3 w-3 text-[#1BE1D3]" />
-                      <span className="text-[11px] sm:text-[12px] text-white/90 font-medium">{post.date}</span>
-                    </div>
                   </div>
 
                   {/* Content Section */}

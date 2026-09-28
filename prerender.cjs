@@ -181,8 +181,8 @@ for (const s of scanDataFile(path.join("src", "data", "services.ts"))) {
     title: brand(s.seoTitle),
     description: s.seoDescription,
     crumb: s.name,
-    parent: { name: "Services", url: `${DOMAIN}/services` },
-    schema: { "@context": "https://schema.org", "@type": "Service", name: s.name, description: s.seoDescription, url: `${DOMAIN}/services/${s.slug}`, provider: { "@type": "Organization", name: "Yurekh Solutions", url: DOMAIN, telephone: "+91-9136242706" } },
+    parent: { name: "Services", url: `${DOMAIN}/services/` },
+    schema: { "@context": "https://schema.org", "@type": "Service", name: s.name, description: s.seoDescription, url: `${DOMAIN}/services/${s.slug}/`, provider: { "@type": "Organization", name: "Yurekh Solutions", url: DOMAIN, telephone: "+91-9136242706" } },
   });
 }
 
@@ -192,8 +192,8 @@ for (const i of scanDataFile(path.join("src", "data", "industries.ts"))) {
     title: brand(i.seoTitle),
     description: i.seoDescription,
     crumb: i.name,
-    parent: { name: "Industries", url: `${DOMAIN}/industries` },
-    schema: { "@context": "https://schema.org", "@type": "Service", name: `${i.name} Industry Solutions`, description: i.seoDescription, url: `${DOMAIN}/industries/${i.slug}`, provider: { "@type": "Organization", name: "Yurekh Solutions", url: DOMAIN, telephone: "+91-9136242706" } },
+    parent: { name: "Industries", url: `${DOMAIN}/industries/` },
+    schema: { "@context": "https://schema.org", "@type": "Service", name: `${i.name} Industry Solutions`, description: i.seoDescription, url: `${DOMAIN}/industries/${i.slug}/`, provider: { "@type": "Organization", name: "Yurekh Solutions", url: DOMAIN, telephone: "+91-9136242706" } },
   });
 }
 
@@ -203,8 +203,8 @@ for (const b of scanBlogs()) {
     title: brand(b.title),
     description: b.description,
     crumb: b.title,
-    parent: { name: "Blog", url: `${DOMAIN}/blogs` },
-    schema: { "@context": "https://schema.org", "@type": "BlogPosting", headline: b.title, description: b.description, url: `${DOMAIN}/blogs/${b.slug}`, image: `${DOMAIN}/og-image.png`, author: { "@type": "Organization", name: "Yurekh Solutions", url: DOMAIN }, publisher: { "@type": "Organization", name: "Yurekh Solutions", logo: { "@type": "ImageObject", url: `${DOMAIN}/logoyurekh.png` } } },
+    parent: { name: "Blog", url: `${DOMAIN}/blogs/` },
+    schema: { "@context": "https://schema.org", "@type": "BlogPosting", headline: b.title, description: b.description, url: `${DOMAIN}/blogs/${b.slug}/`, image: `${DOMAIN}/og-image.png`, author: { "@type": "Organization", name: "Yurekh Solutions", url: DOMAIN }, publisher: { "@type": "Organization", name: "Yurekh Solutions", logo: { "@type": "ImageObject", url: `${DOMAIN}/logoyurekh.png` } } },
   });
 }
 
@@ -213,7 +213,7 @@ for (const b of scanBlogs()) {
 const template = fs.readFileSync(path.join(DIST, "index.html"), "utf8");
 
 const renderRoute = ({ route, title, description, crumb, parent, schema }) => {
-  const url = `${DOMAIN}${route}`;
+  const url = `${DOMAIN}${route}/`;
   const t = esc(title);
   const d = esc(description);
   let html = template

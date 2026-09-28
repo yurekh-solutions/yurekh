@@ -48,8 +48,8 @@ const aboutSchema = JSON.stringify({
     },
     {
       "@type": "AboutPage",
-      "@id": "https://yurekh.com/about#aboutpage",
-      url: "https://yurekh.com/about",
+      "@id": "https://yurekh.com/about/#aboutpage",
+      url: "https://yurekh.com/about/",
       name: "About Yurekh Solutions",
       description:
         "Learn about Yurekh Solutions — a senior-led business building studio combining strategy, technology, brand, and go-to-market execution to help founders and enterprises start, scale, and dominate markets worldwide.",

@@ -266,7 +266,7 @@ const Footer = () => {
               <h4 className="text-base font-normal text-[#1BE1D3] mb-4" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>AI Services</h4>
               <ul className="space-y-2 text-sm">
                 {["AI Marketing Automation", "Predictive Analytics", "Content Intelligence", "Digital Strategy", "Growth Optimization", "Performance Analytics"].map((service, index) => (
-                  <li key={index} className="flex items-center gap-2 text-white/70 hover:text-[#1BE1D3] transition" style={{ fontFamily: "Poppins, sans-serif" }}>
+                  <li key={index} className="flex items-center gap-2 text-white/70" style={{ fontFamily: "Poppins, sans-serif" }}>
                     <span className="w-1.5 h-1.5 rounded-full bg-[#1BE1D3]" />
                     {service}
                   </li>

@@ -61,7 +61,8 @@ const staticRoutes = [
 const HREFLANGS = ["en", "en-in", "en-ae", "en-us", "en-gb", "en-sg", "en-au"];
 
 const urlBlock = ({ loc, priority, changefreq, hreflang }) => {
-  const full = `${DOMAIN}${loc}`;
+  // Apache serves every page at its trailing-slash URL — sitemap must match.
+  const full = loc === "/" ? `${DOMAIN}/` : `${DOMAIN}${loc}/`;
   const alts = hreflang
     ? HREFLANGS.map(
         (h) => `    <xhtml:link rel="alternate" hreflang="${h}" href="${full}" />`

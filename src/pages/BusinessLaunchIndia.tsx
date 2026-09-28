@@ -147,16 +147,16 @@ const pageSchema = JSON.stringify({
   "@graph": [
     {
       "@type": "Service",
-      "@id": "https://yurekh.com/launch-in-india#service",
+      "@id": "https://yurekh.com/launch-in-india/#service",
       name: "India Market Entry & Business Setup Services",
       serviceType: "India Market Entry Consulting",
-      url: "https://yurekh.com/launch-in-india",
+      url: "https://yurekh.com/launch-in-india/",
       description:
         "End-to-end India market entry for foreign businesses, startups and NRI entrepreneurs \u2014 company registration, FDI and legal compliance, market research, local partnerships, and go-to-market execution.",
       provider: {
         "@type": "Organization",
         name: "Yurekh Solutions",
-        url: "https://yurekh.com",
+        url: "https://yurekh.com/",
         logo: "https://yurekh.com/og-image.png",
       },
       areaServed: { "@type": "Country", name: "India" },
@@ -179,7 +179,7 @@ const pageSchema = JSON.stringify({
     },
     {
       "@type": "FAQPage",
-      "@id": "https://yurekh.com/launch-in-india#faq",
+      "@id": "https://yurekh.com/launch-in-india/#faq",
       mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.q,
@@ -198,10 +198,10 @@ const BusinessLaunchIndia = () => {
         title="Build Your Business in India | Market Entry Partner | Yurekh Solutions"
         description="Yurekh Solutions helps international businesses enter and build in India. From company registration and legal compliance to market research, local partnerships, and go-to-market execution — one partner for complete market entry."
         keywords="launch business in India, market entry India, company registration India, foreign business India, India market entry consulting, legal compliance India, business setup India, Yurekh Solutions"
-        canonical="https://yurekh.com/launch-in-india"
+        canonical="https://yurekh.com/launch-in-india/"
         schema={pageSchema}
         breadcrumbs={[
-          { name: "Build Business in India", url: "https://yurekh.com/launch-in-india" },
+          { name: "Build Business in India", url: "https://yurekh.com/launch-in-india/" },
         ]}
       />
 

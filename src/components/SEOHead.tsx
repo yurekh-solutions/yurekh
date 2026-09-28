@@ -28,7 +28,11 @@ const SEOHead = ({
 }: SEOHeadProps) => {
     // Append brand once — never duplicate "Yurekh Solutions" if the title already contains it
     const fullTitle = title.includes("Yurekh Solutions") ? title : `${title} | Yurekh Solutions`;
-  const url = canonical || "https://yurekh.com";
+  // The Apache host serves every page at its trailing-slash URL and 301s the
+  // bare form — canonicals and breadcrumb schema must match the final URL.
+  const withSlash = (u: string) =>
+    u.startsWith("https://yurekh.com") && !u.endsWith("/") ? `${u}/` : u;
+  const url = withSlash(canonical || "https://yurekh.com/");
 
   // Generate breadcrumb schema
   const breadcrumbSchema = breadcrumbs
@@ -41,7 +45,7 @@ const SEOHead = ({
             "@type": "ListItem" as const,
             position: i + 2,
             name: b.name,
-            item: b.url,
+            item: withSlash(b.url),
           })),
         ],
       })

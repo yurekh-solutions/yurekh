@@ -1,7 +1,7 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight, Search, ChevronDown } from "lucide-react";
+import { ArrowRight, Search, ChevronDown } from "lucide-react";
 import { blogPosts } from "../components/BlogSection";
 import SEOHead from "@/components/SEOHead";
 
@@ -204,10 +204,6 @@ const BlogListing = () => {
 
                     {/* Content */}
                     <div className="p-4 sm:p-5 md:p-6 flex flex-col gap-3">
-                      <div className="flex items-center gap-2 text-gray-500 text-[12px] sm:text-[13px]">
-                        <Calendar className="h-3.5 w-3.5 text-[#1BE1D3]" />
-                        <span>{post.date}</span>
-                      </div>
                       <h3 className="text-[16px] sm:text-[18px] md:text-[20px] font-semibold text-white leading-[1.3] group-hover:text-[#1BE1D3] transition-colors duration-300 line-clamp-2" style={{ fontFamily: "Montserrat, sans-serif" }}>
                         {post.title}
                       </h3>

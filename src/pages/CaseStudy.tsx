@@ -244,7 +244,7 @@ const CaseStudy = () => {
           <div className="max-w-7xl mx-auto">
             {/* Main Tabs */}
             <div className="flex gap-8 mb-8 border-b border-white/10">
-              {(["industries", "services", "regions"] as const).map((tab) => (
+              {(["industries", "services"] as const).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => {
