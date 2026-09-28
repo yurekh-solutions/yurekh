@@ -1,0 +1,47 @@
+# Yurekh Solutions — Apache hardening + performance
+# Keep this file in public/ so every `npm run build` copies it into dist/
+# for upload. It belongs in the web root next to index.html.
+
+# ------------------------------------------------------------------
+# 1. Force HTTPS and the apex domain (one single 301 for both)
+# ------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.yurekh\.com$ [NC,OR]
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://yurekh.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ------------------------------------------------------------------
+# 2. Security headers (same set the site served on Vercel)
+# ------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # Report-only: watch what it flags, enforce later once clean.
+  Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://img1.wsimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formsubmit.co https://ipapi.co https://www.google-analytics.com; frame-src https://www.google.com; frame-ancestors 'self'; base-uri 'self'"
+</IfModule>
+
+# ------------------------------------------------------------------
+# 3. Caching: hashed build assets immutable, static media 7 days,
+#    HTML/XML/TXT always revalidate
+# ------------------------------------------------------------------
+<IfModule mod_headers.c>
+  SetEnvIf Request_URI "^/assets/" long_cache
+  <FilesMatch "\.(js|css|png|jpe?g|webp|svg|ico|gif|avif|woff2?|ttf|otf|mp4|webm)$">
+    Header set Cache-Control "public, max-age=31536000, immutable" env=long_cache
+    Header set Cache-Control "public, max-age=604800" env=!long_cache
+  </FilesMatch>
+  <FilesMatch "\.(html?|xml|txt|json)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# ------------------------------------------------------------------
+# 4. Hygiene
+# ------------------------------------------------------------------
+Options -Indexes
+DirectoryIndex index.html
