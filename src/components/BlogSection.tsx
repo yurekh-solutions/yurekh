@@ -172,6 +172,24 @@ const getDynamicDate = (daysAgo: number): string => {
   return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
 };
 
+// Seeded daily shuffle: homepage shows a different set of blog cards every day.
+// The seed changes each day, so over a month every blog gets featured.
+const getFeaturedPosts = () => {
+  const now = new Date();
+  const dayKey = now.getFullYear() * 372 + now.getMonth() * 31 + now.getDate();
+  const arr = [...blogPosts];
+  let seed = dayKey;
+  const rand = () => {
+    seed = (seed * 9301 + 49297) % 233280;
+    return seed / 233280;
+  };
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+};
+
 export const blogPosts = [
   {
     slug: "company-formation-cost-india-2026",
@@ -1843,7 +1861,7 @@ const BlogSection = () => {
 
           {/* Blog Cards - 3 cards grid with View All button */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {blogPosts.slice(0, 3).map((post, idx) => (
+            {getFeaturedPosts().slice(0, 3).map((post, idx) => (
               <Link to={`/blogs/${post.slug}`} key={idx}>
                 <motion.article
                   initial={{ opacity: 0, y: 20 }}
