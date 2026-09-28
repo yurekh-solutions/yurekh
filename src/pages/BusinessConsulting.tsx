@@ -441,7 +441,7 @@ const BusinessConsulting = () => {
                 {
                   icon: <Award className="w-10 h-10" />,
                   title: "Proven Track Record",
-                  stat: "200+ Projects",
+                  stat: "50,000+ Projects",
                   description: "Successfully launched and scaled businesses across industries from startups to Fortune 500 companies.",
                 },
                 {

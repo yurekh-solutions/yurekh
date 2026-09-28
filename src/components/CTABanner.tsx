@@ -68,9 +68,9 @@ const CTABanner = () => {
                   <p
                     className="text-3xl sm:text-4xl font-bold text-white flex-shrink-0 min-w-[68px] sm:min-w-[84px]"
                   >
-                    150+
+                    50,000+
                   </p>
-                  <p className="text-[13px] text-gray-400 leading-snug">projects shipped across 12+ countries</p>
+                  <p className="text-[13px] text-gray-400 leading-snug">projects delivered across 12+ countries</p>
                 </div>
 
                 <div className="w-full h-px bg-white/5" />

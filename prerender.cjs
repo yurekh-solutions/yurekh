@@ -31,7 +31,7 @@ const staticRoutes = {
   "/about": {
     title: "About Us | Senior-Led Business Building Studio",
     description:
-      "Yurekh Solutions is a senior-led, full-system business building studio delivering AI-powered software, digital branding, and go-to-market strategy as one integrated system. 125+ applications modernized, 70% average cost reduction, serving clients across India, UAE, USA, UK, Singapore & Australia.",
+      "Yurekh Solutions is a senior-led, full-system business building studio delivering AI-powered software, digital branding, and go-to-market strategy as one integrated system. 50,000+ projects delivered, 70% average cost reduction, serving clients across India, UAE, USA, UK, Singapore & Australia.",
   },
   "/services": {
     title: "Our Services | Digital Solutions & Business Building | Yurekh Solutions",

@@ -146,7 +146,7 @@ const TestimonialsSection = () => {
           className="text-center mt-12"
         >
           <p className="text-white/40 text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>
-            200+ brands built and scaled globally. Your success story is next.
+            50,000+ projects delivered globally. Your success story is next.
           </p>
         </motion.div>
       </div>

@@ -60,7 +60,7 @@ const aboutSchema = JSON.stringify({
 });
 
 const stats = [
-  { number: "125+", label: "Applications Modernized" },
+  { number: "50,000+", label: "Projects Delivered" },
   { number: "500K+", label: "Calls Handled Per Hour" },
   { number: "70%", label: "Average Cost Reduction" },
   { number: "99%", label: "Customer Satisfaction" },
@@ -190,7 +190,7 @@ const About = () => {
     <div className="min-h-screen" style={{ background: BG }}>
       <SEOHead
         title="About Us | Senior-Led Business Building Studio"
-        description="Yurekh Solutions is a senior-led, full-system business building studio delivering AI-powered software, digital branding, and go-to-market strategy as one integrated system. 125+ applications modernized, 70% average cost reduction, serving clients across India, UAE, USA, UK, Singapore & Australia."
+        description="Yurekh Solutions is a senior-led, full-system business building studio delivering AI-powered software, digital branding, and go-to-market strategy as one integrated system. 50,000+ projects delivered, 70% average cost reduction, serving clients across India, UAE, USA, UK, Singapore & Australia."
         keywords="about Yurekh Solutions, business building studio, senior-led consultants, AI software company, digital branding agency, go-to-market strategy, global technology partner, company story, mission, vision"
         canonical="https://yurekh.com/about"
         schema={aboutSchema}

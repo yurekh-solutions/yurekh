@@ -11,9 +11,9 @@ const ResultsSection = () => {
     },
     {
       icon: <Users className="w-8 h-8" />,
-      value: "200+",
-      label: "Brands Built & Scaled",
-      description: "From startup to enterprise",
+      value: "50,000+",
+      label: "Projects Delivered",
+      description: "Client projects completed and shipped globally",
     },
     {
       icon: <Globe className="w-8 h-8" />,
@@ -23,7 +23,7 @@ const ResultsSection = () => {
     },
     {
       icon: <Award className="w-8 h-8" />,
-      value: "95%",
+      value: "96%",
       label: "Client Retention Rate",
       description: "Long-term partnerships, not one-off projects",
     },

@@ -89,7 +89,7 @@ const FAQ = () => {
     },
     {
       question: "Can Yurekh Solutions help me scale my existing business?",
-      answer: "Absolutely. We work with established businesses looking to expand into new markets, launch new product lines, or undergo digital transformation. Our scaling engagements include market research, competitive analysis, technology upgrades, marketing optimization, and operational restructuring. We've helped businesses achieve 3.2x average ROI across 150+ projects.",
+      answer: "Absolutely. We work with established businesses looking to expand into new markets, launch new product lines, or undergo digital transformation. Our scaling engagements include market research, competitive analysis, technology upgrades, marketing optimization, and operational restructuring. We've helped businesses achieve 3.2x average ROI across 50,000+ projects.",
     },
     {
       question: "What is the ROI of working with Yurekh Solutions?",

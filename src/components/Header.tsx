@@ -199,7 +199,7 @@ const Header = () => {
                   {[
                     "AI-Driven Business",
                     "Recognized Among TOP 1% Companies Globally",
-                    "150+ Projects Delivered",
+                    "50,000+ Projects Delivered",
                     "3.2x Average Client ROI",
                     "Serving 12+ Global Markets",
                     "24/7 AI-Powered Support",
