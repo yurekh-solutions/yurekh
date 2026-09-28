@@ -111,18 +111,17 @@ const BookingForm = () => {
     // Open Google Calendar so the visitor can add the requested slot to their calendar
     window.open(generateGoogleCalendarLink(), '_blank');
     setBooked(true);
-    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-      document.getElementById('booking-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Always bring the confirmation into view — visitors returning from the
+    // Google Calendar tab must land on the success message, not the page bottom.
+    document.getElementById('booking-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const detailsValid = formData.firstName && formData.phone && formData.email;
 
   const goTo = (s: 1 | 2 | 3) => {
     setStep(s);
-    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-      document.getElementById('booking-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Every step transition starts at the top of the card on all screen sizes.
+    document.getElementById('booking-card')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   const inputCls = "w-full px-4 py-3.5 rounded-xl bg-white/[0.04] border border-white/10 text-white/90 text-[14px] placeholder:text-white/25 focus:outline-none focus:border-[#1BE1D3]/50 focus:ring-1 focus:ring-[#1BE1D3]/25 focus:bg-white/[0.06] transition-all duration-200";
