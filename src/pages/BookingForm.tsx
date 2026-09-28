@@ -60,9 +60,6 @@ const BookingForm = () => {
     );
   };
 
-  // URL-encoded variant for the WhatsApp / wa.me link
-  const generateWhatsAppMessage = () => encodeURIComponent(generatePlainSummary());
-
   const generateGoogleCalendarLink = () => {
     const startDate = new Date(selectedDate);
     const [timeStr, period] = selectedTime.split(' ');
@@ -624,17 +621,8 @@ const BookingForm = () => {
                       {submitError && (
                         <div className="mt-4 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3">
                           <p className="text-red-300 text-[13px] leading-[1.6]" style={poppins}>
-                            We couldn't send your request automatically ({submitError}). Your details are saved here — please try again or reach us instantly on WhatsApp.
+                            We couldn't send your request automatically ({submitError}). Your details are saved — please press "Request Consultation" again.
                           </p>
-                          <a
-                            href={`https://wa.me/919136242706?text=${generateWhatsAppMessage()}`}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="inline-flex items-center gap-2 mt-2.5 px-4 py-2 rounded-full text-[13px] font-semibold bg-[#25D366] text-black hover:brightness-110 transition-all"
-                            style={poppins}
-                          >
-                            Send via WhatsApp instead
-                          </a>
                         </div>
                       )}
                       <p className="text-white/40 text-[12px] mt-4" style={poppins}>

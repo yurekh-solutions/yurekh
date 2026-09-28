@@ -5,9 +5,11 @@
  *
  * Behavior:
  * - Awaits the FormSubmit response and checks HTTP status.
- * - 10s timeout via AbortController (offline / slow networks fail fast).
+ * - 15s timeout per attempt via AbortController, with one automatic retry
+ *   on transient failures (the free FormSubmit tier is often slow or drops
+ *   the first connection but answers on the second try).
  * - Never throws — failures resolve to { ok: false, error } so the UI
- *   can show a recoverable error and offer a retry / WhatsApp fallback.
+ *   can show a recoverable error and offer a retry.
  *
  * Note: FormSubmit sends a one-time activation email on the very first
  * submission — click "Activate" once and every lead after that is delivered.
@@ -31,31 +33,45 @@ export const captureLead = async (
     // so every inquiry in the inbox shows exactly where the lead came from.
     const context = getLeadContext();
 
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000);
+    // The free FormSubmit tier is frequently slow or drops the first
+    // connection, so try twice with a 15s window before giving up.
+    let lastError = "Network failure";
+    for (let attempt = 0; attempt < 2; attempt++) {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15000);
 
-    let res: Response;
-    try {
-      res = await fetch("https://formsubmit.co/ajax/yurekhsolutions@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({
-          _subject: subject,
-          _template: "table",
-          _captcha: "false",
-          ...data,
-          ...context,
-        }),
-        signal: controller.signal,
-      });
-    } finally {
+      let res: Response;
+      try {
+        res = await fetch("https://formsubmit.co/ajax/yurekhsolutions@gmail.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify({
+            _subject: subject,
+            _template: "table",
+            _captcha: "false",
+            ...data,
+            ...context,
+          }),
+          signal: controller.signal,
+        });
+      } catch (e) {
+        // Timeout or dropped connection — transient, worth one more try.
+        lastError = e instanceof Error ? (e.name === "AbortError" ? "Request timed out" : e.message) : "Network failure";
+        clearTimeout(timeout);
+        continue;
+      }
       clearTimeout(timeout);
-    }
 
-    if (!res.ok) {
-      return { ok: false, error: `FormSubmit returned HTTP ${res.status}` };
+      if (res.ok) {
+        return { ok: true };
+      }
+      lastError = `FormSubmit returned HTTP ${res.status}`;
+      // 4xx errors (except 429 throttling) will fail identically on retry.
+      if (res.status >= 400 && res.status < 500 && res.status !== 429) {
+        break;
+      }
     }
-    return { ok: true };
+    return { ok: false, error: lastError };
   } catch (e) {
     const error =
       e instanceof Error ? (e.name === "AbortError" ? "Request timed out" : e.message) : "Network failure";
