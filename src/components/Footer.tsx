@@ -148,7 +148,7 @@ const sitemapData = [
       { name: "Manufacturing", href: "/industries/manufacturing" },
       { name: "Hospitality", href: "/industries/hospitality" },
       { name: "Automotive", href: "/industries/automotive" },
-      { name: "Media & Entertainment", href: "/industries/media" },
+      { name: "Media & Entertainment", href: "/industries/media-entertainment" },
       { name: "Logistics", href: "/industries/logistics" },
     ],
   },

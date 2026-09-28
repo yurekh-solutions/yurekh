@@ -287,6 +287,38 @@ export const industryCategories: IndustryCategory[] = [
         keywords: ["healthcare software", "telehealth", "patient portal", "EHR integration", "health technology", "healthtech", "digital health"]
       },
       {
+        name: "Hospitality",
+        slug: "hospitality",
+        tagline: "Hospitality technology for guest experiences, booking systems, and operational excellence.",
+        description: "Hotels, resorts, restaurants, and travel businesses need seamless digital experiences across every guest touchpoint. We build hospitality platforms that unify reservations, property management, guest engagement, and revenue operations into one intelligent ecosystem.",
+        seoTitle: "Hospitality Industry Solutions | Hotel & Restaurant Technology | Yurekh Solutions",
+        seoDescription: "Hospitality software solutions for hotels, resorts, and restaurants — booking engines, property management systems, guest engagement platforms, and revenue optimization. Transform hospitality operations with Yurekh Solutions.",
+        challenges: [
+          { title: "Fragmented Guest Data", description: "Guest preferences, booking history, and feedback scattered across disconnected systems prevent personalized experiences and loyalty building." },
+          { title: "Manual Operations", description: "Manual check-ins, booking management, and housekeeping coordination create delays, errors, and inconsistent service quality." },
+          { title: "Revenue Leakage", description: "Inefficient pricing, channel management, and direct-booking gaps leave revenue on the table and increase OTA commission dependency." }
+        ],
+        solutions: [
+          { title: "Unified Guest Platform", description: "Centralize reservations, guest profiles, and preferences in one platform enabling personalized service at every touchpoint." },
+          { title: "Automated Operations", description: "Automate check-ins, housekeeping schedules, and maintenance workflows to improve efficiency and service consistency." },
+          { title: "Smart Revenue Management", description: "Implement dynamic pricing, channel management, and direct-booking optimization to maximize occupancy and RevPAR." }
+        ],
+        capabilities: [
+          { title: "Booking Engine", description: "Custom booking engines with real-time availability, upsells, and seamless payment integration for direct reservations." },
+          { title: "Property Management", description: "Integrated PMS with front-desk, housekeeping, and maintenance modules for complete operational control." },
+          { title: "Guest Engagement", description: "Mobile check-in, digital concierge, in-room service ordering, and personalized communication platforms." },
+          { title: "Revenue Analytics", description: "Occupancy forecasting, competitor rate intelligence, and channel performance analytics for data-driven pricing." }
+        ],
+        outcomes: [
+          { title: "Higher Direct Bookings", description: "Increased direct bookings and reduced OTA commissions through optimized booking experiences." },
+          { title: "Better Guest Satisfaction", description: "Improved guest satisfaction scores through personalized, frictionless digital experiences." },
+          { title: "Operational Efficiency", description: "Streamlined operations with reduced manual workload and faster response times across departments." }
+        ],
+        ctaTitle: "Transform Your Hospitality Business",
+        ctaDescription: "Build guest-centric digital platforms that drive bookings, loyalty, and operational excellence.",
+        keywords: ["hospitality software", "hotel management system", "booking engine", "property management system", "restaurant technology", "guest engagement", "revenue management", "hotel digital transformation"]
+      },
+      {
         name: "Logistics",
         slug: "logistics",
         tagline: "Logistics technology for shipment visibility, routing optimization, and connected operations.",
@@ -543,6 +575,7 @@ export const getIndustryImage = (slug: string): string => {
     "finance": "https://d2ekchuirvzqg3.cloudfront.net/wp-content/uploads/2026/02/Finance.webp",
     "food": "https://d2ekchuirvzqg3.cloudfront.net/wp-content/uploads/2026/02/Food.webp",
     "healthcare": "https://d2ekchuirvzqg3.cloudfront.net/wp-content/uploads/2026/02/HealthCare.webp",
+    "hospitality": "https://d2ekchuirvzqg3.cloudfront.net/wp-content/uploads/2026/02/Travel.webp",
     "logistics": "https://d2ekchuirvzqg3.cloudfront.net/wp-content/uploads/2026/02/Logistic.webp",
     "manufacturing": "https://d2ekchuirvzqg3.cloudfront.net/wp-content/uploads/2026/02/Manufacturing.webp",
     "media-entertainment": "https://d2ekchuirvzqg3.cloudfront.net/wp-content/uploads/2026/02/Media-Entertentment.webp",
