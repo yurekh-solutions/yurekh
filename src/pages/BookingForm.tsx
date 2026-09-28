@@ -52,13 +52,16 @@ const BookingForm = () => {
     setFormData(prev => ({ ...prev, goals: checked ? [...prev.goals, goal] : prev.goals.filter(g => g !== goal) }));
   };
 
-  const generateWhatsAppMessage = () => {
+  const generatePlainSummary = () => {
     const dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const goalsText = formData.goals.length > 0 ? formData.goals.map(g => `  - ${g}`).join('\n') : '  Not specified';
-    return encodeURIComponent(
+    return (
       `========================================\n  CONSULTATION REQUEST — Yurekh Solutions\n========================================\n\nREQUESTED DATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nSTATUS: PENDING CONFIRMATION\n  Our team will confirm this slot within 24 hours\n  and share the Google Meet link by email.\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION: COMPLIMENTARY\n========================================`
     );
   };
+
+  // URL-encoded variant for the WhatsApp / wa.me link
+  const generateWhatsAppMessage = () => encodeURIComponent(generatePlainSummary());
 
   const generateGoogleCalendarLink = () => {
     const startDate = new Date(selectedDate);
@@ -310,7 +313,7 @@ const BookingForm = () => {
                           <Calendar className="h-4 w-4 flex-shrink-0" /> Add to Google Calendar
                         </a>
                         <a
-                          href={`mailto:yurekhsolutions@gmail.com?subject=${encodeURIComponent('Consultation Booking — ' + formData.firstName)}&body=${encodeURIComponent(generateWhatsAppMessage().replace(/%20/g, ' '))}`}
+                          href={`mailto:yurekhsolutions@gmail.com?subject=${encodeURIComponent('Consultation Request — ' + formData.firstName)}&body=${encodeURIComponent(generatePlainSummary())}`}
                           className={`${ghostBtn} w-full sm:w-auto`} style={ghostStyle}
                         >
                           <Mail className="h-4 w-4 flex-shrink-0" /> Send via Email
