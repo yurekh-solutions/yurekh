@@ -196,13 +196,8 @@ const Video = () => {
               Whether you're launching your first startup or scaling an existing enterprise, we act as your founding team, growth partner, and execution arm — all under one roof. No fragmented vendors, no miscommunication. One partner. Complete execution.
             </p>
 
-            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 mt-4 justify-center md:justify-start">
-              <div className="flex text-yellow-400 text-lg md:text-xl">⭐⭐⭐⭐⭐</div>
-              <p className="text-gray-400 text-sm md:text-base">Rated 4.8 out of 5 based on over 50+ reviews</p>
-            </div>
-
             {/* Projects Delivered Stat */}
-            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 mt-1 justify-center md:justify-start">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 mt-4 justify-center md:justify-start">
               <span className="text-[#1be1d3] text-2xl md:text-3xl font-bold" style={{ fontFamily: "Montserrat, sans-serif" }}>50,000+</span>
               <p className="text-gray-400 text-sm md:text-base">Projects Delivered Worldwide</p>
             </div>
