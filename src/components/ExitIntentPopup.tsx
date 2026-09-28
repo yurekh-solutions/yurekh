@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, Phone, MessageCircle } from "lucide-react";
+import { getWhatsAppLink, trackLead } from "../lib/analytics";
 
 const ExitIntentPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -109,9 +110,10 @@ const ExitIntentPopup = () => {
                 </a>
 
                 <a
-                  href="https://wa.me/919136242706"
+                  href={getWhatsAppLink('Exit Intent Popup')}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackLead('Exit Intent WhatsApp Click')}
                   className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-white font-normal transition-all duration-300 hover:bg-white/10"
                   style={{
                     fontFamily: "Poppins, sans-serif",

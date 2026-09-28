@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin, MessageSquare, Twitter, Zap, Phone, ArrowUp } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, MessageSquare, Twitter, Zap, Phone, ArrowUp, Sparkles } from 'lucide-react';
 import logo from '../assets/loo.png';
+import { trackLead, getWhatsAppLink } from '../lib/analytics';
+import yurekhLogo from "../assets/yurekhlog.png";
 
 const sitemapData = [
   {
@@ -254,9 +256,9 @@ const Footer = () => {
               </p>
 
               <div className="flex gap-3 flex-wrap">
-                <a href="https://wa.me/919136242706" target="_blank" rel="noopener noreferrer" className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>WhatsApp Chat</a>
-                <a href="tel:+919136242706" className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>Call Now</a>
-                <a href="mailto:yurekhsolutions@gmail.com" className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>Email Us</a>
+                <a href={getWhatsAppLink('Footer')} target="_blank" rel="noopener noreferrer" onClick={() => trackLead('Footer WhatsApp Click')} className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>WhatsApp Chat</a>
+                <a href="tel:+919136242706" onClick={() => trackLead('Footer Call Click')} className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>Call Now</a>
+                <a href="mailto:yurekhsolutions@gmail.com" onClick={() => trackLead('Footer Email Click')} className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>Email Us</a>
               </div>
             </div>
 
@@ -317,9 +319,11 @@ const Footer = () => {
 
           {/* AI Badge */}
           <div className="text-center mt-6">
-            <div className="inline-flex items-center gap-2 px-5 py-2 border border-[#1BE1D3]/50 rounded-full">
-              <Zap className="w-4 h-4 text-[#1BE1D3]" />
-              <span className="text-[#1BE1D3] text-xs md:text-sm" style={{ fontFamily: "Poppins, sans-serif" }}>Powered by Advanced AI Technology</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card">
+              <div className="w-5 h-5 overflow-hidden flex-shrink-0">
+                <img src={yurekhLogo} alt="Yurekh" className="w-full h-full object-cover" />
+              </div>
+              <span className="text-sm text-white/90 font-medium">Powered by Advanced AI Technology</span>
             </div>
           </div>
         </div>

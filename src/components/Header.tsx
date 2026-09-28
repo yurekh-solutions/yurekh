@@ -481,17 +481,36 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Mobile Menu Toggle */}
-            <button
-              className="lg:hidden text-white p-2"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
+            {/* Mobile Book CTA + Menu Toggle */}
+            <div className="lg:hidden flex items-center gap-2">
+              <button
+                onClick={() => navigate("/bookingform")}
+                style={{
+                  fontFamily: "Poppins, sans-serif",
+                  fontWeight: 600,
+                  fontSize: "12px",
+                  background: "#1BE1D3",
+                  color: "#000000",
+                  borderRadius: "999px",
+                  padding: "0 16px",
+                  height: "34px",
+                  border: "none",
+                }}
+                className="active:scale-95 transition-transform"
+              >
+                Book Now
+              </button>
+              <button
+                className="text-white p-2"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
               {isMenuOpen ? (
                 <X className="h-6 w-6" />
               ) : (
                 <Menu className="h-6 w-6" />
               )}
-            </button>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}

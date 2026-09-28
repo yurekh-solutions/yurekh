@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle, Sparkles, Mail } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
+import { trackLead } from "@/lib/analytics";
 
 const FAQ = () => {
   const faqs = [
@@ -78,15 +79,87 @@ const FAQ = () => {
       question: "How can I apply to join Yurekh Solutions?",
       answer: "We are selectively growing our partner principal network. We're looking for operators who have run business engagements end-to-end: strategy through execution. If that's you, write to us at yurekhsolutions@gmail.com. Tell us what you've built, who you've built it for, and what you would do differently with the right platform.",
     },
+    {
+      question: "How much does it cost to start a business with Yurekh Solutions?",
+      answer: "Costs vary based on scope, market, and complexity. A typical early-stage engagement covering company formation, brand identity, technology build, and go-to-market strategy starts from a defined project fee. We provide a transparent, itemized proposal after an initial consultation — no hidden costs, no surprises. Book a consultation to get a custom estimate for your specific needs.",
+    },
+    {
+      question: "How long does it take to launch a business with Yurekh Solutions?",
+      answer: "For a complete business launch — including legal setup, brand identity, website, and go-to-market strategy — the typical timeline is 90 to 120 days. Complex technology builds or multi-market launches may take 4-6 months. We provide a detailed project timeline during the proposal phase so you know exactly what to expect.",
+    },
+    {
+      question: "Can Yurekh Solutions help me scale my existing business?",
+      answer: "Absolutely. We work with established businesses looking to expand into new markets, launch new product lines, or undergo digital transformation. Our scaling engagements include market research, competitive analysis, technology upgrades, marketing optimization, and operational restructuring. We've helped businesses achieve 3.2x average ROI across 150+ projects.",
+    },
+    {
+      question: "What is the ROI of working with Yurekh Solutions?",
+      answer: "Our clients report an average ROI of 3.2x within the first 18 months of engagement. This comes from streamlined operations, faster time-to-market, reduced vendor fragmentation, and data-driven growth strategies. We set measurable KPIs at the start of every engagement and track progress through monthly business pulse reports.",
+    },
+    {
+      question: "Does Yurekh Solutions offer website development and digital marketing?",
+      answer: "Yes. We build high-performance websites, e-commerce platforms, and landing pages — and pair them with full-funnel digital marketing including SEO, PPC, social media management, content strategy, and email marketing. Everything is designed, built, and optimized in-house for maximum impact and conversion.",
+    },
+    {
+      question: "Can Yurekh Solutions help with SEO and Google ranking?",
+      answer: "Yes. SEO is a core part of our digital marketing services. We provide technical SEO audits, on-page optimization, content strategy, link building, and local SEO for businesses targeting specific markets. Our SEO strategies are data-driven and designed to improve organic visibility, drive qualified traffic, and generate leads consistently.",
+    },
+    {
+      question: "How does Yurekh Solutions handle data privacy and security?",
+      answer: "Data security is built into every engagement. We follow industry-standard practices including encrypted communications, secure cloud infrastructure, GDPR-compliant data handling, and regular security audits. For technology projects, we implement secure coding practices, penetration testing, and ongoing monitoring to protect your business and customer data.",
+    },
+    {
+      question: "Can I hire Yurekh Solutions for just one service, like website development?",
+      answer: "Yes. While we excel as a full-system partner, we also offer standalone services. You can engage us for website development, branding, SEO, social media management, or any single service. However, clients who use our integrated approach typically see better results because strategy, design, technology, and marketing work together as one system.",
+    },
+    {
+      question: "What support does Yurekh Solutions provide after project completion?",
+      answer: "We offer ongoing Brand Custodianship — a post-launch partnership that includes monthly performance reports, strategic sessions, A/B testing, optimization, vendor management, and growth support. For technology projects, we provide maintenance, updates, and technical support packages. Our goal is to be your long-term growth partner, not just a one-time vendor.",
+    },
+    {
+      question: "How do I know if Yurekh Solutions is the right fit for my business?",
+      answer: "We're the right fit if you want a strategic partner who thinks like a co-founder, not just a vendor. If you value integrated execution over fragmented agencies, senior-led engagements over junior teams, and long-term partnership over one-off projects — we're likely a great match. Book a consultation and we'll have an honest conversation about whether we can deliver exceptional results for you.",
+    },
+    {
+      question: "Does Yurekh Solutions work with startups and small businesses?",
+      answer: "Yes. We work with founders at every stage — from idea-stage startups needing complete business build-out to small businesses ready to scale. Our flexible engagement models (project-based, retainer, or hybrid) are designed to accommodate different budgets and growth stages. Many of our most successful partnerships started with early-stage companies.",
+    },
+    {
+      question: "What makes Yurekh Solutions different from hiring freelancers or multiple agencies?",
+      answer: "When you hire freelancers or multiple agencies, you manage coordination, quality control, and strategy alignment yourself. With Yurekh Solutions, everything — strategy, legal, technology, branding, and marketing — is conceived and executed as one integrated system by a single senior-led team. No handoffs, no miscommunication, no finger-pointing. One partner. Complete execution.",
+    },
+    {
+      question: "Can Yurekh Solutions help me enter international markets?",
+      answer: "Yes. Global market entry is one of our core strengths. With offices in India, UAE, US, UK, Singapore, and Australia, we help businesses navigate regulatory requirements, cultural nuances, local competition, and market-specific strategies. We've supported clients expanding into 12+ countries across multiple continents.",
+    },
+    {
+      question: "How do I get a quote or proposal from Yurekh Solutions?",
+      answer: "Simply book a consultation through our website or call +91 91362 42706. After understanding your business, goals, and challenges, we'll provide a detailed, transparent proposal with scope, timeline, and pricing. There's no obligation — our goal is to ensure there's a genuine fit before we move forward together.",
+    },
   ];
+
+  // Build FAQPage JSON-LD dynamically from the faqs array so Google can
+  // render rich results and drive organic inquiries straight from search.
+  const faqSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer,
+      },
+    })),
+  });
 
   return (
     <div className="min-h-screen" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
       <SEOHead
         title="Frequently Asked Questions | Yurekh Solutions"
-        description="Find answers to common questions about Yurekh Solutions. Learn about our services, pricing, engagement model, industries served, and how to get started with global business building."
-        keywords="Yurekh Solutions FAQ, business consulting FAQ, company formation FAQ, pricing FAQ, services FAQ, how to start, engagement model"
+        description="Find answers to common questions about Yurekh Solutions — costs, timelines, ROI, services, SEO, global expansion, and how to start. Get expert answers to business building, company formation, and scaling questions."
+        keywords="Yurekh Solutions FAQ, business consulting FAQ, company formation FAQ, pricing FAQ, how much does it cost to start a business, business launch timeline, SEO agency FAQ, global business expansion FAQ, ROI business consulting, website development FAQ"
         canonical="https://yurekh.com/faq"
+        schema={faqSchema}
         breadcrumbs={[{ name: "FAQ", url: "https://yurekh.com/faq" }]}
       />
       {/* Hero Section */}
@@ -149,7 +222,8 @@ const FAQ = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.05 }}
-                  className="p-6 md:p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/30 transition-all duration-300"
+                  onClick={() => trackLead(`FAQ View: ${faq.question}`, { page: "faq" })}
+                  className="p-6 md:p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/30 transition-all duration-300 cursor-pointer"
                 >
                   <h3
                     className="text-white text-[16px] font-semibold mb-4"
@@ -192,6 +266,7 @@ const FAQ = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center max-w-md sm:max-w-none mx-auto">
               <Link
                 to="/bookingform"
+                onClick={() => trackLead('FAQ CTA: Book a Consultation', { page: "faq" })}
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full text-black font-semibold transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)] w-full sm:w-auto sm:min-w-[260px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",
@@ -203,6 +278,7 @@ const FAQ = () => {
               </Link>
               <a
                 href="mailto:yurekhsolutions@gmail.com"
+                onClick={() => trackLead('FAQ CTA: Email Click', { page: "faq" })}
                 className="inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-4 rounded-full transition-all duration-300 hover:bg-[rgba(27,225,211,0.15)] hover:border-[rgba(27,225,211,0.5)] hover:shadow-[0_0_30px_rgba(27,225,211,0.2)] hover:-translate-y-px w-full sm:w-auto sm:min-w-[260px]"
                 style={{
                   fontFamily: "Poppins, sans-serif",

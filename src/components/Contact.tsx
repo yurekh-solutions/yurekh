@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Mail, Phone, MapPin, CheckCircle, MessageCircle } from "lucide-react";
 import contact from "@/assets/contact.png";
 import { captureLead } from "@/lib/leadCapture";
+import { getWhatsAppLink, trackLead } from "@/lib/analytics";
 const Contact = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -115,9 +116,10 @@ const Contact = () => {
                   <span className="text-[12px] xs:text-[13px] sm:text-[14px] md:text-[16px] font-medium group-hover:underline">yurekhsolutions@gmail.com</span>
                 </a>
                 <a
-                  href="https://wa.me/919136242706"
+                  href={getWhatsAppLink('Contact Page')}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackLead('Contact WhatsApp Click')}
                   className="flex items-center gap-3 text-white/60 hover:text-[#1BE1D3] transition-colors duration-300"
                 >
                   <Phone className="h-4 w-4 sm:h-5 sm:w-5 flex-shrink-0" />

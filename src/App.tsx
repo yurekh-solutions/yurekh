@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import AIChat from "@/components/AIChat";
+import MobileLeadBar from "@/components/MobileLeadBar";
 import ScrollToTop from "./components/ScrollToTop";
 
 // Lazy load all pages for code splitting
@@ -88,6 +89,7 @@ const AppLayout = ({ children }) => (
     <main className="flex-grow">{children}</main>
     <Footer />
     <AIChat />
+    <MobileLeadBar />
   </div>
 );
 

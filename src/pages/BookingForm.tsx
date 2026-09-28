@@ -170,7 +170,7 @@ const BookingForm = () => {
               <span className="text-[#1BE1D3] text-sm font-medium">AI-Powered Business Automation</span>
             </div>
             <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[40px] font-semibold mb-5 leading-[1.2]">
-              Transform Your Business with <span className="text-[#1BE1D3]">AI Automation</span>
+              Transform Your Business with <span className="text-[#1BE1D3]">Yurekh Solutions</span>
             </h1>
             <p className="text-white/70 text-[15px] leading-[1.7] mb-8 max-w-md mx-auto lg:mx-0" style={poppins}>
               Our AI Employee handles calls, chats, books appointments, and manages reviews 24/7 — while you focus on growing your business.

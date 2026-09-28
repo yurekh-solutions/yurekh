@@ -217,14 +217,6 @@ const Video = () => {
                     <p className="text-sm text-yellow-400 mb-2">{card.rating}</p>
                     <p className="text-[14px] font-normal text-gray-200 mb-4 line-clamp-3">{card.text}</p>
                     <div className="flex flex-col items-center gap-3">
-                      <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                        <img
-                          src={card.imageSrc}
-                          alt={`${card.name}'s profile`}
-                          className="w-full h-full object-cover"
-                          loading="lazy"
-                        />
-                      </div>
                       <div>
                         <p className="font-semibold text-[14px]">{card.name}</p>
                         <p className="text-[12px] font-normal text-gray-400">{card.role}</p>
@@ -249,14 +241,6 @@ const Video = () => {
                       <p className="text-sm text-yellow-400 mb-2">{card.rating}</p>
                       <p className="text-[14px] font-normal text-gray-200 mb-4 line-clamp-3 md:line-clamp-none">{card.text}</p>
                       <div className="flex flex-col md:flex-row items-center gap-3">
-                        <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                          <img
-                            src={card.imageSrc}
-                            alt={`${card.name}'s profile`}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                        </div>
                         <div>
                           <p className="font-semibold text-[14px]">{card.name}</p>
                           <p className="text-[12px] font-normal text-gray-400">{card.role}</p>
@@ -279,14 +263,6 @@ const Video = () => {
                       <p className="text-sm text-yellow-400 mb-2">{card.rating}</p>
                       <p className="text-[14px] font-normal text-gray-200 mb-4 line-clamp-3 md:line-clamp-none">{card.text}</p>
                       <div className="flex flex-col md:flex-row items-center gap-3">
-                        <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
-                          <img
-                            src={card.imageSrc}
-                            alt={`${card.name}'s profile`}
-                            className="w-full h-full object-cover"
-                            loading="lazy"
-                          />
-                        </div>
                         <div>
                           <p className="font-semibold text-[14px]">{card.name}</p>
                           <p className="text-[12px] font-normal text-gray-400">{card.role}</p>

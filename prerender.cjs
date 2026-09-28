@@ -71,7 +71,7 @@ const staticRoutes = {
   "/faq": {
     title: "Frequently Asked Questions | Yurekh Solutions",
     description:
-      "Find answers to common questions about Yurekh Solutions. Learn about our services, pricing, engagement model, industries served, and how to get started with global business building.",
+      "Find answers to common questions about Yurekh Solutions — costs, timelines, ROI, services, SEO, global expansion, and how to start. Get expert answers to business building, company formation, and scaling questions.",
   },
   "/careers": {
     title: "Careers | Join Our Global Team",
@@ -135,10 +135,44 @@ const scanBlogs = () => {
   return out;
 };
 
+/* FAQ — question → answer pairs in pages/FAQ.tsx (single source of truth) */
+const scanFaqs = () => {
+  const out = [];
+  for (const line of read(path.join("src", "pages", "FAQ.tsx")).split(/\r?\n/)) {
+    let m;
+    if ((m = line.match(/^\s*question:\s*"([^"]+)"/))) out.push({ question: m[1] });
+    else if (out.length && !out[out.length - 1].answer && (m = line.match(/^\s*answer:\s*"([^"]+)"/))) {
+      out[out.length - 1].answer = m[1];
+    }
+  }
+  return out.filter((f) => f.answer);
+};
+
 const routes = [];
 
+const faqs = scanFaqs();
+
 for (const [route, meta] of Object.entries(staticRoutes)) {
-  routes.push({ route, title: brand(meta.title), description: meta.description, crumb: meta.title.split("|")[0].trim() });
+  routes.push({
+    route,
+    title: brand(meta.title),
+    description: meta.description,
+    crumb: meta.title.split("|")[0].trim(),
+    /* Full FAQPage schema on /faq only — crawlers get all Q&A on first byte */
+    ...(route === "/faq" && faqs.length
+      ? {
+          schema: {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.question,
+              acceptedAnswer: { "@type": "Answer", text: f.answer },
+            })),
+          },
+        }
+      : {}),
+  });
 }
 
 for (const s of scanDataFile(path.join("src", "data", "services.ts"))) {

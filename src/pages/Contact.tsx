@@ -4,6 +4,7 @@ import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, CheckCircle, Globe, Building2, Users, Sparkles } from "lucide-react";
+import { getWhatsAppLink, trackLead } from "@/lib/analytics";
 
 const ContactPage = () => {
   useEffect(() => {
@@ -126,9 +127,10 @@ const ContactPage = () => {
 
             {/* WhatsApp */}
             <motion.a
-              href="https://wa.me/919136242706"
+              href={getWhatsAppLink('Contact Page')}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackLead('Contact WhatsApp Click')}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -374,9 +376,10 @@ const ContactPage = () => {
               </div>
               <div className="space-y-3">
                 <a
-                  href="https://wa.me/919136242706"
+                  href={getWhatsAppLink('Contact Page')}
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackLead('Contact WhatsApp Click')}
                   className="flex items-center gap-3 text-[#1BE1D3] hover:text-white transition-colors"
                 >
                   <MessageCircle className="w-5 h-5" />
