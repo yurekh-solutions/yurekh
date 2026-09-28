@@ -25,6 +25,8 @@ const BookingForm = () => {
   });
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [booked, setBooked] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // 7-day week strip starting from today (past dates never rendered)
   const weekDays = Array.from({ length: 7 }, (_, i) => {
@@ -54,7 +56,7 @@ const BookingForm = () => {
     const dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     const goalsText = formData.goals.length > 0 ? formData.goals.map(g => `  - ${g}`).join('\n') : '  Not specified';
     return encodeURIComponent(
-      `========================================\n  CONSULTATION BOOKING — Yurekh Solutions\n========================================\n\nDATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nGOOGLE MEET:\n  https://meet.google.com/new\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION: COMPLIMENTARY\n========================================`
+      `========================================\n  CONSULTATION REQUEST — Yurekh Solutions\n========================================\n\nREQUESTED DATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nSTATUS: PENDING CONFIRMATION\n  Our team will confirm this slot within 24 hours\n  and share the Google Meet link by email.\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION: COMPLIMENTARY\n========================================`
     );
   };
 
@@ -68,17 +70,21 @@ const BookingForm = () => {
     startDate.setHours(h, minutes, 0, 0);
     const endDate = new Date(startDate.getTime() + 30 * 60 * 1000);
     const fmt = (d: Date) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-    const details = encodeURIComponent(`Consultation with Yurekh Solutions\nGoogle Meet: https://meet.google.com/new`);
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Consultation with Yurekh Solutions')}&dates=${fmt(startDate)}/${fmt(endDate)}&details=${details}&location=${encodeURIComponent('https://meet.google.com/new')}&sf=true`;
+    const details = encodeURIComponent(`Consultation request — Yurekh Solutions (pending confirmation)\nOur team will confirm within 24 hours and share the Google Meet link by email.`);
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Consultation Request — Yurekh Solutions (pending confirmation)')}&dates=${fmt(startDate)}/${fmt(endDate)}&details=${details}&location=${encodeURIComponent('Online — Meet link follows confirmation')}&sf=true`;
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!formData.firstName || !formData.phone || !formData.email || !selectedTime || !formData.agreement) {
       alert('Please fill in all required fields and accept the agreement.');
       return;
     }
-    // Email delivery — lands in yurekhsolutions@gmail.com inbox
-    captureLead('New consultation booking — yurekh.com', {
+    if (submitting) return; // block duplicate submissions
+    setSubmitting(true);
+    setSubmitError(null);
+    // Email delivery — lands in yurekhsolutions@gmail.com inbox.
+    // Only show success after FormSubmit confirms delivery.
+    const result = await captureLead('New consultation request — yurekh.com', {
       Date: selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }),
       Time: `${selectedTime} IST`,
       Name: formData.firstName,
@@ -92,7 +98,14 @@ const BookingForm = () => {
       'Current process': formData.currentProcess || '—',
       'Pain points': formData.painPoints || '—',
     });
-    // Open Google Calendar so the visitor can add the session to their calendar
+    setSubmitting(false);
+    if (!result.ok) {
+      // Delivery failed — keep all entered data and show a recoverable error.
+      console.error('[lead] consultation request delivery failed:', result.error);
+      setSubmitError(result.error || 'Delivery failed');
+      return;
+    }
+    // Open Google Calendar so the visitor can add the requested slot to their calendar
     window.open(generateGoogleCalendarLink(), '_blank');
     setBooked(true);
     if (typeof window !== 'undefined' && window.innerWidth < 1024) {
@@ -124,7 +137,7 @@ const BookingForm = () => {
   const stepMeta = [
     { n: 1, title: 'Choose your slot', sub: 'Pick a day and evening time (IST)' },
     { n: 2, title: 'Your details', sub: 'Tell us about you and your business' },
-    { n: 3, title: 'Review & confirm', sub: 'Confirm your booking details' },
+        { n: 3, title: 'Review & submit', sub: 'Review your consultation request' },
   ];
 
   const benefits = [
@@ -270,9 +283,9 @@ const BookingForm = () => {
                       <div className="w-16 h-16 mx-auto rounded-full bg-[#1BE1D3]/10 border border-[#1BE1D3]/30 flex items-center justify-center mb-5">
                         <CheckCircle className="w-8 h-8 text-[#1BE1D3]" />
                       </div>
-                      <h3 className="text-white text-[20px] sm:text-[22px] font-semibold mb-2">Your booking is on its way!</h3>
+                      <h3 className="text-white text-[20px] sm:text-[22px] font-semibold mb-2">Request received!</h3>
                       <p className="text-white/55 text-[13px] sm:text-[14px] leading-[1.7] max-w-md mx-auto mb-6" style={poppins}>
-                        Your booking details have been emailed to our team — we'll confirm within 24 hours. Add the session to your calendar so you never miss it.
+                        Your consultation request is with our team — we'll confirm this slot within 24 hours and email you the Google Meet link. Add the requested time to your calendar as a reminder.
                       </p>
 
                       <div className="inline-flex flex-wrap items-center justify-center gap-x-6 gap-y-2.5 rounded-2xl border border-[#1BE1D3]/25 bg-[#1BE1D3]/[0.05] px-5 py-4 mb-7">
@@ -602,12 +615,28 @@ const BookingForm = () => {
                         <button onClick={() => goTo(2)} className={`${ghostBtn} w-full sm:w-auto sm:min-w-[140px]`} style={ghostStyle}>
                           <ArrowLeft className="h-4 w-4 flex-shrink-0" /> Back
                         </button>
-                        <button onClick={handleSubmit} disabled={!formData.agreement} className={`${primaryBtn} w-full sm:flex-1 sm:max-w-[360px]`} style={primaryStyle}>
-                          <Calendar className="h-4 w-4 flex-shrink-0" /> Confirm Booking
+                        <button onClick={handleSubmit} disabled={!formData.agreement || submitting} className={`${primaryBtn} w-full sm:flex-1 sm:max-w-[360px]`} style={primaryStyle}>
+                          <Calendar className="h-4 w-4 flex-shrink-0" /> {submitting ? 'Sending…' : 'Request Consultation'}
                         </button>
                       </div>
+                      {submitError && (
+                        <div className="mt-4 rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3">
+                          <p className="text-red-300 text-[13px] leading-[1.6]" style={poppins}>
+                            We couldn't send your request automatically ({submitError}). Your details are saved here — please try again or reach us instantly on WhatsApp.
+                          </p>
+                          <a
+                            href={`https://wa.me/919136242706?text=${generateWhatsAppMessage()}`}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-2 mt-2.5 px-4 py-2 rounded-full text-[13px] font-semibold bg-[#25D366] text-black hover:brightness-110 transition-all"
+                            style={poppins}
+                          >
+                            Send via WhatsApp instead
+                          </a>
+                        </div>
+                      )}
                       <p className="text-white/40 text-[12px] mt-4" style={poppins}>
-                        Complimentary consultation · Email confirmation · Add to Google Calendar in one tap
+                        Complimentary consultation · Team confirms within 24 hours · Calendar reminder available
                       </p>
                     </motion.div>
                   )}

@@ -252,25 +252,7 @@
 
     <!-- JSON-LD: FAQPage is injected per-route by prerender.cjs (/faq carries the full Q&A set) -->
 
-    <!-- JSON-LD: BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://yurekh.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://yurekh.com/services" },
-        { "@type": "ListItem", "position": 3, "name": "Industries", "item": "https://yurekh.com/industries" },
-        { "@type": "ListItem", "position": 4, "name": "Case Studies", "item": "https://yurekh.com/case-study" },
-        { "@type": "ListItem", "position": 5, "name": "Blog", "item": "https://yurekh.com/blogs" },
-        { "@type": "ListItem", "position": 6, "name": "About", "item": "https://yurekh.com/about" },
-        { "@type": "ListItem", "position": 7, "name": "Business Consulting", "item": "https://yurekh.com/business-consulting" },
-        { "@type": "ListItem", "position": 8, "name": "Impact", "item": "https://yurekh.com/impact" },
-        { "@type": "ListItem", "position": 9, "name": "FAQ", "item": "https://yurekh.com/faq" },
-        { "@type": "ListItem", "position": 10, "name": "Contact", "item": "https://yurekh.com/bookingform" }
-      ]
-    }
-    </script>
+    <!-- JSON-LD: BreadcrumbList is injected per-route by prerender.cjs (Home > Parent > Page) -->
 
     <!-- Preload critical resources -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
