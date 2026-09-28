@@ -159,7 +159,6 @@ const sitemapData = [
       { name: "Complimentary Consultation", href: "/bookingform" },
       { name: "Privacy Policy", href: "/privacy" },
       { name: "Terms & Conditions", href: "/terms" },
-      { name: "Sitemap", href: "/sitemap.xml" },
     ],
   },
 ];
