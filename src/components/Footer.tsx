@@ -322,7 +322,7 @@ const Footer = () => {
               <div className="w-5 h-5 overflow-hidden flex-shrink-0">
                 <img src={yurekhLogo} alt="Yurekh" className="w-full h-full object-cover" />
               </div>
-              <span className="text-sm text-white/90 font-medium">Powered by Advanced AI Technology</span>
+              <span className="text-sm text-white/90 font-medium">Powered by  YUREKH</span>
             </div>
           </div>
         </div>
