@@ -33,15 +33,14 @@ const AIChat = () => {
         setMessages([
           {
             id: 1,
-            text: "Hi! 👋 I'm Yurekh AI, your assistant at Yurekh Solutions. How can I help you today?",
+            text: "Hi! 👋 I'm your Yurekh Concierge. How can I help you today?",
             sender: 'bot',
             timestamp: new Date(),
             options: [
+              'Explore services',
               'AINOS Business Suite',
-              'Learn about services',
-              'Get a quote',
               'Book consultation',
-              'Talk to human'
+              'Get in touch'
             ]
           }
         ]);
@@ -55,62 +54,83 @@ const AIChat = () => {
     if (message.includes('ainos') || message.includes('business suite') || message.includes('erp') || message.includes('crm')) {
       return {
         text: "**AINOS Business Suite** is our all-in-one platform to run your entire business from a single dashboard:\n\n📇 **CRM** - Contacts, Deals, Customers & Follow-ups\n👥 **HR & Payroll** - Employees, Attendance, Leave & Payroll Runs\n🧾 **Invoicing & Finance** - Invoices, Quotes & Purchase Orders\n📦 **Inventory** - Products, Stock Items & Warehouses\n🎫 **Helpdesk** - Support Tickets & Service Portals\n📣 **Marketing** - Email Campaigns & Blog\n⚖️ **Compliance** - Compliance Task Tracking\n⚙️ **Automation** - Smart Workflow Automation\n🤖 **AI Assistant** - Built-in AI to speed up daily work\n\nIt's a modern, secure suite built to scale with your business. Want to open it?",
-        options: ['Open AINOS', 'Book consultation', 'Learn about services']
+        options: ['Open AINOS', 'Book consultation', 'Explore services']
       };
     }
 
-    if (message.includes('service') || message.includes('what do you offer')) {
+    if (message.includes('service') || message.includes('what do you offer') || message.includes('explore')) {
       return {
-        text: "We offer comprehensive AI-powered solutions:\n\n🧩 **AINOS Business Suite** - All-in-one CRM, HR, Invoicing & Inventory platform\n🚀 **AI Development** - Custom AI/ML solutions\n💻 **Software Development** - Web & Mobile apps\n📱 **Digital Marketing** - SEO, Social Media, PPC\n☁️ **Cloud Solutions** - AWS, Azure, GCP\n🎨 **UI/UX Design** - User-centered design\n📊 **Data Analytics** - Business intelligence\n\nWhich service interests you?",
-        options: ['AINOS Business Suite', 'AI Development', 'Software Development', 'Digital Marketing', 'Book consultation']
+        text: "Yurekh Solutions is your end-to-end business partner. Here's what we offer:\n\n🏢 **Business Consulting** - Company formation, legal compliance & market-entry strategy\n📈 **Growth Marketing** - SEO, performance marketing & go-to-market systems\n💻 **Web & Mobile Development** - High-performance websites, e-commerce & mobile apps\n🎨 **Digital Branding** - Brand identity, positioning & creative strategy\n📊 **Data Intelligence** - Analytics, reporting & performance tracking\n **AI-Powered Software** - Custom platforms, intelligent assistants & automation\n🌍 **Market Entry** - Launch & operate in India, UAE & other high-growth markets\n📦 **AINOS Business Suite** - All-in-one CRM, HR, Invoicing & Inventory platform\n\nWhich area interests you?",
+        options: ['Business Consulting', 'Web & Mobile Development', 'Digital Branding', 'Growth Marketing', 'Book consultation']
       };
     }
 
     if (message.includes('price') || message.includes('cost') || message.includes('quote')) {
       return {
-        text: "Our pricing is tailored to your specific needs. We offer:\n\n💰 **Consultation**: Starting at $100\n📦 **Project-based**: Custom quotes\n🔄 **Retainer**: Monthly packages\n\nFor an accurate quote, I'd recommend booking a consultation. Would you like to proceed?",
-        options: ['Book consultation', 'Learn about services', 'Contact sales']
+        text: "Our pricing is tailored to your specific needs. We offer:\n\n💰 **Consultation** - Strategy session with our team\n **Project-based** - Custom quotes per scope\n🔄 **Retainer** - Monthly engagement packages\n\nFor an accurate quote, I'd recommend booking a consultation. Would you like to proceed?",
+        options: ['Book consultation', 'Explore services', 'Contact us']
       };
     }
 
     if (message.includes('book') || message.includes('consultation') || message.includes('appointment')) {
       return {
-        text: "Great choice! You can book a consultation in two ways:\n\n📅 **Online Booking** - Select your preferred time\n📞 **Direct Call** - +91 9136242706\n\nOur consultations are 30 minutes and include:\n✓ Needs assessment\n✓ Solution recommendations\n✓ Custom pricing\n✓ Q&A session\n\nReady to book?",
+        text: "Great choice! You can book a consultation in two ways:\n\n📅 **Online Booking** - Select your preferred time\n📞 **Direct Call** - +91 9136242706\n\nOur consultations are 30 minutes and include:\n✓ Business needs assessment\n✓ Solution recommendations\n✓ Custom pricing discussion\n✓ Q&A with our team\n\nReady to book?",
         options: ['Go to booking page', 'Call now', 'WhatsApp chat']
       };
     }
 
-    if (message.includes('contact') || message.includes('reach') || message.includes('talk')) {
+    if (message.includes('contact') || message.includes('reach') || message.includes('talk') || message.includes('get in touch')) {
       return {
-        text: "You can reach us through multiple channels:\n\n📧 **Email**: yurekhsolutions@gmail.com\n📱 **Phone**: +91 9136242706\n💬 **WhatsApp**: Chat with us directly\n🌐 **Website**: yurekh.com\n\nWe're available 24/7 via WhatsApp! What's your preferred contact method?",
+        text: "You can reach us through multiple channels:\n\n📧 **Email**: connect@yurekh.com\n📱 **Phone**: +91 9136242706\n💬 **WhatsApp**: Chat with us directly\n🌐 **Website**: yurekh.com\n\nWhat's your preferred way to connect?",
         options: ['WhatsApp chat', 'Call now', 'Send email']
       };
     }
 
-    if (message.includes('ai') || message.includes('artificial intelligence')) {
+    if (message.includes('consulting') || message.includes('business consult') || message.includes('company formation') || message.includes('market entry')) {
       return {
-        text: "Our AI solutions include:\n\n🤖 **AI Chatbots** - 24/7 customer support\n📊 **Predictive Analytics** - Data-driven insights\n🎯 **Marketing Automation** - Smart campaigns\n🔍 **Content Intelligence** - AI-powered content\n📈 **Growth Optimization** - AI-driven scaling\n\nWe've helped businesses increase efficiency by 300%! Want to learn more?",
-        options: ['AI Chatbots', 'Predictive Analytics', 'Book AI consultation']
+        text: "Our **Business Consulting** services cover:\n\n🏢 **Company Formation** - Register your business in India, UAE & beyond\n⚖️ **Legal Compliance** - Regulatory guidance & documentation\n **Market Entry Strategy** - Launch in new markets with confidence\n **Business Planning** - Roadmaps for startups & enterprises\n🤝 **Partnership Advisory** - Strategic alliances & joint ventures\n\nWe've helped businesses across 12+ markets. Want to discuss your goals?",
+        options: ['Book consultation', 'Explore services', 'Contact us']
+      };
+    }
+
+    if (message.includes('branding') || message.includes('brand') || message.includes('design') || message.includes('logo')) {
+      return {
+        text: "Our **Digital Branding** services include:\n\n **Brand Identity** - Logo, visual systems & brand guidelines\n📣 **Brand Positioning** - Stand out in crowded markets\n🖼️ **Creative Strategy** - Campaigns that resonate\n **Web Design** - Beautiful, conversion-focused websites\n📱 **Social Media Branding** - Consistent presence across platforms\n\nWant to see our work or discuss your brand?",
+        options: ['Book consultation', 'Explore services', 'Contact us']
+      };
+    }
+
+    if (message.includes('web') || message.includes('mobile') || message.includes('app') || message.includes('development') || message.includes('software')) {
+      return {
+        text: "Our **Web & Mobile Development** services:\n\n💻 **Custom Websites** - High-performance, scalable sites\n **E-commerce** - Online stores that convert\n **Mobile Apps** - iOS & Android development\n⚙️ **Custom Software** - Tailored business platforms\n🔧 **Maintenance & Support** - Ongoing updates & optimization\n\nBuilt for scale, security, and performance. Want to discuss your project?",
+        options: ['Book consultation', 'Explore services', 'Contact us']
+      };
+    }
+
+    if (message.includes('marketing') || message.includes('seo') || message.includes('social media') || message.includes('growth')) {
+      return {
+        text: "Our **Growth Marketing** services:\n\n📈 **SEO** - Rank higher, drive organic traffic\n📣 **Social Media Marketing** - Engage & grow your audience\n **Performance Marketing** - PPC, paid ads & ROI-focused campaigns\n📊 **Go-to-Market Strategy** - Launch plans that work\n✍️ **Content Marketing** - Blogs, copy & thought leadership\n\nWe turn attention into revenue. Want to grow your business?",
+        options: ['Book consultation', 'Explore services', 'Contact us']
       };
     }
 
     if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
       return {
-        text: "Hello! Great to connect with you! 👋\n\nI'm here to help you explore how Yurekh Solutions can transform your business with AI-powered technology.\n\nWhat would you like to know about?",
-        options: ['Learn about services', 'Get a quote', 'Book consultation', 'Contact us']
+        text: "Hello! Great to connect with you! 👋\n\nI'm here to help you explore how Yurekh Solutions can support your business — from strategy and technology to branding and global expansion.\n\nWhat would you like to know about?",
+        options: ['Explore services', 'Book consultation', 'Contact us']
       };
     }
 
     if (message.includes('thank')) {
       return {
-        text: "You're welcome! 😊 Is there anything else I can help you with? We're here to make your digital transformation journey smooth and successful!",
-        options: ['Learn more', 'Book consultation', 'Contact sales']
+        text: "You're welcome! 😊 Is there anything else I can help you with? We're here to support your business growth journey!",
+        options: ['Explore services', 'Book consultation', 'Contact us']
       };
     }
 
     return {
-      text: "Thanks for your message! I can help you with:\n\n🚀 Our services and solutions\n💰 Pricing and quotes\n📅 Booking consultations\n📞 Contact information\n\nWhat would you like to explore?",
-      options: ['Learn about services', 'Get a quote', 'Book consultation', 'Contact us']
+      text: "Thanks for your message! I can help you with:\n\n Business consulting & strategy\n💻 Web & mobile development\n🎨 Digital branding & creative\n📈 Growth marketing & SEO\n📦 AINOS Business Suite\n Booking consultations\n📞 Contact information\n\nWhat would you like to explore?",
+      options: ['Explore services', 'Book consultation', 'Contact us']
     };
   };
 
@@ -152,7 +172,7 @@ const AIChat = () => {
     } else if (option === 'WhatsApp chat') {
       window.open('https://wa.me/919136242706', '_blank');
     } else if (option === 'Send email') {
-      window.location.href = 'mailto:yurekhsolutions@gmail.com';
+      window.location.href = 'mailto:connect@yurekh.com';
     } else {
       handleSendMessage(option);
     }
@@ -322,7 +342,7 @@ const AIChat = () => {
               </button>
             </form>
             <p className="text-center text-white/30 text-xs mt-2" style={{ fontFamily: "Poppins, sans-serif" }}>
-              Powered by Yurekh AI • Available 24/7
+              Powered by Yurekh Solutions
             </p>
           </div>
         </div>
