@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar, Clock, User, Building, Target,
@@ -622,7 +623,10 @@ const BookingForm = () => {
                         </span>
                         <input type="checkbox" checked={formData.agreement} onChange={e => setFormData(p => ({ ...p, agreement: e.target.checked }))} className="sr-only" />
                         <span className="text-white/60 text-[13px] leading-[1.7]" style={poppins}>
-                          I agree to be contacted for the consultation and further communication.
+                          I consent to being contacted by Yurekh Solutions for this consultation and related communication. Your information is handled in accordance with our{' '}
+                          <Link to="/privacy" className="text-[#1BE1D3] underline underline-offset-2 hover:text-[#1BE1D3]/80 transition-colors" target="_blank" rel="noopener noreferrer">Privacy Policy</Link>
+                          {' '}and{' '}
+                          <Link to="/terms" className="text-[#1BE1D3] underline underline-offset-2 hover:text-[#1BE1D3]/80 transition-colors" target="_blank" rel="noopener noreferrer">Terms & Conditions</Link>.
                         </span>
                       </label>
 
