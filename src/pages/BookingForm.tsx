@@ -46,6 +46,7 @@ const BookingForm = () => {
     'Scale my business — strategy & execution support',
     'Reduce admin workload for high-value tasks',
     'Increase leads & conversions for real revenue',
+    'Other',
   ];
 
   const handleGoalChange = (goal: string, checked: boolean) => {
@@ -147,7 +148,6 @@ const BookingForm = () => {
   ];
 
   const stats = [
-    { value: '50,000+', label: 'Projects Delivered' },
     { value: '96%', label: 'Client Retention' },
     { value: '3.2x', label: 'Average ROI' },
   ];
