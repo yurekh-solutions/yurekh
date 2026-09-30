@@ -21,7 +21,7 @@ const BookingForm = () => {
   const [formData, setFormData] = useState({
     firstName: '', phone: '', email: '', companyName: '', website: '',
     industry: '', businessSize: '', goals: [] as string[],
-    currentProcess: '', painPoints: '', agreement: false,
+    otherGoal: '', currentProcess: '', painPoints: '', agreement: false,
   });
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [booked, setBooked] = useState(false);
@@ -53,9 +53,13 @@ const BookingForm = () => {
     setFormData(prev => ({ ...prev, goals: checked ? [...prev.goals, goal] : prev.goals.filter(g => g !== goal) }));
   };
 
+  const getEffectiveGoals = () => {
+    return formData.goals.map(g => g === 'Other' && formData.otherGoal.trim() ? formData.otherGoal.trim() : g);
+  };
+
   const generatePlainSummary = () => {
     const dateStr = selectedDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    const goalsText = formData.goals.length > 0 ? formData.goals.map(g => `  - ${g}`).join('\n') : '  Not specified';
+    const goalsText = getEffectiveGoals().length > 0 ? getEffectiveGoals().map(g => `  - ${g}`).join('\n') : '  Not specified';
     return (
       `========================================\n  CONSULTATION REQUEST — Yurekh Solutions\n========================================\n\nREQUESTED DATE & TIME:\n  ${dateStr} at ${selectedTime}\n\nSTATUS: PENDING CONFIRMATION\n  Our team will confirm this slot within 24 hours\n  and share the Google Meet link by email.\n\n----------------------------------------\nCONTACT\n----------------------------------------\n  Name:    ${formData.firstName}\n  Phone:   ${formData.phone}\n  Email:   ${formData.email}\n  Company: ${formData.companyName || '—'}\n  Website: ${formData.website || '—'}\n\n----------------------------------------\nBUSINESS\n----------------------------------------\n  Industry: ${formData.industry || '—'}\n  Size:     ${formData.businessSize || '—'}\n\n----------------------------------------\nGOALS\n----------------------------------------\n${goalsText}\n\n----------------------------------------\nCURRENT PROCESS: ${formData.currentProcess || '—'}\nPAIN POINTS:     ${formData.painPoints || '—'}\n\nCONSULTATION: COMPLIMENTARY\n========================================`
     );
@@ -95,7 +99,7 @@ const BookingForm = () => {
       Website: formData.website || '—',
       Industry: formData.industry || '—',
       'Business size': formData.businessSize || '—',
-      Goals: formData.goals.join('; ') || '—',
+      Goals: getEffectiveGoals().join('; ') || '—',
       'Current process': formData.currentProcess || '—',
       'Pain points': formData.painPoints || '—',
     });
@@ -499,14 +503,26 @@ const BookingForm = () => {
                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             {goalOptions.map((goal, i) => {
                               const checked = formData.goals.includes(goal);
+                              const isOther = goal === 'Other';
                               return (
-                                <label key={i} className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-all duration-200 ${checked ? 'border-[#1BE1D3]/40 bg-[#1BE1D3]/[0.06]' : 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'}`}>
-                                  <span className={`w-4 h-4 mt-0.5 rounded-[5px] border flex-shrink-0 flex items-center justify-center transition-all duration-200 ${checked ? 'bg-[#1BE1D3] border-[#1BE1D3]' : 'border-white/25'}`}>
-                                    {checked && <Check className="w-3 h-3 text-black" />}
-                                  </span>
-                                  <input type="checkbox" checked={checked} onChange={e => handleGoalChange(goal, e.target.checked)} className="sr-only" />
-                                  <span className="text-white/70 text-[13px] leading-[1.7]" style={poppins}>{goal}</span>
-                                </label>
+                                <div key={i} className={isOther ? 'sm:col-span-2' : ''}>
+                                  <label className={`flex items-start gap-3 p-4 rounded-xl border cursor-pointer transition-all duration-200 ${checked ? 'border-[#1BE1D3]/40 bg-[#1BE1D3]/[0.06]' : 'border-white/10 bg-white/[0.02] hover:border-white/20 hover:bg-white/[0.04]'}`}>
+                                    <span className={`w-4 h-4 mt-0.5 rounded-[5px] border flex-shrink-0 flex items-center justify-center transition-all duration-200 ${checked ? 'bg-[#1BE1D3] border-[#1BE1D3]' : 'border-white/25'}`}>
+                                      {checked && <Check className="w-3 h-3 text-black" />}
+                                    </span>
+                                    <input type="checkbox" checked={checked} onChange={e => handleGoalChange(goal, e.target.checked)} className="sr-only" />
+                                    <span className="text-white/70 text-[13px] leading-[1.7]" style={poppins}>{goal}</span>
+                                  </label>
+                                  {isOther && checked && (
+                                    <input
+                                      className={`${inputCls} mt-3`}
+                                      style={poppins}
+                                      value={formData.otherGoal}
+                                      onChange={e => setFormData(p => ({ ...p, otherGoal: e.target.value }))}
+                                      placeholder="Describe your goal..."
+                                    />
+                                  )}
+                                </div>
                               );
                             })}
                           </div>
