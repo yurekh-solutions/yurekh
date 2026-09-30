@@ -40,10 +40,10 @@ const BookingForm = () => {
   const industries = ['Healthcare', 'E-commerce', 'Real Estate', 'Professional Services', 'Technology', 'Education', 'Manufacturing', 'Retail', 'Finance', 'Food & Beverage', 'Fitness & Wellness', 'Other'];
   const businessSizes = ['Solo Entrepreneur', '2-10 Employees', '11-50 Employees', '51-200 Employees', '200+ Employees'];
   const goalOptions = [
-    'Get more online reviews for credibility & local ranking',
-    'Automate appointment booking after business hours',
+    'Improve online visibility & brand credibility',
+    'Streamline operations & reduce manual work',
     'Reduce missed calls — never lose a customer',
-    '24/7 AI assistant — your business works while you sleep',
+    'Scale my business — strategy & execution support',
     'Reduce admin workload for high-value tasks',
     'Increase leads & conversions for real revenue',
   ];
@@ -140,16 +140,16 @@ const BookingForm = () => {
   ];
 
   const benefits = [
-    { icon: Bot, title: 'Live AI Employee demo', desc: 'Watch it answer calls, chats & book appointments in real time.' },
-    { icon: TrendingUp, title: 'Revenue growth plan', desc: 'A roadmap to more leads, reviews and conversions.' },
-    { icon: Zap, title: 'Automation blueprint', desc: 'Which tasks to automate first for maximum ROI.' },
+    { icon: Target, title: 'Business strategy session', desc: 'A focused discussion on your goals, challenges, and growth opportunities.' },
+    { icon: TrendingUp, title: 'Revenue growth plan', desc: 'A roadmap to more leads, conversions, and sustainable business growth.' },
+    { icon: Zap, title: 'End-to-end solutions overview', desc: 'How strategy, technology, branding & marketing work together for your business.' },
     { icon: Shield, title: 'No-obligation consultation', desc: 'Get expert advice with no pressure to proceed — your business, your call.' }
   ];
 
   const stats = [
-    { value: '300%', label: 'More Leads' },
-    { value: '24/7', label: 'AI Availability' },
-    { value: '90%', label: 'Time Saved' },
+    { value: '50,000+', label: 'Projects Delivered' },
+    { value: '96%', label: 'Client Retention' },
+    { value: '3.2x', label: 'Average ROI' },
   ];
 
   return (
@@ -179,13 +179,13 @@ const BookingForm = () => {
           >
             <div className=" mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
               <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
-              <span className="text-[#1BE1D3] text-sm font-medium">AI-Powered Business Automation</span>
+              <span className="text-[#1BE1D3] text-sm font-medium">End-to-End Business Solutions</span>
             </div>
             <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[40px] font-semibold mb-5 leading-[1.2]">
               Transform Your Business with <span className="text-[#1BE1D3]">Yurekh Solutions</span>
             </h1>
             <p className="text-white/70 text-[15px] leading-[1.7] mb-8 max-w-md mx-auto lg:mx-0" style={poppins}>
-              Our AI Employee handles calls, chats, books appointments, and manages reviews 24/7 — while you focus on growing your business.
+              From strategy and go-to-market planning to technology, branding, and operations — we deliver integrated business solutions that drive real, measurable growth.
             </p>
 
             {/* Meeting chips */}
