@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { MessageCircle, X, Send, Phone, Mail, Globe, Zap, Bot, User, Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
-import aiLogo from '../assets/yurekhlog.png';
+import aiLogo from '../assets/loo.png';
 
 interface Message {
   id: number;
