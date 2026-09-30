@@ -181,7 +181,7 @@ const Header = () => {
         <div className="container mx-auto px-4 lg:px-8 flex items-center justify-between py-2 gap-2">
           {/* Left - Hidden on mobile, visible on md+ */}
           <div className="hidden md:flex items-center justify-center gap-2 flex-none">
-            <span className="text-white/90 text-xs font-medium">AI-Driven Business</span>
+            <span className="text-white/90 text-xs font-medium">COMPLETE BUSINESS SOLUTIONS</span>
           </div>
 
           {/* Center - Static text on desktop */}

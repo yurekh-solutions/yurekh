@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    // Instant jump so every page opens from the top immediately
+  useLayoutEffect(() => {
+    // Instant jump before paint so the user never sees the old scroll position
     window.scrollTo(0, 0);
   }, [pathname]);
 

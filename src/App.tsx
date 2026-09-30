@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -55,18 +55,21 @@ const FAQ = lazy(pageImporters.FAQ);
 const ContactPage = lazy(pageImporters.Contact);
 const BusinessLaunchIndia = lazy(pageImporters.BusinessLaunchIndia);
 
-// Prefetch all page chunks during browser idle time so navigation is instant
+// Prefetch only high-traffic page chunks during idle so navigation feels instant
+// without competing with initial-render bandwidth for all 17 pages at once.
+const PREFETCH_KEYS = ["Index", "About", "Services", "Contact", "BookingForm", "BlogListing"] as const;
+
 const PrefetchPages = () => {
   useEffect(() => {
     const prefetch = () => {
-      Object.values(pageImporters).forEach((importer) => {
-        importer().catch(() => {});
+      PREFETCH_KEYS.forEach((key) => {
+        pageImporters[key]().catch(() => {});
       });
     };
     if ("requestIdleCallback" in window) {
-      (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(prefetch, { timeout: 3000 });
+      (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(prefetch, { timeout: 5000 });
     } else {
-      setTimeout(prefetch, 2000);
+      setTimeout(prefetch, 3000);
     }
   }, []);
   return null;
@@ -83,15 +86,18 @@ const PageLoader = () => (
   </div>
 );
 
-const AppLayout = ({ children }) => (
+const AppLayout = ({ children }) => {
+  const { pathname } = useLocation();
+  return (
   <div className="flex flex-col min-h-screen">
     <Header />
-    <main className="flex-grow">{children}</main>
+    <main key={pathname} className="flex-grow page-enter">{children}</main>
     <Footer />
     <AIChat />
     <MobileLeadBar />
   </div>
-);
+  );
+};
 
 const App = () => (
   <HelmetProvider>

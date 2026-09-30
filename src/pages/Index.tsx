@@ -1,24 +1,40 @@
-import Header from "@/components/Header";
+import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
 import TechnologyPartners from "@/components/TechnologyPartners";
-import About from "@/components/About";
-import Service from "@/components/Service";
-import VideoShowcase from "@/components/VideoShowcase";
-import ProblemSection from "@/components/ProblemSection";
-import IndustriesSection from "@/components/IndustriesSection";
-import CTABanner from "@/components/CTABanner";
-import PremiumFAQ, { faqSchema } from "@/components/PremiumFAQ";
-import Contact from "@/components/Contact";
-import CaseStudySection from "@/components/CaseStudySection";
-import CaseStudiesSection from "@/components/CaseStudiesSection";
-import ServicesSection from "@/components/ServicesSection";
-import BlogSection from "@/components/BlogSection";
-import InstagramSection from "@/components/InstagramSection";
-import SEOHead from "@/components/SEOHead";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import ProcessSection from "@/components/ProcessSection";
 import BusinessSolutions from "@/components/BusinessSolutions";
-import ExitIntentPopup from "@/components/ExitIntentPopup";
+import SEOHead from "@/components/SEOHead";
+
+// Lazy-load below-the-fold sections for faster initial render
+const ServicesSection = lazy(() => import("@/components/ServicesSection"));
+const ProcessSection = lazy(() => import("@/components/ProcessSection"));
+const WhyChooseUs = lazy(() => import("@/components/WhyChooseUs"));
+const CTABanner = lazy(() => import("@/components/CTABanner"));
+const IndustriesSection = lazy(() => import("@/components/IndustriesSection"));
+const CaseStudiesSection = lazy(() => import("@/components/CaseStudiesSection"));
+const About = lazy(() => import("@/components/About"));
+const PremiumFAQ = lazy(() => import("@/components/PremiumFAQ"));
+const Contact = lazy(() => import("@/components/Contact"));
+const BlogSection = lazy(() => import("@/components/BlogSection"));
+const InstagramSection = lazy(() => import("@/components/InstagramSection"));
+const ExitIntentPopup = lazy(() => import("@/components/ExitIntentPopup"));
+
+// FAQ schema defined inline so SEOHead renders immediately without waiting for PremiumFAQ chunk
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    { "@type": "Question", name: "What services does Yurekh Solutions offer for growing businesses?", acceptedAnswer: { "@type": "Answer", text: "Yurekh Solutions is one partner for complete execution: website development, e-commerce development, custom software, mobile apps, AI chatbots and automation, SEO, digital marketing, branding and design, and the AINOS Business Suite." } },
+    { "@type": "Question", name: "How much does a professional business website cost in India?", acceptedAnswer: { "@type": "Answer", text: "It depends on what the website must do for your business. After a short discovery call we give you a transparent, fixed quote in \u20B9 with clear deliverables." } },
+    { "@type": "Question", name: "How long does it take to launch a website or e-commerce store?", acceptedAnswer: { "@type": "Answer", text: "A conversion-ready business website typically launches in 4\u20138 weeks. E-commerce stores and custom web applications take 2\u20136 months depending on features." } },
+    { "@type": "Question", name: "Can you help my business get more leads and sales online?", acceptedAnswer: { "@type": "Answer", text: "Yes \u2014 we combine buyer-intent SEO, conversion-focused website design, WhatsApp funnels and follow-up automation so enquiries turn into paying customers." } },
+    { "@type": "Question", name: "Do you help foreign companies enter the Indian market?", acceptedAnswer: { "@type": "Answer", text: "Yes. Our Launch in India service covers company registration, an India-first website with \u20B9 pricing and WhatsApp integration, and go-to-market execution." } },
+    { "@type": "Question", name: "What is AINOS Business Suite and who is it for?", acceptedAnswer: { "@type": "Answer", text: "AINOS is our all-in-one business software for Indian SMEs: invoicing, CRM, HR and payroll, inventory, automations and an AI Studio behind one login. Plans start at \u20B91,999/month." } },
+    { "@type": "Question", name: "Do you provide ongoing support after project delivery?", acceptedAnswer: { "@type": "Answer", text: "Yes. We offer maintenance and growth packages covering bug fixes, security updates, speed optimization, new features, and monthly SEO and analytics reports." } },
+    { "@type": "Question", name: "Do you sign NDAs and keep client work confidential?", acceptedAnswer: { "@type": "Answer", text: "Yes. We sign NDAs before any project discussion and never publish client names or data without written permission." } },
+    { "@type": "Question", name: "Can you work with our existing team or agency?", acceptedAnswer: { "@type": "Answer", text: "Absolutely. We regularly act as an extension of in-house teams, adding senior developers, designers or marketing specialists where you have gaps." } },
+    { "@type": "Question", name: "What makes Yurekh Solutions different from other agencies?", acceptedAnswer: { "@type": "Answer", text: "One Partner. Complete Execution. We own the whole outcome \u2014 strategy, brand, website, marketing and the software that runs your operations." } },
+  ],
+};
 
 const Index = () => {
   return (
@@ -30,71 +46,27 @@ const Index = () => {
         canonical="https://yurekh.com/"
         schema={JSON.stringify(faqSchema)}
       />
-      <section id="header">
-        <Header />
-      </section>
 
-      <section id="home">
-        <Hero />
-      </section>
+      {/* Above the fold — eager for instant first paint */}
+      <section id="home"><Hero /></section>
+      <section id="partners"><TechnologyPartners /></section>
+      <section id="business-solutions"><BusinessSolutions /></section>
 
-      <section id="partners">
-        <TechnologyPartners />
-      </section>
-      
+      {/* Below the fold — lazy-loaded as separate chunks */}
+      <Suspense fallback={null}><section id="services"><ServicesSection /></section></Suspense>
+      <Suspense fallback={null}><section id="process"><ProcessSection /></section></Suspense>
+      <Suspense fallback={null}><section id="why-us"><WhyChooseUs /></section></Suspense>
+      <Suspense fallback={null}><section id="cta"><CTABanner /></section></Suspense>
+      <Suspense fallback={null}><section id="industries"><IndustriesSection /></section></Suspense>
+      <Suspense fallback={null}><section id="case-studies"><CaseStudiesSection /></section></Suspense>
+      <Suspense fallback={null}><section id="about"><About /></section></Suspense>
+      <Suspense fallback={null}><section id="faq"><PremiumFAQ /></section></Suspense>
+      <Suspense fallback={null}><section id="contact"><Contact /></section></Suspense>
+      <Suspense fallback={null}><section id="blog"><BlogSection /></section></Suspense>
+      <Suspense fallback={null}><section id="instagram"><InstagramSection /></section></Suspense>
 
-
-     
-<section id="business-solutions">
-        <BusinessSolutions />
-      </section>
-
-      <section id="services">
-        <ServicesSection />
-      </section>
-
-      
-      <section id="process">
-        <ProcessSection />
-      </section>
-
-      <section id="why-us">
-        <WhyChooseUs />
-      </section>
-
-       <section id="cta">
-        <CTABanner />
-      </section>
-
-      <section id="industries">
-        <IndustriesSection />
-      </section>
-    
-     
- <section id="case-studies">
-        <CaseStudiesSection />
-      </section>
-    
-      <section id="about">
-        <About />
-      </section>
-
-      <section id="faq">
-        <PremiumFAQ />
-      </section>
-
-      <section id="contact">
-        <Contact />
-      </section>
- <section id="blog">
-        <BlogSection />
-      </section>
-
-      <section id="instagram">
-        <InstagramSection />
-      </section>
       {/* Lead Capture Popup — single-popup policy: exit-intent only on homepage */}
-      <ExitIntentPopup />
+      <Suspense fallback={null}><ExitIntentPopup /></Suspense>
     </div>
   );
 };
