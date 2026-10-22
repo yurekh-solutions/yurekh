@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Linkedin, MessageSquare, Twitter, Zap, Phone, ArrowUp, Sparkles } from 'lucide-react';
+import { Instagram, Facebook, Linkedin, MessageSquare, Twitter, Phone, ArrowUp, Sparkles } from 'lucide-react';
 import logo from '../assets/loo.png';
 import { trackLead, getWhatsAppLink } from '../lib/analytics';
 import yurekhLogo from "../assets/yurekhlog.png";
@@ -179,7 +179,7 @@ const Footer = () => {
       case "LinkedIn": return <Linkedin className="w-5 h-5" />;
       case "Threads": return <MessageSquare className="w-5 h-5" />;
       case "Twitter (X)": return <Twitter className="w-5 h-5" />;
-      default: return <Zap className="w-5 h-5" />;
+      default: return null;
     }
   };
 
@@ -210,6 +210,8 @@ const Footer = () => {
                       {link.external ? (
                         <a
                           href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-white/60 text-sm hover:text-[#1BE1D3] transition-colors duration-300"
                           style={{ fontFamily: "Poppins, sans-serif" }}
                         >

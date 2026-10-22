@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Download, CheckCircle } from "lucide-react";
 import { captureLead } from "@/lib/leadCapture";
@@ -32,9 +33,7 @@ const LeadMagnetPopup = () => {
         Requested: "Global Market Entry Guide (30-page PDF)",
       });
       setIsSubmitted(true);
-      setTimeout(() => {
-        setIsOpen(false);
-      }, 3000);
+      // Popup stays open on success — it never auto-dismisses; only the close button removes it
     }
   };
 
@@ -42,34 +41,65 @@ const LeadMagnetPopup = () => {
     setIsOpen(false);
   };
 
-  return (
+  // Lock background scroll while the popup is open (compensate scrollbar width to avoid layout shift)
+  useEffect(() => {
+    if (!isOpen) return;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    const prevOverflow = document.body.style.overflow;
+    const prevPaddingRight = document.body.style.paddingRight;
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPaddingRight;
+    };
+  }, [isOpen]);
+
+  // Close on Escape
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setIsOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [isOpen]);
+
+  // Portal to <body> so the overlay always sits on top of the page — immune to
+  // ancestor transforms (e.g. the page-enter animation on <main>) that would
+  // otherwise trap position: fixed inside the page and let it scroll away.
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[9999] flex flex-col items-center overflow-y-auto p-4 sm:p-6"
         >
-          {/* Backdrop */}
+          {/* Backdrop — purely visual (covers viewport even while the overlay scrolls).
+              Clicking it does NOT close the popup: it stays until the user presses the close button. */}
           <div
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-            onClick={handleClose}
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
+            aria-hidden="true"
           />
 
-          {/* Modal */}
+          {/* Modal — my-auto centers it when it fits and keeps it fully reachable (no top clipping) on short viewports */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             transition={{ duration: 0.3 }}
-            className="relative w-full max-w-lg rounded-3xl border border-[#1BE1D3]/20 overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Global Market Entry Guide"
+            className="relative w-full max-w-lg my-auto rounded-3xl border border-[#1BE1D3]/20 overflow-hidden"
             style={{ background: "linear-gradient(135deg, #0a1a1a 0%, #0b1f1f 50%, #000000 100%)" }}
           >
             {/* Close button */}
             <button
               onClick={handleClose}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-20 touch-manipulation"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 sm:w-9 sm:h-9 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 flex items-center justify-center transition-colors z-20 touch-manipulation"
               aria-label="Close popup"
             >
               <X className="w-5 h-5 text-white" />
@@ -170,7 +200,8 @@ const LeadMagnetPopup = () => {
           </motion.div>
         </motion.div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 };
 

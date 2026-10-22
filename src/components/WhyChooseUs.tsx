@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Shield, Zap, Globe, Target, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { Shield, Globe, Target, Clock, CheckCircle, ArrowRight } from "lucide-react";
 
 const WhyChooseUs = () => {
   const reasons = [
     {
-      icon: <Zap className="w-7 h-7" />,
+      icon: null,
       title: "End-to-End Business Partner",
       description: "We're not just consultants — we're your founding team, growth engine, and execution arm. From day one idea to global scale, we handle everything so you can focus on your vision.",
     },
@@ -80,9 +80,11 @@ const WhyChooseUs = () => {
               transition={{ duration: 0.6, delay: idx * 0.1 }}
               className="group p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/40 transition-all duration-500 hover:bg-white/[0.02]"
             >
-              <div className="text-[#1BE1D3] mb-5 group-hover:scale-110 transition-transform duration-300">
-                {reason.icon}
-              </div>
+              {reason.icon && (
+                <div className="text-[#1BE1D3] mb-5 group-hover:scale-110 transition-transform duration-300">
+                  {reason.icon}
+                </div>
+              )}
               <h3
                 className="text-white text-lg font-normal mb-3"
                 style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}

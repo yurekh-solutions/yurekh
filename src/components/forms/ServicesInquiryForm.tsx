@@ -58,7 +58,7 @@ const ServicesInquiryForm = () => {
 📧 *Email:* ${formData.email}
 📱 *Phone:* ${formData.phone}
 🏢 *Company:* ${formData.company}
-⚡ *Service:* ${formData.service}
+*Service:* ${formData.service}
 💰 *Budget:* ${formData.budget}
 ⏰ *Timeline:* ${formData.timeline}
 

@@ -15,7 +15,6 @@ import {
   AlertCircle,
   AlertOctagon,
   Lightbulb,
-  Zap,
   Target,
   Settings,
   Cpu,
@@ -38,7 +37,7 @@ import {
 
 // Icon mappings for each section
 const challengeIcons: LucideIcon[] = [AlertTriangle, AlertCircle, AlertOctagon];
-const solutionIcons: LucideIcon[] = [Lightbulb, Zap, Target];
+const solutionIcons: (LucideIcon | null)[] = [Lightbulb, null, Target];
 const capabilityIcons: LucideIcon[] = [Settings, Cpu, Database, Cloud];
 const outcomeIcons: LucideIcon[] = [TrendingUp, BarChart3, PieChart];
 
@@ -349,7 +348,7 @@ const IndustryDetail = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {industry.solutions.map((solution, idx) => {
-                const SolutionIcon = solutionIcons[idx] || Lightbulb;
+                const SolutionIcon = idx < solutionIcons.length ? solutionIcons[idx] : Lightbulb;
                 return (
                   <motion.div
                     key={idx}
@@ -359,11 +358,13 @@ const IndustryDetail = () => {
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
                     className="group bg-gradient-to-br from-[#0b0f0f] to-[#0a1f1f] border-2 border-[#1BE1D3]/30 rounded-2xl p-6 sm:p-8 hover:border-[#1BE1D3]/60 hover:shadow-[0_0_40px_rgba(27,225,211,0.3)] transition-all duration-500"
                   >
-                    <div className="flex justify-center mb-6">
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/30 to-[#1BE1D3]/10 flex items-center justify-center border-2 border-[#1BE1D3]/50 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-[#1BE1D3]/20">
-                        <SolutionIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2.5} />
+                    {SolutionIcon && (
+                      <div className="flex justify-center mb-6">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/30 to-[#1BE1D3]/10 flex items-center justify-center border-2 border-[#1BE1D3]/50 group-hover:scale-110 transition-transform duration-500 shadow-lg shadow-[#1BE1D3]/20">
+                          <SolutionIcon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2.5} />
+                        </div>
                       </div>
-                    </div>
+                    )}
                     <h3 className="text-white text-[16px] font-semibold text-center mb-3">
                       {solution.title}
                     </h3>

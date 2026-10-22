@@ -526,7 +526,7 @@ export const blogPosts = [
   {
     slug: "instagram-post-10-your-next-top-performing-employee-might-not-be-hum",
     title: "Technology Innovation: Instagram Post #10",
-    description: "Launch your application powered by AI ⚡",
+    description: "Launch your application powered by AI",
     date: getDynamicDate(3),
     category: "Instagram",
     image: instagram42,
@@ -796,7 +796,7 @@ export const blogPosts = [
   {
     slug: "instagram-post-40-business-belongs-to-all-when-creativity-is-open-th",
     title: "Business Strategy: Instagram Post #40",
-    description: "Launch your application powered by AI ⚡",
+    description: "Launch your application powered by AI",
     date: getDynamicDate(33),
     category: "Instagram",
     image: instagram72,
@@ -1066,7 +1066,7 @@ export const blogPosts = [
   {
     slug: "instagram-post-70-launch-your-application-powered-by-ai-",
     title: "Digital Marketing: Instagram Post #70",
-    description: "Launch your application powered by AI ⚡",
+    description: "Launch your application powered by AI",
     date: getDynamicDate(63),
     category: "Instagram",
     image: instagram102,
@@ -1336,7 +1336,7 @@ export const blogPosts = [
   {
     slug: "instagram-post-100-ai-agents-can-transform-your-business-operations",
     title: "E-commerce Solutions: Instagram Post #100",
-    description: "Launch your application powered by AI ⚡",
+    description: "Launch your application powered by AI",
     date: getDynamicDate(93),
     category: "Instagram",
     image: instagram132,
@@ -1606,7 +1606,7 @@ export const blogPosts = [
   {
     slug: "instagram-post-130-your-next-top-performing-employee-might-not-be-hum",
     title: "Technology Innovation: Instagram Post #130",
-    description: "Launch your application powered by AI ⚡",
+    description: "Launch your application powered by AI",
     date: getDynamicDate(123),
     category: "Instagram",
     image: instagram23,

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Zap, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone, Sparkles, Phone } from "lucide-react";
+import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone, Sparkles, Phone } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 
@@ -154,7 +154,7 @@ const BusinessConsulting = () => {
                   description: "Market research, competitive analysis, business model design, financial planning, and go-to-market strategy tailored to your industry and target markets.",
                 },
                 {
-                  icon: <Zap className="w-8 h-8" />,
+                  icon: null,
                   title: "Brand Identity",
                   description: "Complete brand creation from naming and logo design to brand guidelines, visual identity, messaging framework, and brand positioning for global markets.",
                 },
@@ -177,9 +177,11 @@ const BusinessConsulting = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="group p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/50 transition-all duration-300 hover:bg-white/5"
                 >
-                  <div className="text-[#1BE1D3] mb-5 group-hover:scale-110 transition-transform duration-300">
-                    {service.icon}
-                  </div>
+                  {service.icon && (
+                    <div className="text-[#1BE1D3] mb-5 group-hover:scale-110 transition-transform duration-300">
+                      {service.icon}
+                    </div>
+                  )}
                   <h3
                     className="text-white text-[16px] font-semibold mb-3"
                   >
@@ -342,7 +344,7 @@ const BusinessConsulting = () => {
                   features: ["iOS & Android", "Cross-platform", "Offline mode", "Push notifications", "In-app purchases", "App store optimization"],
                 },
                 {
-                  icon: <Zap className="w-10 h-10" />,
+                  icon: null,
                   title: "AI & Machine Learning",
                   description: "Integrate AI capabilities into your business: predictive analytics, recommendation engines, computer vision, and process automation.",
                   features: ["Predictive analytics", "Recommendation systems", "Computer vision", "NLP solutions", "Process automation", "Model training"],
@@ -356,7 +358,7 @@ const BusinessConsulting = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/50 transition-all duration-300 hover:bg-white/5"
                 >
-                  <div className="text-[#1BE1D3] mb-5">{solution.icon}</div>
+                  {solution.icon && <div className="text-[#1BE1D3] mb-5">{solution.icon}</div>}
                   <h3
                     className="text-white text-[16px] font-semibold mb-3"
                   >

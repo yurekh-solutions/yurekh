@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, Zap, Code, Globe } from 'lucide-react';
+import { ArrowRight, Sparkles, Code, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import aiHeroImage from '@/assets/ai-hero.jpg';
 
@@ -47,14 +47,14 @@ const HeroSection: React.FC = () => {
             <div className="flex flex-wrap gap-3">
               {[
                 { icon: <Code className="h-4 w-4" />, text: "Full-Stack Development" },
-                { icon: <Zap className="h-4 w-4" />, text: "AI Automation" },
+                { icon: null, text: "AI Automation" },
                 { icon: <Globe className="h-4 w-4" />, text: "Global SEO" }
               ].map((feature, index) => (
                 <div 
                   key={index}
                   className="flex items-center px-4 py-2 rounded-full bg-white/10 border border-white/20 hover:border-primary/50 transition-all duration-300 hover:scale-105"
                 >
-                  <span className="text-primary mr-2">{feature.icon}</span>
+                  {feature.icon && <span className="text-primary mr-2">{feature.icon}</span>}
                   <span className="text-white/90 text-sm font-medium">{feature.text}</span>
                 </div>
               ))}

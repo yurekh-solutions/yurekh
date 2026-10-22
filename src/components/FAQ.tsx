@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, HelpCircle, MessageCircle, Clock, Shield, Zap } from "lucide-react";
+import { ChevronDown, HelpCircle, MessageCircle, Clock, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FAQ = () => {
@@ -44,7 +44,7 @@ const FAQ = () => {
     {
       id: "pricing",
       label: "Pricing",
-      icon: Zap,
+      icon: null,
       questions: [
         {
           id: "pricing-model",
@@ -160,7 +160,7 @@ const FAQ = () => {
                 }`}
                 onClick={() => setActiveTab(tab.id)}
               >
-                <IconComponent className="h-4 w-4 mr-2" />
+                {IconComponent && <IconComponent className="h-4 w-4 mr-2" />}
                 {tab.label}
               </Button>
             );

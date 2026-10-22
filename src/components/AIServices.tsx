@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Brain, 
-  Zap, 
   Target, 
   TrendingUp, 
   MessageSquare,
@@ -208,7 +207,6 @@ const AIServices = () => {
           className="text-center mb-20"
         >
           <div className="glass-card inline-flex items-center gap-3 px-6 py-3 mb-8">
-            <Zap className="w-5 h-5 text-primary animate-pulse-glow" />
             <span className="text-primary font-bold text-lg">
               AI-Powered Services
             </span>

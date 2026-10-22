@@ -267,8 +267,8 @@ const Header = () => {
                 >
                   <a
                     href={item.external ? item.href : (item.href || "#")}
-                    target={item.external ? "_self" : undefined}
-                    rel={item.external ? undefined : undefined}
+                    target={item.external ? "_blank" : undefined}
+                    rel={item.external ? "noopener noreferrer" : undefined}
                     className="flex items-center gap-1.5 text-white/90 hover:text-[#1BE1D3] transition-colors duration-300 py-2"
                     style={{
                       fontFamily: "Poppins, sans-serif",
@@ -276,11 +276,8 @@ const Header = () => {
                       fontSize: "14px",
                     }}
                     onClick={(e) => {
-                      if (item.external) {
-                        // Let the browser handle the navigation naturally
-                        window.location.href = item.href!;
-                        e.preventDefault();
-                      } else if (item.dropdown || item.megaMenu || item.industryMenu) {
+                      if (item.external) return;
+                      if (item.dropdown || item.megaMenu || item.industryMenu) {
                         e.preventDefault();
                         if (item.href) {
                           goTo(item.href);
@@ -519,30 +516,39 @@ const Header = () => {
               <div className="flex flex-col space-y-1">
                 {navItems.map((item) => (
                   <div key={item.name}>
-                    <button
-                      className="w-full flex items-center justify-between text-gray-200 hover:text-[#1BE1D3] transition-colors py-3 px-2 text-base font-medium"
-                      onClick={() => {
-                        if (item.dropdown || item.megaMenu || item.industryMenu) {
-                          setActiveDropdown(
-                            activeDropdown === item.name ? null : item.name
-                          );
-                        } else if (item.external && item.href) {
-                          setIsMenuOpen(false);
-                          window.location.href = item.href;
-                        } else if (item.href) {
-                          goTo(item.href);
-                        }
-                      }}
-                    >
-                      {item.name}
-                      {(item.dropdown || item.megaMenu || item.industryMenu) && (
-                        <ChevronDown
-                          className={`h-4 w-4 transition-transform duration-300 ${
-                            activeDropdown === item.name ? "rotate-180" : ""
-                          }`}
-                        />
-                      )}
-                    </button>
+                    {item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center justify-between text-gray-200 hover:text-[#1BE1D3] transition-colors py-3 px-2 text-base font-medium"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    ) : (
+                      <button
+                        className="w-full flex items-center justify-between text-gray-200 hover:text-[#1BE1D3] transition-colors py-3 px-2 text-base font-medium"
+                        onClick={() => {
+                          if (item.dropdown || item.megaMenu || item.industryMenu) {
+                            setActiveDropdown(
+                              activeDropdown === item.name ? null : item.name
+                            );
+                          } else if (item.href) {
+                            goTo(item.href);
+                          }
+                        }}
+                      >
+                        {item.name}
+                        {(item.dropdown || item.megaMenu || item.industryMenu) && (
+                          <ChevronDown
+                            className={`h-4 w-4 transition-transform duration-300 ${
+                              activeDropdown === item.name ? "rotate-180" : ""
+                            }`}
+                          />
+                        )}
+                      </button>
+                    )}
                     {/* Mobile mega menu categories */}
                     {item.megaMenu && activeDropdown === item.name && (
                       <div className="ml-4 border-l border-white/10 pl-4 space-y-3 max-h-80 overflow-y-auto overscroll-contain scrollbar-hide">

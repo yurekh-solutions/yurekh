@@ -566,7 +566,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     title: "Tailored Digital Work",
     slug: "tailored-digital-work",
-    icon: "⚡",
+    icon: "",
     services: [
       {
         name: "Exclusive Monthly Analytics Reports",

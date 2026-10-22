@@ -16,7 +16,6 @@ import {
   Code,
   Rocket,
   Layers,
-  Zap,
   BarChart3,
   Building2,
 } from "lucide-react";
@@ -118,7 +117,7 @@ const values = [
 
 const capabilities = [
   {
-    icon: <Zap className="w-6 h-6" />,
+    icon: null,
     title: "AI-Powered Software",
     desc: "Custom platforms, intelligent assistants, and automation engineered for real business outcomes.",
     href: "/services",
@@ -513,9 +512,11 @@ const About = () => {
                   to={item.href}
                   className="group block h-full p-6 rounded-2xl border border-[#1BE1D3]/20 bg-gradient-to-br from-[#1BE1D3]/5 to-transparent hover:border-[#1BE1D3]/40 transition-all duration-300"
                 >
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#1BE1D3]/10 text-[#1BE1D3] mb-4">
-                    {item.icon}
-                  </div>
+                  {item.icon && (
+                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-[#1BE1D3]/10 text-[#1BE1D3] mb-4">
+                      {item.icon}
+                    </div>
+                  )}
                   <h3 className="text-[16px] font-semibold text-white mb-2 flex items-center gap-2">
                     {item.title}
                     <ArrowRight className="w-4 h-4 text-[#1BE1D3] opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />

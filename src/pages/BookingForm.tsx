@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar, Clock, User, Building, Target,
   MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles,
-  Zap, TrendingUp, Bot, Shield, ChevronRight, ChevronLeft,
+  TrendingUp, Bot, Shield, ChevronRight, ChevronLeft,
   Video, Check, Pencil, Globe, Mail
 } from 'lucide-react';
 import SEOHead from "@/components/SEOHead";
@@ -148,7 +148,7 @@ const BookingForm = () => {
   const benefits = [
     { icon: Target, title: 'Business strategy session', desc: 'A focused discussion on your goals, challenges, and growth opportunities.' },
     { icon: TrendingUp, title: 'Revenue growth plan', desc: 'A roadmap to more leads, conversions, and sustainable business growth.' },
-    { icon: Zap, title: 'End-to-end solutions overview', desc: 'How strategy, technology, branding & marketing work together for your business.' },
+    { icon: null, title: 'End-to-end solutions overview', desc: 'How strategy, technology, branding & marketing work together for your business.' },
     { icon: Shield, title: 'No-obligation consultation', desc: 'Get expert advice with no pressure to proceed — your business, your call.' }
   ];
 
@@ -216,9 +216,11 @@ const BookingForm = () => {
                   transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center flex-shrink-0">
-                    <b.icon className="w-[18px] h-[18px] text-[#1BE1D3]" />
-                  </div>
+                  {b.icon && (
+                    <div className="w-10 h-10 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center flex-shrink-0">
+                      <b.icon className="w-[18px] h-[18px] text-[#1BE1D3]" />
+                    </div>
+                  )}
                   <div>
                     <p className="text-white text-[14px] font-semibold">{b.title}</p>
                     <p className="text-white/55 text-[13px] leading-[1.6] mt-0.5" style={poppins}>{b.desc}</p>
@@ -666,9 +668,11 @@ const BookingForm = () => {
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.02] p-5"
               >
-                <div className="w-10 h-10 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center flex-shrink-0">
-                  <b.icon className="w-[18px] h-[18px] text-[#1BE1D3]" />
-                </div>
+                {b.icon && (
+                  <div className="w-10 h-10 rounded-xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/25 flex items-center justify-center flex-shrink-0">
+                    <b.icon className="w-[18px] h-[18px] text-[#1BE1D3]" />
+                  </div>
+                )}
                 <div>
                   <p className="text-white text-[14px] font-semibold">{b.title}</p>
                   <p className="text-white/55 text-[13px] leading-[1.6] mt-0.5" style={poppins}>{b.desc}</p>

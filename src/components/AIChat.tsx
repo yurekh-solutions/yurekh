@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send, Phone, Mail, Globe, Zap, Bot, User, Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
+import { MessageCircle, X, Send, Phone, Mail, Globe, Bot, User, Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
 import aiLogo from '../assets/loo.png';
 
 interface Message {
@@ -166,7 +166,7 @@ const AIChat = () => {
     if (option === 'Go to booking page') {
       window.location.href = '/bookingform';
     } else if (option === 'Open AINOS' || option === 'AINOS Business Suite') {
-      window.open('https://ainos-ywu0.onrender.com', '_blank');
+      window.open('https://ainos-ywu0.onrender.com', '_blank', 'noopener,noreferrer');
     } else if (option === 'Call now') {
       window.location.href = 'tel:+919136242706';
     } else if (option === 'WhatsApp chat') {
@@ -310,7 +310,7 @@ const AIChat = () => {
                 <Mail className="w-3 h-3" /> Email
               </a>
               <a href="/bookingform" className="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-[#1BE1D3]/20 text-white/70 hover:bg-[#1BE1D3]/10 hover:text-[#1BE1D3] transition-all text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
-                <Zap className="w-3 h-3" /> Book Demo
+                Book Demo
               </a>
             </div>
           </div>

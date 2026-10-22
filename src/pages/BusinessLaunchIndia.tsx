@@ -28,7 +28,6 @@ import {
   ArrowUpRight,
   ChevronDown,
   Award,
-  Zap,
   Lightbulb,
   Mail,
   Calendar,

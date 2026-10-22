@@ -20,7 +20,6 @@ import {
   Smartphone,
   Target,
   Search,
-  Zap,
   Globe,
   Palette,
   Megaphone,
@@ -82,7 +81,6 @@ import {
   Gem,
   Sparkles,
   Flame,
-  ZapIcon,
   type LucideIcon,
 } from "lucide-react";
 
@@ -608,7 +606,7 @@ const ServiceDetail = () => {
             {[
               { icon: Star, title: "Premium Quality", desc: "Every deliverable meets the highest standards of excellence." },
               { icon: Shield, title: "Trusted Partner", desc: "Businesses across industries trust our expertise." },
-              { icon: Zap, title: "Fast Delivery", desc: "Quick turnaround without compromising on quality." },
+              { icon: null, title: "Fast Delivery", desc: "Quick turnaround without compromising on quality." },
               { icon: Users, title: "Dedicated Team", desc: "A dedicated team assigned to your project success." },
             ].map((item, idx) => (
               <motion.div
@@ -619,9 +617,11 @@ const ServiceDetail = () => {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="text-center p-6 rounded-xl border border-white/10 bg-white/[0.02]"
               >
-              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30 mx-auto mb-4">
-                <item.icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
-              </div>
+                {item.icon && (
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#1BE1D3]/20 to-[#1BE1D3]/5 flex items-center justify-center border border-[#1BE1D3]/30 mx-auto mb-4">
+                    <item.icon className="w-6 h-6 text-[#1BE1D3]" strokeWidth={2} />
+                  </div>
+                )}
                 <h3 className="text-white text-[16px] font-semibold mb-2">
                   {item.title}
                 </h3>

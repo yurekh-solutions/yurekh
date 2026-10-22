@@ -268,11 +268,6 @@ const icons = {
       <path d="M22 2L15 22l-3-11-8-3z" />
     </svg>
   ),
-  Zap: (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-    </svg>
-  ),
   ChartPie: (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M10.1 2.3c.6.6 1.3.9 2 .9s1.4-.3 2-.9c.6-.6.9-1.3.9-2s-.3-1.4-.9-2c-.6-.6-1.3-.9-2-.9s-1.4.3-2 .9c-.6.6-.9 1.3-.9 2s.3 1.4.9 2z" />
@@ -649,7 +644,7 @@ const servicesData = [
       {
         title: "Luxurious Tracking & Attribution",
         description: "Implementing advanced tracking to precisely measure the effectiveness of your marketing efforts.",
-        icon: icons.Zap,
+        icon: null,
       },
       {
         title: "Elite Customer Segmentation",

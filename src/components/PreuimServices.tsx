@@ -28,7 +28,6 @@ import {
   Shapes,
   Mic,
   Smile,
-  Zap,
   Tag,
   BookA,
   Trophy,
@@ -413,7 +412,7 @@ const servicesData = [
       {
         title: "Luxurious Tracking & Attribution",
         description: "Implementing advanced tracking to precisely measure the effectiveness of your marketing efforts.",
-        icon: Zap,
+        icon: null,
       },
       {
         title: "Elite Customer Segmentation",
@@ -589,9 +588,11 @@ const Services = () => {
                         <div key={index} 
                           className="bg-white/5 border border-white/10 p-5 rounded-xl transition-all duration-300 transform hover:scale-[1.05] hover:border-[#009494] hover:bg-[#009494]/20 hover:shadow-lg hover:shadow-[#4ae0e0]/50"
                         >
-                          <div className="w-12 h-12 flex items-center justify-center bg-[#4ae0e0]/20 rounded-full mb-4">
-                            <ServiceIcon className="w-6 h-6 text-[#4ae0e0]"/>
-                          </div>
+                          {ServiceIcon && (
+                            <div className="w-12 h-12 flex items-center justify-center bg-[#4ae0e0]/20 rounded-full mb-4">
+                              <ServiceIcon className="w-6 h-6 text-[#4ae0e0]"/>
+                            </div>
+                          )}
                           <h4 className="text-lg font-bold text-gray-100 mb-2">
                             {service.title}
                           </h4>

@@ -10,7 +10,6 @@ import {
   Users,
   ShieldCheck,
   Headphones,
-  Zap,
   Target,
   BarChart3,
 } from "lucide-react";

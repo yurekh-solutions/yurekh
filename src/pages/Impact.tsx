@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Globe, Building2, Zap, Sparkles } from "lucide-react";
+import { ArrowRight, Users, Globe, Building2, Sparkles } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 
 const Impact = () => {
   const capabilities = [
     { icon: <Building2 className="w-8 h-8" />, label: "Company Formation", description: "Entity setup across India, UAE, US, UK, Singapore & Australia" },
-    { icon: <Zap className="w-8 h-8" />, label: "Technology Build", description: "Web, mobile, AI, cloud — full-stack development" },
+    { icon: null, label: "Technology Build", description: "Web, mobile, AI, cloud — full-stack development" },
     { icon: <Users className="w-8 h-8" />, label: "Brand Identity", description: "Logo, guidelines, visual systems, messaging" },
     { icon: <Globe className="w-8 h-8" />, label: "Market Entry", description: "Research, compliance, go-to-market execution" },
   ];
@@ -119,7 +119,7 @@ const Impact = () => {
                   transition={{ duration: 0.6, delay: idx * 0.1 }}
                   className="text-center"
                 >
-                  <div className="text-[#1BE1D3] mb-4 flex justify-center">{cap.icon}</div>
+                  {cap.icon && <div className="text-[#1BE1D3] mb-4 flex justify-center">{cap.icon}</div>}
                   <p className="text-white text-[16px] font-semibold mb-2">
                     {cap.label}
                   </p>
