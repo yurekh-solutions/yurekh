@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { ArrowRight, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 

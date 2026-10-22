@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { FileText, ScanLine } from 'lucide-react';
 
 // NOTE: In a real-world app, you would install and import these icons.
 // For this single-file demonstration, we'll use inline SVGs to represent them.
@@ -182,17 +183,7 @@ const icons = {
       <path d="M12 18s2.5-2 4-2c1.5 0 2.5 2 4 2 1.5 0 2.5-2 4-2v-4c0-2.5-1.5-4-3-4s-2.5 1.5-4 1.5-2.5-1.5-4-1.5-2.5 1.5-4 1.5-3 1.5-3 4v4c1.5 0 2.5-2 4-2s2.5 2 4 2z" />
     </svg>
   ),
-  Sparkles: (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M12 2L12 2" />
-      <path d="M22 12L22 12" />
-      <path d="M2 12L2 12" />
-      <path d="M12 22L12 22" />
-      <path d="M12.5 7.5L14 9l1.5-1.5L14 6l1.5-1.5L14 3l-1.5 1.5L11 3l1.5 1.5L12 6z" />
-      <path d="M12.5 15.5L14 17l1.5-1.5L14 14l1.5-1.5L14 11l-1.5 1.5L11 11l1.5 1.5L12 14z" />
-      <path d="M17.5 7.5L19 9l1.5-1.5L19 6l1.5-1.5L19 3l-1.5 1.5L16 3l1.5 1.5L17 6z" />
-    </svg>
-  ),
+
   Users: (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
       <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -503,7 +494,7 @@ const servicesData = [
       {
         title: "Opulent Content Creation & Management",
         description: "Producing and managing high-end content that captivates your audience.",
-        icon: icons.Sparkles,
+        icon: FileText,
       },
       {
         title: "Royal Influencer Partnership Collaborations",
@@ -644,7 +635,7 @@ const servicesData = [
       {
         title: "Luxurious Tracking & Attribution",
         description: "Implementing advanced tracking to precisely measure the effectiveness of your marketing efforts.",
-        icon: null,
+        icon: ScanLine,
       },
       {
         title: "Elite Customer Segmentation",

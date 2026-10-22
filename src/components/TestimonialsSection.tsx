@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Star, Quote } from "lucide-react";
+import { ThumbsUp, Quote } from "lucide-react";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -96,10 +96,9 @@ const TestimonialsSection = () => {
               <Quote className="absolute top-6 right-6 w-8 h-8 text-[#1BE1D3]/10 group-hover:text-[#1BE1D3]/20 transition-colors duration-300" />
 
               {/* Rating */}
-              <div className="flex gap-1 mb-5">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-[#1BE1D3] text-[#1BE1D3]" />
-                ))}
+              <div className="flex items-center gap-2 mb-5 text-[#1BE1D3]" aria-label={`Rated ${testimonial.rating} out of 5`}>
+                <ThumbsUp className="w-4 h-4" aria-hidden="true" />
+                <span className="text-sm font-medium">{testimonial.rating}/5</span>
               </div>
 
               {/* Text */}

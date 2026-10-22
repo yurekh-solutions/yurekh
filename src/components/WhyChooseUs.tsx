@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { Shield, Globe, Target, Clock, CheckCircle, ArrowRight } from "lucide-react";
+import { Shield, Globe, Target, Clock, CheckCircle, ArrowRight, Handshake } from "lucide-react";
 
 const WhyChooseUs = () => {
   const reasons = [
     {
-      icon: null,
+      icon: <Handshake className="w-7 h-7" />,
       title: "End-to-End Business Partner",
       description: "We're not just consultants — we're your founding team, growth engine, and execution arm. From day one idea to global scale, we handle everything so you can focus on your vision.",
     },

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone, Sparkles, Phone } from "lucide-react";
+import { ArrowRight, Globe, Building2, Code, Scale, TrendingUp, Users, Target, Award, CheckCircle, Database, Bot, Cloud, Smartphone, Brain, Palette, Phone } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 
@@ -154,7 +154,7 @@ const BusinessConsulting = () => {
                   description: "Market research, competitive analysis, business model design, financial planning, and go-to-market strategy tailored to your industry and target markets.",
                 },
                 {
-                  icon: null,
+                  icon: <Palette className="w-8 h-8" />,
                   title: "Brand Identity",
                   description: "Complete brand creation from naming and logo design to brand guidelines, visual identity, messaging framework, and brand positioning for global markets.",
                 },
@@ -344,7 +344,7 @@ const BusinessConsulting = () => {
                   features: ["iOS & Android", "Cross-platform", "Offline mode", "Push notifications", "In-app purchases", "App store optimization"],
                 },
                 {
-                  icon: null,
+                  icon: <Brain className="w-10 h-10" />,
                   title: "AI & Machine Learning",
                   description: "Integrate AI capabilities into your business: predictive analytics, recommendation engines, computer vision, and process automation.",
                   features: ["Predictive analytics", "Recommendation systems", "Computer vision", "NLP solutions", "Process automation", "Model training"],

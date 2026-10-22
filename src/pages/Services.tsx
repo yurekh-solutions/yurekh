@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Brain, Sparkles, Bot, LineChart, Eye, Cloud, Database, Shield, Wifi, Glasses, Link2 } from "lucide-react";
+import { ArrowRight, Brain, Cpu, Bot, LineChart, Eye, Cloud, Database, Shield, Wifi, Glasses, Link2 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 
@@ -13,7 +13,7 @@ const services = [
   {
     title: "Generative AI",
     description: "Generative AI works best when it's part of daily workflows. We integrate it into internal systems, customer experiences, and business tools, while maintaining the security and controls enterprises need.",
-    icon: Sparkles,
+    icon: Cpu,
   },
   {
     title: "Agentic AI",

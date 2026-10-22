@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
-  Sparkles,
+  Palette,
+  Cpu,
   Target,
   Eye,
   Heart,
@@ -117,13 +118,13 @@ const values = [
 
 const capabilities = [
   {
-    icon: null,
+    icon: <Cpu className="w-6 h-6" />,
     title: "AI-Powered Software",
     desc: "Custom platforms, intelligent assistants, and automation engineered for real business outcomes.",
     href: "/services",
   },
   {
-    icon: <Sparkles className="w-6 h-6" />,
+    icon: <Palette className="w-6 h-6" />,
     title: "Digital Branding",
     desc: "Identity, positioning, and brand systems that make you unmistakable in crowded markets.",
     href: "/services",

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Sparkles, Mail } from "lucide-react";
+import { ArrowRight, CheckCircle, Mail } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 import { trackLead } from "@/lib/analytics";

@@ -26,7 +26,7 @@ import {
   TrendingUp,
   Users,
   Crown,
-  Star,
+  BadgeCheck,
   Shield,
   Rocket,
   Camera,
@@ -79,7 +79,7 @@ import {
   Trophy,
   Medal,
   Gem,
-  Sparkles,
+  RefreshCw,
   Flame,
   type LucideIcon,
 } from "lucide-react";
@@ -186,7 +186,7 @@ const serviceIcons: Record<string, LucideIcon> = {
   "digital-marketing": Megaphone,
 
   // Scale Existing Business
-  "brand-transformation": Sparkles,
+  "brand-transformation": RefreshCw,
   "market-expansion": Globe,
   "digital-transformation": Cloud,
   "growth-marketing": TrendingUp,
@@ -604,9 +604,9 @@ const ServiceDetail = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
             {[
-              { icon: Star, title: "Premium Quality", desc: "Every deliverable meets the highest standards of excellence." },
+              { icon: BadgeCheck, title: "Premium Quality", desc: "Every deliverable meets the highest standards of excellence." },
               { icon: Shield, title: "Trusted Partner", desc: "Businesses across industries trust our expertise." },
-              { icon: null, title: "Fast Delivery", desc: "Quick turnaround without compromising on quality." },
+              { icon: Truck, title: "Fast Delivery", desc: "Quick turnaround without compromising on quality." },
               { icon: Users, title: "Dedicated Team", desc: "A dedicated team assigned to your project success." },
             ].map((item, idx) => (
               <motion.div

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Calendar, Clock, User, Building, Target,
-  MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Sparkles,
+  MessageSquare, CheckCircle, ArrowLeft, ArrowRight, Layers,
   TrendingUp, Bot, Shield, ChevronRight, ChevronLeft,
   Video, Check, Pencil, Globe, Mail
 } from 'lucide-react';
@@ -148,7 +148,7 @@ const BookingForm = () => {
   const benefits = [
     { icon: Target, title: 'Business strategy session', desc: 'A focused discussion on your goals, challenges, and growth opportunities.' },
     { icon: TrendingUp, title: 'Revenue growth plan', desc: 'A roadmap to more leads, conversions, and sustainable business growth.' },
-    { icon: null, title: 'End-to-end solutions overview', desc: 'How strategy, technology, branding & marketing work together for your business.' },
+    { icon: Layers, title: 'End-to-end solutions overview', desc: 'How strategy, technology, branding & marketing work together for your business.' },
     { icon: Shield, title: 'No-obligation consultation', desc: 'Get expert advice with no pressure to proceed — your business, your call.' }
   ];
 
@@ -198,7 +198,7 @@ const BookingForm = () => {
               {[
                 { icon: Video, text: 'Google Meet' },
                 { icon: Clock, text: '30 minutes' },
-                { icon: Sparkles, text: 'client Inquiries' },
+                { icon: MessageSquare, text: 'client Inquiries' },
                 { icon: Globe, text: 'English · Hindi' },
               ].map((c, i) => (
                 <span key={i} className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-white/10 bg-white/[0.03] text-white/60 text-[12px]">

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Sparkles, MapPin, Clock, DollarSign, ArrowRight, CheckCircle } from "lucide-react";
+import { Send, MapPin, Clock, DollarSign, ArrowRight, CheckCircle } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 
@@ -242,7 +242,7 @@ const Careers = () => {
             style={{ fontFamily: "Poppins, sans-serif" }}
           >
             Send Your Resume
-            <Sparkles className="w-5 h-5" />
+            <Send className="w-5 h-5" />
           </a>
         </motion.div>
       </section>

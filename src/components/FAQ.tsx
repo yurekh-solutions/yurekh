@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, HelpCircle, MessageCircle, Clock, Shield } from "lucide-react";
+import { ChevronDown, HelpCircle, MessageCircle, Clock, Shield, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FAQ = () => {
@@ -44,7 +44,7 @@ const FAQ = () => {
     {
       id: "pricing",
       label: "Pricing",
-      icon: null,
+      icon: CreditCard,
       questions: [
         {
           id: "pricing-model",

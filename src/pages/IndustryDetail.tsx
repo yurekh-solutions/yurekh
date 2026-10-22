@@ -24,20 +24,19 @@ import {
   BarChart3,
   PieChart,
   Activity,
-  Star,
+  Workflow,
   Shield,
   Users,
   Award,
   Briefcase,
   Rocket,
   CheckSquare,
-  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 
 // Icon mappings for each section
 const challengeIcons: LucideIcon[] = [AlertTriangle, AlertCircle, AlertOctagon];
-const solutionIcons: (LucideIcon | null)[] = [Lightbulb, null, Target];
+const solutionIcons: LucideIcon[] = [Lightbulb, Workflow, Target];
 const capabilityIcons: LucideIcon[] = [Settings, Cpu, Database, Cloud];
 const outcomeIcons: LucideIcon[] = [TrendingUp, BarChart3, PieChart];
 

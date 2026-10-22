@@ -1,82 +1,76 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, Calendar, Phone, MessageCircle } from "lucide-react";
 import { getWhatsAppLink, trackLead } from "../lib/analytics";
 
 const ExitIntentPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
 
   useEffect(() => {
-    const hasSeenExit = sessionStorage.getItem("exitIntentShown");
-    if (hasSeenExit) return;
+    if (sessionStorage.getItem("exitIntentShown")) return;
 
-    const handleMouseLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0 && !hasShown) {
-        setIsOpen(true);
-        setHasShown(true);
-        sessionStorage.setItem("exitIntentShown", "true");
-      }
-    };
+    const timer = window.setTimeout(() => {
+      setIsOpen(true);
+      sessionStorage.setItem("exitIntentShown", "true");
+    }, 1000);
 
-    document.addEventListener("mouseout", handleMouseLeave);
-    return () => document.removeEventListener("mouseout", handleMouseLeave);
-  }, [hasShown]);
-
-  const handleClose = () => setIsOpen(false);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9998] flex items-center justify-center p-4"
-        >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={handleClose} />
-
-          {/* Modal */}
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-            className="relative w-full max-w-md rounded-3xl border border-[#1BE1D3]/20 overflow-hidden"
-            style={{ background: "linear-gradient(135deg, #0a1a1a 0%, #0b1f1f 50%, #000000 100%)" }}
+    <DialogPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
+      {/* Portal avoids the page transition's transformed containing block.
+          The modal overlay owns background scroll locking and focus trapping. */}
+      <DialogPrimitive.Portal>
+        <DialogPrimitive.Overlay className="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0 duration-200" />
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+          <DialogPrimitive.Content
+            onPointerDownOutside={(event) => event.preventDefault()}
+            onInteractOutside={(event) => event.preventDefault()}
+            onEscapeKeyDown={(event) => event.preventDefault()}
+            className="relative flex flex-col w-full max-w-md min-h-0 rounded-3xl border border-[#1BE1D3]/20 overflow-hidden outline-none pointer-events-auto data-[state=open]:animate-in data-[state=open]:fade-in-0 duration-200"
+            style={{
+              maxHeight: "calc(100dvh - 3rem)",
+              background: "linear-gradient(135deg, #0a1a1a 0%, #0b1f1f 50%, #000000 100%)",
+            }}
           >
-            {/* Close button */}
-            <button
-              onClick={handleClose}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors z-20 touch-manipulation"
-              aria-label="Close popup"
-            >
-              <X className="w-5 h-5 text-white" />
-            </button>
+            {/* Close stays outside the scrollable content and is the only dismiss control. */}
+            <DialogPrimitive.Close asChild>
+              <button
+                type="button"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 w-11 h-11 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 flex items-center justify-center transition-colors z-20 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1BE1D3]"
+                aria-label="Close popup"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+            </DialogPrimitive.Close>
 
             {/* Glow effects */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#1BE1D3]/5 rounded-full blur-3xl" />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-[#1BE1D3]/5 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 p-8 md:p-10 text-center">
+            <div className="relative z-10 min-h-0 overflow-y-auto overscroll-contain p-8 md:p-10 text-center">
               {/* Icon */}
               <div className="w-16 h-16 rounded-2xl bg-[#1BE1D3]/10 border border-[#1BE1D3]/20 flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-8 h-8 text-[#1BE1D3]" />
               </div>
 
               {/* Content */}
-              <h3
-                className="text-white text-2xl md:text-3xl font-normal mb-3"
-                style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
-              >
-                Wait — Let's Talk First.
-              </h3>
-              <p
-                className="text-white/60 text-sm md:text-base mb-6"
-                style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
-              >
-                Book a 30-minute strategy call. No commitment, no pressure — just actionable insights for your business.
-              </p>
+              <DialogPrimitive.Title asChild>
+                <h3
+                  className="text-white text-2xl md:text-3xl font-normal mb-3"
+                  style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                >
+                  Wait — Let's Talk First.
+                </h3>
+              </DialogPrimitive.Title>
+              <DialogPrimitive.Description asChild>
+                <p
+                  className="text-white/60 text-sm md:text-base mb-6"
+                  style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                >
+                  Book a 30-minute strategy call. No commitment, no pressure — just actionable insights for your business.
+                </p>
+              </DialogPrimitive.Description>
 
               {/* Options */}
               <div className="space-y-3">
@@ -132,10 +126,10 @@ const ExitIntentPopup = () => {
                 Consultation. No obligations.
               </p>
             </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          </DialogPrimitive.Content>
+        </div>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 };
 

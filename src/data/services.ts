@@ -117,7 +117,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     title: "Premium Digital Branding",
     slug: "premium-digital-branding",
-    icon: "✨",
+    icon: "🎨",
     services: [
       {
         name: "Elite Website Design & Development",
@@ -566,7 +566,7 @@ export const serviceCategories: ServiceCategory[] = [
   {
     title: "Tailored Digital Work",
     slug: "tailored-digital-work",
-    icon: "",
+    icon: "🎯",
     services: [
       {
         name: "Exclusive Monthly Analytics Reports",

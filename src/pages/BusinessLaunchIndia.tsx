@@ -20,8 +20,8 @@ import {
   LineChart,
   Phone,
   Clock,
-  Star,
-  Sparkles,
+  Film,
+  Leaf,
   Landmark,
   Cpu,
   BadgeCheck,
@@ -514,12 +514,12 @@ const BusinessLaunchIndia = () => {
             { name: "E-Commerce & D2C", icon: Globe },
             { name: "Healthcare & Pharma", icon: Shield },
             { name: "FinTech & BFSI", icon: LineChart },
-            { name: "Renewable Energy", icon: Sparkles },
+            { name: "Renewable Energy", icon: Leaf },
             { name: "Manufacturing", icon: Building2 },
             { name: "Food & Agriculture", icon: Compass },
             { name: "Education & EdTech", icon: Users },
             { name: "Real Estate & PropTech", icon: Landmark },
-            { name: "Media & Entertainment", icon: Star },
+            { name: "Media & Entertainment", icon: Film },
           ].map((sector, idx) => (
             <motion.div
               key={idx}

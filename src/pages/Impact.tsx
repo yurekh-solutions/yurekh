@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Users, Globe, Building2, Sparkles } from "lucide-react";
+import { ArrowRight, Users, Globe, Building2, Code } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 
 const Impact = () => {
   const capabilities = [
     { icon: <Building2 className="w-8 h-8" />, label: "Company Formation", description: "Entity setup across India, UAE, US, UK, Singapore & Australia" },
-    { icon: null, label: "Technology Build", description: "Web, mobile, AI, cloud — full-stack development" },
+    { icon: <Code className="w-8 h-8" />, label: "Technology Build", description: "Web, mobile, AI, cloud — full-stack development" },
     { icon: <Users className="w-8 h-8" />, label: "Brand Identity", description: "Logo, guidelines, visual systems, messaging" },
     { icon: <Globe className="w-8 h-8" />, label: "Market Entry", description: "Research, compliance, go-to-market execution" },
   ];

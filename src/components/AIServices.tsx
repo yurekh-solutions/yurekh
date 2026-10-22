@@ -6,7 +6,8 @@ import {
   TrendingUp, 
   MessageSquare,
   BarChart3,
-  Sparkles,
+  Cpu,
+  Activity,
   ArrowRight,
   CheckCircle
 } from "lucide-react";
@@ -160,7 +161,7 @@ const AIServices = () => {
                   {service.stats.metric}
                 </div>
               </div>
-              <Sparkles className="w-6 h-6 text-primary" />
+              <Activity className="w-6 h-6 text-primary" />
             </div>
           </div>
 
@@ -207,6 +208,7 @@ const AIServices = () => {
           className="text-center mb-20"
         >
           <div className="glass-card inline-flex items-center gap-3 px-6 py-3 mb-8">
+            <Cpu className="w-5 h-5 text-primary" />
             <span className="text-primary font-bold text-lg">
               AI-Powered Services
             </span>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { motion } from 'framer-motion';
+import { ThumbsUp } from 'lucide-react';
 import HeroSection from "./HeroSection";
 
 const Video = () => {
@@ -10,84 +11,84 @@ const Video = () => {
       name: "Olivia Chen",
       role: "Tech Lead, Spark Innovations",
       text: "Yurekh's team delivered a custom solution that exceeded all our expectations. Their technical expertise is unparalleled.",
-      rating: "★★★★★ 5.0/5",
+      rating: "5.0/5",
       imageSrc: "https://randomuser.me/api/portraits/women/1.jpg",
     },
     {
       name: "Marcus Thorne",
       role: "Digital Strategist",
       text: "Their strategic insights in digital marketing helped us double our reach in just three months. A truly transformative partnership.",
-      rating: "★★★★★ 4.9/5",
+      rating: "4.9/5",
       imageSrc: "https://randomuser.me/api/portraits/men/2.jpg",
     },
     {
       name: "Sophia Rodriguez",
       role: "CEO, Greenleaf Analytics",
       text: "We were impressed by how quickly Yurekh's cloud migration services streamlined our operations. Their support is top-notch.",
-      rating: "★★★★★ 5.0/5",
+      rating: "5.0/5",
       imageSrc: "https://randomuser.me/api/portraits/women/3.jpg",
     },
     {
       name: "Ethan White",
       role: "Product Manager",
       text: "The UI/UX design they provided was both beautiful and incredibly intuitive. It’s made a huge difference in user engagement.",
-      rating: "★★★★★ 4.8/5",
+      rating: "4.8/5",
       imageSrc: "https://randomuser.me/api/portraits/men/4.jpg",
     },
     {
       name: "Liam O'Connell",
       role: "Head of R&D",
       text: "Yurekh delivers cutting-edge solutions with precision and reliability. Their expertise in AI and digital transformation has helped us scale seamlessly.",
-      rating: "★★★★★ 4.9/5",
+      rating: "4.9/5",
       imageSrc: "https://randomuser.me/api/portraits/men/5.jpg",
     },
     {
       name: "Chloe Lee",
       role: "Brand Consultant",
       text: "Their SEO and content creation services have been instrumental in improving our search rankings and attracting organic traffic. Highly recommend!",
-      rating: "★★★★★ 5.0/5",
+      rating: "5.0/5",
       imageSrc: "https://randomuser.me/api/portraits/women/6.jpg",
     },
     {
       name: "David Kim",
       role: "Fintech Innovator",
       text: "We modernized 125 applications with Agile methods, enhancing security, and streamlining operations for data-driven decision-making. Excellent work.",
-      rating: "★★★★★ 4.9/5",
+      rating: "4.9/5",
       imageSrc: "https://randomuser.me/api/portraits/men/7.jpg",
     },
     {
       name: "Jasmine Kaur",
       role: "Creative Director",
       text: "The web development team at Yurekh created a stunning and responsive site that perfectly captures our brand. It's a work of art.",
-      rating: "★★★★★ 5.0/5",
+      rating: "5.0/5",
       imageSrc: "https://randomuser.me/api/portraits/women/8.jpg",
     },
     {
       name: "Michael Brown",
       role: "Security Analyst",
       text: "Their cybersecurity audits revealed crucial vulnerabilities we didn't know we had. We now feel much more secure thanks to their expertise.",
-      rating: "★★★★★ 4.8/5",
+      rating: "4.8/5",
       imageSrc: "https://randomuser.me/api/portraits/men/9.jpg",
     },
     {
       name: "Isabella Garcia",
       role: "Head of Marketing",
       text: "Yurekh's data analytics solutions provided clear insights that completely changed our strategy. The dashboards are brilliant and easy to use.",
-      rating: "★★★★★ 5.0/5",
+      rating: "5.0/5",
       imageSrc: "https://randomuser.me/api/portraits/women/10.jpg",
     },
     {
       name: "Ryan Carter",
       role: "IT Manager, Global Corp",
       text: "We rely on Yurekh for our managed IT services. They're proactive, reliable, and always ready to help. An essential partner for us.",
-      rating: "★★★★★ 4.9/5",
+      rating: "4.9/5",
       imageSrc: "https://randomuser.me/api/portraits/men/11.jpg",
     },
     {
       name: "Maria Sanchez",
       role: "Small Business Owner",
       text: "The e-commerce platform Yurekh built for us is fantastic. It's secure, fast, and has all the features we need to grow our online store.",
-      rating: "★★★★★ 5.0/5",
+      rating: "5.0/5",
       imageSrc: "https://randomuser.me/api/portraits/women/12.jpg",
     },
   ];
@@ -215,7 +216,7 @@ const Video = () => {
                     className="flex-shrink-0 w-[260px] sm:w-80 whitespace-normal bg-white/10 backdrop-blur-lg text-white rounded-2xl p-5 sm:p-6 shadow-xl transition duration-300"
                     variants={cardVariants}
                   >
-                    <p className="text-sm text-yellow-400 mb-2">{card.rating}</p>
+                    <p className="text-sm text-[#1BE1D3] mb-2 flex items-center justify-center gap-2"><ThumbsUp className="w-4 h-4" aria-hidden="true" />{card.rating}</p>
                     <p className="text-[14px] font-normal text-gray-200 mb-4 line-clamp-3">{card.text}</p>
                     <div className="flex flex-col items-center gap-3">
                       <div>
@@ -239,7 +240,7 @@ const Video = () => {
                       className="bg-white/10 backdrop-blur-lg text-white rounded-2xl p-6 shadow-xl transition duration-300 mb-6 text-center md:text-left"
                       variants={cardVariants}
                     >
-                      <p className="text-sm text-yellow-400 mb-2">{card.rating}</p>
+                      <p className="text-sm text-[#1BE1D3] mb-2 flex items-center justify-center gap-2"><ThumbsUp className="w-4 h-4" aria-hidden="true" />{card.rating}</p>
                       <p className="text-[14px] font-normal text-gray-200 mb-4 line-clamp-3 md:line-clamp-none">{card.text}</p>
                       <div className="flex flex-col md:flex-row items-center gap-3">
                         <div>
@@ -261,7 +262,7 @@ const Video = () => {
                       className="bg-white/10 backdrop-blur-lg text-white rounded-2xl p-6 shadow-xl transition duration-300 mb-6 text-center md:text-left"
                       variants={cardVariants}
                     >
-                      <p className="text-sm text-yellow-400 mb-2">{card.rating}</p>
+                      <p className="text-sm text-[#1BE1D3] mb-2 flex items-center justify-center gap-2"><ThumbsUp className="w-4 h-4" aria-hidden="true" />{card.rating}</p>
                       <p className="text-[14px] font-normal text-gray-200 mb-4 line-clamp-3 md:line-clamp-none">{card.text}</p>
                       <div className="flex flex-col md:flex-row items-center gap-3">
                         <div>

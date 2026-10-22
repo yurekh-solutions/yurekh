@@ -63,7 +63,7 @@ const CareerForm = () => {
 📱 *Phone:* ${formData.phone}
 
 💼 *Position Applied:* ${formData.position}
-⭐ *Experience Level:* ${formData.experience}
+📋 *Experience Level:* ${formData.experience}
 📍 *Location:* ${formData.location}
 💰 *Expected Salary:* ${formData.expectedSalary}
 📅 *Availability:* ${formData.availability}

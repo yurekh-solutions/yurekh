@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X, Download, CheckCircle } from "lucide-react";
 import { captureLead } from "@/lib/leadCapture";
 
@@ -8,19 +7,17 @@ const LeadMagnetPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
 
-  // Show popup after 8 seconds, only once per session
+  // Each page opens its own popup after one second, once per tab session.
   useEffect(() => {
-    const hasSeenPopup = sessionStorage.getItem("leadMagnetShown");
-    if (!hasSeenPopup) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-        setHasShown(true);
-        sessionStorage.setItem("leadMagnetShown", "true");
-      }, 8000);
-      return () => clearTimeout(timer);
-    }
+    if (sessionStorage.getItem("leadMagnetShown")) return;
+
+    const timer = window.setTimeout(() => {
+      setIsOpen(true);
+      sessionStorage.setItem("leadMagnetShown", "true");
+    }, 1000);
+
+    return () => window.clearTimeout(timer);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -37,79 +34,38 @@ const LeadMagnetPopup = () => {
     }
   };
 
-  const handleClose = () => {
-    setIsOpen(false);
-  };
-
-  // Lock background scroll while the popup is open (compensate scrollbar width to avoid layout shift)
-  useEffect(() => {
-    if (!isOpen) return;
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    const prevOverflow = document.body.style.overflow;
-    const prevPaddingRight = document.body.style.paddingRight;
-    document.body.style.overflow = "hidden";
-    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      document.body.style.paddingRight = prevPaddingRight;
-    };
-  }, [isOpen]);
-
-  // Close on Escape
-  useEffect(() => {
-    if (!isOpen) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setIsOpen(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isOpen]);
-
-  // Portal to <body> so the overlay always sits on top of the page — immune to
-  // ancestor transforms (e.g. the page-enter animation on <main>) that would
-  // otherwise trap position: fixed inside the page and let it scroll away.
-  return createPortal(
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center overflow-y-auto p-4 sm:p-6"
-        >
-          {/* Backdrop — purely visual (covers viewport even while the overlay scrolls).
-              Clicking it does NOT close the popup: it stays until the user presses the close button. */}
-          <div
-            className="fixed inset-0 bg-black/80 backdrop-blur-sm"
-            aria-hidden="true"
-          />
-
-          {/* Modal — my-auto centers it when it fits and keeps it fully reachable (no top clipping) on short viewports */}
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ duration: 0.3 }}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Global Market Entry Guide"
-            className="relative w-full max-w-lg my-auto rounded-3xl border border-[#1BE1D3]/20 overflow-hidden"
-            style={{ background: "linear-gradient(135deg, #0a1a1a 0%, #0b1f1f 50%, #000000 100%)" }}
+  return (
+    <DialogPrimitive.Root open={isOpen} onOpenChange={setIsOpen}>
+      {/* Radix portals to body and locks background wheel/touch scrolling and focus. */}
+      <DialogPrimitive.Portal>
+        <DialogPrimitive.Overlay className="fixed inset-0 z-[9998] bg-black/80 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in-0 duration-200" />
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+          <DialogPrimitive.Content
+            onPointerDownOutside={(event) => event.preventDefault()}
+            onInteractOutside={(event) => event.preventDefault()}
+            onEscapeKeyDown={(event) => event.preventDefault()}
+            className="relative flex flex-col w-full max-w-lg min-h-0 rounded-3xl border border-[#1BE1D3]/20 overflow-hidden outline-none pointer-events-auto data-[state=open]:animate-in data-[state=open]:fade-in-0 duration-200"
+            style={{
+              maxHeight: "calc(100dvh - 3rem)",
+              background: "linear-gradient(135deg, #0a1a1a 0%, #0b1f1f 50%, #000000 100%)",
+            }}
           >
-            {/* Close button */}
-            <button
-              onClick={handleClose}
-              className="absolute top-3 right-3 sm:top-4 sm:right-4 w-10 h-10 sm:w-9 sm:h-9 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 flex items-center justify-center transition-colors z-20 touch-manipulation"
-              aria-label="Close popup"
-            >
-              <X className="w-5 h-5 text-white" />
-            </button>
+            {/* Close remains visible while the card's contents scroll. */}
+            <DialogPrimitive.Close asChild>
+              <button
+                type="button"
+                className="absolute top-3 right-3 sm:top-4 sm:right-4 w-11 h-11 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 flex items-center justify-center transition-colors z-20 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1BE1D3]"
+                aria-label="Close popup"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+            </DialogPrimitive.Close>
 
             {/* Glow effects */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#1BE1D3]/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#1BE1D3]/3 rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#1BE1D3]/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#1BE1D3]/3 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative z-10 p-8 md:p-10">
+            <div className="relative z-10 min-h-0 overflow-y-auto overscroll-contain p-8 md:p-10">
               {!isSubmitted ? (
                 <>
                   {/* Icon */}
@@ -118,18 +74,22 @@ const LeadMagnetPopup = () => {
                   </div>
 
                   {/* Content */}
-                  <h3
-                    className="text-white text-2xl md:text-3xl font-normal mb-3"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
-                  >
-                    Global Market Entry Guide
-                  </h3>
-                  <p
-                    className="text-white/60 text-sm md:text-base mb-6"
-                    style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
-                  >
-                    Get our comprehensive 30-page PDF covering company formation, legal compliance, tax optimization, and go-to-market strategy for India, UAE, USA, UK, Singapore & Australia.
-                  </p>
+                  <DialogPrimitive.Title asChild>
+                    <h3
+                      className="text-white text-2xl md:text-3xl font-normal mb-3"
+                      style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400, lineHeight: "1.2" }}
+                    >
+                      Global Market Entry Guide
+                    </h3>
+                  </DialogPrimitive.Title>
+                  <DialogPrimitive.Description asChild>
+                    <p
+                      className="text-white/60 text-sm md:text-base mb-6"
+                      style={{ fontFamily: "Poppins, sans-serif", lineHeight: "1.7" }}
+                    >
+                      Get our comprehensive 30-page PDF covering company formation, legal compliance, tax optimization, and go-to-market strategy for India, UAE, USA, UK, Singapore & Australia.
+                    </p>
+                  </DialogPrimitive.Description>
 
                   {/* What's included */}
                   <div className="space-y-2 mb-6">
@@ -155,6 +115,7 @@ const LeadMagnetPopup = () => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
+                      aria-label="Email address"
                       required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 text-sm focus:outline-none focus:border-[#1BE1D3]/50 transition-colors"
                       style={{ fontFamily: "Poppins, sans-serif" }}
@@ -182,26 +143,29 @@ const LeadMagnetPopup = () => {
                   <div className="w-16 h-16 rounded-full bg-[#1BE1D3]/20 flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8 text-[#1BE1D3]" />
                   </div>
-                  <h3
-                    className="text-white text-xl font-normal mb-2"
-                    style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
-                  >
-                    Check Your Email!
-                  </h3>
-                  <p
-                    className="text-white/60 text-sm"
-                    style={{ fontFamily: "Poppins, sans-serif" }}
-                  >
-                    Your guide will reach your inbox within 24 hours.
-                  </p>
+                  <DialogPrimitive.Title asChild>
+                    <h3
+                      className="text-white text-xl font-normal mb-2"
+                      style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}
+                    >
+                      Check Your Email!
+                    </h3>
+                  </DialogPrimitive.Title>
+                  <DialogPrimitive.Description asChild>
+                    <p
+                      className="text-white/60 text-sm"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
+                    >
+                      Your guide will reach your inbox within 24 hours.
+                    </p>
+                  </DialogPrimitive.Description>
                 </div>
               )}
             </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>,
-    document.body
+          </DialogPrimitive.Content>
+        </div>
+      </DialogPrimitive.Portal>
+    </DialogPrimitive.Root>
   );
 };
 

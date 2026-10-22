@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { industryCategories, getIndustryImage } from "@/data/industries";
-import { ArrowRight, Phone, Sparkles } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
 

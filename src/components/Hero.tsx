@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe, ArrowRight, Sparkles } from "lucide-react";
+import { Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe, ArrowRight } from "lucide-react";
 import widgetCloud from "../assets/yurekh-dashboard (1).jpg";
 import yurekhLogo from "../assets/yurekhlog.png";
 

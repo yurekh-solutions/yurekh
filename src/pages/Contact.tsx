@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
 import yurekhLogo from "../assets/yurekhlog.png";
-import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, CheckCircle, Globe, Building2, Users, Sparkles } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, CheckCircle, Globe, Building2, Users } from "lucide-react";
 import { getWhatsAppLink, trackLead } from "@/lib/analytics";
 
 const ContactPage = () => {

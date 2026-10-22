@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Quote, Star, ArrowLeft, ArrowRight, Award, TrendingUp } from "lucide-react";
+import { Quote, ThumbsUp, ArrowLeft, ArrowRight, Award, TrendingUp } from "lucide-react";
 
 const PremiumTestimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -199,10 +199,9 @@ const PremiumTestimonials = () => {
                   <p className="text-white/60 text-sm mb-4">{currentTestimonial.company}</p>
 
                   {/* Rating */}
-                  <div className="flex justify-center lg:justify-start gap-1 mb-4">
-                    {[...Array(currentTestimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
+                  <div className="flex items-center justify-center lg:justify-start gap-2 mb-4 text-primary" aria-label={`Rated ${currentTestimonial.rating} out of 5`}>
+                    <ThumbsUp className="w-5 h-5" aria-hidden="true" />
+                    <span className="text-sm font-medium">{currentTestimonial.rating}/5</span>
                   </div>
 
                   {/* Tags */}

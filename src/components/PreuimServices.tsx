@@ -19,7 +19,8 @@ import {
   PencilRuler,
   Briefcase,
   Layers,
-  Sparkles,
+  FileText,
+  ScanLine,
   Search,
   Mail,
   Users,
@@ -271,7 +272,7 @@ const servicesData = [
       {
         title: "Opulent Content Creation & Management",
         description: "Producing and managing high-end content that captivates your audience.",
-        icon: Sparkles,
+        icon: FileText,
       },
       {
         title: "Royal Influencer Partnership Collaborations",
@@ -412,7 +413,7 @@ const servicesData = [
       {
         title: "Luxurious Tracking & Attribution",
         description: "Implementing advanced tracking to precisely measure the effectiveness of your marketing efforts.",
-        icon: null,
+        icon: ScanLine,
       },
       {
         title: "Elite Customer Segmentation",

@@ -1,4 +1,4 @@
-import { Phone, Clock, MessageSquare, Star, TrendingDown, AlertTriangle, Database, Settings, Bot } from 'lucide-react';
+import { Phone, Clock, MessageSquare, MessageCircleWarning, TrendingDown, AlertTriangle, Database, Settings, Bot } from 'lucide-react';
 import { motion } from "framer-motion";
 
 const ProblemSection = () => {
@@ -11,7 +11,7 @@ const ProblemSection = () => {
     { icon: MessageSquare, title: "Delayed Chat Response", stat: "5 min", description: "Customers expect replies in under 5 minutes for online inquiries." },
     { icon: Settings, title: "Outdated Infrastructure", stat: "70%", description: "Businesses with outdated tech are 70% more likely to suffer a cyberattack." },
     { icon: TrendingDown, title: "Poor SEO Ranking", stat: "1st page", description: "75% of users never scroll past the first page of search results." },
-    { icon: Star, title: "Reputation Loss", stat: "90%", description: "90% of customers read online reviews before buying a service." },
+    { icon: MessageCircleWarning, title: "Reputation Loss", stat: "90%", description: "90% of customers read online reviews before buying a service." },
     { icon: Bot, title: "No 24/7 Availability", stat: "24/7", description: "Customers expect digital businesses to be available and responsive anytime." },
     { icon: TrendingDown, title: "Lost Competitive Edge", stat: "5x", description: "Competitors with a strong online presence can generate 5x more leads." },
     { icon: Phone, title: "Missed Call-to-Actions", stat: "85%", description: "Most leads from online campaigns are lost if not followed up immediately." },

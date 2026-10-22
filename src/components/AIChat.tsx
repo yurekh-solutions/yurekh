@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { MessageCircle, X, Send, Phone, Mail, Globe, Bot, User, Sparkles, ArrowRight, MessageSquare } from 'lucide-react';
+import { MessageCircle, X, Send, Phone, Mail, Globe, Bot, User, CircleCheck, Calendar, ArrowRight, MessageSquare } from 'lucide-react';
 import aiLogo from '../assets/loo.png';
 
 interface Message {
@@ -60,7 +60,7 @@ const AIChat = () => {
 
     if (message.includes('service') || message.includes('what do you offer') || message.includes('explore')) {
       return {
-        text: "Yurekh Solutions is your end-to-end business partner. Here's what we offer:\n\n🏢 **Business Consulting** - Company formation, legal compliance & market-entry strategy\n📈 **Growth Marketing** - SEO, performance marketing & go-to-market systems\n💻 **Web & Mobile Development** - High-performance websites, e-commerce & mobile apps\n🎨 **Digital Branding** - Brand identity, positioning & creative strategy\n📊 **Data Intelligence** - Analytics, reporting & performance tracking\n **AI-Powered Software** - Custom platforms, intelligent assistants & automation\n🌍 **Market Entry** - Launch & operate in India, UAE & other high-growth markets\n📦 **AINOS Business Suite** - All-in-one CRM, HR, Invoicing & Inventory platform\n\nWhich area interests you?",
+        text: "Yurekh Solutions is your end-to-end business partner. Here's what we offer:\n\n🏢 **Business Consulting** - Company formation, legal compliance & market-entry strategy\n📈 **Growth Marketing** - SEO, performance marketing & go-to-market systems\n💻 **Web & Mobile Development** - High-performance websites, e-commerce & mobile apps\n🎨 **Digital Branding** - Brand identity, positioning & creative strategy\n📊 **Data Intelligence** - Analytics, reporting & performance tracking\n🤖 **AI-Powered Software** - Custom platforms, intelligent assistants & automation\n🌍 **Market Entry** - Launch & operate in India, UAE & other high-growth markets\n📦 **AINOS Business Suite** - All-in-one CRM, HR, Invoicing & Inventory platform\n\nWhich area interests you?",
         options: ['Business Consulting', 'Web & Mobile Development', 'Digital Branding', 'Growth Marketing', 'Book consultation']
       };
     }
@@ -219,7 +219,7 @@ const AIChat = () => {
               <div>
                 <h3 className="text-white text-sm" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>Yurekh Concierge</h3>
                 <p className="text-[#1BE1D3] text-xs flex items-center gap-1" style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400 }}>
-                  <Sparkles className="w-3 h-3" /> Online • Ready to help
+                  <CircleCheck className="w-3 h-3" /> Online • Ready to help
                 </p>
               </div>
             </div>
@@ -310,7 +310,7 @@ const AIChat = () => {
                 <Mail className="w-3 h-3" /> Email
               </a>
               <a href="/bookingform" className="flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-[#1BE1D3]/20 text-white/70 hover:bg-[#1BE1D3]/10 hover:text-[#1BE1D3] transition-all text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
-                Book Demo
+                <Calendar className="w-3 h-3" /> Book Demo
               </a>
             </div>
           </div>
