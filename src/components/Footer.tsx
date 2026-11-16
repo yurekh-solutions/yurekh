@@ -19,7 +19,7 @@ const sitemapData = [
       { name: "Services", href: "/services" },
       { name: "Blog", href: "/blogs" },
       { name: "Contact", href: "/#contact" },
-      { name: "AINOS Business Suite", href: "https://ainos-ywu0.onrender.com", external: true },
+      { name: "AINOS Business Suite", href: "https://ainossuite.com/", external: true },
     ],
   },
   {
