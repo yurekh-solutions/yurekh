@@ -263,6 +263,23 @@
 
   <body>
     <div id="root"></div>
+
+    <!-- Static crawl-path band: ships in the first byte, so crawlers reach AINOS without running React -->
+    <style>
+      .yk-product-band { background: #000; border-top: 1px solid rgba(27, 225, 211, 0.2); padding: 32px 24px 112px; text-align: center; font-family: Poppins, system-ui, sans-serif; }
+      .yk-product-band h2 { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #1BE1D3; }
+      .yk-product-band p { margin: 0 auto; max-width: 720px; font-size: 15px; line-height: 1.75; color: rgba(255, 255, 255, 0.72); }
+      .yk-product-band a { color: #fff; font-weight: 700; text-decoration: underline; text-decoration-color: #1BE1D3; text-underline-offset: 3px; }
+      @media (max-width: 767px) { .yk-product-band { padding: 28px 20px 110px; } .yk-product-band p { font-size: 14px; } }
+    </style>
+    <section class="yk-product-band" id="ainos-product" aria-label="AINOS Business Suite by Yurekh Solutions">
+      <h2>Our Product</h2>
+      <p>
+        <a href="https://ainossuite.com/">AINOS Business Suite</a>
+        — the AI-powered CRM, Finance, HR, Marketing &amp; GST filing platform built by Yurekh Solutions for growing businesses across India, UAE, USA, UK, Singapore &amp; Australia.
+      </p>
+    </section>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
