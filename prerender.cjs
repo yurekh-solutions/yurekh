@@ -13,6 +13,7 @@
  */
 const fs = require("fs");
 const path = require("path");
+const { pathToFileURL } = require("url");
 
 const DOMAIN = "https://yurekh.com";
 const DIST = path.join(__dirname, "dist");
@@ -79,9 +80,9 @@ const staticRoutes = {
       "Build your career with Yurekh Solutions. Explore open roles in technology, design, marketing, and business consulting. Remote-friendly culture, competitive benefits, and global growth opportunities.",
   },
   "/bookingform": {
-    title: "Book a Consultation | Schedule Your Free Strategy Session | Yurekh Solutions",
+    title: "Book a Consultation | Schedule Your Strategy Session | Yurekh Solutions",
     description:
-      "Schedule a free consultation with Yurekh Solutions. Discuss your business vision, get expert advice on strategy, technology, branding, and go-to-market. Call +91 91362 42706.",
+      "Schedule a consultation with Yurekh Solutions. Discuss your business vision, get expert advice on strategy, technology, branding, and go-to-market. Call +91 91362 42706.",
   },
   "/contact": {
     title: "Contact Yurekh Solutions | Get in Touch for Business Consulting",
@@ -253,6 +254,34 @@ if (!fs.existsSync(path.join(DIST, "index.html"))) {
 }
 
 routes.forEach(renderRoute);
+
+// Only the homepage gets React markup. The other 311 route shells must stay
+// empty, otherwise a direct detail-page visit would hydrate the wrong content.
+const renderHomepage = async () => {
+  process.env.NODE_ENV = "production";
+  const entry = pathToFileURL(path.join(__dirname, "dist-ssr", "entry-server.js")).href;
+  const { renderHomepage: render } = await import(entry);
+  const markup = await render();
+  if (!markup.includes("Enterprise Business Solutions")) throw new Error("Homepage hero missing from prerender");
+  let home = template.replace('<div id="root"></div>', () => `<div id="root" data-prerender="/">${markup}</div>`);
+  if (home === template) throw new Error("Homepage root placeholder not found");
+  // The compiled sheet is small after reachability pruning. Inlining it on the
+  // homepage removes a blocking round trip without changing any route's styles.
+  let inlined = false;
+  home = home.replace(/<link\b[^>]*rel="stylesheet"[^>]*>/g, (tag) => {
+    const href = tag.match(/href="(\/assets\/[^" ]+\.css)"/);
+    if (!href) return tag;
+    const css = fs.readFileSync(path.join(DIST, href[1]), "utf8");
+    inlined = true;
+    // Keep a disabled marker so Vite's lazy-import helper recognizes the sheet
+    // already supplied inline instead of downloading and applying it again.
+    return `<link rel="stylesheet" href="${href[1]}" disabled data-inlined-styles><style data-home-styles>${css.replace(/<\/style/gi, "<\\/style")}</style>`;
+  });
+  if (!inlined) throw new Error("Homepage stylesheet not found");
+  fs.writeFileSync(path.join(DIST, "index.html"), home, "utf8");
+  console.log("Homepage content prerendered with inline styles");
+};
+renderHomepage().catch((error) => { console.error(error); process.exitCode = 1; });
 
 const services = routes.filter((r) => r.route.startsWith("/services/")).length;
 const industries = routes.filter((r) => r.route.startsWith("/industries/")).length;

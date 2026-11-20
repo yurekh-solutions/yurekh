@@ -1,14 +1,35 @@
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
+import fs from "fs";
+import path from "path";
+import ts from "typescript";
+
+// Scan every reachable route, including dynamic imports, but not unused template
+// components. Development keeps the broad glob so newly added files are watched.
+const reachableContent = () => {
+	const root = __dirname;
+	const sourceRoot = path.join(root, "src");
+	const seen = new Set<string>();
+	const visit = (file: string) => {
+		if (seen.has(file)) return;
+		seen.add(file);
+		for (const { fileName } of ts.preProcessFile(fs.readFileSync(file, "utf8"), true, true).importedFiles) {
+			if (!fileName.startsWith(".") && !fileName.startsWith("@/")) continue;
+			const base = fileName.startsWith("@/") ? path.join(sourceRoot, fileName.slice(2)) : path.resolve(path.dirname(file), fileName);
+			if (path.extname(base) && !/\.[cm]?[jt]sx?$/.test(base)) continue;
+			const candidates = [base, ...[".tsx", ".ts", ".jsx", ".js"].flatMap((ext) => [base + ext, path.join(base, "index" + ext)])];
+			const resolved = candidates.find((candidate) => fs.existsSync(candidate) && fs.statSync(candidate).isFile());
+			if (!resolved) throw new Error(`Unresolved Tailwind source: ${fileName} from ${file}`);
+			visit(resolved);
+		}
+	};
+	visit(path.join(sourceRoot, "main.tsx"));
+	return [path.join(root, "index.html"), ...seen].map((file) => file.replace(/\\/g, "/"));
+};
 
 export default {
 	darkMode: ["class"],
-	content: [
-		"./pages/**/*.{ts,tsx}",
-		"./components/**/*.{ts,tsx}",
-		"./app/**/*.{ts,tsx}",
-		"./src/**/*.{ts,tsx}",
-	],
+	content: process.env.NODE_ENV === "production" ? reachableContent() : ["./index.html", "./src/**/*.{ts,tsx}"],
 	prefix: "",
 	theme: {
 		container: {

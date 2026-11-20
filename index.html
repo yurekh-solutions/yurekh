@@ -30,18 +30,10 @@
     <link rel="icon" type="image/png" href="/logoyurekh.png" />
     <link rel="apple-touch-icon" href="/logoyurekh.png" />
 
-    <!-- Google Fonts - Poppins + Montserrat
-         Only the five weights the UI actually asks for (300-700; it used to be
-         200-900 = 18 @font-face blocks). Loaded non-blocking through the
-         print/onload swap so it no longer holds up first paint; <noscript>
-         keeps it working with JS disabled. -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" />
-    </noscript>
+    <!-- Local fonts: discover the hero's two faces before JavaScript runs.
+         Vite rewrites these paths to the same hashed files used by the CSS. -->
+    <link rel="preload" as="font" type="font/woff2" href="/node_modules/@fontsource/poppins/files/poppins-latin-400-normal.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/node_modules/@fontsource-variable/montserrat/files/montserrat-latin-wght-normal.woff2" crossorigin />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Yurekh Solutions | We Build Businesses | Global Business Building Studio" />
@@ -270,9 +262,6 @@
       #root { min-height: 100vh; background: linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%); }
     </style>
 
-    <!-- Preconnect for third parties used after load -->
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
   </head>
 
   <body>

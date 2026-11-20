@@ -2,20 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, Phone, ChevronDown, MessageCircle, Instagram, Facebook, Linkedin, Twitter } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../assets/loo.webp";
-import { getAllServices } from "@/data/services";
-import { getAllIndustries } from "@/data/industries";
-
-// Build name-to-slug map for linking
-const serviceNameToSlug: Record<string, string> = {};
-getAllServices().forEach((s) => {
-  serviceNameToSlug[s.name] = s.slug;
-});
-
-// Build industry name-to-slug map
-const industryNameToSlug: Record<string, string> = {};
-getAllIndustries().forEach((i) => {
-  industryNameToSlug[i.name] = i.slug;
-});
+import { serviceNameToSlug, industryNameToSlug } from "virtual:navigation-slugs";
 
 interface DropdownItem {
   name: string;

@@ -13,6 +13,8 @@ import { getWhatsAppLink, trackLead } from "../lib/analytics";
 const MobileLeadBar = () => {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
+  const [whatsAppLink, setWhatsAppLink] = useState("https://wa.me/919136242706");
+  useEffect(() => { setWhatsAppLink(getWhatsAppLink("Mobile Lead Bar")); }, []);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 400);
@@ -41,7 +43,7 @@ const MobileLeadBar = () => {
           <Phone className="w-4 h-4" /> Call Now
         </a>
         <a
-          href={getWhatsAppLink("Mobile Lead Bar")}
+          href={whatsAppLink}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackLead("Mobile Bar WhatsApp Click")}

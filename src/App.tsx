@@ -1,9 +1,6 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense, useEffect, useRef, type ComponentType, type ReactNode } from "react";
 import { HelmetProvider } from "react-helmet-async";
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Index from "./pages/Index";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Header from "@/components/Header";
@@ -17,7 +14,6 @@ const MobileLeadBar = lazy(() => import("@/components/MobileLeadBar"));
 
 // Lazy load all pages for code splitting
 const pageImporters = {
-  Index: () => import("./pages/Index"),
   NotFound: () => import("./pages/NotFound"),
   BookingForm: () => import("./pages/BookingForm"),
   ServiceDetail: () => import("./pages/ServiceDetail"),
@@ -38,7 +34,6 @@ const pageImporters = {
   BusinessLaunchIndia: () => import("./pages/BusinessLaunchIndia"),
 };
 
-const Index = lazy(pageImporters.Index);
 const NotFound = lazy(pageImporters.NotFound);
 const BookingForm = lazy(pageImporters.BookingForm);
 const ServiceDetail = lazy(pageImporters.ServiceDetail);
@@ -58,38 +53,36 @@ const FAQ = lazy(pageImporters.FAQ);
 const ContactPage = lazy(pageImporters.Contact);
 const BusinessLaunchIndia = lazy(pageImporters.BusinessLaunchIndia);
 
-// Prefetch only high-traffic page chunks during idle so navigation feels instant
-// without competing with initial-render bandwidth for all 17 pages at once.
-// "Index" is deliberately absent - the route is already rendered by the time this runs.
-const PREFETCH_KEYS = ["About", "Services", "Contact", "BookingForm", "BlogListing"] as const;
+// Download a likely next route only when a visitor points at or focuses its link.
+// An idle browser can still be downloading LCP fonts, so idle alone is not a gate.
+const PREFETCH_ROUTES = {
+  "/about": "About", "/services": "Services", "/contact": "Contact",
+  "/bookingform": "BookingForm", "/blogs": "BlogListing",
+} as const;
 
 const PrefetchPages = () => {
   useEffect(() => {
-    let started = false;
-    const prefetch = () => {
-      if (started) return;
-      started = true;
-      PREFETCH_KEYS.forEach((key) => {
-        pageImporters[key]().catch(() => {});
-      });
+    const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+    if (connection?.saveData) return;
+    const started = new Set<string>();
+    const prefetch = (event: Event) => {
+      if (!(event.target instanceof Element)) return;
+      const link = event.target.closest<HTMLAnchorElement>("a[href]");
+      if (!link || link.origin !== window.location.origin) return;
+      const key = PREFETCH_ROUTES[link.pathname as keyof typeof PREFETCH_ROUTES];
+      if (!key || started.has(key)) return;
+      started.add(key);
+      pageImporters[key]().catch(() => { started.delete(key); });
     };
-    /* wait for the load event first, then idle: prefetching before LCP would
-       steal bandwidth from the hero on slow 4G */
-    const whenIdle = () => {
-      if ("requestIdleCallback" in window) {
-        (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(prefetch, { timeout: 8000 });
-      } else {
-        setTimeout(prefetch, 4000);
-      }
+    document.addEventListener("pointerover", prefetch, { passive: true });
+    document.addEventListener("focusin", prefetch);
+    return () => {
+      document.removeEventListener("pointerover", prefetch);
+      document.removeEventListener("focusin", prefetch);
     };
-    if (document.readyState === "complete") whenIdle();
-    else window.addEventListener("load", whenIdle, { once: true });
-    return () => window.removeEventListener("load", whenIdle);
   }, []);
   return null;
 };
-
-const queryClient = new QueryClient();
 
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
@@ -102,10 +95,12 @@ const PageLoader = () => (
 
 const AppLayout = ({ children }) => {
   const { pathname } = useLocation();
+  const hasPainted = useRef(false);
+  useEffect(() => { hasPainted.current = true; }, []);
   return (
   <div className="flex flex-col min-h-screen">
     <Header />
-    <main key={pathname} className="flex-grow page-enter">{children}</main>
+    <main key={pathname} className={`flex-grow${hasPainted.current ? " page-enter" : ""}`}>{children}</main>
     <Footer />
     <Suspense fallback={null}>
       <AIChat />
@@ -115,13 +110,9 @@ const AppLayout = ({ children }) => {
   );
 };
 
-const App = () => (
+const App = ({ Router = BrowserRouter }: { Router?: ComponentType<{ children?: ReactNode }> }) => (
   <HelmetProvider>
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
+      <Router>
         <ScrollToTop />
         <PrefetchPages />
         <Suspense fallback={<PageLoader />}>
@@ -281,9 +272,7 @@ const App = () => (
           />
         </Routes>
         </Suspense>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+      </Router>
   </HelmetProvider>
 );
 

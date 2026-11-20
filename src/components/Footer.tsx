@@ -183,20 +183,13 @@ const Footer = () => {
     }
   };
 
-  const [showScroll, setShowScroll] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setShowScroll(window.scrollY > 300);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+  const [whatsAppLink, setWhatsAppLink] = useState("https://wa.me/919136242706");
+  useEffect(() => { setWhatsAppLink(getWhatsAppLink("Footer")); }, []);
 
   return (
     <>
       {/* SiteMap Section */}
-      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="py-16 md:py-24">
+      <section style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }} className="offscreen-content py-16 md:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 md:gap-10">
             {sitemapData.map((section) => (
@@ -236,7 +229,7 @@ const Footer = () => {
       </section>
 
       {/* Main Footer */}
-      <footer className="relative z-10 py-12 border-t border-[#1BE1D3]/20" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
+      <footer className="offscreen-content relative z-10 py-12 border-t border-[#1BE1D3]/20" style={{ background: "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)" }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {/* Company Info */}
@@ -257,7 +250,7 @@ const Footer = () => {
               </p>
 
               <div className="flex gap-3 flex-wrap">
-                <a href={getWhatsAppLink('Footer')} target="_blank" rel="noopener noreferrer" onClick={() => trackLead('Footer WhatsApp Click')} className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>WhatsApp Chat</a>
+                <a href={whatsAppLink} target="_blank" rel="noopener noreferrer" onClick={() => trackLead('Footer WhatsApp Click')} className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>WhatsApp Chat</a>
                 <a href="tel:+919136242706" onClick={() => trackLead('Footer Call Click')} className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>Call Now</a>
                 <a href="mailto:yurekhsolutions@gmail.com" onClick={() => trackLead('Footer Email Click')} className="glass-btn text-sm px-4 py-2 rounded-lg text-[#1BE1D3]" style={{ fontFamily: "Poppins, sans-serif" }}>Email Us</a>
               </div>

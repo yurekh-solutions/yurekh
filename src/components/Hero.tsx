@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe, ArrowRight } from "lucide-react";
 import widgetCloud from "../assets/dashboard-preview.webp";
@@ -13,11 +12,6 @@ const pillars = [
   { icon: Rocket, label: "Go-to-Market" },
   { icon: Globe, label: "Global Expansion" },
 ];
-
-/* Same choreography the framer-motion `initial`/`animate` pair produced, expressed
-   as CSS custom properties so the hero costs no JavaScript at mount. */
-const enter = (y: number, delay: number, dur = 0.45) =>
-  ({ "--hero-y": `${y}px`, "--hero-delay": `${delay}s`, "--hero-dur": `${dur}s` }) as React.CSSProperties;
 
 const Hero = () => {
   return (
@@ -82,7 +76,7 @@ const Hero = () => {
         </div>
       
         <h1
-          className="hero-in text-white mb-6 sm:mb-8 text-center px-2"
+          className="text-white mb-6 sm:mb-8 text-center px-2"
           style={{
             fontFamily: "Montserrat, sans-serif",
             fontWeight: 600,
@@ -90,7 +84,6 @@ const Hero = () => {
             lineHeight: "1.25",
             letterSpacing: "-0.02em",
             maxWidth: "800px",
-            ...enter(18, 0),
           }}
         >
           
@@ -99,14 +92,13 @@ const Hero = () => {
         </h1>
 
         <p
-          className="hero-in text-white/90 text-center mb-8 sm:mb-10 px-1"
+          className="text-white/90 text-center mb-8 sm:mb-10 px-1"
           style={{
             fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
             fontSize: "clamp(14px, 2.5vw, 18px)",
             lineHeight: "1.67",
             maxWidth: "768px",
-            ...enter(0, 0.15),
           }}
         >
          We partner with founders and leadership teams to build, launch, and scale businesses globally. From strategy and go-to-market planning to technology, branding, and operations — we deliver integrated solutions that drive real, measurable growth across industries.
@@ -114,8 +106,7 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div
-          className="hero-in flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto"
-          style={enter(20, 0.25)}
+          className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto"
         >
           <Link to="/bookingform" className="w-full sm:w-auto">
             <button
@@ -160,8 +151,7 @@ const Hero = () => {
 
         {/* Business Service Pillars */}
         <div
-          className="hero-in flex flex-wrap justify-center gap-1.5 sm:gap-3 mb-5 sm:mb-6 px-1"
-          style={enter(15, 0.35)}
+          className="flex flex-wrap justify-center gap-1.5 sm:gap-3 mb-5 sm:mb-6 px-1"
         >
           {pillars.map((pillar, idx) => (
             <div
@@ -181,12 +171,11 @@ const Hero = () => {
 
         {/* Trust Line */}
         <p
-          className="hero-in text-white/60 text-xs text-center"
+          className="text-white/60 text-xs text-center"
           style={{
             fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
             letterSpacing: "0.05em",
-            ...enter(0, 0.45),
           }}
         >
           For Startups, SMEs & Enterprises — One Partner. Complete Execution.
@@ -195,8 +184,7 @@ const Hero = () => {
 
       {/* Widget Image - Mobile version */}
       <div
-        className="hero-in relative z-20 w-full flex justify-center md:hidden mt-2 px-5"
-        style={enter(40, 0.4, 0.5)}
+        className="relative z-20 w-full flex justify-center md:hidden mt-2 px-5"
       >
         <div className="w-full">
           <div
@@ -237,7 +225,8 @@ const Hero = () => {
                   width={780}
                   height={524}
                   decoding="async"
-                  fetchPriority="high"
+                  loading="lazy"
+                  fetchPriority="low"
                   className="w-full h-auto"
                 />
                 <div
@@ -254,8 +243,7 @@ const Hero = () => {
 
       {/* Widget Image - Desktop version */}
       <div
-        className="hero-in relative z-20 w-full flex justify-center max-md:hidden"
-        style={enter(80, 0.4, 0.6)}
+        className="relative z-20 w-full flex justify-center max-md:hidden"
       >
         <div className="w-full max-w-[1100px] px-4">
           {/* Border glow — opacity-only so the animation stays off the main thread */}
@@ -304,7 +292,8 @@ const Hero = () => {
                   width={1200}
                   height={806}
                   decoding="async"
-                  fetchPriority="high"
+                  loading="lazy"
+                  fetchPriority="low"
                   className="w-full h-auto"
                 />
                 {/* Fade at bottom of visible area */}

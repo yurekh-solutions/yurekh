@@ -50,8 +50,8 @@ const Index = () => {
 
       {/* Above the fold — eager for instant first paint */}
       <section id="home"><Hero /></section>
-      <section id="partners"><TechnologyPartners /></section>
-      <section id="business-solutions"><BusinessSolutions /></section>
+      <section id="partners" className="offscreen-content"><TechnologyPartners /></section>
+      <section id="business-solutions" className="offscreen-content"><BusinessSolutions /></section>
 
       {/* Below the fold — mounted as they approach the viewport, so none of this
           rendering or chunk-fetching competes with the hero for LCP */}
