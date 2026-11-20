@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
 import TechnologyPartners from "@/components/TechnologyPartners";
 import BusinessSolutions from "@/components/BusinessSolutions";
+import LazySection from "@/components/LazySection";
 import SEOHead from "@/components/SEOHead";
 
 // Lazy-load below-the-fold sections for faster initial render
@@ -52,18 +53,19 @@ const Index = () => {
       <section id="partners"><TechnologyPartners /></section>
       <section id="business-solutions"><BusinessSolutions /></section>
 
-      {/* Below the fold — lazy-loaded as separate chunks */}
-      <Suspense fallback={null}><section id="services"><ServicesSection /></section></Suspense>
-      <Suspense fallback={null}><section id="process"><ProcessSection /></section></Suspense>
-      <Suspense fallback={null}><section id="why-us"><WhyChooseUs /></section></Suspense>
-      <Suspense fallback={null}><section id="cta"><CTABanner /></section></Suspense>
-      <Suspense fallback={null}><section id="industries"><IndustriesSection /></section></Suspense>
-      <Suspense fallback={null}><section id="case-studies"><CaseStudiesSection /></section></Suspense>
-      <Suspense fallback={null}><section id="about"><About /></section></Suspense>
-      <Suspense fallback={null}><section id="faq"><PremiumFAQ /></section></Suspense>
-      <Suspense fallback={null}><section id="contact"><Contact /></section></Suspense>
-      <Suspense fallback={null}><section id="blog"><BlogSection /></section></Suspense>
-      <Suspense fallback={null}><section id="instagram"><InstagramSection /></section></Suspense>
+      {/* Below the fold — mounted as they approach the viewport, so none of this
+          rendering or chunk-fetching competes with the hero for LCP */}
+      <LazySection id="services"><Suspense fallback={null}><ServicesSection /></Suspense></LazySection>
+      <LazySection id="process"><Suspense fallback={null}><ProcessSection /></Suspense></LazySection>
+      <LazySection id="why-us"><Suspense fallback={null}><WhyChooseUs /></Suspense></LazySection>
+      <LazySection id="cta" minHeight={320}><Suspense fallback={null}><CTABanner /></Suspense></LazySection>
+      <LazySection id="industries"><Suspense fallback={null}><IndustriesSection /></Suspense></LazySection>
+      <LazySection id="case-studies"><Suspense fallback={null}><CaseStudiesSection /></Suspense></LazySection>
+      <LazySection id="about"><Suspense fallback={null}><About /></Suspense></LazySection>
+      <LazySection id="faq"><Suspense fallback={null}><PremiumFAQ /></Suspense></LazySection>
+      <LazySection id="contact"><Suspense fallback={null}><Contact /></Suspense></LazySection>
+      <LazySection id="blog"><Suspense fallback={null}><BlogSection /></Suspense></LazySection>
+      <LazySection id="instagram"><Suspense fallback={null}><InstagramSection /></Suspense></LazySection>
 
       {/* Lead Capture Popup — single-popup policy: exit-intent only on homepage */}
       <Suspense fallback={null}><ExitIntentPopup /></Suspense>

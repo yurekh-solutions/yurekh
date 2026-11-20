@@ -82,46 +82,6 @@
     --sidebar-border: 220 30% 15%;
     --sidebar-ring: 180 100% 44%;
   }
-
-  .dark {
-    --background: 220 100% 2%;
-    --foreground: 180 100% 98%;
-
-    --card: 220 50% 6%;
-    --card-foreground: 180 100% 98%;
-
-    --popover: 220 50% 6%;
-    --popover-foreground: 180 100% 98%;
-
-    --primary: 180 100% 44%;
-    --primary-foreground: 220 100% 2%;
-    --primary-glow: 180 100% 70%;
-
-    --secondary: 220 30% 15%;
-    --secondary-foreground: 180 100% 98%;
-
-    --muted: 220 30% 10%;
-    --muted-foreground: 180 20% 65%;
-
-    --accent: 175 100% 40%;
-    --accent-foreground: 220 100% 2%;
-    --accent-glow: 175 100% 60%;
-
-    --success: 145 100% 40%;
-    --success-foreground: 220 100% 2%;
-
-    --warning: 35 100% 50%;
-    --warning-foreground: 220 100% 2%;
-
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 180 100% 98%;
-
-    --border: 220 30% 20%;
-    --input: 220 30% 15%;
-    --ring: 180 100% 44%;
-
-    --radius: 1rem;
-  }
 }
 
 @layer base {
@@ -181,16 +141,56 @@
   }
 }
 
-/* ================= Border Glow Animation ================= */
-@keyframes borderGlow {
-  0% {
-    background-position: 0% 50%;
+/* ================= Entrance animation =================
+   Replaces the framer-motion mount animations above the fold and the
+   scroll-triggered reveals in components/Reveal.tsx. Same easing and timings,
+   but the homepage no longer drags the 115 KB motion runtime into the critical
+   path. --hero-y / --hero-dur / --hero-delay are set per element. */
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(var(--hero-y, 18px));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-in {
+  animation: heroIn var(--hero-dur, 0.45s) ease-out both;
+  animation-delay: var(--hero-delay, 0s);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-in {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ================= Hero border glow =================
+   Opacity-only so the compositor handles it: the previous borderGlow animated
+   background-position, which forced a main-thread repaint on every frame. */
+@keyframes heroGlow {
+  0%,
+  100% {
+    opacity: 0.35;
   }
   50% {
-    background-position: 100% 50%;
+    opacity: 1;
   }
-  100% {
-    background-position: 0% 50%;
+}
+
+.animate-heroGlow {
+  animation: heroGlow 3.2s ease-in-out infinite;
+  will-change: opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-heroGlow {
+    animation: none;
+    opacity: 0.6;
   }
 }
 
@@ -208,105 +208,8 @@
   animation: marquee 30s linear infinite;
 }
 
-.animate-marquee-slow {
-  animation: marquee 50s linear infinite;
-}
-
 .animate-marquee-reverse {
   animation: marquee 40s linear infinite reverse;
-}
-
-/* ================= Magnific-style Utilities ================= */
-.magnific-dark {
-  background-color: #101010;
-}
-
-.magnific-cream {
-  background-color: #f4f3ef;
-}
-
-.magnific-beige {
-  background-color: #362f2b;
-}
-
-.magnific-maroon {
-  background-color: #2c0000;
-}
-
-/* Gradient glow orb */
-.gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-/* Glass card magnific style */
-.glass-card-magnific {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(20px) saturate(150%);
-  -webkit-backdrop-filter: blur(20px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-card-magnific:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.5);
-}
-
-/* Cream card for light sections */
-.cream-card {
-  background: #ffffff;
-  border-radius: 24px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cream-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.12);
-  border-color: rgba(0, 0, 0, 0.1);
-}
-
-/* Pill badge */
-.pill-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 6px 16px;
-  border-radius: 9999px;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-/* Step number styling */
-.step-number {
-  font-size: clamp(48px, 6vw, 72px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.04em;
-  opacity: 0.08;
-  position: absolute;
-  top: -8px;
-  right: 16px;
-}
-
-/* Scroll reveal base */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* ================= Glass Morphism ================= */
@@ -315,27 +218,6 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-dark {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-/* Premium Glass - Teal tinted */
-.glass-teal {
-  background: rgba(27, 225, 211, 0.05);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(27, 225, 211, 0.12);
-}
-
-.glass-teal:hover {
-  background: rgba(27, 225, 211, 0.08);
-  border-color: rgba(27, 225, 211, 0.25);
-  box-shadow: 0 8px 32px rgba(27, 225, 211, 0.1);
 }
 
 /* Glass Panel - Large surfaces */
@@ -378,22 +260,6 @@
   border-color: rgba(27, 225, 211, 0.5);
   box-shadow: 0 0 30px rgba(27, 225, 211, 0.2), inset 0 1px 0 rgba(255,255,255,0.1);
   transform: translateY(-1px);
-}
-
-/* Glass Input */
-.glass-input {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
-}
-
-.glass-input:focus {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(27, 225, 211, 0.4);
-  box-shadow: 0 0 16px rgba(27, 225, 211, 0.1);
-  outline: none;
 }
 
 /* ================= Components ================= */
@@ -475,21 +341,6 @@
     animation: gradient 8s ease infinite;
   }
 
-  .text-glow {
-    color: white;
-    filter: drop-shadow(0 0 10px hsl(var(--primary-glow) / 0.7));
-  }
-
-  .btn-hero {
-    @apply px-8 py-3 rounded-full font-semibold text-white border-2 border-primary bg-transparent transition-all duration-300;
-  }
-
-  .btn-hero:hover {
-    background-color: hsl(var(--primary));
-    transform: scale(1.05);
-    box-shadow: 0 0 20px hsl(var(--primary-glow));
-  }
-
   .btn-glass {
     @apply px-6 py-3 rounded-xl font-medium text-white transition-all duration-300 transform;
     background: rgba(255, 255, 255, 0.05);
@@ -515,11 +366,6 @@
     box-shadow: 0 0 30px hsl(var(--primary-glow) / 0.6);
   }
 
-  .section-glass {
-    @apply min-h-screen py-20 relative overflow-hidden;
-    background: linear-gradient(135deg, hsl(var(--background)), hsl(var(--card)), hsl(var(--background)));
-  }
-
   .container-glass {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12;
   }
@@ -538,10 +384,6 @@
 
   .animate-float {
     animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-glow {
-    animation: glow 3s ease-in-out infinite alternate;
   }
 
   .animate-gradient {
@@ -580,19 +422,9 @@
   .hover-glow:hover {
     box-shadow: 0 0 30px hsl(var(--primary-glow) / 0.6);
   }
-
-  .hover-scale:hover {
-    transform: scale(1.05);
-  }
 }
 
 /* ================= Keyframes ================= */
-@keyframes gradientBtn {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
 @keyframes gradient {
   0%, 100% {
     background-position: 0% 50%;
@@ -611,36 +443,12 @@
   }
 }
 
-@keyframes glow {
-  0% {
-    box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
-  }
-  100% {
-    box-shadow: 0 0 40px hsl(var(--primary-glow) / 0.8);
-  }
-}
-
 @keyframes pulseGlow {
   0%, 100% {
     opacity: 1;
   }
   50% {
     opacity: 0.5;
-  }
-}
-
-@keyframes splineFloat {
-  0%, 100% {
-    transform: translateY(0) rotateX(0deg) rotateY(0deg);
-  }
-  25% {
-    transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
-  }
-  50% {
-    transform: translateY(0) rotateX(0deg) rotateY(10deg);
-  }
-  75% {
-    transform: translateY(-5px) rotateX(-5deg) rotateY(5deg);
   }
 }
 
@@ -740,11 +548,6 @@
     padding: 1.5rem 1.25rem 2.5rem 1.25rem;
   }
   
-  .btn-hero {
-    padding: 0.875rem 1.75rem;
-    font-size: 0.9375rem;
-  }
-  
   .title-gradient {
     font-size: 1.75rem;
   }
@@ -789,10 +592,6 @@
     line-height: 1.6 !important;
   }
 
-  .section-glass {
-    padding: 3.5rem 0;
-  }
-  
   .premium-card:hover {
     transform: translateY(-4px);
   }

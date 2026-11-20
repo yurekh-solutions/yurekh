@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import SEOHead from "@/components/SEOHead";
 import { captureLead } from "@/lib/leadCapture";
-import yurekhLogo from "../assets/yurekhlog.png";
+import yurekhLogo from "../assets/yurekhlog.webp";
 
 const poppins = { fontFamily: "Poppins, sans-serif" };
 
@@ -183,7 +183,7 @@ const BookingForm = () => {
             className="lg:sticky lg:top-28 text-center lg:text-left"
           >
             <div className=" mt-5 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-              <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
+              <img src={yurekhLogo} alt="" width={16} height={16} className="w-4 h-4 flex-shrink-0 object-contain" />
               <span className="text-[#1BE1D3] text-sm font-medium">End-to-End Business Solutions</span>
             </div>
             <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[40px] font-semibold mb-5 leading-[1.2]">

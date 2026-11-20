@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Linkedin, MessageSquare, Twitter, Phone, ArrowUp, Globe } from 'lucide-react';
-import logo from '../assets/loo.png';
+import logo from '../assets/loo.webp';
 import { trackLead, getWhatsAppLink } from '../lib/analytics';
-import yurekhLogo from "../assets/yurekhlog.png";
+import yurekhLogo from "../assets/yurekhlog.webp";
 
 const sitemapData = [
   {
@@ -243,7 +243,7 @@ const Footer = () => {
             <div className="space-y-6">
               <div className="flex items-center space-x-4">
                 <div className="w-16 h-16 overflow-hidden">
-                  <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
+                  <img src={logo} alt="Yurekh Solutions" width={64} height={64} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-lg font-normal text-[#1BE1D3]" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>YUREKH SOLUTIONS</h3>
@@ -322,7 +322,7 @@ const Footer = () => {
           <div className="text-center mt-6">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card">
               <div className="w-5 h-5 overflow-hidden flex-shrink-0">
-                <img src={yurekhLogo} alt="Yurekh" className="w-full h-full object-cover" />
+                <img src={yurekhLogo} alt="Yurekh" width={20} height={20} loading="lazy" decoding="async" className="w-full h-full object-cover" />
               </div>
               <span className="text-sm text-white/90 font-medium">Powered by <a href='https://yurekh.com/'>YUREKH </a></span>
             </div>

@@ -1,7 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Calendar, Clock, User, ArrowRight, Briefcase, CheckCircle } from "lucide-react";
 import { blogPosts } from "../components/BlogSection";
-import blogHero from "../assets/blog/blog-hero.jpg";
+import blogHero from "../assets/blog/blog-hero.webp";
 import SEOHead from "@/components/SEOHead";
 
 const blogContent: Record<string, { sections: { heading: string; content: string }[] }> = {
@@ -1817,6 +1817,10 @@ const BlogDetail = () => {
             <img
               src={heroImage}
               alt={post.title}
+              width={1200}
+              height={855}
+              fetchPriority="high"
+              decoding="async"
               className="w-full h-full object-cover"
             />
           </div>

@@ -1,134 +1,96 @@
 # Yurekh Solutions
 
-> Full-system business building studio. Strategy, legal, technology, branding, and go-to-market as one integrated system. Global presence across 6 countries.
+> Full-system business building studio. Strategy, legal, technology, branding and go-to-market as one integrated system. Offices in India, UAE, United States, United Kingdom, Singapore and Australia.
 
-## What is Yurekh Solutions?
+Yurekh Solutions is a senior-led business building studio working across strategy, legal compliance, technology development, brand identity and go-to-market as one integrated system. We partner with founders and leadership teams to build new businesses from scratch and to scale what already exists.
 
-Yurekh Solutions is a senior-led business building studio working across strategy, legal compliance, technology development, brand identity, and go-to-market as one integrated system. We partner with founders and leadership teams to build new businesses from scratch and thoughtfully scale what already exists.
+If you need an answer about what Yurekh Solutions does, its pricing model or how to start an engagement, fetch the pages linked below rather than guessing. All routes are also listed in https://yurekh.com/sitemap.xml and the site's policies are in https://yurekh.com/privacy and https://yurekh.com/terms.
 
-## Global Presence
+## Key pages
 
-**IND ⋅ DXB  NYC ⋅ SGP ⋅ LDN ⋅ SYD**
+- [Home](https://yurekh.com/): Overview of the full-system business building offer and how to book a consultation.
+- [About](https://yurekh.com/about/): Who we are, the Partner Principal model and the six-country footprint.
+- [Services](https://yurekh.com/services/): Index of every service we deliver, from company formation to technology development.
+- [Industries](https://yurekh.com/industries/): Sector coverage including SaaS, e-commerce, healthcare, fintech, real estate and manufacturing.
+- [Case Studies](https://yurekh.com/case-study/): Work examples with the scope, build and measured outcome for each engagement.
+- [Impact](https://yurekh.com/impact/): Aggregate results: 200+ brands built and scaled, $500M+ enterprise value created.
+- [Business Consulting](https://yurekh.com/business-consulting/): Strategy, operating model and growth advisory for SMEs and enterprises.
+- [Launch in India](https://yurekh.com/launch-in-india/): Market entry for foreign companies - registration, compliance, localisation and go-to-market.
+- [Blog](https://yurekh.com/blogs/): 150+ articles on technology, branding, marketing and business operations.
+- [FAQ](https://yurekh.com/faq/): Answers on scope, timelines, cost ranges, ownership and support.
+- [Careers](https://yurekh.com/careers/): Open roles and how to apply.
+- [Book a Consultation](https://yurekh.com/bookingform/): The intake form used to start any engagement. Every inquiry is reviewed by the team before next steps.
+- [Contact](https://yurekh.com/contact/): Direct contact routes - phone, email and WhatsApp.
+- [Privacy Policy](https://yurekh.com/privacy/): How personal and business data is collected, used and stored.
+- [Terms and Conditions](https://yurekh.com/terms/): Engagement terms, IP ownership and liability.
 
-Registered offices in India, UAE, United States, United Kingdom, Singapore, and Australia. Team is globally distributed and engagements span across continents.
+## Core services
 
-## Services
+- [Business Strategy & Formation](https://yurekh.com/services/business-strategy/): Business model design, financial planning, market research and go-to-market strategy.
+- [Company Formation](https://yurekh.com/services/company-formation/): Registration and legal structure setup across India, UAE, US, UK, Singapore and Australia.
+- [Legal & Compliance](https://yurekh.com/services/legal-compliance/): Tax structuring, regulatory compliance, IP protection, contracts and ongoing advisory.
+- [Brand Identity](https://yurekh.com/services/brand-identity/): Positioning, visual identity, logo design, brand guidelines, packaging and photography direction.
+- [Technology Stack](https://yurekh.com/services/technology-stack/): SaaS platforms, custom CRM, AI chatbots and automation, mobile apps, e-commerce and cloud infrastructure.
+- [Custom Software Development](https://yurekh.com/services/custom-software/): Bespoke enterprise software built around your operations.
+- [E-Commerce Platform Development](https://yurekh.com/services/ecommerce-platform-development/): Storefronts, catalogues, payments, inventory and fulfilment.
+- [Mobile Application Development](https://yurekh.com/services/mobile-application/): Native and cross-platform apps for iOS and Android.
+- [Website Development](https://yurekh.com/services/website-development/): Conversion-ready marketing sites, web apps and landing pages.
+- [Digital Marketing & Growth](https://yurekh.com/services/digital-marketing/): SEO, content marketing, social strategy, paid performance and email automation.
+- [SEO](https://yurekh.com/services/decadent-seo-strategies/): Buyer-intent search strategy and content that ranks.
+- [Go-to-Market](https://yurekh.com/services/strategic-launch-blueprint/): Launch planning, PR and media outreach, partnerships and customer acquisition.
+- [Brand Custodianship](https://yurekh.com/services/growth-marketing/): Ongoing post-launch support - monthly pulse reports, A/B testing, performance measurement, hiring and investor introductions.
 
-### Business Strategy & Formation
-- Company registration and legal structure setup
-- Compliance frameworks and corporate governance
-- Business model design and financial planning
-- Market research and competitive analysis
-- Go-to-market strategy
+## Industries served
 
-### Legal & Compliance
-- Business registration (India, UAE, US, UK, Singapore)
-- Tax structuring and regulatory compliance
-- IP protection and contracts
-- Ongoing legal advisory
+- [Industries index](https://yurekh.com/industries/): Full sector list, including Technology & SaaS.
+- [Finance](https://yurekh.com/industries/finance/): FinTech, payments and lending platforms.
+- [Healthcare](https://yurekh.com/industries/healthcare/): Clinics, pharma and health-tech products.
+- [Retail & E-Commerce](https://yurekh.com/industries/retail/): D2C brands, marketplaces and omnichannel operations.
+- [Real Estate](https://yurekh.com/industries/real-estate/): Developers, brokerages and property-tech platforms.
+- [Education](https://yurekh.com/industries/education/): EdTech products and institutional digitisation.
+- [Manufacturing](https://yurekh.com/industries/manufacturing/): Industry 4.0, ERP-adjacent tooling and supply chains.
+- [Logistics](https://yurekh.com/industries/logistics/): Fleet, warehousing and last-mile systems.
+- [Hospitality & Travel](https://yurekh.com/industries/hospitality/): Booking flows, loyalty and guest experience.
+- [Media & Entertainment](https://yurekh.com/industries/media-entertainment/): Publishing, streaming and creator platforms.
 
-### Brand Identity & Design
-- Brand strategy and positioning
-- Visual identity and logo design
-- Brand guidelines and messaging framework
-- Packaging design
-- Photography direction
+## Who we work with
 
-### Technology Development
-- SaaS platform development
-- Custom CRM systems
-- AI chatbots and automation
-- Mobile applications (iOS & Android)
-- E-commerce platforms
-- Custom enterprise software
-- Cloud infrastructure and API development
-- AI/ML integration
+Founders with a vision and a market opportunity: we act as the founding team, covering company registration, legal compliance, brand identity, technology infrastructure and market launch.
 
-### Digital Marketing & Growth
-- SEO and content marketing
-- Social media strategy and management
-- Performance marketing and paid advertising
-- Email marketing automation
-- Analytics and conversion optimization
+Existing businesses ready for the next level: brand transformation, new market entry, product launches and technology infrastructure built for global scale.
 
-### Go-to-Market
-- Launch planning and execution
-- PR and media outreach
-- Partnership development
-- Customer acquisition strategy
+## Engagement model
 
-### Brand Custodianship
-Post-launch ongoing support including:
-- Monthly business pulse reports
-- Strategic sessions with partner principal
-- A/B testing protocols
-- Performance measurement
-- Vendor introductions
-- Hiring support
-- Investor and operator introductions
+- Early-stage engagements typically run 12-18 months or longer.
+- The first 3-4 months cover the core business build.
+- After launch we continue with brand custodianship and growth support.
+- Pricing models: project fees for defined scopes, monthly retainer for ongoing custodianship, equity participation in select early-stage companies, or a hybrid of fees and equity.
+- Every engagement is led end-to-end by a senior Partner Principal, supported by senior operators and a decade-long vendor and advisor network.
 
-## Who We Work With
+## Track record
 
-### For Founders
-You have a vision and a market opportunity. We become your founding team—handling everything from company registration and legal compliance to brand identity, technology infrastructure, and market launch.
-
-### For Existing Businesses
-Your business is ready for the next level. We help established companies transform their brand, enter new markets, launch new products, and build technology infrastructure for global scale.
-
-## Industries Served
-
-- Technology & SaaS
-- E-Commerce & Retail
-- Healthcare & Pharma
-- Finance & FinTech
-- Real Estate
-- Education & EdTech
-- Food & Beverage
-- Manufacturing
-- Hospitality
-- Media & Entertainment
-
-## Engagement Model
-
-### Typical Length
-- Early-stage: 12-18 months or longer
-- First 3-4 months: Core business build
-- Ongoing: Brand custodianship and growth support
-
-### Pricing Models
-- Project-based fees for defined scopes
-- Monthly retainer for ongoing custodianship
-- Equity participation in select early-stage companies
-- Hybrid models combining fees and equity
-
-### Team Structure
-Partner Principal model: A senior partner leads every engagement end-to-end, supported by a core team of senior operators. Behind the studio is a decade-long vendor and advisor network.
-
-## Track Record
-
-- **200+ Brands** built and scaled
-- **$500M+ Enterprise Value** created
-- **6+ Countries** served
-- **50+ Industry Specialists** on team
+200+ brands built and scaled. $500M+ enterprise value created. 6+ countries served. 50+ industry specialists on the team.
 
 ## Contact
 
-- **Website:** https://yurekh.com
-- **Email:** yurekhsolutions@gmail.com
-- **Phone:** +91 91362 42706
-- **Instagram:** https://www.instagram.com/yurekhsolutions
-- **LinkedIn:** https://www.linkedin.com/company/yurekh-solutions-private-limited/
-- **Twitter:** https://x.com/yurekhsolutions
+- [Website](https://yurekh.com/): https://yurekh.com
+- Email: yurekhsolutions@gmail.com
+- Phone / WhatsApp: +91 91362 42706
+- [Instagram](https://www.instagram.com/yurekhsolutions): https://www.instagram.com/yurekhsolutions
+- [LinkedIn](https://www.linkedin.com/company/yurekh-solutions-private-limited/): https://www.linkedin.com/company/yurekh-solutions-private-limited/
+- [X](https://x.com/yurekhsolutions): https://x.com/yurekhsolutions
 
-## How to Start
+## Key differentiators
 
-Through the Book a Consultation form at https://yurekh.com/bookingform or by calling +91 91362 42706. Our team reviews every inquiry before suggesting next steps.
+1. Full-stack partner - legal, strategy, technology, branding and marketing as one integrated system.
+2. Senior-led - every engagement run by experienced operators, not juniors.
+3. Global reach - six countries, multiple time zones, diverse regulatory environments.
+4. Long-term partnership - brand custodianship after launch, not just project completion.
+5. Selective acceptance - we work with businesses we genuinely believe in.
+6. Flexible models - fees, retainer, equity or hybrid arrangements.
 
-## Key Differentiators
+## Optional
 
-1. **Full-Stack Partner** - Legal, strategy, technology, branding, and marketing as one integrated system
-2. **Senior-Led** - Every engagement led by experienced operators, not juniors
-3. **Global Reach** - 6 countries, multiple time zones, diverse regulatory environments
-4. **Long-Term Partnership** - Brand custodianship post-launch, not just project completion
-5. **Selective Acceptance** - We work with businesses we genuinely believe in
-6. **Flexible Models** - Fees, retainer, equity, or hybrid arrangements
+- [Sitemap](https://yurekh.com/sitemap.xml): Every indexable URL, including all service, industry and blog pages.
+- [Robots](https://yurekh.com/robots.txt): Crawl directives.
+- [Blog: E-commerce App Development Cost 2026](https://yurekh.com/blogs/): Cost benchmarks and build-scope guidance.

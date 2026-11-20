@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import Reveal from "./Reveal";
 import { Link } from "react-router-dom";
 import {
   Building2,
@@ -82,13 +82,7 @@ const BusinessSolutions = () => {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
+        <Reveal className="text-center mb-16" y={20} duration={0.8}>
           <p
             className="text-[#1BE1D3] font-semibold text-[12px] tracking-[0.3em] uppercase mb-4"
             style={{ fontFamily: "Poppins, sans-serif" }}
@@ -118,15 +112,14 @@ const BusinessSolutions = () => {
           >
             Whether you're launching your first venture or scaling a global enterprise — we provide end-to-end consulting, technology, and execution to grow your business.
           </p>
-        </motion.div>
+        </Reveal>
 
         {/* Who We Serve */}
         <div className="mb-20">
-          <motion.h3
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <Reveal
+            as="h3"
+            y={15}
+            duration={0.6}
             className="text-center text-white/80 mb-10"
             style={{
               fontFamily: "Montserrat, sans-serif",
@@ -135,16 +128,15 @@ const BusinessSolutions = () => {
             }}
           >
             Who We <span className="text-[#1BE1D3]">Serve</span>
-          </motion.h3>
+          </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {whoWeServe.map((item, idx) => (
-              <motion.div
+              <Reveal
                 key={idx}
-                initial={{ opacity: 0, y: 25 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                y={25}
+                duration={0.5}
+                delay={idx * 0.1}
                 className="group p-8 rounded-2xl border border-white/10 hover:border-[#1BE1D3]/40 transition-all duration-500 hover:bg-white/[0.02]"
               >
                 <div className="text-[#1BE1D3] mb-5 group-hover:scale-110 transition-transform duration-300">
@@ -166,18 +158,17 @@ const BusinessSolutions = () => {
                 >
                   {item.description}
                 </p>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* What We Deliver */}
         <div>
-          <motion.h3
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+          <Reveal
+            as="h3"
+            y={15}
+            duration={0.6}
             className="text-center text-white/80 mb-10"
             style={{
               fontFamily: "Montserrat, sans-serif",
@@ -186,16 +177,15 @@ const BusinessSolutions = () => {
             }}
           >
             What We <span className="text-[#1BE1D3]">Deliver</span>
-          </motion.h3>
+          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {whatWeDeliver.map((item, idx) => (
-              <motion.div
+              <Reveal
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                y={20}
+                duration={0.4}
+                delay={idx * 0.08}
                 className="group flex items-start gap-4 p-5 rounded-xl border border-white/5 hover:border-[#1BE1D3]/20 transition-all duration-300 hover:bg-white/[0.02]"
               >
                 <div className="flex-shrink-0 w-10 h-10 rounded-lg border border-[#1BE1D3]/20 bg-[#1BE1D3]/5 flex items-center justify-center text-[#1BE1D3] group-hover:scale-110 transition-transform duration-300">
@@ -219,19 +209,13 @@ const BusinessSolutions = () => {
                     {item.description}
                   </p>
                 </div>
-              </motion.div>
+              </Reveal>
             ))}
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mt-16"
-        >
+        <Reveal className="text-center mt-16" y={20} duration={0.8}>
           <Link
             to="/bookingform"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#1BE1D3] text-black font-semibold text-sm hover:bg-[#1BE1D3]/90 transition-all duration-300 hover:shadow-[0_0_30px_rgba(27,225,211,0.4)]"
@@ -239,7 +223,7 @@ const BusinessSolutions = () => {
           >
             Discuss Your Project <ArrowRight className="w-4 h-4" />
           </Link>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

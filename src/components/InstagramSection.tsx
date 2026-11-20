@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Instagram } from "lucide-react";
 
-import post1 from "@/assets/instagram/post-1.png";
-import post2 from "@/assets/instagram/post-2.png";
-import post3 from "@/assets/instagram/post-3.png";
-import post4 from "@/assets/instagram/post-4.png";
-import post5 from "@/assets/instagram/post-5.png";
-import post6 from "@/assets/instagram/post-6.png";
+import post1 from "@/assets/instagram/post-1.webp";
+import post2 from "@/assets/instagram/post-2.webp";
+import post3 from "@/assets/instagram/post-3.webp";
+import post4 from "@/assets/instagram/post-4.webp";
+import post5 from "@/assets/instagram/post-5.webp";
+import post6 from "@/assets/instagram/post-6.webp";
 
 const INSTAGRAM_URL = "https://www.instagram.com/yurekhsolutions/";
 
@@ -77,7 +77,10 @@ const InstagramSection = () => {
               <img
                 src={post.image}
                 alt={`Yurekh Solutions Instagram post ${i + 1}`}
+                width={640}
+                height={640}
                 loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
               {/* Hover overlay */}

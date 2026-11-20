@@ -136,6 +136,10 @@ const Contact = () => {
   <img
     src={contact}
     alt="Contact"
+    width={350}
+    height={350}
+    loading="lazy"
+    decoding="async"
     className="w-full max-w-[200px] xs:max-w-[260px] sm:max-w-[320px] md:max-w-[350px] mb-3 sm:mb-4 mx-auto object-contain"
   />
 </div>

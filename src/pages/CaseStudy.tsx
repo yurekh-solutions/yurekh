@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ArrowRight, Phone } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import yurekhLogo from "../assets/yurekhlog.png";
+import yurekhLogo from "../assets/yurekhlog.webp";
 
 const industries = [
   "Show All",
@@ -186,7 +186,7 @@ const CaseStudy = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-                <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
+                <img src={yurekhLogo} alt="" width={16} height={16} className="w-4 h-4 flex-shrink-0 object-contain" />
                 <span className="text-[#1BE1D3] text-sm font-medium">Case Studies</span>
               </div>
               <h1
@@ -344,6 +344,10 @@ const CaseStudy = () => {
                     <img
                       src={study.image}
                       alt={`${study.title} case study preview`}
+                      width={1200}
+                      height={675}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] object-cover transition-transform duration-700 hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />

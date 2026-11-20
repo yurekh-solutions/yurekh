@@ -1,9 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Briefcase, Cpu, Megaphone, TrendingUp, Rocket, Globe, ArrowRight } from "lucide-react";
-import widgetCloud from "../assets/yurekh-dashboard (1).jpg";
-import yurekhLogo from "../assets/yurekhlog.png";
+import widgetCloud from "../assets/dashboard-preview.webp";
+import widgetCloudSm from "../assets/dashboard-preview-sm.webp";
+import yurekhLogo from "../assets/yurekhlog.webp";
 
 const pillars = [
   { icon: Briefcase, label: "Business Strategy" },
@@ -13,6 +13,11 @@ const pillars = [
   { icon: Rocket, label: "Go-to-Market" },
   { icon: Globe, label: "Global Expansion" },
 ];
+
+/* Same choreography the framer-motion `initial`/`animate` pair produced, expressed
+   as CSS custom properties so the hero costs no JavaScript at mount. */
+const enter = (y: number, delay: number, dur = 0.45) =>
+  ({ "--hero-y": `${y}px`, "--hero-delay": `${delay}s`, "--hero-dur": `${dur}s` }) as React.CSSProperties;
 
 const Hero = () => {
   return (
@@ -61,15 +66,23 @@ const Hero = () => {
         {/* Eyebrow */}
         <div className="flex justify-center mt-14 sm:mt-0 mb-5 sm:mb-8 w-full">
           <span className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-[#1BE1D3]/20 bg-[#1BE1D3]/5">
-            <img src={yurekhLogo} alt="" className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 object-contain" />
+            {/* 20px badge — the 1.5MB 1024px PNG this replaced was stalling LCP */}
+            <img
+              src={yurekhLogo}
+              alt=""
+              width={20}
+              height={20}
+              fetchPriority="high"
+              className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 object-contain"
+            />
             <span className="text-[#1BE1D3] font-semibold text-[10px] sm:text-[11px] tracking-[0.12em] sm:tracking-[0.25em] uppercase" style={{ fontFamily: "Poppins, sans-serif" }}>
               Business Partner in Global Growth
             </span>
           </span>
         </div>
       
-        <motion.h1
-          className="text-white mb-6 sm:mb-8 text-center px-2"
+        <h1
+          className="hero-in text-white mb-6 sm:mb-8 text-center px-2"
           style={{
             fontFamily: "Montserrat, sans-serif",
             fontWeight: 600,
@@ -77,38 +90,32 @@ const Hero = () => {
             lineHeight: "1.25",
             letterSpacing: "-0.02em",
             maxWidth: "800px",
+            ...enter(18, 0),
           }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
         >
           
           Enterprise Business Solutions{" "}
           <span className="text-[#1BE1D3]">That Drive Growth</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          className="text-white/90 text-center mb-8 sm:mb-10 px-1"
+        <p
+          className="hero-in text-white/90 text-center mb-8 sm:mb-10 px-1"
           style={{
             fontFamily: "Poppins, sans-serif",
             fontWeight: 400,
             fontSize: "clamp(14px, 2.5vw, 18px)",
             lineHeight: "1.67",
             maxWidth: "768px",
+            ...enter(0, 0.15),
           }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
         >
          We partner with founders and leadership teams to build, launch, and scale businesses globally. From strategy and go-to-market planning to technology, branding, and operations — we deliver integrated solutions that drive real, measurable growth across industries.
-        </motion.p>
+        </p>
 
         {/* CTA Buttons */}
-        <motion.div
-          className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+        <div
+          className="hero-in flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto"
+          style={enter(20, 0.25)}
         >
           <Link to="/bookingform" className="w-full sm:w-auto">
             <button
@@ -149,14 +156,12 @@ const Hero = () => {
              Build Business
             </button>
           </Link>
-        </motion.div>
+        </div>
 
         {/* Business Service Pillars */}
-        <motion.div
-          className="flex flex-wrap justify-center gap-1.5 sm:gap-3 mb-5 sm:mb-6 px-1"
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.3 }}
+        <div
+          className="hero-in flex flex-wrap justify-center gap-1.5 sm:gap-3 mb-5 sm:mb-6 px-1"
+          style={enter(15, 0.35)}
         >
           {pillars.map((pillar, idx) => (
             <div
@@ -172,26 +177,26 @@ const Hero = () => {
               </span>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Trust Line */}
-        <motion.p
-          className="text-white/40 text-xs text-center"
-          style={{ fontFamily: "Poppins, sans-serif", fontWeight: 400, letterSpacing: "0.05em" }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
+        <p
+          className="hero-in text-white/60 text-xs text-center"
+          style={{
+            fontFamily: "Poppins, sans-serif",
+            fontWeight: 400,
+            letterSpacing: "0.05em",
+            ...enter(0, 0.45),
+          }}
         >
           For Startups, SMEs & Enterprises — One Partner. Complete Execution.
-        </motion.p>
+        </p>
       </div>
 
       {/* Widget Image - Mobile version */}
-      <motion.div
-        className="relative z-20 w-full flex justify-center md:hidden mt-2 px-5"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.8 }}
+      <div
+        className="hero-in relative z-20 w-full flex justify-center md:hidden mt-2 px-5"
+        style={enter(40, 0.4, 0.5)}
       >
         <div className="w-full">
           <div
@@ -213,17 +218,26 @@ const Hero = () => {
                 <div className="w-2 h-2 rounded-full bg-green-500/60" />
                 <div className="flex-1 mx-2">
                   <div className="h-5 bg-white/5 rounded-md max-w-[200px] mx-auto flex items-center justify-center">
-                    <span className="text-white/30 text-[10px]" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <span className="text-white/50 text-[10px]" style={{ fontFamily: "Poppins, sans-serif" }}>
                       yurekh.com
                     </span>
                   </div>
                 </div>
               </div>
-              {/* Dashboard image - mobile */}
+              {/* Dashboard image - mobile.
+                  Both breakpoint variants carry the same srcSet: the hidden one is
+                  still fetched by the browser, so identical candidates mean one
+                  shared request instead of two downloads. */}
               <div className="relative overflow-hidden" style={{ maxHeight: '100px' }}>
                 <img
-                  src={widgetCloud}
+                  src={widgetCloudSm}
+                  srcSet={`${widgetCloudSm} 780w, ${widgetCloud} 1200w`}
+                  sizes="(min-width: 768px) 1100px, 100vw"
                   alt="Yurekh Solutions Dashboard"
+                  width={780}
+                  height={524}
+                  decoding="async"
+                  fetchPriority="high"
                   className="w-full h-auto"
                 />
                 <div
@@ -236,25 +250,29 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Widget Image - Desktop version */}
-      <motion.div
-        className="relative z-20 w-full flex justify-center max-md:hidden"
-        initial={{ opacity: 0, y: 80 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.4, delay: 0.8 }}
+      <div
+        className="hero-in relative z-20 w-full flex justify-center max-md:hidden"
+        style={enter(80, 0.4, 0.6)}
       >
         <div className="w-full max-w-[1100px] px-4">
-          {/* Animated border glow wrapper */}
+          {/* Border glow — opacity-only so the animation stays off the main thread */}
           <div
             className="relative rounded-2xl p-[2px]"
             style={{
               background: "linear-gradient(135deg, rgba(27,225,211,0.4), rgba(27,225,211,0.05), rgba(27,225,211,0.4))",
-              backgroundSize: "200% 200%",
-              animation: "borderGlow 4s ease-in-out infinite",
             }}
           >
+            <div
+              aria-hidden
+              className="absolute inset-0 rounded-2xl pointer-events-none animate-heroGlow"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(27,225,211,0.85), rgba(27,225,211,0.1), rgba(27,225,211,0.85))",
+              }}
+            />
             <div
               className="relative rounded-2xl overflow-hidden bg-[#0a1515]"
               style={{
@@ -269,7 +287,7 @@ const Hero = () => {
                 <div className="w-3 h-3 rounded-full bg-green-500/60" />
                 <div className="flex-1 mx-4">
                   <div className="h-6 bg-white/5 rounded-md max-w-md mx-auto flex items-center justify-center">
-                    <span className="text-white/30 text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
+                    <span className="text-white/50 text-xs" style={{ fontFamily: "Poppins, sans-serif" }}>
                       yurekh.com
                     </span>
                   </div>
@@ -279,8 +297,14 @@ const Hero = () => {
               {/* Dashboard image - only 20% visible */}
               <div className="relative overflow-hidden" style={{ maxHeight: '160px' }}>
                 <img
-                  src={widgetCloud}
+                  src={widgetCloudSm}
+                  srcSet={`${widgetCloudSm} 780w, ${widgetCloud} 1200w`}
+                  sizes="(min-width: 768px) 1100px, 100vw"
                   alt="Yurekh Solutions Dashboard"
+                  width={1200}
+                  height={806}
+                  decoding="async"
+                  fetchPriority="high"
                   className="w-full h-auto"
                 />
                 {/* Fade at bottom of visible area */}
@@ -294,7 +318,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 };

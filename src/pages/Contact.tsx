@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Contact from "@/components/Contact";
 import SEOHead from "@/components/SEOHead";
-import yurekhLogo from "../assets/yurekhlog.png";
+import yurekhLogo from "../assets/yurekhlog.webp";
 import { Mail, Phone, MapPin, Clock, MessageCircle, Calendar, CheckCircle, Globe, Building2, Users } from "lucide-react";
 import { getWhatsAppLink, trackLead } from "@/lib/analytics";
 
@@ -53,7 +53,7 @@ const ContactPage = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-2 px-3 xs:px-4 py-1.5 xs:py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mt-5 xs:mt-6 mb-4 xs:mb-6">
-              <img src={yurekhLogo} alt="" className="w-3.5 h-3.5 xs:w-4 xs:h-4 flex-shrink-0 object-contain" />
+              <img src={yurekhLogo} alt="" width={16} height={16} className="w-3.5 h-3.5 xs:w-4 xs:h-4 flex-shrink-0 object-contain" />
               <span className="text-[#1BE1D3] text-[12px] xs:text-sm font-medium">Contact Us</span>
             </div>
             <h1

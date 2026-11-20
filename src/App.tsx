@@ -8,9 +8,12 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AIChat from "@/components/AIChat";
-import MobileLeadBar from "@/components/MobileLeadBar";
 import ScrollToTop from "./components/ScrollToTop";
+
+// Floating widgets: never part of the first paint, so keep them out of the
+// entry chunk and fetch them after the page is interactive.
+const AIChat = lazy(() => import("@/components/AIChat"));
+const MobileLeadBar = lazy(() => import("@/components/MobileLeadBar"));
 
 // Lazy load all pages for code splitting
 const pageImporters = {
@@ -57,20 +60,31 @@ const BusinessLaunchIndia = lazy(pageImporters.BusinessLaunchIndia);
 
 // Prefetch only high-traffic page chunks during idle so navigation feels instant
 // without competing with initial-render bandwidth for all 17 pages at once.
-const PREFETCH_KEYS = ["Index", "About", "Services", "Contact", "BookingForm", "BlogListing"] as const;
+// "Index" is deliberately absent - the route is already rendered by the time this runs.
+const PREFETCH_KEYS = ["About", "Services", "Contact", "BookingForm", "BlogListing"] as const;
 
 const PrefetchPages = () => {
   useEffect(() => {
+    let started = false;
     const prefetch = () => {
+      if (started) return;
+      started = true;
       PREFETCH_KEYS.forEach((key) => {
         pageImporters[key]().catch(() => {});
       });
     };
-    if ("requestIdleCallback" in window) {
-      (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(prefetch, { timeout: 5000 });
-    } else {
-      setTimeout(prefetch, 3000);
-    }
+    /* wait for the load event first, then idle: prefetching before LCP would
+       steal bandwidth from the hero on slow 4G */
+    const whenIdle = () => {
+      if ("requestIdleCallback" in window) {
+        (window as Window & { requestIdleCallback: (cb: () => void, opts?: { timeout: number }) => number }).requestIdleCallback(prefetch, { timeout: 8000 });
+      } else {
+        setTimeout(prefetch, 4000);
+      }
+    };
+    if (document.readyState === "complete") whenIdle();
+    else window.addEventListener("load", whenIdle, { once: true });
+    return () => window.removeEventListener("load", whenIdle);
   }, []);
   return null;
 };
@@ -93,8 +107,10 @@ const AppLayout = ({ children }) => {
     <Header />
     <main key={pathname} className="flex-grow page-enter">{children}</main>
     <Footer />
-    <AIChat />
-    <MobileLeadBar />
+    <Suspense fallback={null}>
+      <AIChat />
+      <MobileLeadBar />
+    </Suspense>
   </div>
   );
 };

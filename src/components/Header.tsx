@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, Phone, ChevronDown, MessageCircle, Instagram, Facebook, Linkedin, Twitter } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
-import logo from "../assets/loo.png";
+import logo from "../assets/loo.webp";
 import { getAllServices } from "@/data/services";
 import { getAllIndustries } from "@/data/industries";
 
@@ -242,7 +242,7 @@ const Header = () => {
             {/* Logo - Yurekh Brand */}
             <a href="/" className="flex items-center space-x-1.5 sm:space-x-3" onClick={(e) => { e.preventDefault(); goTo("/"); }}>
               <div className="w-9 h-9 sm:w-12 sm:h-12 overflow-hidden flex-shrink-0">
-                <img src={logo} alt="Yurekh Solutions" className="w-full h-full object-cover" />
+                <img src={logo} alt="Yurekh Solutions" width={48} height={48} fetchPriority="high" className="w-full h-full object-cover" />
               </div>
               <div className="block leading-tight">
                 <span className="block text-[8px] sm:text-lg font-normal text-white tracking-wide leading-tight" style={{ fontFamily: "Montserrat, sans-serif", fontWeight: 400 }}>

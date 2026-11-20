@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import Reveal from "./Reveal";
 
 const TechLogo = ({ name }: { name: string }) => {
   const logos: Record<string, JSX.Element> = {
@@ -156,13 +156,7 @@ const TechnologyPartners = () => {
 
       <div className="container mx-auto px-8">
         {/* Label */}
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
+        <Reveal className="text-center mb-10" y={20} duration={0.8}>
           <span
             className="inline-block text-[#1BE1D3] uppercase tracking-[0.3em] text-[12px] font-semibold mb-4"
             style={{ fontFamily: "Poppins, sans-serif" }}
@@ -180,7 +174,7 @@ const TechnologyPartners = () => {
             Powered by{" "}
             <span className="text-[#1BE1D3]">Industry Leaders</span>
           </h2>
-        </motion.div>
+        </Reveal>
 
         {/* Marquee Carousel */}
         <div className="relative">

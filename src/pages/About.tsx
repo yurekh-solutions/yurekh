@@ -21,7 +21,7 @@ import {
   Building2,
 } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import yurekhLogo from "../assets/yurekhlog.png";
+import yurekhLogo from "../assets/yurekhlog.webp";
 
 const BG = "linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%)";
 
@@ -218,7 +218,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-                <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
+                <img src={yurekhLogo} alt="" width={16} height={16} className="w-4 h-4 flex-shrink-0 object-contain" />
                 <span className="text-[#1BE1D3] text-sm font-medium">About Yurekh Solutions</span>
               </div>
               <h1
@@ -608,7 +608,7 @@ const About = () => {
                 className="rounded-2xl border border-[#1BE1D3]/20 bg-gradient-to-br from-[#1BE1D3]/5 to-transparent overflow-hidden hover:border-[#1BE1D3]/40 transition-all duration-300"
               >
                 <div className="aspect-square overflow-hidden">
-                  <img src={member.image} alt={member.name} className="w-full h-full object-cover" loading="lazy" />
+                  <img src={member.image} alt={member.name} width={400} height={400} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="text-[16px] font-semibold text-white mb-1">

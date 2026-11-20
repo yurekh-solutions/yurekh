@@ -69,6 +69,10 @@ const HeroSection: React.FC = () => {
               <img 
                 src={aiHeroImage}
                 alt="AI Technology Visualization"
+                width={1280}
+                height={720}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto rounded-2xl glass-card hover-glow"
               />
               

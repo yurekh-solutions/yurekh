@@ -7,7 +7,7 @@
     <!-- Primary SEO Meta Tags -->
     <title>Yurekh Solutions | Global Business Building Studio | We Build Businesses</title>
     <meta name="description" content="Yurekh Solutions is a full-system business building studio helping founders and enterprises build, launch, and scale globally. Strategy, legal, technology, branding & go-to-market as one integrated system. Offices in India, UAE, USA, UK, Singapore & Australia." />
-    <meta name="keywords" content="Yurekh Solutions, yurekh, business consulting, global business consulting, company formation India, company formation UAE, company formation Singapore, SaaS development, CRM systems, AI chatbot development, custom software development, global business expansion, startup consulting, brand building agency, digital transformation, go-to-market strategy, business strategy consulting, technology studio, end-to-end business solutions, international business setup, web development agency, mobile app development, AI software development, cloud solutions, e-commerce development, SEO agency, digital marketing agency, brand identity design, business building, enterprise solutions, IT consulting, business automation, fintech development, healthtech solutions, edtech platform, real estate tech, business registration, legal compliance, trademark registration, startup legal, venture building, business scaling, market expansion, franchise consulting, B2B consulting, B2C consulting, premium branding, luxury branding, website development, landing page design, UI UX design, product photography, social media management, email marketing, PPC advertising, content marketing, analytics attribution, A/B testing, customer segmentation, brand ambassador, influencer partnerships, magazine advertising, billboard advertising, outdoor advertising, packaging design, stationery design, presentation design, campaign optimization, brand style guide, competitor analysis, market research, pricing consultation, distribution channels, brand partnerships, launch events, press releases, media placements, brand storytelling, content creation, content management, website design, mobile application, microsite, landing pages, ecommerce platform, digital visiting card, custom QR code, data visualization, social strategy, social media analytics, email automation, tracking attribution" />
+    <meta name="keywords" content="Yurekh Solutions, business consulting, company formation, technology development, branding, digital marketing, go-to-market, global business expansion" />
     <meta name="google-site-verification" content="eG1yYRU9MI-WzyyV1JwDGQY69JQOc4DXNn7CJ1t0nu4" />
     <meta name="author" content="Yurekh Solutions" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1, max-image-preview:large" />
@@ -30,10 +30,18 @@
     <link rel="icon" type="image/png" href="/logoyurekh.png" />
     <link rel="apple-touch-icon" href="/logoyurekh.png" />
 
-    <!-- Google Fonts - Poppins + Montserrat -->
+    <!-- Google Fonts - Poppins + Montserrat
+         Only the five weights the UI actually asks for (300-700; it used to be
+         200-900 = 18 @font-face blocks). Loaded non-blocking through the
+         print/onload swap so it no longer holds up first paint; <noscript>
+         keeps it working with JS disabled. -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" />
+    </noscript>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:title" content="Yurekh Solutions | We Build Businesses | Global Business Building Studio" />
@@ -254,11 +262,17 @@
 
     <!-- JSON-LD: BreadcrumbList is injected per-route by prerender.cjs (Home > Parent > Page) -->
 
-    <!-- Preload critical resources -->
+    <!-- Critical: paint the dark shell before any stylesheet arrives so the
+         SPA boot never shows a white flash. -->
+    <style>
+      html { background-color: #000; }
+      body { margin: 0; background-color: #000; color: #fff; min-height: 100vh; }
+      #root { min-height: 100vh; background: linear-gradient(135deg, #000000 0%, #0a1a1a 40%, #0b1f1f 70%, #000000 100%); }
+    </style>
+
+    <!-- Preconnect for third parties used after load -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap" />
-    <link rel="preload" as="image" href="/og-image.png" />
   </head>
 
   <body>

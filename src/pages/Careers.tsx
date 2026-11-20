@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Send, MapPin, Clock, DollarSign, ArrowRight, CheckCircle } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import yurekhLogo from "../assets/yurekhlog.png";
+import yurekhLogo from "../assets/yurekhlog.webp";
 
 const Careers = () => {
   const benefits = [
@@ -90,7 +90,7 @@ const Careers = () => {
           className="text-center max-w-4xl mx-auto"
         >
           <div className=" mt-10 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-            <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
+            <img src={yurekhLogo} alt="" width={16} height={16} className="w-4 h-4 flex-shrink-0 object-contain" />
             <span className="text-[#1BE1D3] text-sm font-medium">Join Our Team</span>
           </div>
         <h1 className="text-[30px] sm:text-[36px] lg:text-[44px] font-semibold text-white mb-6 leading-[1.2]">

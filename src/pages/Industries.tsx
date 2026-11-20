@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { industryCategories, getIndustryImage } from "@/data/industries";
 import { ArrowRight, Phone } from "lucide-react";
 import SEOHead from "@/components/SEOHead";
-import yurekhLogo from "../assets/yurekhlog.png";
+import yurekhLogo from "../assets/yurekhlog.webp";
 
 const Industries = () => {
   return (
@@ -47,7 +47,7 @@ const Industries = () => {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#1BE1D3]/30 bg-[#1BE1D3]/5 mb-6">
-                <img src={yurekhLogo} alt="" className="w-4 h-4 flex-shrink-0 object-contain" />
+                <img src={yurekhLogo} alt="" width={16} height={16} className="w-4 h-4 flex-shrink-0 object-contain" />
                 <span className="text-[#1BE1D3] text-sm font-medium">Industries</span>
               </div>
               <h1 className="text-white text-[30px] sm:text-[36px] lg:text-[44px] font-semibold mb-6 leading-[1.2]">
@@ -118,6 +118,10 @@ const Industries = () => {
                       <img
                         src={getIndustryImage(industry.slug)}
                         alt={industry.name}
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#0d2828] via-transparent to-transparent" />
