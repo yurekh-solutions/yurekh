@@ -212,82 +212,6 @@ for (const b of scanBlogs()) {
 
 const template = fs.readFileSync(path.join(DIST, "index.html"), "utf8");
 
-/* ---------- latest AINOS posts, pulled at build time ---------- */
-
-/* Public, no-auth feed of the posts published on the AINOS dashboard. A failure
-   here must never break the build - /blogs simply renders without the strip. */
-const FEED_URL = "https://ainossuite.com/api/blog-rss?format=xml";
-
-const decode = (s) =>
-  s
-    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, "<")
-    .replace(/&gt;/g, ">")
-    .replace(/&amp;/g, "&");
-
-const parseFeed = (xml) => {
-  const out = [];
-  for (const block of xml.split("<item>").slice(1)) {
-    const tag = (name) =>
-      decode((block.match(new RegExp(`<${name}[^>]*>([\\s\\S]*?)</${name}>`)) || [, ""])[1]).replace(/\s+/g, " ").trim();
-    const url = tag("link");
-    const title = tag("title");
-    if (!/^https:\/\/ainossuite\.com\/blog\/[a-z0-9-]+$/.test(url) || !title) continue;
-    const stamp = new Date(tag("pubDate"));
-    out.push({
-      url,
-      title,
-      when: Number.isNaN(stamp.getTime())
-        ? ""
-        : stamp.toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }),
-    });
-    if (out.length === 6) break;
-  }
-  return out;
-};
-
-/* /blogs is the only page that carries this strip, so the rest of yurekh.com
-   keeps its own brand while crawlers still get the apex + post links in the
-   first byte. Feed down or empty means no strip at all, never a broken page. */
-const feedStripHtml = (items) =>
-  items.length
-    ? `<style>
-      .yk-ainos-feed { background: #000; border-top: 1px solid rgba(27, 225, 211, 0.2); padding: 34px 24px 112px; font-family: Poppins, system-ui, sans-serif; }
-      .yk-ainos-feed h2 { margin: 0 0 18px; text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(27, 225, 211, 0.85); }
-      .yk-ainos-feed h2 a { color: inherit; text-decoration: underline; text-decoration-color: rgba(27, 225, 211, 0.45); text-underline-offset: 3px; }
-      .yk-feed-list { margin: 0 auto; padding: 0; max-width: 900px; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px 24px; text-align: left; }
-      .yk-feed-list li { font-size: 14px; line-height: 1.5; }
-      .yk-feed-list li a { color: rgba(255, 255, 255, 0.86); font-weight: 500; text-decoration: none; }
-      .yk-feed-list li a:hover { color: #1BE1D3; text-decoration: underline; text-decoration-color: #1BE1D3; }
-      .yk-feed-list li span { display: block; font-size: 11px; color: rgba(255, 255, 255, 0.4); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 2px; }
-      @media (max-width: 767px) { .yk-ainos-feed { padding: 28px 20px 110px; } }
-    </style>
-    <section class="yk-ainos-feed" id="ainos-blog-feed" aria-label="Latest from the AINOS blog">
-      <h2>Latest from <a href="https://ainossuite.com/">AINOS Business Suite</a></h2>
-      <ul class="yk-feed-list">${items
-        .map((i) => `<li><a href="${i.url}">${esc(i.title)}</a>${i.when ? `<span>${i.when}</span>` : ""}</li>`)
-        .join("")}</ul>
-    </section>`
-    : "";
-
-const loadFeed = async () => {
-  try {
-    const res = await fetch(FEED_URL, { headers: { accept: "application/rss+xml" } });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const items = parseFeed(await res.text());
-    console.log(`AINOS feed: ${items.length} published posts injected`);
-    return items;
-  } catch (e) {
-    console.warn(`AINOS feed unavailable (${e.message}) - /blogs renders without the strip`);
-    return [];
-  }
-};
-
-/* the async tail fills this before any route is rendered */
-let feedStrip = "";
-
 const renderRoute = ({ route, title, description, crumb, parent, schema }) => {
   const url = `${DOMAIN}${route}/`;
   const t = esc(title);
@@ -318,10 +242,6 @@ const renderRoute = ({ route, title, description, crumb, parent, schema }) => {
     .join("\n");
   html = html.replace("</head>", `${blocks}\n  </head>`);
 
-  if (route === "/blogs" && feedStrip) {
-    html = html.replace('<div id="root"></div>', `<div id="root"></div>\n\n    ${feedStrip}`);
-  }
-
   const dir = path.join(DIST, ...route.split("/").filter(Boolean));
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(path.join(dir, "index.html"), html, "utf8");
@@ -332,15 +252,11 @@ if (!fs.existsSync(path.join(DIST, "index.html"))) {
   process.exit(1);
 }
 
-(async () => {
-  feedStrip = feedStripHtml(await loadFeed());
+routes.forEach(renderRoute);
 
-  routes.forEach(renderRoute);
-
-  const services = routes.filter((r) => r.route.startsWith("/services/")).length;
-  const industries = routes.filter((r) => r.route.startsWith("/industries/")).length;
-  const blogs = routes.filter((r) => r.route.startsWith("/blogs/")).length;
-  console.log(
-    `prerendered ${routes.length} routes: ${Object.keys(staticRoutes).length} static + ${services} services + ${industries} industries + ${blogs} blogs`
-  );
-})();
+const services = routes.filter((r) => r.route.startsWith("/services/")).length;
+const industries = routes.filter((r) => r.route.startsWith("/industries/")).length;
+const blogs = routes.filter((r) => r.route.startsWith("/blogs/")).length;
+console.log(
+  `prerendered ${routes.length} routes: ${Object.keys(staticRoutes).length} static + ${services} services + ${industries} industries + ${blogs} blogs`
+);
