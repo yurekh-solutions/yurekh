@@ -1831,31 +1831,6 @@ const BlogSection = () => {
 
       <div className="relative z-10 px-4 sm:px-6 md:px-8">
         <div className="max-w-7xl mx-auto">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12 sm:mb-16"
-          >
-            <p
-              className="text-[14px] text-[#19c9bc] font-semibold text-[11px] sm:text-[12px] tracking-[0.3em] uppercase mb-3 md:mb-4 sm:text-[16px] md:text-[18px] font-semibold mb-3 sm:mb-4"
-             
-            >
-              LATEST BLOG
-            </p>
-            <h2
-              className="text-[24px] text-white sm:text-[28px] md:text-[36px] font-semibold leading-[1.2] mb-4 sm:mb-6"
-              
-            >
-              Read The Latest Articles from Our Blog Post
-            </h2>
-            <p className="text-[13px] sm:text-[14px] md:text-[15px] font-normal text-white/70 max-w-3xl mx-auto leading-[1.7]">
-              Stay ahead with expert insights on AI, business consulting, SEO, and digital transformation strategies that drive real results.
-            </p>
-          </motion.div>
-
           {/* Blog Cards - 3 cards grid with View All button */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {featuredPosts.map((post, idx) => (
